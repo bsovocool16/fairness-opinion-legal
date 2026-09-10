@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "fairness-opinion-legal",
+  "description": "Drafts the financial-advisor opinion section of a merger proxy from the board book and opinion letter, using the advisor's own EDGAR precedents; clean draft plus redline for attorney review.",
+  "owner": { "name": "Benjamin Sovocool" },
+  "plugins": [
+    {
+      "name": "fairness-opinion-legal",
+      "displayName": "Fairness Opinion Legal",
+      "source": "./fairness-opinion-legal",
+      "description": "Intake with the Rule 13e-3 question first and prompted uploads, EDGAR precedent search, shell, markup scored against the package, clean draft and Litera-style redline. Every output is a draft for attorney review.",
+      "author": { "name": "Benjamin Sovocool" }
+    }
+  ]
+}

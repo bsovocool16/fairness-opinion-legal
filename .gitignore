@@ -1,6 +1,6 @@
-scripts/redline/node_modules/
-scripts/__pycache__/
-scripts/redline/__pycache__/
+fairness-opinion-legal/scripts/redline/node_modules/
+fairness-opinion-legal/scripts/__pycache__/
+fairness-opinion-legal/scripts/redline/__pycache__/
+fairness-opinion-legal/scripts/ocr/ocr
 *.spec.json
 .DS_Store
-scripts/ocr/ocr

@@ -24,11 +24,14 @@ between 1 and 4 when a draft proxy exists. `matter-workspace` keeps deals separa
 
 ## Install
 
-```bash
-claude plugin marketplace add bsovocool16/fairness-opinion-legal   # or point at a local clone
-claude plugin install fairness-opinion-legal
-cd <plugin root>/scripts/redline && npm install                     # the docx renderer
+This repository is a one-plugin marketplace, laid out like `anthropics/claude-for-legal`. In Claude Code:
+
 ```
+/plugin marketplace add /path/to/fairness-opinion-legal      # a local clone, or bsovocool16/fairness-opinion-legal
+/plugin install fairness-opinion-legal@fairness-opinion-legal   # choose user scope when asked
+```
+
+Then, once, in a terminal: `cd <clone>/fairness-opinion-legal/scripts/redline && npm install` (the docx renderer).
 
 Python 3.9+ with `requests` and `beautifulsoup4`; `pdftotext` for board books; LibreOffice for PDF output. OCR for image-only
 board books: on a Mac the bundled Apple Vision program compiles itself the first time (Xcode command line tools) and reads
@@ -47,6 +50,8 @@ drafted from the source rather than left for the reviewer.
 ## Layout
 
 ```
+.claude-plugin/marketplace.json           marketplace manifest (one plugin)
+fairness-opinion-legal/                   the plugin
 .claude-plugin/plugin.json   manifest
 CLAUDE.md                    practice-profile template (the interview writes the live copy to ~/.claude/plugins/config/fairness-opinion-legal/)
 skills/<name>/SKILL.md       one skill per stage
