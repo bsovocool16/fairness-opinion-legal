@@ -1,7 +1,7 @@
 # Quickstart
 
 0. Prerequisites are in the README: Claude Code, Python with `requests` and `beautifulsoup4`, poppler, node; on a Mac `xcode-select --install` for OCR.
-1. In Claude Code: `/plugin marketplace add /path/to/fairness-opinion-legal`, then `/plugin install fairness-opinion-legal@fairness-opinion-legal` (user scope). From a shell the same two commands work as `claude plugin marketplace add ...` and `claude plugin install ...`. The Word renderer's npm package installs itself on first use.
+1. In Claude Code: `/plugin marketplace add bsovocool16/fairness-opinion-legal`, then `/plugin install fairness-opinion-legal@fairness-opinion-legal` (user scope); from a clone or the zip, give the folder path instead. From a shell the same two commands work as `claude plugin marketplace add ...` and `claude plugin install ...`. The Word renderer's npm package installs itself on first use.
 2. `/fairness-opinion-legal:demo` — no setup needed: the whole path replayed on the bundled public deal, ending with the redline
    against the section as filed. `--live` runs it for real (about ten minutes; EDGAR and Opus).
 3. `/fairness-opinion-legal:cold-start-interview` — two minutes: your name, the SEC contact identity, defaults, the drafter model.

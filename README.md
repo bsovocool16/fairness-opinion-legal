@@ -5,8 +5,8 @@ transactional associate does it: find the advisor's own filed sections, pick the
 and hand the reviewer a clean draft with a redline. Built from public EDGAR filings only. Every output is a draft for
 attorney review, not legal advice.
 
-> Companion to the write-up at [bsovocool16/fairness-opinions](https://github.com/bsovocool16/fairness-opinions) (private):
-> the same method, tested across seven iterations on 24 held-out deals, with the scoring that drives it.
+> The method was developed and tested in a private research repository across seven iterations on 24 held-out deals;
+> `references/scoring.md` summarizes what is scored and the results.
 
 ## What it does, in order
 
@@ -28,9 +28,11 @@ between 1 and 4 when a draft proxy exists. `matter-workspace` keeps deals separa
 This repository is a one-plugin marketplace, laid out like `anthropics/claude-for-legal`. In Claude Code:
 
 ```
-/plugin marketplace add /path/to/fairness-opinion-legal      # a local clone, or bsovocool16/fairness-opinion-legal
-/plugin install fairness-opinion-legal@fairness-opinion-legal   # choose user scope when asked
+/plugin marketplace add bsovocool16/fairness-opinion-legal
+/plugin install fairness-opinion-legal@fairness-opinion-legal
 ```
+
+Choose user scope when asked. From a clone or the zip, give the folder path in place of `bsovocool16/fairness-opinion-legal`.
 
 The Word renderer's one npm package installs itself the first time outputs are made (node and npm needed); by hand:
 `cd <plugin>/scripts/redline && npm install`. The commands also work outside a session as `claude plugin marketplace add ...` and
@@ -95,4 +97,10 @@ references/                  the drafting task texts, the scoring, and regime no
 agents/                      the named end-to-end agent
 ```
 
-Copyright 2026 Benjamin Sovocool. Private repository.
+## License
+
+Copyright 2026 Benjamin Sovocool. Licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE.md): free to use, copy and
+modify for noncommercial purposes, which covers personal use, evaluation, research, teaching and use by noncommercial
+organizations. Any commercial use, including use in a law firm's or a bank's practice, needs a license from the author.
+
+Required Notice: Copyright 2026 Benjamin Sovocool
