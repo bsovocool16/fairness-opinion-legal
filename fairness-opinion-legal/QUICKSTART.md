@@ -10,3 +10,5 @@
 
 Outputs land in `~/.claude/plugins/config/fairness-opinion-legal/deals/<code>/`: `draft/section.txt`, `draft/log.md`,
 `redline/section.docx`, `redline/redline_vs_shell.docx` and `.pdf`.
+
+License: PolyForm Noncommercial 1.0.0 (see LICENSE.md in this folder). Required Notice: Copyright 2026 Benjamin Sovocool

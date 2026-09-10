@@ -1,6 +1,6 @@
 {
   "name": "fairness-opinion-legal",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Drafts the 'Opinion of [Financial Advisor]' section of a merger proxy from the advisor's board book and opinion letter: finds the advisor's filed precedents on EDGAR, builds a shell, marks it up with the deal's facts, scores the draft, and returns a clean draft with a redline against the shell. Every output is a draft for attorney review.",
   "author": {
     "name": "Benjamin Sovocool"
