@@ -28,7 +28,9 @@ Output
 Scoring
 The draft is later placed beside the section the company files, and the reviewer grades it before that, on:
 1. how much of the draft is this advisor's own filed language (6-word phrases, numbers and names masked, found in the precedents,
-   the shell or the letter);
+   the shell or the letter): this is the first-ranked signal; the self-scorer reports it as advisor_language_share, and drafts
+   built by filling a precedent reach about 0.6 or more, while added tables, reference paragraphs and re-phrased review lists
+   count as new language unless they come from a precedent;
 2. whether every analysis in the book is presented with its results, including the reference items, with the numbers, peers,
    transactions and parameters the book shows; tables carry every row the book lists;
 3. defined terms: once the proxy defines a term, the section uses that term every time; without a glossary, each term is introduced

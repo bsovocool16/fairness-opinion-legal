@@ -10,9 +10,12 @@ roles; classify the book; select the base; build a term map; resolve names; fill
 table entry; complete disclosures from current sources; account for every shell paragraph and hold the length; run the
 checks), with a form note per advisor and a pre-delivery checklist.
 
-On the two deals both modes completed cleanly before a usage limit interrupted the bake-off, the modes were
-indistinguishable on every text metric and both raised defined-term use to the target; the full comparison is pending. The
-profile picks the mode; `task-objective.md` and `task-procedure.md` hold the texts.
+Bake-off on the full 24 test deals (Sep 2026, GPT-6 drafter): objective mode beat the procedure on the reviewer's
+parsimony grade (1.54 against 1.38), defined-term use (1.83 against 1.54), names (2.00 on every deal against 1.33), and
+hygiene (no commentary, no contradicted deletions); the procedure edged filed recall by three points, a number tainted by
+the fact that the procedure was derived from a review that had read the filings. Both modes raised proxy-term use from
+0.59 to above 0.7 and both wrote more new material than the prior version, mostly added tables and reference analyses.
+Objective mode is the default. The profile picks the mode; `task-objective.md` and `task-procedure.md` hold the texts.
 
 ## Which model drafts
 

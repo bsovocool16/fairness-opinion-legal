@@ -14,7 +14,7 @@ book, so the drafter can score itself before delivery.
 | analyses present | every analysis the book shows, presented with a result | 1.00 |
 | numbers | per-share ranges and parameters read from the draft against the advisor's disclosed values | 1.00 overlap when stated |
 | tables | every peer and precedent row the book lists | 23 of 24 with complete tables; William Blair: 95 of 95 filed table values reproduced |
-| proxy defined terms used | share of the glossary terms the filed section uses that the draft uses | 0.59 without a glossary; 0.93 to 0.95 with one (bake-off preview) |
+| proxy defined terms used | share of the glossary terms the filed section uses that the draft uses | 0.59 without a glossary; 0.73 (objective) and 0.77 (procedure) with one, 24 deals |
 | reviewer grades | parsimony (retained precedent text kept verbatim apart from facts) and justification (every deletion reasoned against the book), 0 to 2 | 1.67 / 1.83 |
 | hygiene | commentary, placeholders or markers in the draft | 0 of 24 |
 
