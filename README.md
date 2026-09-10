@@ -36,6 +36,10 @@ The Word renderer's one npm package installs itself the first time outputs are m
 `cd <plugin>/scripts/redline && npm install`. The commands also work outside a session as `claude plugin marketplace add ...` and
 `claude plugin install ...`, including with the Claude Code binary bundled in the desktop app.
 
+After changes to the clone, refresh an install with `claude plugin marketplace update fairness-opinion-legal` and
+`claude plugin update fairness-opinion-legal@fairness-opinion-legal`; the updater only picks up a new version number, so bump
+`fairness-opinion-legal/.claude-plugin/plugin.json` first.
+
 ### Prerequisites
 
 Claude Code (the desktop app's Code tab or the `claude` CLI) on a plan that includes Opus, which drafts the section. On a Mac:
