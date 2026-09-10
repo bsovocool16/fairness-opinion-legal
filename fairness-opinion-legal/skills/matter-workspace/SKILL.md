@@ -23,6 +23,7 @@ argument-hint: "<new | list | switch | close | none> [code]"
 ├── inputs/                 book.pdf|pptx and book.txt (+ book_ocr.txt), opinion_letter.txt, draft_proxy.*, engagement_letter.*, relationship_memo.*
 ├── facts.json              deal facts written by intake
 ├── deck_analyses.json      the analyses the book presents, by page and status
+├── feedback.md             optional: reviewer notes that apply to this deal only (the user's notes for all deals live in the config folder)
 ├── defined_terms.json/.md  optional glossary from the draft proxy
 ├── precedents/             <accession>.txt sections, INDEX.json, and any firm shells the user added
 ├── shell/                  shell_suggested.txt, shell_composite.txt, provenance.json, rationale.json

@@ -6,3 +6,6 @@
 - 2026-09-09 draft: Opus, objective mode; all 8 book analyses presented; 7 selected companies by full legal name; 0 numbers outside the inputs
 - 2026-09-09 redline: clean section.docx; redline against the shell (docx and pdf)
 - 2026-09-09 comparison: draft redlined against the section as filed in the DSGR proxy (filed/)
+- 2026-09-10 rule: the reviewer found reference-only material in the draft (price targets, 52-week range, sensitivity grids) that William Blair never files; a survey of 729 filed sections showed most advisors file such items in a one-sentence form and William Blair not at all; the scorer and the task now follow the advisor's precedents (rationale.json lists not_in_precedents)
+- 2026-09-10 redraft: Opus, objective mode, from the same shell; targets, trading range and the grids omitted and logged; 5 analyses the precedents present, all carried; 7 selected companies by full legal name; 0 numbers outside the inputs; length 1.05x the base
+- 2026-09-10 redline: clean section.docx; redline against the shell; against the filing 3,676 of 4,566 filed words unchanged (previous draft 3,559), 1,052 draft words not in the filing (previous 1,910)

@@ -27,7 +27,7 @@ def stats(orig, rev):
     import redline as RL
     O, _ = RL.split_paragraphs(orig, "auto"); R, _ = RL.split_paragraphs(rev, "auto"); paras, al = RL.diff_aligned(O, R)
     n = lambda kinds: sum(len(t.split()) for p in paras for k, t in p if k in kinds)
-    return {"original_words": sum(len(p) for p in O), "revised_words": sum(len(p) for p in R), "unchanged": n(("eq", "mv")), "deleted": n(("del",)), "inserted": n(("ins",)), **al}
+    return {"original_words": sum(RL.word_count(p) for p in O), "revised_words": sum(RL.word_count(p) for p in R), "unchanged": n(("eq", "mv")), "deleted": n(("del",)), "inserted": n(("ins",)), **al}
 def facts_lines(f):
     reg = "Rule 13e-3 going-private" if str(f.get("regime", "")).startswith("13e") else "conventional"
     price = f.get("offer_price"); cons = f.get("consideration", "")
@@ -77,12 +77,17 @@ def stage_draft(run):
     who = re.search(r"(?im)^Drafter:\s*(.+)$", log); model = who.group(1).strip() if who else ("Opus, objective mode" if "Opus" in (run / "deal.md").read_text(errors="ignore") else "see the log")
     L = ["## 4. Draft", f"- Drafter: {model}; {ss.get('draft_words', len(sec.split()))} words, {ss.get('length_vs_base', '')}x the base" if ss.get("length_vs_base") else f"- Drafter: {model}; {len(sec.split())} words"]
     rows = [("advisor-language share (6-word phrases found in this advisor's filings)", ss.get("advisor_language_share")), ("letter carry-over", ss.get("letter_carry_over")), ("shell retention", ss.get("composite_retention")),
-            ("book analyses presented", f"{len(ss.get('presented', []))} of {len(ss.get('book_analyses', {}))}" + (f" (missing: {', '.join(ss['missing'])})" if ss.get("missing") else "")),
+            ("analyses the advisor's precedents present, carried", f"{sum(1 for k in ss.get('eligible', []) if k in ss.get('presented', []))} of {len(ss.get('eligible', []))}" + (f" (missing: {', '.join(ss['missing'])})" if ss.get("missing") else "") if "eligible" in ss else f"{len(ss.get('presented', []))} of {len(ss.get('book_analyses', {}))}"),
+            ("in the book but in none of the precedents", (", ".join(LABEL.get(k, k) for k in ss["outside_precedents"]) + (" (omitted, logged)" if not ss.get("outside_precedents_presented") else f" (PRESENTED: {', '.join(ss['outside_precedents_presented'])})")) if ss.get("outside_precedents") else None),
+            ("reference items carried as tables", ", ".join(LABEL.get(k, k) for k in ss["reference_items_as_tables"]) if ss.get("reference_items_as_tables") else ("none" if "reference_items_as_tables" in ss else None)),
+            ("sensitivity grids reproduced", ss.get("sensitivity_grids")),
             ("selected companies by full legal name", f"{ss.get('peer_names_with_legal_suffix')} of {ss.get('peer_names')}"), ("numbers not found in the inputs", f"{ss.get('numbers_not_in_inputs')} of {ss.get('numbers_checked')} checked"),
-            ("commentary, placeholders or markers in the text", "none" if not ss.get("commentary_sentences") and not ss.get("markers_left") else "yes"), ("reviewer items in the log", len(ss.get("reviewer_markers", [])))]
+            ("commentary, placeholders or markers in the text", "none" if not ss.get("commentary_sentences") and not ss.get("markers_left") else "yes"), ("reviewer items in the log", len(re.findall(r"(?m)^\s*-\s*\[REVIEWER:", log)) if log else len(ss.get("reviewer_markers", [])))]
     L += ["", table(["self-score", "value"], [(a, b) for a, b in rows if b is not None])]
     first = next((p.strip() for p in re.split(r"\n\s*\n", sec) if len(p.split()) > 40), "")
     L += ["", "Opening paragraph:", "", "> " + first[:600] + ("…" if len(first) > 600 else "")]
+    fb = re.search(r"(?im)^Feedback notes applied:\s*(.+)$", log)
+    if fb: L += ["", f"- Feedback notes applied: {fb.group(1).strip()}"]
     m = re.search(r"(?is)(facts? not available[^\n]*\n)(.*?)(?:\n#|\n\n[A-Z\[]|\Z)", log)
     if m and m.group(2).strip(): L += ["", "Facts the inputs lacked, omitted and logged:", "", "\n".join(l for l in m.group(2).strip().splitlines()[:8])]
     return "\n".join(L)

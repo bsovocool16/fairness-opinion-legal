@@ -21,6 +21,7 @@ argument-hint: "[deal code] [--model opus|fable]"
    - `section-draft` (drafter model: `--model` for this run, else the profile's `Drafter model`, default opus)
    - `redline` → gate: reviewer sign-off
 4. After each stage append one line to `history.md` and show a one-line status. On a gate, stop and wait; do not continue on silence.
+5. Whenever the user corrects an output or states a preference at a gate ("never", "always", "next time", "we don't"), save it with `/fairness-opinion-legal:feedback` before continuing, scoped to all deals, this advisor or this deal. At sign-off ask once: anything to remember for the next deal?
 
 ## Status line
 

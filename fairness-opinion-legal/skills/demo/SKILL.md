@@ -17,13 +17,13 @@ argument-hint: "[--live] [--model opus|fable] [--stage intake|search|shell|draft
 
 1. Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/demo.py walk` (add `--stage <name>` when `$ARGUMENTS` names one). It prints one block per stage from the completed run in `${CLAUDE_PLUGIN_ROOT}/examples/distribution-solutions-2026/run/` and writes nothing.
 2. Present the stages in order, each as its own short section: one or two sentences on what the stage does and what to notice, then the block as printed, tables intact. Never paraphrase or round the numbers. Give the paths of the files a stage produced; if a file-sending tool is available, send `redline/section.docx`, `redline/redline_vs_shell.pdf` and `filed/redline_vs_filed.pdf`.
-3. Close with the two things a replay cannot show: the gates, where the pipeline stops for the attorney (after intake, after the precedent set, before delivery), and what a real deal needs (the profile with the SEC contact identity, the user's own book and letter, optionally the draft proxy, engagement letter and relationship memo). Offer `--live`.
+3. Close with the two things a replay cannot show: the gates, where the pipeline stops for the attorney (after intake, after the precedent set, before delivery), and what a real deal needs (the profile with the SEC contact identity, the user's own book and letter, optionally the draft proxy, engagement letter and relationship memo). Mention that a correction given at any gate is saved by `feedback` and applied to later deals. Offer `--live`.
 
 What to notice, per stage:
 - Intake asks the regime first; a Rule 13e-3 deal and a conventional one get different precedents and different shells. The book was slide images; OCR read them.
 - Search is live EDGAR: every candidate is fetched and verified to carry the advisor's own section before it is ranked.
 - Shell: the base is chosen by analyses covered, regime, structure and recency, and every segment carries its source.
-- Draft: advisor-language share, every analysis in the book presented, selected companies by full legal name, every number traceable to an input, no commentary or placeholders.
+- Draft: advisor-language share, every analysis the advisor's precedents present carried with its results and none the advisor never files, selected companies by full legal name, every number traceable to an input, no commentary or placeholders.
 - Redline against the shell is the reviewer's view of everything the drafter changed.
 - Against the filing: the drafter never saw it; the remaining differences are mostly the proxy's defined terms, which `proxy-glossary` supplies when a draft proxy exists.
 

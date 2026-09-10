@@ -3,11 +3,12 @@
   python3 selfscore.py <deal dir> <draft.txt>
 Advisor-language share (the draft's 6-word phrases, numbers and names masked, found in the precedents, the shell or the letter),
 letter carry-over, shell retention, the book's analyses presented with a result, defined-term consistency, selected-company
-name form, numbers not in the inputs, tables, commentary or markers, length against the base. Writes draft/selfscore.json."""
+name form, numbers not in the inputs, tables, commentary or markers, length against the base; coverage counts the analyses this
+advisor's precedents present, and flags analyses outside them, reference items carried as tables, and sensitivity grids. Writes draft/selfscore.json."""
 import sys, re, json, glob
 from pathlib import Path
 HERE = Path(__file__).resolve().parent; sys.path.insert(0, str(HERE))
-from analyses import ANALYSES, NUMERIC
+from analyses import ANALYSES, NUMERIC, presented
 SUFFIX = r"(?:inc\.?|corp\.?|corporation|co\.?|company|ltd\.?|limited|plc|llc|l\.l\.c\.|lp|l\.p\.|holdings?|group|partners|securities|capital|markets|s\.a\.|ag|n\.v\.)"
 LEGAL = re.compile(r"(?:,\s*|\s+)(?:inc\.?|corp\.?|corporation|co\.?|company|ltd\.?|limited|plc|llc|l\.l\.c\.|lp|l\.p\.|s\.a\.|n\.v\.|ag|se|holdings?|group|trust|partners|bancorp|incorporated)\.?\s*$", re.I)
 META = re.compile(r"drafting basis|this (benchmark )?draft|drafting assumption|not (been )?invented|\[insert|placeholder|the supplied (facts|presentation|deck|book|text|inputs)|benchmark draft|source (conflict|issue)|unrecoverable|not available in the (book|deck|inputs)|\bTODO\b|\[\[", re.I)
@@ -43,9 +44,30 @@ def main():
     out = {"draft_words": len(draft.split()), "advisor_language_share": cov(D6, lib | C6 | L6) if (lib or C6 or L6) else None, "letter_carry_over": cov(L6, D6) if L6 else None, "composite_retention": cov(C6, D6) if C6 else None, "eligible_retention": cov(E6, D6) if E6 else None}
     da = json.load(open(deal / "deck_analyses.json")).get("deck_analyses", {}) if (deal / "deck_analyses.json").exists() else {}
     pres = {k: any(NUMERIC.search(draft[m.end():m.end() + 900]) for m in re.finditer(rx, draft, re.I)) for k, rx in ANALYSES.items()}
-    book = [k for k in da if k in ANALYSES]; core = [k for k in book if da[k] == "core"]
-    out["book_analyses"] = {k: da[k] for k in book}; out["presented"] = [k for k in book if pres[k]]; out["missing"] = [k for k in book if not pres[k]]
+    book = [k for k in da if k in ANALYSES and da[k] in ("core", "reference")]; core = [k for k in book if da[k] == "core"]
+    idx = json.load(open(deal / "precedents" / "INDEX.json")) if (deal / "precedents" / "INDEX.json").exists() else []; prec = set()
+    for e in idx: prec |= set(e.get("presented") or [])
+    if not prec:
+        for fp in glob.glob(str(deal / "precedents" / "*.txt")): prec |= set(presented(read(fp)))
+    prec &= set(ANALYSES); eligible = [k for k in book if k in prec]; outside = [k for k in book if k not in prec]
+    out["book_analyses"] = {k: da[k] for k in book}; out["precedents_present"] = sorted(prec); out["eligible"] = eligible; out["outside_precedents"] = outside
+    out["presented"] = [k for k in book if pres[k]]; out["missing"] = [k for k in eligible if not pres[k]]; out["outside_precedents_presented"] = [k for k in outside if pres[k]]
+    out["coverage"] = round(sum(1 for k in eligible if pres[k]) / len(eligible), 2) if eligible else None
     out["coverage_book"] = round(sum(1 for k in book if pres[k]) / len(book), 2) if book else None; out["coverage_core"] = round(sum(1 for k in core if pres[k]) / len(core), 2) if core else None
+    # reference items carried as tables, and sensitivity grids: filed sections state these in a sentence or as a range
+    AX = re.compile(r"^\(?-?\d+(\.\d+)?\s?(%|x)\)?$", re.I); lines = draft.split("\n"); ref_tabs, grids, i = [], 0, 0
+    while i < len(lines):
+        if lines[i].strip().startswith("|"):
+            j = i
+            while j < len(lines) and lines[j].strip().startswith("|"): j += 1
+            rows = [[c.strip() for c in l.strip().strip("|").split("|")] for l in lines[i:j] if not re.match(r"^\|(\s*:?-+:?\s*\|)+\s*$", l.strip())]
+            ctx = "\n".join(lines[max(0, i - 6):i])
+            for k in ("trading_range", "targets"):
+                if k in da and re.search(ANALYSES[k], ctx, re.I): ref_tabs.append(k)
+            if len(rows) >= 3 and sum(1 for c in rows[0][1:] if AX.match(c)) >= 2 and sum(1 for r in rows[1:] if r and AX.match(r[0])) >= 2: grids += 1
+            i = j
+        else: i += 1
+    out["reference_items_as_tables"] = sorted(set(ref_tabs)); out["sensitivity_grids"] = grids
     gl = json.load(open(deal / "defined_terms.json"))["terms"] if (deal / "defined_terms.json").exists() else []; used, incons = [], []
     for t in gl:
         term = t["term"]
@@ -71,6 +93,6 @@ def main():
     out["base"] = base; out["length_ratio_vs_base"] = round(len(draft) / bl, 2) if bl else None; out["length_ratio_vs_shell"] = round(len(draft) / len(comp), 2) if comp else None
     (deal / "draft").mkdir(exist_ok=True); json.dump(out, open(deal / "draft" / "selfscore.json", "w"), indent=1)
     print(json.dumps(out, indent=1))
-    print("\nSUMMARY  advisor language %s | letter carry-over %s | shell retention %s | book analyses presented %s (missing: %s) | glossary terms used %d%s, written in another form: %d | peer names with legal suffix %d/%d | numbers not in inputs %d/%d | commentary %d | markers %s | reviewer markers %d | tables %s | length vs base %s"
-          % (out["advisor_language_share"], out["letter_carry_over"], out["composite_retention"], out["coverage_book"], ",".join(out["missing"]) or "none", out["glossary_terms_used"], "" if gl else " (no glossary)", len(incons), out["peer_names_with_legal_suffix"], out["peer_names"], out["numbers_not_in_inputs"], out["numbers_checked"], len(out["commentary_sentences"]), out["markers_left"], len(out["reviewer_markers"]), out["tables_present"], out["length_ratio_vs_base"]))
+    print("\nSUMMARY  advisor language %s | letter carry-over %s | shell retention %s | analyses the precedents present, presented %s (missing: %s; outside the precedents but presented: %s; reference items as tables: %s; sensitivity grids: %d) | glossary terms used %d%s, written in another form: %d | peer names with legal suffix %d/%d | numbers not in inputs %d/%d | commentary %d | markers %s | reviewer markers %d | tables %s | length vs base %s"
+          % (out["advisor_language_share"], out["letter_carry_over"], out["composite_retention"], out["coverage"], ",".join(out["missing"]) or "none", ",".join(out["outside_precedents_presented"]) or "none", ",".join(out["reference_items_as_tables"]) or "none", out["sensitivity_grids"], out["glossary_terms_used"], "" if gl else " (no glossary)", len(incons), out["peer_names_with_legal_suffix"], out["peer_names"], out["numbers_not_in_inputs"], out["numbers_checked"], len(out["commentary_sentences"]), out["markers_left"], len(out["reviewer_markers"]), out["tables_present"], out["length_ratio_vs_base"]))
 if __name__ == "__main__": main()

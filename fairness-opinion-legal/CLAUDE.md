@@ -55,6 +55,11 @@ A gate is a point where the skill stops and waits for the user before continuing
 - Deals folder: `~/.claude/plugins/config/fairness-opinion-legal/deals/`
 - Active deal: none
 
+## Feedback
+
+- Notes file: `~/.claude/plugins/config/fairness-opinion-legal/feedback.md`: this user's corrections and preferences, dated, scoped to all deals, one advisor or one deal (a deal folder may hold its own `feedback.md`).
+- Captured by `/fairness-opinion-legal:feedback`, or offered whenever the user corrects an output at a gate. Every stage reads the notes that apply before it starts; the drafting log lists the ones applied.
+
 ## Available integrations
 
 - EDGAR full-text search and document fetch over HTTPS: required, no connector.

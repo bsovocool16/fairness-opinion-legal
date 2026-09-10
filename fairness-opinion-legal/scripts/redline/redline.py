@@ -160,15 +160,61 @@ def split_paragraphs(text, mode):
         if line.strip().startswith("|"): flush(); out.append(line.strip())
         else: chunk.append(line)
     flush()
-    paras = [normalize(p) for p in out]
-    return [p.split(" ") for p in paras if p], mode
+    paras = []
+    for p in out:
+        p = normalize(p)
+        if not p: continue
+        if p.startswith("|"):
+            if re.match(r"^\|(\s*:?-+:?\s*\|)+\s*$", p): continue                   # markdown separator row
+            cells = [c.strip() for c in p.strip().strip("|").split("|")]
+            while cells and not cells[0]: cells.pop(0)
+            while cells and not cells[-1]: cells.pop()
+            nonempty = [c for c in cells if c]
+            if not nonempty: continue
+            if len(nonempty) == 1: paras.append(normalize(nonempty[0]).split(" ")); continue   # a layout table around prose (EDGAR bullets)
+            paras.append({"row": cells}); continue
+        paras.append(p.split(" "))
+    return paras, mode
+def is_row(p): return isinstance(p, dict)
+def text_of(p): return " ".join(p["row"]) if is_row(p) else " ".join(p)
+def word_count(p): return sum(len(c.split()) for c in p["row"]) if is_row(p) else len(p)
+def norm_cell(c):
+    """A cell for comparison: no spaces, currency or thousands separators; (1.2) as -1.2; n.m., n/a unified."""
+    c = re.sub(r"\s+", "", c.lower()); c = re.sub(r"[$€£,]", "", c); c = re.sub(r"^\((.+)\)$", r"-\1", c)
+    return c.replace("n.m.", "nm").replace("n.a.", "na").replace("n/a", "na").rstrip(".")
+def row_sim(a, b):
+    """Two table rows are the same row when the label cell matches and the other cells overlap: half each."""
+    na, nb = [norm_cell(c) for c in a], [norm_cell(c) for c in b]
+    first = difflib.SequenceMatcher(None, na[0], nb[0]).ratio() if (na[0] or nb[0]) else 1.0
+    ra, rb = {c for c in na[1:] if c}, {c for c in nb[1:] if c}
+    rest = (len(ra & rb) / len(ra | rb)) if (ra or rb) else 1.0
+    return 0.5 * first + 0.5 * rest
+def row_diff(a, b, moved=False):
+    """Runs for a table row, cell by cell: `sep` runs carry the cell boundaries; a changed cell shows old struck and new underlined."""
+    keep = "mv" if moved else "eq"; na, nb = [norm_cell(c) for c in a], [norm_cell(c) for c in b]; runs = [["sep", "| "]]
+    def cell(kind, text): runs.append([kind, text]); runs.append(["sep", " | "])
+    for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, na, nb, autojunk=False).get_opcodes():
+        if op == "equal":
+            for j in range(j1, j2): cell(keep, b[j])
+        elif op == "delete":
+            for i in range(i1, i2): cell("del", a[i])
+        elif op == "insert":
+            for j in range(j1, j2): cell("ins", b[j])
+        elif i2 - i1 == j2 - j1:
+            for i, j in zip(range(i1, i2), range(j1, j2)):
+                if na[i] == nb[j]: cell(keep, b[j])
+                else: runs.append(["del", a[i]]); runs.append([keep, " "]); runs.append(["ins", b[j]]); runs.append(["sep", " | "])
+        else:
+            for i in range(i1, i2): cell("del", a[i])
+            for j in range(j1, j2): cell("ins", b[j])
+    return runs
 
 def cut_section(paras, start, end, name):
     """Keep the paragraphs from the last paragraph that is exactly `start` (a heading; the last occurrence skips the summary
     and table-of-contents copies that precede the real section in a proxy) up to the first paragraph after it that is
     exactly `end`. A heading that is not found leaves that side uncut, with a note on stderr."""
     norm = lambda t: re.sub(r"[^a-z0-9]+", " ", t.lower()).strip()
-    texts = [norm(" ".join(p)) for p in paras]; s, e = 0, len(paras)
+    texts = [norm(text_of(p)) for p in paras]; s, e = 0, len(paras)
     if start:
         idx = [i for i, t in enumerate(texts) if t == norm(start)]
         if idx: s = idx[-1]
@@ -228,6 +274,11 @@ def diff_aligned(O, R, threshold=0.35):
     cands = []
     for j, d in enumerate(R):
         for i, f in enumerate(O):
+            if is_row(d) != is_row(f): continue
+            if is_row(d):
+                r = row_sim(f["row"], d["row"])
+                if r >= threshold: cands.append((r, i, j))
+                continue
             if abs(len(f) - len(d)) > 4 * max(len(f), len(d)): continue
             sm = difflib.SequenceMatcher(None, f, d, autojunk=False)
             if sm.real_quick_ratio() < threshold or sm.quick_ratio() < threshold: continue
@@ -241,12 +292,12 @@ def diff_aligned(O, R, threshold=0.35):
     keep = lis_indices(seq); moved = {order[k] for k in range(len(order)) if k not in keep}
     paras = []
     for j, d in enumerate(R):
-        if j in align: paras.append(word_diff(O[align[j]], d, moved=(j in moved)))
-        else: paras.append([["ins", " ".join(d) + " "]])
+        if j in align: paras.append(row_diff(O[align[j]]["row"], d["row"], moved=(j in moved)) if is_row(d) else word_diff(O[align[j]], d, moved=(j in moved)))
+        else: paras.append(row_diff([], d["row"]) if is_row(d) else [["ins", " ".join(d) + " "]])
     missing = [i for i in range(len(O)) if i not in used_o]
     if missing:
         paras.append([["head", "Original paragraphs not carried into the revised document (%d of %d)" % (len(missing), len(O))]])
-        for i in missing: paras.append([["del", " ".join(O[i]) + " "]])
+        for i in missing: paras.append(row_diff(O[i]["row"], []) if is_row(O[i]) else [["del", " ".join(O[i]) + " "]])
     return paras, {"original_paragraphs": len(O), "revised_paragraphs": len(R), "aligned": len(align), "moved": len(moved)}
 
 # ---------------------------------------------------------------- output
@@ -279,7 +330,7 @@ def main():
     if a.start or a.end: O = cut_section(O, a.start, a.end, a.original); R = cut_section(R, a.start, a.end, a.revised)
     paras, al = diff_aligned(O, R, a.threshold)
     words = lambda kinds: sum(len(r[1].split()) for p in paras for r in p if r[0] in kinds)
-    stats = {"original_words": sum(len(p) for p in O), "revised_words": sum(len(p) for p in R), "unchanged": words(("eq", "mv")), "deleted": words(("del",)), "inserted": words(("ins",)), **al, "reflow": {"original": mo, "revised": mr}}
+    stats = {"original_words": sum(word_count(p) for p in O), "revised_words": sum(word_count(p) for p in R), "unchanged": words(("eq", "mv")), "deleted": words(("del",)), "inserted": words(("ins",)), **al, "reflow": {"original": mo, "revised": mr}}
     spec = {"title": a.title or f"{Path(a.revised).name} compared with {Path(a.original).name}", "labels": {"original": a.label_original, "revised": a.label_revised}, "stats": stats, "paras": paras}
     if a.json: json.dump(spec, open(a.json, "w"), indent=0)
     render(spec, a.out, a.pdf); print(json.dumps(stats))

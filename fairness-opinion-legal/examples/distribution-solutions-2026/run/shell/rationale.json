@@ -43,16 +43,40 @@
    "firm_shell": false
   },
   {
-   "score": 0.345,
-   "id": "0001213900-25-086880",
-   "name": "SAPIENS INTERNATIONAL CORP N V  (SPNS)  (CIK 0000885740)",
-   "date": "2025-09-11",
-   "regime": "13e-3",
-   "analyses": [],
-   "chars": 90000,
+   "score": 0.856,
+   "id": "0001104659-23-069453",
+   "name": "TESSCO TECHNOLOGIES INC  (CIK 0000927355)",
+   "date": "2023-06-08",
+   "regime": "conventional",
+   "analyses": [
+    "comps",
+    "dcf",
+    "precedents",
+    "premiums"
+   ],
+   "chars": 41189,
    "firm_shell": false
   }
  ],
  "selected": "0001140361-24-043469",
+ "precedents_present": [
+  "comps",
+  "dcf",
+  "lbo",
+  "precedents",
+  "premiums"
+ ],
+ "not_in_precedents": [
+  "targets",
+  "trading_range"
+ ],
+ "not_in_precedents_note": "in the book, presented by none of this advisor's precedents: omit from the section and list in the log for the reviewer",
+ "reference_item_form": [
+  {
+   "id": "0001140361-24-043469",
+   "text": "For the Special Committee\u2019s reference only purposes, William Blair also calculated the implied equity values per share for a range of total net leverage of 2."
+  }
+ ],
+ "reference_item_form_note": "how this advisor's precedents present reference-only items, when they do; a reference item is presented only in that form, never as a table unless a precedent does",
  "rule": "Jaccard of the book's valuation analyses with the precedent's + regime match + structure (sum of the parts) + length fit + recency (+ firm shell)"
 }

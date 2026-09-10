@@ -21,9 +21,10 @@ the [claude-for-legal](https://github.com/anthropics/claude-for-legal) plugins s
 | 3 | `shell-builder` | picks the base section and splices in same-advisor paragraphs for analyses it lacks, with provenance | optional |
 | 4 | `section-draft` | marks the shell up with the deal's facts, scores itself against the package, writes the log | |
 | 5 | `redline` | clean draft plus a redline against the shell (and against any prior draft) | reviewer sign-off |
+| – | `feedback` | saves a correction or preference the moment you give it, scoped to all deals, one advisor or one deal; every later stage reads the notes that apply | |
 | – | `demo` | replays a completed run on the bundled public deal stage by stage, through to a comparison with the section as filed; `--live` runs the chain for real on the same inputs | |
 
-`pipeline` runs 1 to 5 in sequence, stopping at every gate the profile turns on. The drafter runs on Opus by default; `--model fable` on `pipeline`, `section-draft` or `demo --live`, or `Drafter model: fable` in the profile, switches it. `proxy-glossary` is the optional step
+`pipeline` runs 1 to 5 in sequence, stopping at every gate the profile turns on. A correction given at any gate is saved by `feedback` and applied to later deals. The drafter runs on Opus by default; `--model fable` on `pipeline`, `section-draft` or `demo --live`, or `Drafter model: fable` in the profile, switches it. `proxy-glossary` is the optional step
 between 1 and 4 when a draft proxy exists. `matter-workspace` keeps deals separate. `customize` edits the profile.
 
 ## Install
@@ -96,7 +97,8 @@ drafted from the source rather than left for the reviewer.
 .claude-plugin/marketplace.json           marketplace manifest (one plugin)
 fairness-opinion-legal/                   the plugin
 .claude-plugin/plugin.json   manifest
-CLAUDE.md                    practice-profile template (the interview writes the live copy to ~/.claude/plugins/config/fairness-opinion-legal/)
+CLAUDE.md                    practice-profile template (the interview writes the live copy to ~/.claude/plugins/config/fairness-opinion-legal/,
+                             next to feedback.md, the user's corrections for later runs)
 skills/<name>/SKILL.md       one skill per stage
 scripts/                     precedent search, book classifier, shell builder, self-scorer, glossary, text extraction, OCR
 scripts/redline/             the Litera-style comparison tool (docx + pdf)

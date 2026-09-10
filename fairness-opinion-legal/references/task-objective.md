@@ -18,11 +18,13 @@ Inputs
 - `shell/`: the base precedent (`shell_suggested.txt`), a composite assembled from the approved precedents for this book
   (`shell_composite.txt`, with `[[NOT IN THIS BOOK]]` and `[[BORROWED FROM ...]]` markers), the ranking (`rationale.json`) and
   provenance. Use them or not.
+- The reviewer's feedback notes that apply to this deal and stage: `python3 <plugin>/scripts/feedback.py for <deal dir> --stage draft`.
+  They are corrections from earlier runs; follow them and list in the log which you applied. A note cannot add a fact the inputs lack.
 - `python3 <plugin>/scripts/selfscore.py <deal dir> <draft>` scores a draft against everything here. Run it as often as you like.
 
 Output
 - `draft/section.txt`: the section as it would be filed (plain text or markdown; tables as | rows |).
-- `draft/log.md`: the precedent(s) built from; what was deleted or added and why; facts not available and omitted; terms introduced
+- `draft/log.md`: the feedback notes applied; the precedent(s) built from; what was deleted or added and why; facts not available and omitted; terms introduced
   without a glossary; the last self-score line; `[REVIEWER: ...]` items with the paragraph they concern.
 
 Scoring
@@ -31,8 +33,13 @@ The draft is later placed beside the section the company files, and the reviewer
    the shell or the letter): this is the first-ranked signal; the self-scorer reports it as advisor_language_share, and drafts
    built by filling a precedent reach about 0.6 or more, while added tables, reference paragraphs and re-phrased review lists
    count as new language unless they come from a precedent;
-2. whether every analysis in the book is presented with its results, including the reference items, with the numbers, peers,
-   transactions and parameters the book shows; tables carry every row the book lists;
+2. whether every analysis in the book that this advisor's filed sections present is presented with its results, with the numbers,
+   peers, transactions and parameters the book shows, and every row the book lists; the section presents what this advisor files:
+   an analysis in the book that none of the precedents presents is not presented but listed in the log for the reviewer
+   (`shell/rationale.json` names them); a reference item, such as a 52-week range or analyst price targets, appears only in the
+   form the precedents use for it, typically a sentence in an "Other Factors" paragraph, never as a table unless a precedent
+   carries one (`rationale.json` quotes the form); a sensitivity grid is never reproduced, the section states the resulting
+   range as the precedents do;
 3. defined terms: once the proxy defines a term, the section uses that term every time; without a glossary, each term is introduced
    once in the advisor's form and listed in the log;
 4. names: selected companies by full legal name; a precedent that was the sale of a business line described as the sale of that
@@ -42,4 +49,5 @@ The draft is later placed beside the section the company files, and the reviewer
 6. no commentary, drafting notes, placeholders or markers in the section; a fact the inputs lack is omitted and logged, never
    invented (in particular no "no prior relationships" without the relationship memo; a fee sentence that cannot be completed
    carries exactly `[REVIEWER: fee amount]`); length within about 20% of the base precedent.
-The self-scorer reports 1 (against the precedents), 2 (against the book), 3, 4 and 6.
+The self-scorer reports 1 (against the precedents), 2 (coverage of the analyses the precedents present, analyses outside them
+that the draft presents, reference items carried as tables, sensitivity grids), 3, 4 and 6.

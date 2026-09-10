@@ -11,13 +11,15 @@ argument-hint: "[deal code] [--prior <file>]"
 
 # /redline
 
+First: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/feedback.py for <deal dir> --stage redline` prints the reviewer's notes from earlier runs that apply here; follow them.
+
 1. Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/make_outputs.py <deal dir> [--prior <file>]`. It writes `redline/section.docx`, `redline/redline_vs_shell.docx` and `.pdf`, and `redline/redline_vs_prior.*` when a prior draft is given.
 2. Show the counts the script prints (words unchanged, deleted, inserted; paragraphs moved) and the `[REVIEWER: ...]` items it found in the draft.
 3. Stop at the delivery gate: name the reviewer from the profile and wait for sign-off before the files are sent anywhere.
 
 ## Conventions
 
-Blue double underline: text in the draft that is not in the shell. Red strikethrough: shell text the draft dropped. Green: paragraphs the draft carries in a different position. A bar in the left margin marks every changed paragraph. Table rows compare row by row. The redline is direct formatting, not tracked changes: it is for reading and circulating, not for accepting into a document.
+Blue double underline: text in the draft that is not in the shell. Red strikethrough: shell text the draft dropped. Green: paragraphs the draft carries in a different position. Tables are compared cell by cell and drawn as tables: a changed cell shows the old value struck and the new value underlined; a row the shell lacks is a wholly underlined row. A bar in the left margin marks every changed paragraph. Table rows compare row by row. The redline is direct formatting, not tracked changes: it is for reading and circulating, not for accepting into a document.
 
 ## Degraded cases
 

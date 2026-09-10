@@ -13,6 +13,8 @@ argument-hint: "[deal code]"
 
 # /deal-intake
 
+First: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/feedback.py for <deal dir> --stage intake` prints the reviewer's notes from earlier runs that apply here; follow them.
+
 1. Resolve the deal: `$ARGUMENTS`, else the profile's `Active deal:`, else run `/fairness-opinion-legal:matter-workspace new`.
 2. Ask the regime question first, then collect the inputs in the order below, one or two prompts per turn, waiting for each upload.
 3. Run the scripts, show the intake summary, and stop at the intake gate if the profile has it on.
@@ -39,7 +41,7 @@ Prompt for each; say what it is for; accept a path, a paste, or "skip". Required
 
 ## After the uploads
 
-Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/classify_book.py <deal dir>`. It writes `deck_analyses.json` (analysis, status core or reference, pages) and prints the regime the book text suggests. Show:
+Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/classify_book.py <deal dir>`. It writes `deck_analyses.json` (analysis, status core, reference or grid, reference, pages) and prints the regime the book text suggests. Show:
 
 ```
 Deal <code> — <target> / <advisor> — regime: <as stated> (book text suggests: <hint>)

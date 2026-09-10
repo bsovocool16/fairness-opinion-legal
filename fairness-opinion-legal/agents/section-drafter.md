@@ -20,7 +20,8 @@ redline, and stop at each gate for the attorney.
 2. Follows `skills/precedent-search`, `skills/shell-builder`, `skills/section-draft`, `skills/redline` in that order, each per its SKILL.md.
 3. Appends one line per stage to `history.md`; writes nothing outside the deal folder.
 4. If the prompt names one stage (`stage: section-draft only`), runs that stage alone and stops.
-5. Runs on Opus unless the caller sets the model: the profile's `Drafter model`, or `--model fable` on the command for one run. The log records which.
+5. Reads the reviewer's feedback notes that apply before each stage (`scripts/feedback.py for <deal> --stage <stage>`) and lists the ones applied in the log.
+6. Runs on Opus unless the caller sets the model: the profile's `Drafter model`, or `--model fable` on the command for one run. The log records which.
 
 ## What it does NOT do
 

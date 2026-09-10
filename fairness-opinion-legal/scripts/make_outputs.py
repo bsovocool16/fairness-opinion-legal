@@ -57,6 +57,6 @@ for name, orig, label in pairs:
         sys.path.insert(0, str(RED)); import redline as RL
         O, _ = RL.split_paragraphs(orig.read_text(), "auto"); R, _ = RL.split_paragraphs(text, "auto"); paras, al = RL.diff_aligned(O, R); lines = []
         for p in paras:
-            s = "".join(t if k in ("eq", "mv") else ("[-" + t.rstrip() + "-] " if k == "del" else ("{+" + t.rstrip() + "+} " if k == "ins" else "\n## " + t)) for k, t in p); lines.append(s.strip()); lines.append("")
+            s = "".join(t if k in ("eq", "mv", "sep") else ("[-" + t.rstrip() + "-] " if k == "del" else ("{+" + t.rstrip() + "+} " if k == "ins" else "\n## " + t)) for k, t in p); lines.append(s.strip()); lines.append("")
         (out / f"{name}.txt").write_text("\n".join(lines)); print(f"{name}: text redline only ({al}); docx needs node and `npm install` in scripts/redline")
 print(f"reviewer markers in the draft: {len(markers)}" + (": " + "; ".join(markers[:10]) if markers else ""))

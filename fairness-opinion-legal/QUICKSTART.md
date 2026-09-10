@@ -8,6 +8,8 @@
 4. `/fairness-opinion-legal:pipeline` — it asks whether the deal is a Rule 13e-3 going-private, then for the board book and
    the opinion letter, and walks through search, shell, draft and redline, stopping at each gate.
 
+5. A correction you give at any gate is saved with `/fairness-opinion-legal:feedback` and applied to the next deal.
+
 Outputs land in `~/.claude/plugins/config/fairness-opinion-legal/deals/<code>/`: `draft/section.txt`, `draft/log.md`,
 `redline/section.docx`, `redline/redline_vs_shell.docx` and `.pdf`.
 

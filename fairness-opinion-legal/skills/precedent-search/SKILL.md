@@ -11,6 +11,8 @@ argument-hint: "[deal code] [--top N] [--years N]"
 
 # /precedent-search
 
+First: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/feedback.py for <deal dir> --stage search` prints the reviewer's notes from earlier runs that apply here; follow them.
+
 1. Read the deal's `facts.json` (advisor, opinion date, regime) and `deck_analyses.json`.
 2. Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/search_deal.py <deal dir> [--top N] [--years N]`. It sends the SEC contact identity from the profile as the User-Agent and writes `precedents/<accession>.txt`, `precedents/INDEX.json` and prints the table.
 3. Show the table and stop at the precedent gate if the profile has it on.

@@ -12,6 +12,8 @@ argument-hint: "[deal code] [<proxy or agreement file>]"
 
 # /proxy-glossary
 
+First: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/feedback.py for <deal dir> --stage draft` prints the reviewer's notes from earlier runs that apply here; follow them.
+
 1. Take the file from `$ARGUMENTS` or `inputs/draft_proxy.*`. Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/defined_terms.py <file> <deal dir>`. It writes `defined_terms.json` and `defined_terms.md`: each term with the sentence that defines it.
 2. Show the count and the first fifteen terms. Flag scope traps the drafter must watch: two stock classes, several forecast versions, an annex-local "Company" that differs from the proxy's.
 

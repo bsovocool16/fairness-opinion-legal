@@ -18,6 +18,9 @@ as part of the checks.
 Deliver `draft/section.txt` and `draft/log.md`. The first file must read as filed
 text. The second is a separate source and change log. Write both files yourself without asking for confirmation.
 
+Before step 1, read the reviewer's feedback notes that apply (`python3 <plugin>/scripts/feedback.py for <deal dir> --stage draft`):
+   corrections from earlier runs, to follow and to list in the log; a note cannot add a fact the inputs lack.
+
 1. Establish the transaction and the source roles. Read the complete opinion letter, the book text and OCR, the facts,
    the proxy glossary and the shell provenance. The signed letter controls recipient, opinion scope, beneficiaries,
    exclusions, date, procedures, consent, qualifications and opinion approval. The book controls the actual analyses,
@@ -40,7 +43,9 @@ text. The second is a separate source and change log. Write both files yourself 
    same-advisor paragraphs for the actual analyses. Name the actual base and every borrowed paragraph. A supplied bad splice
    or irrelevant case is not mandatory text. Record the selected unfilled assembly, its paragraph ids, provenance and word
    count before filling. Choose the structure before filling; then preserve the order of retained paragraphs. Place
-   reference items and prior presentations where this advisor's precedents put them, without making them core analyses.
+   reference items and prior presentations where this advisor's precedents put them, without making them core analyses. An
+   analysis that none of this advisor's precedents presents is omitted and logged; a reference item appears only in the
+   form the precedents use for it, never as a table unless a precedent carries one; a sensitivity grid is never reproduced.
    If there is no usable same-advisor paragraph, use the letter's corresponding language in the third person and log the
    exception. If there is no precedent at all, state that only in the log; do not invent a house style.
 
@@ -73,8 +78,8 @@ text. The second is a separate source and change log. Write both files yourself 
    opinion, equal-weighting assertion, no-prior-services claim, fee, forecast case, asset adjustment or fact about the
    transaction merely because it sounds standard.
 
-7. Preserve coverage and every table entry. Keep every actual analysis and all reference items, with the status the book
-   supports and the presentation this advisor uses. Keep every selected-company and transaction row and every supplied
+7. Preserve coverage and every table entry among the analyses this advisor's precedents present. Keep every such analysis,
+   and reference items only where and how the precedents present them; omit and log an analysis no precedent presents. Keep every selected-company and transaction row and every supplied
    multiple for those rows, including rows marked NM or NA and group or summary rows. Do not trim rows to meet length.
    Preserve source headers, periods, units, currencies, signs, precision, dates, adjustments and footnotes. Separate
    observed multiples, selected ranges, source metrics, enterprise and equity values and final per-share results. Retain

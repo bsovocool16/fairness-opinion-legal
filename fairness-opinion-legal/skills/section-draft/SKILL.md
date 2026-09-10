@@ -11,8 +11,10 @@ argument-hint: "[deal code] [--mode objective|procedure] [--model opus|fable]"
 
 # /section-draft
 
+First: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/feedback.py for <deal dir> --stage draft` prints the reviewer's notes from earlier runs that apply; pass the block to the drafter and check the log lists the notes applied.
+
 1. Read the profile's drafting mode (default objective) and drafter model (default opus); `--mode` and `--model` in `$ARGUMENTS` win for this run. Read `${CLAUDE_PLUGIN_ROOT}/references/task-objective.md` or `task-procedure.md` accordingly; substitute the deal directory.
-2. Draft through the `fairness-opinion-legal:section-drafter` agent: Agent tool with `model` set to the drafter model (`opus` or `fable`) and the prompt `stage: section-draft only; deal: <deal dir>; mode: <mode>`. Without an Agent tool, draft in this session and record its model. Either way the drafter writes `draft/section.txt` and `draft/log.md` following the task text, runs `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/selfscore.py <deal dir> draft/section.txt` as often as useful, and saves the last result to `draft/selfscore.json`.
+2. Draft through the `fairness-opinion-legal:section-drafter` agent: Agent tool with `model` set to the drafter model (`opus` or `fable`) and the prompt `stage: section-draft only; deal: <deal dir>; mode: <mode>` followed by the feedback block. Without an Agent tool, draft in this session and record its model. Either way the drafter writes `draft/section.txt` and `draft/log.md` following the task text, runs `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/selfscore.py <deal dir> draft/section.txt` as often as useful, and saves the last result to `draft/selfscore.json`.
 3. Show the self-score summary, the drafter model, and the log's list of missing facts. Hand off to redline.
 
 ## The two modes
@@ -25,6 +27,7 @@ Both were run on the same 24 deals; see `references/scoring.md` for what is meas
 ## Rules that are not mode-dependent
 
 - The section reads as filed text: no commentary, placeholders, drafting notes or markers in `section.txt`. Reviewer markers go in the log as `[REVIEWER: ...]` items with the paragraph they concern; if a marker must sit in the text because a sentence cannot be completed (a fee amount with no engagement letter), use exactly `[REVIEWER: fee amount]` so the redline stage can list them.
+- The section presents what this advisor files: an analysis in the book that none of the precedents presents is omitted and listed in the log for the reviewer (`shell/rationale.json` names them); a reference item appears only in the form the precedents use for it, never as a table unless a precedent carries one; a sensitivity grid is never reproduced, the section states the range.
 - A fact not in the inputs is omitted and logged, never invented; in particular never write "no prior relationships" without the relationship memo.
 - Names: selected companies by full legal name; a precedent that was the sale of a business line described as the sale of that line; sponsors as this advisor's precedents treat them.
 - Defined terms: once the proxy defines a term, the section uses it every time; with no glossary, introduce each term once in the advisor's form and list the introduced terms in the log.
@@ -34,6 +37,7 @@ Both were run on the same 24 deals; see `references/scoring.md` for what is meas
 ```
 # <deal code> drafting log
 Drafter: <opus | fable> (<objective | procedure> mode)
+Feedback notes applied: <ids and where> | none apply
 Base: <accession> (<target>, <date>) ; borrowed: <accession>: <analysis> ...
 Analyses classified: ...
 Deletions (paragraph, reason grounded in the book or the letter): ...

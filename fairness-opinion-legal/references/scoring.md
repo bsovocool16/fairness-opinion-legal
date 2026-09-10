@@ -11,7 +11,7 @@ book, so the drafter can score itself before delivery.
 | filed section reproduced | share of the filed section's phrases the draft carries | 0.25 |
 | letter carried | share of the opinion letter's phrases in the draft | 0.49 |
 | paragraphs traceable to a precedent | 60% of a paragraph's phrases found in the advisor's precedents | 0.43 (filed: 0.21) |
-| analyses present | every analysis the book shows, presented with a result | 1.00 |
+| analyses present | every analysis the book shows that the advisor's filed sections present, with a result; an analysis no precedent presents, a reference item carried as a table, or a sensitivity grid counts against the draft (a corpus survey of 729 filed sections found reference-only items filed by most advisors, in a one-sentence form, and by William Blair never) | 1.00 |
 | numbers | per-share ranges and parameters read from the draft against the advisor's disclosed values | 1.00 overlap when stated |
 | tables | every peer and precedent row the book lists | 23 of 24 with complete tables; William Blair: 95 of 95 filed table values reproduced |
 | proxy defined terms used | share of the glossary terms the filed section uses that the draft uses | 0.59 without a glossary; 0.73 (objective) and 0.77 (procedure) with one, 24 deals |

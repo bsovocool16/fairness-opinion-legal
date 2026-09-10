@@ -51,7 +51,15 @@ cands.sort(key=lambda c: c["score"], reverse=True)
 if not cands: sys.exit("no precedents in precedents/; run search_deal.py or add a firm shell")
 sel = next((c for c in cands if a.base and (c["id"] == a.base or a.base in c["id"])), cands[0])
 sh = deal / "shell"; sh.mkdir(exist_ok=True)
-json.dump({"deck_analyses": sorted(deck), "regime": regime, "candidates": cands[:3], "selected": sel["id"], "rule": "Jaccard of the book's valuation analyses with the precedent's + regime match + structure (sum of the parts) + length fit + recency (+ firm shell)"}, open(sh / "rationale.json", "w"), indent=1)
+prec_all = set().union(*[set(c["analyses"]) for c in cands]) if cands else set(); not_in_prec = sorted(deck - prec_all)
+FRO = re.compile(r"(?i)[^.\n]{0,220}(?:for reference (?:purposes )?only|reference(?:-| )only(?: purposes)?|for informational purposes|informational purposes only|not (?:as )?(?:a )?(?:component|part) of (?:its|their|the) (?:financial |fairness )?analys|observed certain additional factors|noted (?:for [^.]{0,60})?certain additional factors|were not considered part of)[^.\n]{0,320}\.")
+ref_examples = []
+for c in cands:
+    m = FRO.search((pdir / f"{c['id']}.txt").read_text(errors="ignore"))
+    if m: ref_examples.append({"id": c["id"], "text": re.sub(r"\s+", " ", m.group(0)).strip()[:600]})
+json.dump({"deck_analyses": sorted(deck), "regime": regime, "candidates": cands[:3], "selected": sel["id"], "precedents_present": sorted(prec_all), "not_in_precedents": not_in_prec,
+           "not_in_precedents_note": "in the book, presented by none of this advisor's precedents: omit from the section and list in the log for the reviewer",
+           "reference_item_form": ref_examples[:3], "reference_item_form_note": "how this advisor's precedents present reference-only items, when they do; a reference item is presented only in that form, never as a table unless a precedent does", "rule": "Jaccard of the book's valuation analyses with the precedent's + regime match + structure (sum of the parts) + length fit + recency (+ firm shell)"}, open(sh / "rationale.json", "w"), indent=1)
 base = (pdir / f"{sel['id']}.txt").read_text(errors="ignore"); (sh / "shell_suggested.txt").write_text(base)
 front, segs, back = segment(base); prov = {"base": sel["id"], "deck_analyses": sorted(deck), "segments": []}
 if not segs:
@@ -62,7 +70,7 @@ else:
         tag = "" if (l in deck or l == "other") else "[[NOT IN THIS BOOK: delete this analysis unless the book contains it]]\n"
         out.append(tag + t); prov["segments"].append({"label": l, "source": sel["id"], "in_book": l in deck or l == "other"})
     donors = [(c["id"], (pdir / f"{c['id']}.txt").read_text(errors="ignore")) for c in cands if c["id"] != sel["id"]]
-    for l in [l for l in ("comps", "precedents", "dcf", "lbo", "sotp", "nav", "premiums", "trading_range", "targets", "future_price") if l in deck and l not in have]:
+    for l in [l for l in ("comps", "precedents", "dcf", "lbo", "sotp", "nav", "premiums", "trading_range", "targets", "future_price") if l in deck and l not in have and l in prec_all]:
         for did, dtext in donors:
             _, dsegs, _ = segment(dtext); hit = next((t for ll, t in dsegs if ll == l and 300 <= len(t) <= 8000 and re.search(r"\d", t)), None)
             if hit: out.append(f"[[BORROWED FROM {did}: {l} paragraphs; fill with this book's facts]]\n{hit}"); prov["segments"].append({"label": l, "source": did, "borrowed": True}); break
@@ -79,5 +87,6 @@ print(f"Base: {sel['name']} {sel['date']} ({sel['regime'] or 'regime unknown'}) 
 print("Alternatives: " + "; ".join(f"{c['name'][:30]} {c['date']} ({c['score']})" for c in cands[1:3]))
 print("Spliced in: " + (", ".join(f"{s['label']} from {s['source']}" for s in prov["segments"] if s.get("borrowed")) or "none"))
 print("Not in this book (marked): " + (", ".join(s["label"] for s in prov["segments"] if s.get("in_book") is False) or "none"))
+print("In the book, in none of the precedents (omit, log): " + (", ".join(not_in_prec) or "none")); print("Reference-item form in the precedents: " + (ref_examples[0]["text"][:160] + "…" if ref_examples else "none found"))
 print("Missing with no donor: " + (", ".join(s["label"] for s in prov["segments"] if s.get("borrowed") is False and s.get("source") is None) or "none"))
 print(f"Shell length: {len((sh / 'shell_composite.txt').read_text()):,} characters")

@@ -14,6 +14,8 @@ Answers for intake:
   come from what you tell intake and the relationships paragraph will carry a reviewer marker.
 
 What a good run produces: precedent search returns ARC Document Solutions (2024) as the base, with SOC Telemed (2022) and
-Science 37 (2024) behind it; the shell builds on ARC; the draft presents all eight analyses in the book with the seven peers
-by full legal name and the twelve precedent transactions; the redline against the shell shows deal facts changed and the
-ARC-specific material struck.
+Science 37 (2024) behind it; the shell builds on ARC; the draft presents the five analyses William Blair's filed sections
+present (selected companies, precedent transactions, DCF, LBO, premiums paid) with the seven peers by full legal name and
+the twelve precedent transactions, and omits with a log entry the analyst price targets, the 52-week range and the
+sensitivity grids, which William Blair never files; the redline against the shell shows deal facts changed and the
+ARC-specific material struck. `run/` holds a completed run for the demo.

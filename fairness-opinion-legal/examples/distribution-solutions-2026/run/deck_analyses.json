@@ -1,13 +1,13 @@
 {
  "deck_analyses": {
   "comps": "core",
-  "lbo": "core",
   "precedents": "core",
-  "targets": "core",
-  "trading_range": "core",
-  "sensitivity": "core",
+  "targets": "reference",
+  "premiums": "core",
+  "lbo": "core",
+  "sensitivity": "grid",
   "dcf": "core",
-  "premiums": "core"
+  "trading_range": "reference"
  },
  "detail": {
   "comps": {
@@ -34,21 +34,6 @@
    ],
    "title_hit": true
   },
-  "lbo": {
-   "status": "core",
-   "pages_text_layer": [
-    3,
-    16,
-    29,
-    30
-   ],
-   "pages_ocr": [
-    16,
-    29,
-    30
-   ],
-   "title_hit": true
-  },
   "precedents": {
    "status": "core",
    "pages_text_layer": [
@@ -69,41 +54,47 @@
    "title_hit": true
   },
   "targets": {
-   "status": "core",
+   "status": "reference",
    "pages_text_layer": [
-    9,
-    11,
-    13,
-    18,
-    19,
-    20,
-    21,
-    22
+    13
    ],
    "pages_ocr": [
-    9,
-    13,
-    19,
-    20,
-    21,
-    22
+    13
    ],
    "title_hit": true
   },
-  "trading_range": {
+  "premiums": {
    "status": "core",
    "pages_text_layer": [
-    9,
-    11
+    3,
+    16,
+    31,
+    32
    ],
    "pages_ocr": [
-    9,
-    11
+    16,
+    31,
+    32
+   ],
+   "title_hit": true
+  },
+  "lbo": {
+   "status": "core",
+   "pages_text_layer": [
+    3,
+    16,
+    29,
+    30
+   ],
+   "pages_ocr": [
+    16,
+    29,
+    30
    ],
    "title_hit": true
   },
   "sensitivity": {
-   "status": "core",
+   "status": "grid",
    "pages_text_layer": [
     28,
     30
@@ -128,22 +119,19 @@
    ],
    "title_hit": true
   },
-  "premiums": {
-   "status": "core",
+  "trading_range": {
+   "status": "reference",
    "pages_text_layer": [
-    3,
-    16,
-    31,
-    32
+    9,
+    11
    ],
    "pages_ocr": [
-    16,
-    31,
-    32
+    9,
+    11
    ],
    "title_hit": true
   }
  },
  "regime_hint_from_text": "13e-3",
- "note": "an analysis is listed when a page title or a page body carries it with numbers; 'reference' only when the page says so; pages are 1-based"
+ "note": "an analysis is listed when a page title or a page body carries it with numbers. 'reference': the page says so, or the item is a 52-week range or analyst price targets, which filed sections carry only as reference items when at all; 'grid': DCF/LBO sensitivity tables, a presentation of those analyses rather than an analysis (filed sections state the resulting range). Whether an analysis is presented at all is decided by this advisor's precedents (shell/rationale.json). Pages are 1-based"
 }

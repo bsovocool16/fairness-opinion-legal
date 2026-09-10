@@ -48,6 +48,7 @@ Quick path: accept every `[DEFAULT]`, write the profile, close with: "Done. Run 
 7. Drafting mode: objective (default) or procedure. One sentence each; see `references/drafting-modes.md`. Then the drafter model: opus (default, the tested drafter) or fable (the top model; for unusual deals; costs more). Write both into the Drafting section.
 8. Gates: which of the four stay on. Default: intake confirm, precedent-set approval, final sign-off on; shell review off.
 9. Output formats and the work-product header text.
+10. Feedback: say in one sentence that any correction given at a gate is saved to `feedback.md` in the config folder and applied to later deals (`/fairness-opinion-legal:feedback`); create the file with its header by running `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/feedback.py list`.
 
 ## Before writing
 
