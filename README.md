@@ -8,6 +8,9 @@ attorney review, not legal advice.
 > The method was developed and tested in a private research repository across seven iterations on 24 held-out deals;
 > `references/scoring.md` summarizes what is scored and the results.
 
+An independent project by Benjamin Sovocool, not affiliated with or endorsed by Anthropic. It follows the conventions of
+the [claude-for-legal](https://github.com/anthropics/claude-for-legal) plugins so that it fits the same workflow.
+
 ## What it does, in order
 
 | stage | skill | what happens | gate |
@@ -25,7 +28,8 @@ between 1 and 4 when a draft proxy exists. `matter-workspace` keeps deals separa
 
 ## Install
 
-This repository is a one-plugin marketplace, laid out like `anthropics/claude-for-legal`. In Claude Code:
+This repository is a one-plugin marketplace, laid out like `anthropics/claude-for-legal`. In a Claude Code terminal session
+(the `claude` command), type:
 
 ```
 /plugin marketplace add bsovocool16/fairness-opinion-legal
@@ -33,6 +37,9 @@ This repository is a one-plugin marketplace, laid out like `anthropics/claude-fo
 ```
 
 Choose user scope when asked. From a clone or the zip, give the folder path in place of `bsovocool16/fairness-opinion-legal`.
+The same two commands run from any shell as `claude plugin marketplace add bsovocool16/fairness-opinion-legal` and
+`claude plugin install fairness-opinion-legal@fairness-opinion-legal --scope user`. The desktop app's Code tab does not offer
+the `/plugin` dialog, but it shares the configuration, so a plugin installed either way is available in its next session.
 
 The Word renderer's one npm package installs itself the first time outputs are made (node and npm needed); by hand:
 `cd <plugin>/scripts/redline && npm install`. The commands also work outside a session as `claude plugin marketplace add ...` and
