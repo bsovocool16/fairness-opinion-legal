@@ -13,3 +13,11 @@ checks), with a form note per advisor and a pre-delivery checklist.
 On the two deals both modes completed cleanly before a usage limit interrupted the bake-off, the modes were
 indistinguishable on every text metric and both raised defined-term use to the target; the full comparison is pending. The
 profile picks the mode; `task-objective.md` and `task-procedure.md` hold the texts.
+
+## Which model drafts
+
+Port test on one deal (William Blair, 13e-3), objective mode, one pass each, scored against the filing: Claude Fable and
+Claude Opus reproduced the filing as well as the GPT-6 reference run (filed recall 0.77 and 0.73 against 0.73) and named every
+peer by full legal name; Claude Sonnet kept the numbers and tables but rewrote more (filed recall 0.62). Token use was the same
+across models (about 300k a deal, most of it reading the book and the precedents), so Opus is the efficient default drafter;
+use Fable for an unusual deal. Extraction and review passes run on Haiku; search, shell, scoring and redline are scripts.

@@ -3,7 +3,7 @@ name: section-drafter
 description: >
   Proxy Section Drafter: runs the whole chain for one deal folder (intake already done), from precedent search to the redline,
   stopping at the profile's gates. Trigger: "draft the opinion section for <deal>", "run the drafter on <deal>".
-model: inherit
+model: opus
 tools: ["Read", "Write", "Bash"]
 ---
 
