@@ -1,0 +1,23 @@
+# Pre-delivery checks (procedure mode)
+
+Run against the supplied inputs and the actual output. Record pass, not applicable, or unresolved, with source and draft locations, in the separate log. Do not claim a successful numerical or style check when the necessary source is missing.
+
+| Check | Verifiable acceptance test |
+|---|---|
+| Input identity | Manifest pair, advisor, recipient, security class and current letter/book version agree; every file used is local and permitted; same-deal filed/key sources are excluded. |
+| Boundary and donor | Base source begins and ends within this advisor's opinion section. Every borrowed paragraph has an actual same-advisor source. Any damaged/partial donor is identified; unrelated tax, compensation, buyer-fairness or other-advisor text is absent. |
+| Opinion scope | Compare opinion date, addressee, fairness beneficiary, consideration, exclusions and any share/ADS conversion with the current letter. Each difference in label has a meaning-preserving glossary map. |
+| Proxy terms | Every mapped concept uses the approved term within its scope. Search draft for all donor and letter aliases in the map. Resolve each remaining occurrence; do not blindly replace generic uses. Verify each case/version separately. |
+| Local definitions | Every locally introduced term has a source-backed definition at first use and a logged reason why the external glossary did not suffice. No duplicate/conflicting definition of an existing proxy term; no undefined acronym needed to understand the analysis. |
+| Names | Match each peer and transaction row to entity id and book row. Display names comply with the selected advisor convention and dated evidence. No invented suffix, successor substitution, omitted business descriptor or unsolicited ticker column. |
+| Review and assumptions | Every substantive letter review item, reliance direction, management approval, exception and qualification maps once to the draft. Verify tense/person changes and identity of the person giving consent. No second review list or duplicate assumptions section. |
+| Analyses and status | Each substantive current book analysis/case has a draft location and result when supplied. Each reference/illustrative item remains covered in its proper role. Every earlier presentation is identified as earlier; no superseded number is presented as current. |
+| Every book table row | Table inventory accounts for every row, including appendix/reference and supporting input panels. Every selected peer/transaction row and supplied multiple is present in the draft. For other rows, record its draft table/prose location or its documented supporting-input-only disposition; a deletion is not silently counted as presence. A genuinely missing disclosure row makes this check unresolved. |
+| Cells and footnotes | Compare literal values, signs, currencies, units, periods, NM/NA/zero, group headers, precision, source statistics and footnote markers. Resolve every marker and every ambiguity. A comparator's unmatched row is not proof of an incorrect number. |
+| Valuation mechanics | Selected range, source metric, timing convention, terminal method, enterprise-to-equity adjustments and share denominator agree with the book for each case. Preserve total consideration versus cash/contingent components. Do not recompute published ranges from rounded inputs. |
+| Disclosure facts | Every fee component/payment trigger/credit, expense or indemnity clause, relationship amount/lookback/perimeter, oral-delivery event, approval and annex/cross-reference has a current source. Check fee totals without double-counting credits. Silence does not support “none.” |
+| Shell accounting | Each shell paragraph id has exactly one keep/fill/delete disposition and a draft locator or reason/source. Borrowed modules, clause deletions, formatting repairs and structural choices are recorded. Compare the final draft with that ledger. |
+| Length | Count base and draft with the same whitespace-word rule, including tables. Report both counts and ratio; target 0.8–1.2. Report eligible assembled-shell length separately. Any exception identifies indispensable material and completion of a duplication review. Do not claim chars are words. |
+| Clean output | Search for `[[`, `]]`, angle-bracket slots, TODO/TBD, source-gap notices, notes to drafter, model/scoring language and log headings. Read any hits in context. Draft contains only the section and its tables/footnotes; no commentary. |
+
+Return the supported section even if an input gap remains, but make the unresolved status explicit in the log. This is a deliverable check, not a claim that missing source material has been recovered.

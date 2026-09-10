@@ -1,0 +1,5 @@
+scripts/redline/node_modules/
+scripts/__pycache__/
+scripts/redline/__pycache__/
+*.spec.json
+.DS_Store

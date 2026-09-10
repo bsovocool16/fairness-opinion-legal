@@ -1,0 +1,8 @@
+{
+  "name": "redline",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Litera-style comparison of two documents as a .docx: blue double-underline insertions, red strikethrough deletions, green moved paragraphs, change bars.",
+  "scripts": { "test": "python3 tests/smoke.py" },
+  "dependencies": { "docx": "^9.7.1" }
+}

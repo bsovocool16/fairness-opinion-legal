@@ -1,0 +1,15 @@
+# The two drafting modes
+
+**objective** (default). The task states the objective, the inputs and what is scored, and nothing about how to work. The
+drafter reads the advisor's precedents and the worked examples, builds from the shell or from precedents of its own choice,
+and scores itself with the self-scorer as often as it likes. This is the setting the owner prefers on principle: set inputs and
+outputs, let the scoring drive the learning, avoid a rulebook.
+
+**procedure**. A ten-step procedure derived by a review of the precedent bank and 24 prior drafts (establish the source
+roles; classify the book; select the base; build a term map; resolve names; fill, do not rewrite; preserve coverage and every
+table entry; complete disclosures from current sources; account for every shell paragraph and hold the length; run the
+checks), with a form note per advisor and a pre-delivery checklist.
+
+On the two deals both modes completed cleanly before a usage limit interrupted the bake-off, the modes were
+indistinguishable on every text metric and both raised defined-term use to the target; the full comparison is pending. The
+profile picks the mode; `task-objective.md` and `task-procedure.md` hold the texts.
