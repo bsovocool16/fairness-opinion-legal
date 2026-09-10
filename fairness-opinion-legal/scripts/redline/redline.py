@@ -172,15 +172,17 @@ def split_paragraphs(text, mode):
             nonempty = [c for c in cells if c]
             if not nonempty: continue
             if len(nonempty) == 1: paras.append(normalize(nonempty[0]).split(" ")); continue   # a layout table around prose (EDGAR bullets)
+            if len(nonempty) == 2 and re.match(r"^(?:[•·●▪■\-–—]|\(?[ivx]{1,4}\)|\(?[a-z]\)|\(\d{1,2}\)|\d{1,2}\.)$", nonempty[0], re.I): paras.append(normalize(nonempty[0] + " " + nonempty[1]).split(" ")); continue
             paras.append({"row": cells}); continue
         paras.append(p.split(" "))
     return paras, mode
 def is_row(p): return isinstance(p, dict)
 def text_of(p): return " ".join(p["row"]) if is_row(p) else " ".join(p)
 def word_count(p): return sum(len(c.split()) for c in p["row"]) if is_row(p) else len(p)
+FOOT = re.compile(r"(?:\s*\((?:\d{1,2}|[a-z])\))+\s*$|\s*\*+\s*$", re.I)
 def norm_cell(c):
-    """A cell for comparison: no spaces, currency or thousands separators; (1.2) as -1.2; n.m., n/a unified."""
-    c = re.sub(r"\s+", "", c.lower()); c = re.sub(r"[$€£,]", "", c); c = re.sub(r"^\((.+)\)$", r"-\1", c)
+    """A cell for comparison: footnote markers dropped; no spaces, currency or thousands separators; (1.2) as -1.2; n.m., n/a unified."""
+    c = FOOT.sub("", c.strip()); c = re.sub(r"\s+", "", c.lower()); c = re.sub(r"[$€£,]", "", c); c = re.sub(r"^\((.+)\)$", r"-\1", c)
     return c.replace("n.m.", "nm").replace("n.a.", "na").replace("n/a", "na").rstrip(".")
 def row_sim(a, b):
     """Two table rows are the same row when the label cell matches and the other cells overlap: half each."""
@@ -193,7 +195,15 @@ def row_diff(a, b, moved=False):
     """Runs for a table row, cell by cell: `sep` runs carry the cell boundaries; a changed cell shows old struck and new underlined."""
     keep = "mv" if moved else "eq"; na, nb = [norm_cell(c) for c in a], [norm_cell(c) for c in b]; runs = [["sep", "| "]]
     def cell(kind, text): runs.append([kind, text]); runs.append(["sep", " | "])
-    for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, na, nb, autojunk=False).get_opcodes():
+    off = 0
+    if a and b and (na[0] == nb[0] or (na[0] and nb[0] and difflib.SequenceMatcher(None, na[0], nb[0]).ratio() >= 0.8)):
+        off = 1                                             # the label cell anchors the row; a changed footnote or spelling shows inside it
+        if na[0] == nb[0] and a[0] == b[0]: cell(keep, b[0])
+        else:
+            for k, t in word_diff(a[0].split(), b[0].split(), moved): runs.append([k, t])
+            if runs[-1][0] in (keep, "eq", "mv", "del", "ins"): runs[-1][1] = runs[-1][1].rstrip()
+            runs.append(["sep", " | "])
+    for op, i1, i2, j1, j2 in [(op, i1 + off, i2 + off, j1 + off, j2 + off) for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, na[off:], nb[off:], autojunk=False).get_opcodes()]:
         if op == "equal":
             for j in range(j1, j2): cell(keep, b[j])
         elif op == "delete":
