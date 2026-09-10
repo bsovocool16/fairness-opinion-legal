@@ -11,6 +11,10 @@ rows.append(("pdftotext (poppler)", has("pdftotext"), "board books as PDF; witho
 rows.append(("pandoc or python-docx", has("pandoc") or (__import__("importlib").util.find_spec("docx") is not None), "Word inputs"))
 rows.append(("node + docx package", has("node") and (HERE / "redline" / "node_modules" / "docx").exists(), "docx outputs; run `npm install` in scripts/redline"))
 so = has("soffice") or Path("/Applications/LibreOffice.app/Contents/MacOS/soffice").exists(); rows.append(("LibreOffice", so, "PDF outputs"))
-rows.append(("OCR (ocrmypdf or tesseract)", has("ocrmypdf") or has("tesseract"), "image-only board books"))
+import platform
+vision = platform.system() == "Darwin" and (has("swiftc") or (HERE / "ocr" / "ocr").exists()); rapid = __import__("importlib").util.find_spec("rapidocr_onnxruntime") is not None
+rows.append(("OCR: Apple Vision (macOS, swiftc)", vision, "image-only board books, best quality"))
+rows.append(("OCR: tesseract", has("tesseract"), "image-only board books off a Mac"))
+rows.append(("OCR: RapidOCR (pip)", rapid, "last resort on any platform: pip install rapidocr-onnxruntime pypdfium2; runs words together on dense slides"))
 print("| tool | present | used for |"); print("|---|---|---|")
 for name, ok, note in rows: print(f"| {name} | {'yes' if ok else 'no'} | {note} |")

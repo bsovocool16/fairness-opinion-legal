@@ -30,7 +30,10 @@ claude plugin install fairness-opinion-legal
 cd <plugin root>/scripts/redline && npm install                     # the docx renderer
 ```
 
-Python 3.9+ with `requests` and `beautifulsoup4`; `pdftotext` for board books; LibreOffice for PDF output. Then run
+Python 3.9+ with `requests` and `beautifulsoup4`; `pdftotext` for board books; LibreOffice for PDF output. OCR for image-only
+board books: on a Mac the bundled Apple Vision program compiles itself the first time (Xcode command line tools) and reads
+slides cleanly at about half a second a page; elsewhere install tesseract; `pip install rapidocr-onnxruntime pypdfium2` is a
+last resort that needs no system packages but runs words together on dense slides. Then run
 `/fairness-opinion-legal:cold-start-interview`.
 
 ## Inputs, and what is not public
@@ -47,7 +50,7 @@ drafted from the source rather than left for the reviewer.
 .claude-plugin/plugin.json   manifest
 CLAUDE.md                    practice-profile template (the interview writes the live copy to ~/.claude/plugins/config/fairness-opinion-legal/)
 skills/<name>/SKILL.md       one skill per stage
-scripts/                     precedent search, book classifier, shell builder, self-scorer, glossary, text extraction
+scripts/                     precedent search, book classifier, shell builder, self-scorer, glossary, text extraction, OCR
 scripts/redline/             the Litera-style comparison tool (docx + pdf)
 references/                  the drafting task texts, the scoring, and regime notes
 agents/                      the named end-to-end agent

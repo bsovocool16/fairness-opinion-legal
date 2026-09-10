@@ -3,3 +3,4 @@ scripts/__pycache__/
 scripts/redline/__pycache__/
 *.spec.json
 .DS_Store
+scripts/ocr/ocr
