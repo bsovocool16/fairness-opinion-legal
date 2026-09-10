@@ -22,7 +22,7 @@ Blue double underline: text in the draft that is not in the shell. Red strikethr
 ## Degraded cases
 
 - No LibreOffice: docx only, say so.
-- No node modules in `scripts/redline`: text redline only (`redline/redline_vs_shell.txt`, wdiff style), and tell the user to run `npm install` there.
+- No node modules in `scripts/redline`: the script runs `npm install` there once by itself; if that fails (no npm, no network), text redline only (`redline/redline_vs_shell.txt`, wdiff style), and tell the user to run `npm install` there.
 
 ## What it does NOT do
 

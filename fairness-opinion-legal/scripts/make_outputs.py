@@ -30,7 +30,16 @@ def blocks_of(text):
 ap = argparse.ArgumentParser(); ap.add_argument("deal"); ap.add_argument("--prior", default=None); a = ap.parse_args()
 deal = Path(a.deal); draft = deal / "draft" / "section.txt"; out = deal / "redline"; out.mkdir(exist_ok=True)
 if not draft.exists(): sys.exit("no draft/section.txt")
-text = draft.read_text(); hdr = header(); node_ok = shutil.which("node") and (RED / "node_modules" / "docx").exists()
+def ensure_docx():
+    """The Word renderer's one npm dependency, installed on first use so the plugin works straight from the marketplace copy."""
+    if (RED / "node_modules" / "docx").exists(): return True
+    if not (shutil.which("node") and shutil.which("npm")): return False
+    print("installing the docx package for the Word renderer (once: npm install in scripts/redline)...")
+    try: r = subprocess.run(["npm", "install", "--silent", "--no-audit", "--no-fund"], cwd=RED, capture_output=True, text=True, timeout=300)
+    except Exception as e: print(f"npm install failed: {e}"); return False
+    if r.returncode: print("npm install failed: " + (r.stderr.strip()[-300:] or r.stdout.strip()[-300:]))
+    return (RED / "node_modules" / "docx").exists()
+text = draft.read_text(); hdr = header(); node_ok = ensure_docx()
 (out / "section.txt").write_text(hdr + "\n\n" + text)
 markers = re.findall(r"\[REVIEWER:[^\]]*\]", text)
 if node_ok:

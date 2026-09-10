@@ -31,7 +31,9 @@ This repository is a one-plugin marketplace, laid out like `anthropics/claude-fo
 /plugin install fairness-opinion-legal@fairness-opinion-legal   # choose user scope when asked
 ```
 
-Then, once, in a terminal: `cd <clone>/fairness-opinion-legal/scripts/redline && npm install` (the docx renderer).
+The Word renderer's one npm package installs itself the first time outputs are made (node and npm needed); by hand:
+`cd <plugin>/scripts/redline && npm install`. The commands also work outside a session as `claude plugin marketplace add ...` and
+`claude plugin install ...`, including with the Claude Code binary bundled in the desktop app.
 
 Python 3.9+ with `requests` and `beautifulsoup4`; `pdftotext` for board books; LibreOffice for PDF output. OCR for image-only
 board books: on a Mac the bundled Apple Vision program compiles itself the first time (Xcode command line tools) and reads
