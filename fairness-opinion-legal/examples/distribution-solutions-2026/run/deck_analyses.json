@@ -1,0 +1,149 @@
+{
+ "deck_analyses": {
+  "comps": "core",
+  "lbo": "core",
+  "precedents": "core",
+  "targets": "core",
+  "trading_range": "core",
+  "sensitivity": "core",
+  "dcf": "core",
+  "premiums": "core"
+ },
+ "detail": {
+  "comps": {
+   "status": "core",
+   "pages_text_layer": [
+    3,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    30
+   ],
+   "pages_ocr": [
+    16,
+    18,
+    19,
+    20,
+    21,
+    22,
+    30
+   ],
+   "title_hit": true
+  },
+  "lbo": {
+   "status": "core",
+   "pages_text_layer": [
+    3,
+    16,
+    29,
+    30
+   ],
+   "pages_ocr": [
+    16,
+    29,
+    30
+   ],
+   "title_hit": true
+  },
+  "precedents": {
+   "status": "core",
+   "pages_text_layer": [
+    3,
+    16,
+    23,
+    24,
+    25,
+    26
+   ],
+   "pages_ocr": [
+    16,
+    23,
+    24,
+    25,
+    26
+   ],
+   "title_hit": true
+  },
+  "targets": {
+   "status": "core",
+   "pages_text_layer": [
+    9,
+    11,
+    13,
+    18,
+    19,
+    20,
+    21,
+    22
+   ],
+   "pages_ocr": [
+    9,
+    13,
+    19,
+    20,
+    21,
+    22
+   ],
+   "title_hit": true
+  },
+  "trading_range": {
+   "status": "core",
+   "pages_text_layer": [
+    9,
+    11
+   ],
+   "pages_ocr": [
+    9,
+    11
+   ],
+   "title_hit": true
+  },
+  "sensitivity": {
+   "status": "core",
+   "pages_text_layer": [
+    28,
+    30
+   ],
+   "pages_ocr": [
+    28,
+    30
+   ],
+   "title_hit": true
+  },
+  "dcf": {
+   "status": "core",
+   "pages_text_layer": [
+    3,
+    27,
+    28
+   ],
+   "pages_ocr": [
+    14,
+    16,
+    28
+   ],
+   "title_hit": true
+  },
+  "premiums": {
+   "status": "core",
+   "pages_text_layer": [
+    3,
+    16,
+    31,
+    32
+   ],
+   "pages_ocr": [
+    16,
+    31,
+    32
+   ],
+   "title_hit": true
+  }
+ },
+ "regime_hint_from_text": "13e-3",
+ "note": "an analysis is listed when a page title or a page body carries it with numbers; 'reference' only when the page says so; pages are 1-based"
+}

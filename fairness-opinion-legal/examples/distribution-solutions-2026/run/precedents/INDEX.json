@@ -1,0 +1,94 @@
+[
+ {
+  "acc": "0001140361-24-043469",
+  "name": "ARC DOCUMENT SOLUTIONS, INC.  (ARC)  (CIK 0001305168)",
+  "date": "2024-10-16",
+  "form": "DEFM14A",
+  "regime": "13e-3",
+  "url": "https://www.sec.gov/Archives/edgar/data/1305168/000114036124043469/ny20035563x8_defm14a.htm",
+  "presented": [
+   "comps",
+   "dcf",
+   "lbo",
+   "precedents",
+   "premiums"
+  ],
+  "coverage": 0.71,
+  "jaccard": 0.71,
+  "section_chars": 29289,
+  "section_path": "precedents/0001140361-24-043469.txt"
+ },
+ {
+  "acc": "0001213900-22-010811",
+  "name": "SOC Telemed, Inc.  (CIK 0001791091)",
+  "date": "2022-03-07",
+  "form": "DEFM14A",
+  "regime": "conventional",
+  "url": "https://www.sec.gov/Archives/edgar/data/1791091/000121390022010811/defm14a0222_soctelemed.htm",
+  "presented": [
+   "comps",
+   "dcf",
+   "lbo",
+   "precedents",
+   "premiums"
+  ],
+  "coverage": 0.71,
+  "jaccard": 0.71,
+  "section_chars": 36059,
+  "section_path": "precedents/0001213900-22-010811.txt"
+ },
+ {
+  "acc": "0001193125-23-253555",
+  "name": "Acer Therapeutics Inc.  (CIK 0001069308)",
+  "date": "2023-10-10",
+  "form": "DEFM14A",
+  "regime": "conventional",
+  "url": "https://www.sec.gov/Archives/edgar/data/1069308/000119312523253555/d540258ddefm14a.htm",
+  "presented": [
+   "comps",
+   "dcf",
+   "precedents",
+   "premiums"
+  ],
+  "coverage": 0.57,
+  "jaccard": 0.57,
+  "section_chars": 56123,
+  "section_path": "precedents/0001193125-23-253555.txt"
+ },
+ {
+  "acc": "0001193125-23-226403",
+  "name": "PhenomeX Inc.  (CIK 0001689657)",
+  "date": "2023-08-31",
+  "form": "SC 14D9",
+  "regime": "conventional",
+  "url": "https://www.sec.gov/Archives/edgar/data/1689657/000119312523226403/d489887dsc14d9.htm",
+  "presented": [
+   "comps",
+   "dcf",
+   "precedents",
+   "premiums"
+  ],
+  "coverage": 0.57,
+  "jaccard": 0.57,
+  "section_chars": 35823,
+  "section_path": "precedents/0001193125-23-226403.txt"
+ },
+ {
+  "acc": "0001104659-23-069453",
+  "name": "TESSCO TECHNOLOGIES INC  (CIK 0000927355)",
+  "date": "2023-06-08",
+  "form": "DEFM14A",
+  "regime": "conventional",
+  "url": "https://www.sec.gov/Archives/edgar/data/927355/000110465923069453/tm2316245-3_defm14a.htm",
+  "presented": [
+   "comps",
+   "dcf",
+   "precedents",
+   "premiums"
+  ],
+  "coverage": 0.57,
+  "jaccard": 0.57,
+  "section_chars": 41189,
+  "section_path": "precedents/0001104659-23-069453.txt"
+ }
+]

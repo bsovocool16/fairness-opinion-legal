@@ -30,6 +30,7 @@ The SEC asks every automated client to identify itself with a contact. Precedent
 
 - Regime: asked at intake for every deal (Rule 13e-3 going-private, or conventional). Never inferred silently.
 - Drafting mode: [DEFAULT: "objective" — the drafter gets the inputs, the scoring and the self-scorer, nothing about how to work]. Alternative: "procedure" (a ten-step derived procedure with a form note and checklist). See `references/drafting-modes.md`.
+- Drafter model: [DEFAULT: "opus" — the tested default drafter]. Alternative: "fable" (the top model; for an unusual deal; costs more). Read by `pipeline`, `section-draft` and `demo --live`; `--model` on a command overrides it for one run.
 - Names: selected companies by full legal name; a precedent that was the sale of a business line described as the sale of that line; sponsors as the advisor's precedents treat them.
 - Defined terms: once the proxy defines a term, the section uses it every time. A glossary from the draft proxy is optional (`/fairness-opinion-legal:proxy-glossary`); without one the drafter introduces terms itself and flags them for the reviewer.
 - House style notes: [PLACEHOLDER: anything the firm does differently from the advisor's precedents, or "follow the advisor's precedents"]

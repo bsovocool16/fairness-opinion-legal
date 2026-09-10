@@ -1,0 +1,353 @@
+Opinion of William Blair & Company, L.L.C.
+William Blair was retained by the Strategic Transaction Committee to act as financial advisor to the Company in connection with a possible business combination. Pursuant to its engagement, the Strategic Transaction Committee requested that William Blair render an opinion to the Company Board as to whether the Merger Consideration to be received by Company stockholders (other than holders of (i) shares of Company Common Stock that are held by the Company or any of its direct or indirect wholly owned subsidiaries or owned by Parent or Merger Sub or any of their respective direct or indirect wholly owned subsidiaries (for purposes of this section, collectively, the “Owned Company Shares”) and (ii) shares with respect to which Company stockholders have properly exercised appraisal rights under Delaware law (for purposes of this section, the “Dissenting Shares”)) was fair, from a financial point of view, to such Company stockholders. On February 2, 2022, William Blair delivered its oral opinion to the Company Board at a meeting of the full Company Board (which opinion was subsequently confirmed in its written opinion dated February 2, 2022, and delivered to the Company Board prior to the execution of the Merger Agreement) that, as of the date of such opinion, and based upon and subject to the assumptions, qualifications and limitations stated in its written opinion, the Merger Consideration to be received by Company stockholders (other than with respect to the Owned Company Shares and the Dissenting Shares) was fair, from a financial point of view, to such Company stockholders.
+THE FULL TEXT OF WILLIAM BLAIR’S WRITTEN OPINION, DATED FEBRUARY 2, 2022, IS ATTACHED AS ANNEX C TO THIS PROXY STATEMENT AND INCORPORATED INTO THIS PROXY STATEMENT BY REFERENCE. YOU ARE URGED TO READ THE ENTIRE FAIRNESS OPINION CAREFULLY AND IN ITS ENTIRETY TO LEARN ABOUT THE ASSUMPTIONS MADE, PROCEDURES FOLLOWED, MATTERS CONSIDERED AND LIMITS ON THE SCOPE OF THE REVIEW UNDERTAKEN BY WILLIAM BLAIR IN RENDERING ITS OPINION. THE ANALYSIS PERFORMED BY WILLIAM BLAIR SHOULD BE VIEWED IN ITS ENTIRETY; NONE OF THE METHODS OF ANALYSIS SHOULD BE VIEWED IN ISOLATION. WILLIAM BLAIR’S FAIRNESS OPINION WAS DIRECTED TO THE COMPANY BOARD FOR ITS USE AND BENEFIT IN EVALUATING THE FAIRNESS OF THE MERGER CONSIDERATION TO BE RECEIVED BY COMPANY STOCKHOLDERS (OTHER THAN WITH RESPECT TO THE OWNED COMPANY SHARES AND THE DISSENTING SHARES) IN RESPECT OF THE MERGER AND RELATES ONLY TO THE FAIRNESS, AS OF THE DATE OF WILLIAM BLAIR’S FAIRNESS OPINION AND FROM A FINANCIAL POINT OF VIEW, OF THE MERGER CONSIDERATION TO BE RECEIVED BY COMPANY STOCKHOLDERS (OTHER THAN WITH RESPECT TO THE OWNED COMPANY SHARES AND THE DISSENTING SHARES) IN RESPECT OF THE MERGER. WILLIAM BLAIR’S FAIRNESS OPINION DOES NOT ADDRESS ANY OTHER ASPECTS OF THE MERGER OR ANY RELATED TRANSACTION, AND DOES NOT CONSTITUTE A RECOMMENDATION TO ANY HOLDER OF COMPANY COMMON STOCK AS TO HOW SUCH STOCKHOLDER SHOULD VOTE ITS SHARES OF COMPANY COMMON STOCK WITH RESPECT TO THE MERGER. WILLIAM BLAIR DID NOT ADDRESS THE MERITS OF THE UNDERLYING DECISION BY THE COMPANY TO ENGAGE IN THE TRANSACTIONS. THE FOLLOWING SUMMARY OF WILLIAM BLAIR’S FAIRNESS OPINION IS QUALIFIED IN ITS ENTIRETY BY REFERENCE TO THE FULL TEXT OF ITS FAIRNESS OPINION ATTACHED TO THIS PROXY STATEMENT AS ANNEX C.
+In connection with William Blair’s review of the Merger and the preparation of its opinion, William Blair examined:
+• the draft Merger Agreement, dated February 2, 2022, and William Blair assumed that the final form of the Merger Agreement would not differ from such draft in any material respect;
+• audited historical financial statements of the Company included in its filings with the SEC as of and for the year ended December 31, 2020;
+• unaudited financial statements of the Company included in its filings with the SEC as of and for the three -months and nine -months ended September 30, 2021;
+• draft financial statements of the Company for the fiscal year ended December 31, 2021;
+48
+Table of Contents
+• certain internal business, operating and financial information and forecasts of the Company for the fiscal years ending December 31, 2022, through December 31, 2027, including certain estimates as to potentially realizable existing federal net operating loss carryforwards expected to be utilized by the Company (the “Management Forecasts”), prepared by the Company’s senior management, as more fully described in the section of this proxy statement captioned “— Management Forecasts”;
+• information regarding publicly available financial terms of certain other transactions William Blair deemed relevant;
+• the financial position and operating results of the Company compared with those of certain other publicly traded companies William Blair deemed relevant;
+• current and historical market prices and trading volumes of Company Common Stock; and
+• certain other publicly available information on the Company.
+William Blair also held discussions with members of the Company’s senior management to discuss the foregoing, considered other matters that it deemed relevant to its analysis, and took into account the accepted financial and investment banking procedures and considerations that it deemed relevant.
+In rendering its opinion, William Blair assumed and relied, without independent verification, upon the accuracy and completeness of all the information examined by or otherwise reviewed or discussed with William Blair for purposes of its fairness opinion, including without limitation the Forecasts provided by the Company’s senior management. William Blair did not make or obtain an independent valuation or appraisal of the assets, liabilities or solvency of the Company. William Blair was advised by the Company’s senior management that the Forecasts examined by William Blair were reasonably prepared on bases reflecting the best currently available estimates and judgments of the Company’s senior management. In that regard, William Blair assumed, with the consent of the Company Board, that, (i) the Forecasts would be achieved in the amounts and at the times contemplated thereby and (ii) all material assets and liabilities (contingent or otherwise) of the Company were as set forth in the Company’s financial statements or other information made available to William Blair. William Blair did not express an opinion with respect to the Forecasts or the estimates and judgments on which they were based. William Blair did not consider and expressed no opinion as to the amount or nature of the compensation payable to any of the Company’s officers, directors or employees (or any class of such persons) relative to the compensation payable to the Company’s other stockholders. In addition, William Blair did not express an opinion as to the consideration to be received in connection with the Merger with respect to any Company Warrants. William Blair’s opinion was based upon economic, market, financial and other conditions existing on, and other information disclosed to William Blair as of, the date of its opinion. It should be understood that, although subsequent developments may affect William Blair’s opinion, William Blair does not have any obligation to update, revise or reaffirm its opinion. William Blair did not make any determinations as to legal matters related to the Merger, and assumed that the Merger would be consummated on the terms described in the Merger Agreement, without any waiver of any material terms or conditions by the Company.
+The following is a summary of the material financial analyses performed and material factors considered by William Blair to arrive at its opinion. William Blair performed certain procedures, including each of the financial analyses described below, and reviewed with the Company Board the assumptions upon which such analyses were based, as well as other factors. Although the summary does not purport to describe all of the analyses performed or factors considered by William Blair in this regard, it does set forth those considered by William Blair to be material in arriving at its fairness opinion. The financial analyses summarized below include information presented in a tabular format. In order to fully understand the financial analyses performed by William Blair, the tables must be read together with the text of each summary. The tables alone do not constitute a complete description of the financial analyses performed by William Blair. Considering the data set forth in the tables below without considering the full narrative description of the financial analyses, including the methodologies and assumptions underlying the analyses, could create a misleading or incomplete view of the financial analyses performed by William Blair. The order of the summaries of the analyses described below does not represent the relative importance or weight given to those analyses by William Blair.
+49
+Table of Contents
+Selected Public Companies Analysis
+William Blair reviewed and compared certain financial information relating to the Company to corresponding financial information, ratios and public market multiples for seven publicly traded companies in the healthcare information technology sector with similar business models and financial profiles that William Blair deemed relevant. The companies selected by William Blair were: (i) 1Life Healthcare, Inc., (ii) Accolade, Inc., (iii) American Well Corporation, (iv) Cano Health, Inc., (v) LifeStance Health Group, Inc., (vi) Talkspace, Inc., and (vii) Teladoc Health, Inc., which seven companies William Blair deemed appropriate comparisons to the Company based on the foregoing factors. William Blair considered the enterprise value for each company (including the Company), which William Blair calculated as the equity value of the company, plus total debt, minority interest and preferred stock, less cash and cash equivalents. The equity value of each company was calculated using the closing stock price as of February 1, 2022 (the latest practicable trading day for reference prior to the entry into the Merger Agreement), multiplied by the total diluted shares outstanding (using the most recent publicly available information as of February 1, 2022). William Blair considered the enterprise value as a multiple of (i) calendar year 2022 expected (“CY 2022E”) revenue and (ii) calendar year 2023 expected (“CY 2023E”) revenue based on consensus estimates for each company. William Blair then used the implied enterprise value based on the per share Merger Consideration of $3.00 to derive implied valuation multiples for the Company for CY 2022E and CY 2023E revenue based on consensus estimates and the Forecasts. William Blair compared the multiples implied for the Company based on the Merger Consideration to the range of trading multiples of the aggregate group of selected publicly traded healthcare information technology companies. Information regarding the multiples derived from William Blair’s selected public company analysis is set forth in the following table.
+Implied
+Transaction
+Multiple
+Selected Public Company
+Valuation Multiples
+Min
+Mean
+Median
+Max
+Enterprise Value / CY 2022E Revenue
+Management Forecast
+2.97x
+1.38x
+2.89x
+2.54x
+5.47x
+Consensus Estimate
+3.07x
+1.38x
+2.89x
+2.54x
+5.47x
+Enterprise Value / CY 2023E Revenue
+Management Forecast
+2.44x
+1.07x
+2.29x
+1.98x
+4.40x
+Consensus Estimate
+2.56x
+1.07x
+2.29x
+1.98x
+4.40x
+William Blair noted that, with respect to the enterprise value CY 2022E and CY 2023E revenue multiple, the analyzed implied valuation multiple for the Company based on the Merger Consideration was within the range of multiples of the selected publicly companies.
+Although William Blair compared the trading multiples of the selected public companies to those implied for the Company, none of the selected public companies is directly comparable to the Company. Accordingly, any analysis of the selected public companies involves considerations and judgments concerning the differences in financial and operating characteristics and other factors that would affect the analysis of trading multiples of the selected public companies.
+Selected Precedent Transactions Analysis
+William Blair performed an analysis of eight selected transactions that closed subsequent to January 1, 2017, that involved the acquisition of companies William Blair deemed relevant. William Blair’s analysis was based solely on publicly available information regarding such transactions. Although none of the companies or transactions used in this analysis is directly comparable to the Company or the Merger, the companies included in the selected transactions above were chosen by William Blair, among other reasons, because they are healthcare information technology companies with certain business, operational, and/or financial characteristics that, for purposes of William Blair’s analysis, may be considered similar to those of the Company. William Blair did not take into account any announced or consummated transaction whereby relevant financial information was not publicly disclosed and
+50
+Table of Contents
+available. The selected transactions were not intended to be representative of the entire range of possible healthcare information technology transactions. The transactions examined were (identified by target/acquirer and month and year of announcement):
+• Iora Health/ 1Life Healthcare (June 2021)
+• Sentry Data Systems/ Craneware (June 2021)
+• PlushCare/ Accolade (April 2021)
+• 2nd.MD/ Accolade (January 2021)
+• Health Advocate/ Teleperformance (October 2020)
+• Benefytt Technologies/ Madison Dearborn Partners (July 2020)
+• Stratus Video/ AMN Healthcare (January 2020)
+• Best Doctors/ Teladoc Health (June 2017)
+William Blair reviewed the consideration paid in the selected transactions in terms of the enterprise value of such transactions as a multiple of last twelve months revenue (“LTM”) based on the most recently available publicly disclosed 12 -month historical period at the time of announcement for each respective transaction. William Blair considered the transaction multiples for the Company based on the estimate by the Company’s senior management of revenue for calendar year 2021 (“CY 2021E” and such estimate, the “Management Estimate”), which was derived from the draft financial statements of the Company for the fiscal year ended December 31, 2021, and consensus estimates at the time of announcement for each respective transaction and compared such multiples to the resulting range of transaction multiples. Information regarding the multiples from William Blair’s analysis of the selected transactions is set forth in the following table:
+Multiple
+Implied Transaction Multiple (1)
+Range of Selected Precedent
+Transaction
+Valuation Multiples
+Min
+Mean
+Median
+Max
+Enterprise Value/LTM Revenue
+Management Estimate
+3.86x
+1.85x
+6.40x
+4.87x
+10.86x
+Consensus Estimate
+3.93x
+1.85x
+6.40x
+4.87x
+10.86x
+____________
+(1) Enterprise Value/LTM Revenue for the implied transaction multiple of the Company represents Enterprise Value/CY 2021E Revenue.
+William Blair noted that the implied transaction multiples of CY 2021E revenue based on the Management Estimate and consensus estimates for the Company based on the Merger Consideration was within the range of multiples of the selected transactions.
+Although William Blair analyzed the multiples implied by the selected transactions and compared them to the implied transaction multiple of the Company, none of these transactions or associated companies is identical to the Company or the transactions contemplated by the Merger Agreement. Accordingly, any analysis of the selected transactions necessarily involved complex considerations and judgments concerning the differences in financial and operating characteristics, parties involved and terms of their transactions and other factors that would necessarily affect the implied value of the Company versus the values of the companies in the selected transactions.
+Discounted Cash Flow Analysis
+William Blair utilized the Forecasts to perform a discounted cash flow analysis of the Company’s projected future free cash flows for the fiscal years ending December 31, 2022, through December 31, 2026. Using the discounted cash flow methodology, William Blair calculated the present values of the projected after -tax unlevered free cash flows for the Company. In this analysis, William Blair exercised its professional judgment, based on its experience and expertise, and calculated the assumed terminal value of the Company by utilizing calendar year 2027 expected (“CY 2027E”) revenue by terminal multiples ranging from 1.5x -2 .5x. To discount the projected unlevered
+51
+Table of Contents
+free cash flows and assumed terminal value to present value, William Blair used discount rates ranging from 14.0% to 16.0%. The discount rate range was derived based upon a weighted average cost of capital using the capital asset pricing model.
+William Blair aggregated the present value of the after -tax unlevered free cash flows over the applicable forecast period, the present value of the potential federal tax savings expected to result from the utilization of the Company’s federal net operating losses ($20-$23 million), and the present value of the assumed terminal value. William Blair then derived a range of implied equity values per share by adding the Company’s senior management’s latest estimate of net debt as of December 31, 2021, and dividing such amount by the Company’s total diluted shares outstanding as of December 31, 2021, as adjusted to take into account the impact of dilutive securities based on the treasury stock method at the implied share price. This analysis resulted in a range of implied equity values of $1.51 to $3.48 per share, as compared to the Merger Consideration of $3.00 per share.
+Leveraged Buyout Analysis
+William Blair performed a hypothetical leveraged buyout analysis and calculated the illustrative implied purchase prices at which a leveraged buyout of the Company could occur and yield a target range of annualized internal rates of return from 15.0% to 25.0% for a potential investor, with financing scenarios assuming both no debt financing and $100 million of debt financing. In this analysis, William Blair estimated an exit value by utilizing a range of CY 2027E revenue multiples of 1.5x to 2.5x. The target annualized internal rate of return was derived by William Blair utilizing its professional judgment and experience. This analysis resulted in a range of implied equity value $0.25 to $2.86 per share of Company Common Stock, as compared to the Merger Consideration of $3.00 per share of Company Common Stock.
+M&A Premiums Paid Analysis
+William Blair reviewed data from 264 acquisitions of U.S. publicly traded companies announced across all industries since January 1, 2010, in which 100% of the target’s equity was acquired with equity values between $200 million and $400 million. Specifically, William Blair analyzed the acquisition price per share as a premium to the closing share price one day, one week, one month, 60 days, 90 days, 180 days, 270 days and 365 days prior to the announcement of each transaction. William Blair compared the range of resulting per share common share price premiums for the reviewed transactions to the premiums implied by the Merger Consideration based on common stock prices one day, one week, one month, 60 days, 90 days, 180 days, 270 days and 365 days prior to each of February 1, 2022 (the latest practicable trading day for reference prior to the entry into the Merger Agreement). Information regarding the premiums from William Blair’s analysis of selected transactions is set forth in the following table:
+Period
+Implied
+Premium at
+$3.00 /
+share
+Premiums Paid Data Percentile
+10th
+20th
+30th
+40th
+50th
+60th
+70th
+80th
+90th
+One Day Prior
+322.9
+%
+5.2
+%
+11.7
+%
+16.5
+%
+22.2
+%
+28.0
+%
+33.7
+%
+40.1
+%
+49.2
+%
+63.3
+%
+One Week Prior
+358.4
+%
+6.0
+%
+12.4
+%
+18.3
+%
+22.9
+%
+28.4
+%
+35.0
+%
+42.3
+%
+50.1
+%
+64.1
+%
+One Month Prior
+134.4
+%
+6.8
+%
+14.4
+%
+18.6
+%
+24.6
+%
+30.8
+%
+36.6
+%
+43.6
+%
+52.4
+%
+72.6
+%
+60 Days Prior
+54.6
+%
+8.7
+%
+14.2
+%
+19.5
+%
+26.6
+%
+33.4
+%
+38.8
+%
+47.1
+%
+58.3
+%
+76.1
+%
+90 Days Prior
+27.7
+%
+8.7
+%
+16.6
+%
+24.4
+%
+29.9
+%
+36.6
+%
+43.0
+%
+49.9
+%
+60.5
+%
+79.3
+%
+180 Days Prior
+(30.2
+)%
+4.6
+%
+17.2
+%
+27.8
+%
+36.2
+%
+42.5
+%
+52.1
+%
+59.9
+%
+75.5
+%
+100.0
+%
+270 Days Prior
+(61.6
+)%
+(1.0
+)%
+12.4
+%
+27.2
+%
+37.7
+%
+45.8
+%
+56.9
+%
+72.4
+%
+94.4
+%
+128.7
+%
+365 Days Prior
+(57.8
+)%
+(8.7
+)%
+14.9
+%
+26.7
+%
+38.3
+%
+50.5
+%
+63.9
+%
+82.5
+%
+100.6
+%
+160.0
+%
+General
+This summary is not a complete description of the analysis performed by William Blair, but contains the material elements of the analysis. The preparation of an opinion regarding fairness is a complex process involving various determinations as to the most appropriate and relevant methods of financial analysis and the application of those methods to the particular circumstances, and, therefore, such an opinion is not readily susceptible to partial analysis or summary description. The preparation of an opinion regarding fairness does not involve a mathematical evaluation or weighing of the results of the individual analyses performed, but requires William Blair to exercise its
+52
+Table of Contents
+professional judgment, based on its experience and expertise, in considering a wide variety of analyses taken as a whole. Each of the analyses conducted by William Blair was carried out in order to provide a different perspective on the Merger Consideration and add to the total mix of information available. The analyses were prepared solely for the purpose of William Blair providing its opinion and do not purport to be appraisals or necessarily reflect the prices at which securities actually may be sold. William Blair did not form a conclusion as to whether any individual analysis, considered in isolation, supported or failed to support an opinion about the fairness of the Merger Consideration to be received by Company stockholders (other than with respect to the Owned Company Shares and the Dissenting Shares). Rather, in rendering its oral opinion on February 2, 2022 (subsequently confirmed in its written opinion dated February 2, 2022) to the Company Board, as of that date and based upon and subject to the assumptions, qualifications and limitations stated in its written opinion, as to whether the Merger Consideration to be received by Company stockholders (other than other than with respect to the Owned Company Shares and the Dissenting Shares) was fair, from a financial point of view, to such holders, William Blair considered the results of the analyses in light of each other and ultimately reached its opinion based on the results of all analyses taken as a whole. William Blair’s fairness opinion considered each valuation method equally and did not place any particular reliance or weight on any particular analysis, but instead concluded that its analyses, taken as a whole, supported its determination. Accordingly, notwithstanding the separate factors summarized above, William Blair believes that its analyses must be considered as a whole and that selecting portions of its analyses and the factors considered by it, without considering all analyses and factors, may create an incomplete view of the evaluation process underlying its opinion. No company or transaction used in the above analyses as a comparison is directly comparable to the Company or the proposed transaction under the Merger Agreement. In performing its analyses, William Blair made numerous assumptions with respect to industry performance, business and economic conditions and other matters. The analyses performed by William Blair are not necessarily indicative of future actual values and future results, which may be significantly more or less favorable than suggested by such analyses.
+William Blair has been engaged in the investment banking business since 1935. William Blair continually undertakes the valuation of investment securities in connection with public offerings, private placements, business combinations, estate and gift tax valuations and similar transactions. In the ordinary course of its business, William Blair may from time to time trade the securities of the Company or other parties involved in the Merger for its own account and for the accounts of its customers, and accordingly may at any time hold a long or short position in such securities. Within the past two years, William Blair has provided certain investment banking services to the Company from time to time, including acting as capital markets advisor to the Company in connection with the Company’s business combination with HCMC in October 2020 and as an underwriter in the Company’s follow -on offering of Company Common Stock in June 2021, for which the Company has paid William Blair fees of approximately $2,050,000 in the aggregate. The Strategic Transaction Committee hired William Blair based on its deep understanding of the Company’s business, and that William Blair had a significant wealth of experience in both the healthcare information technology industry and in transactions of this type.
+Fees
+Pursuant to a letter agreement dated January 28, 2022, a fairness opinion fee of $1,250,000 became payable to William Blair upon delivery of its fairness opinion. A fee of approximately $6,550,000, less the $1,250,000 fairness opinion fee previously paid to William Blair, will become payable to William Blair in connection with the consummation of the Merger. No portion of the fees payable to William Blair were contingent on the conclusions reached by William Blair in William Blair’s fairness opinion. In addition, the Company agreed to reimburse William Blair for certain of its out -of -pocket expenses (including fees and expenses of its counsel and any other independent experts retained by William Blair) reasonably incurred by it in connection with its services and to indemnify William Blair against certain potential liabilities arising out of its engagement, including certain liabilities under the U.S. federal securities laws.
+Management Forecasts
+Summary of Management Forecasts
+Except for a financial outlook with respect to the current fiscal quarter and year issued in connection with its ordinary course earnings announcements, the Company does not, as a matter of course, publicly disclose forecasts or projections as to future performance, earnings or other results due to the inherent unpredictability of the underlying assumptions, estimates and projections, especially over the longer -term periods. In connection with the evaluation
+53
+Table of Contents
+of the Merger, the Company’s senior management prepared and provided to the Company Board and William Blair the Management Forecasts. The Company is including a summary of the Management Forecasts in order to provide Company stockholders with access to information that was made available to the Company Board in connection with its evaluation of the Merger and the Merger Consideration. In addition, a summary of the Management Forecasts was made available to Parent and Merger Sub at Parent’s request in connection with their due diligence review of the Company. The Management Forecasts were also made available to William Blair in connection with the rendering of its financial fairness opinion to the Company Board, as more fully described in the section of this proxy statement captioned “— Opinion of William Blair & Company, L.L.C.” The summary of the Management Forecasts may not be appropriate for other purposes and is not being included in this proxy statement to influence a Company stockholder’s decision whether to vote in favor of the proposal to adopt and approve the Merger Agreement or any other proposal. Please read the information set forth in this section below under the heading “Important Information Regarding the Management Forecasts.”
+The following table presents a summary of the Management Forecasts.
+Year ended December 31,
+($ in millions)
+2022E
+2023E
+2024E
+2025E
+2026E
+2027E (1)
+Revenues
+$
+122.5
+$
+149.4
+$
+183.6
+$
+227.4
+$
+281.8
+$
+343.1
+Adjusted EBITDA (2)
+$
+(12.5
+)
+$
+(1.9
+)
+$
+11.2
+$
+19.6
+$
+42.4
+n/a
+____________
+(1) The Management Forecasts for calendar year 2027 did not include any calculation of adjusted EBITDA.
+(2) Adjusted EBITDA is a non -GAAP financial measure, which is defined as net income (loss) before interest, taxes, depreciation and amortization (including internal -use software), stock -based compensation, gain on contingent shares issuance liabilities, loss on puttable options, change in fair value of contingent consideration, and integration, acquisition, transaction and executive severance costs.
+Important Information Regarding the Management Forecasts
+The Management Forecasts were developed by the Company’s senior management on a standalone basis without giving effect to the Merger and the other transactions contemplated by the Merger Agreement. Furthermore, the Management Forecasts do not take into account the effect of any failure of the transactions contemplated by the Merger Agreement to be completed and should not be viewed as accurate or continuing in that context. Although the Management Forecasts are presented with numerical specificity, they were based on numerous variables and assumptions made by the Company’s senior management with respect to industry performance, general business, economic, regulatory, market and financial conditions and other future events, as well as matters specific to the Company’s business, all of which are difficult or impossible to predict accurately and many of which are beyond the Company’s control. The Management Forecasts constitute forward -looking information and are subject to many risks and uncertainties that could cause actual results to differ materially from the results forecasted in the Management Forecasts, including, but not limited to, the Company’s performance, industry performance, general business and economic conditions, customer requirements, staffing levels, competition, adverse changes in applicable laws, regulations or rules, the ability to successfully pursue and complete acquisitions, and the various risks set forth in the Company’s reports filed with the SEC. There can be no assurance that the Management Forecasts will be realized or that actual results will not be significantly higher or lower than the Management Forecasts. The Management Forecasts cover several years, and such information by its nature becomes less reliable with each successive year. In addition, the Management Forecasts will be affected by the Company’s ability to achieve strategic goals, objectives and targets over the applicable periods. The Management Forecasts reflect assumptions as to certain business decisions that are subject to change and cannot, therefore, be considered a guarantee of future operating results, and this information should not be relied on as such. The inclusion of the Management Forecasts should not be regarded as an indication that the Company, William Blair, their respective officers, directors, affiliates, advisors, or other representatives or anyone who received this information then considered, or now considers, them a reliable prediction of future events, and this information should not be relied upon as such. The inclusion of the Management Forecasts in this proxy statement should not be regarded as an indication that the Management Forecasts will be necessarily predictive of actual future events. No representation is made by the Company or any other person regarding the Management Forecasts or the Company’s ultimate performance compared to such information. The Management Forecasts should be evaluated, if at all, in conjunction with the historical financial statements and other information about the Company contained in the Company’s public filings with the SEC. For more information,
+54
+Table of Contents
+please see the section of this proxy statement captioned “Where You Can Find More Information.” In light of the foregoing factors, and the uncertainties inherent in the Management Forecasts, Company stockholders are cautioned not to place undue, if any, reliance on the Management Forecasts.
+The Management Forecasts were not prepared with a view toward public disclosure or with a view toward complying with the published guidelines of the SEC regarding projections or accounting principles generally accepted in the United States (“GAAP”), or the guidelines established by the American Institute of Certified Public Accountants with respect to the preparation or presentation of prospective financial information. The Management Forecasts included in this proxy statement have been prepared by, and are the responsibility of, the Company’s senior management. PricewaterhouseCoopers LLP has not audited, reviewed, examined, compiled nor applied agreed -upon procedures with respect to the Management Forecasts and, accordingly, PricewaterhouseCoopers LLP does not express an opinion or any other form of assurance with respect thereto. The PricewaterhouseCoopers LLP report incorporated by reference into this proxy statement relates to the Company’s previously issued financial statements. It does not extend to the Management Forecasts and should not be read to do so.
+Adjusted EBITDA contained in the Management Forecasts summarized above is a “non -GAAP financial measure,” which is a financial performance measure that is not calculated in accordance with GAAP. The non -GAAP financial measures used in the Management Forecasts were relied upon by William Blair for purposes of its opinion and by the Company Board in connection with its evaluation of the Merger. The SEC rules which would otherwise require a reconciliation of a non -GAAP financial measure to a GAAP financial measure do not apply to non -GAAP financial measures included in disclosures relating to a proposed business combination such as the Merger if the disclosure is included in a document such as this proxy statement. In addition, reconciliations of non -GAAP financial measures were not relied upon by William Blair for purposes of its opinion or by the Company Board in connection with its evaluation of the Merger. Accordingly, the Company has not provided a reconciliation of the financial measures included in the Management Forecasts to the relevant GAAP financial measures. Non -GAAP financial measures should not be considered in isolation from, or as a substitute for, financial information presented in compliance with GAAP, and non -GAAP financial measures as used by the Company may not be comparable to similarly titled amounts used by other companies. Furthermore, there are limitations inherent in non -GAAP financial measures because they exclude charges and credits that are required to be included in a GAAP presentation. Accordingly, these non -GAAP financial measures should be considered together with, and not as an alternative to, financial measures prepared in accordance with GAAP.
+The summary of such information above is included solely to give Company stockholders access to the information that was made available to the Company Board, William Blair, Parent and Merger Sub, and is not included in this proxy statement to influence any Company stockholder to vote their shares of Company Common Stock in favor of the proposal to adopt and approve the Merger Agreement or any other proposal contained herein. In addition, the Management Forecasts have not been updated or revised to reflect information or results after the date they were prepared or as of the date of this proxy statement, and except as required by applicable securities laws, the Company does not intend to update or otherwise revise the Management Forecasts or the specific portions presented to reflect circumstances existing after the date when made or to reflect the occurrence of future events, even in the event that any or all of the underlying assumptions are shown to be in error.

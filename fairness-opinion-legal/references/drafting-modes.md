@@ -24,3 +24,7 @@ Claude Opus reproduced the filing as well as the GPT-6 reference run (filed reca
 peer by full legal name; Claude Sonnet kept the numbers and tables but rewrote more (filed recall 0.62). Token use was the same
 across models (about 300k a deal, most of it reading the book and the precedents), so Opus is the efficient default drafter;
 use Fable for an unusual deal. Extraction and review passes run on Haiku; search, shell, scoring and redline are scripts.
+
+The toggle: `Drafter model: opus | fable` in the profile's Drafting section (the interview asks), or `--model opus|fable` on
+`/pipeline`, `/section-draft` and `/demo --live` for one run. Both models get the same task text, inputs and scoring; only the
+drafter changes, and the drafting log records which one wrote the draft.

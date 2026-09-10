@@ -1,0 +1,429 @@
+Opinion of the Company’s Financial Advisor
+Opinion of William Blair & Company, L.L.C.
+William Blair was retained to act as financial advisor to the Company in connection with a possible business combination. Pursuant to its engagement, the Board
+requested that William Blair render an opinion to the Board as to whether the Offer Price to be received by holders of Shares (other than (i) Shares that are owned by the Company as treasury stock, owned directly by Parent or Merger Sub or
+owned by any direct or indirect wholly-owned subsidiary of Parent (other than Merger Sub) or of Merger Sub, (ii) Shares with respect to which stockholders have properly exercised appraisal rights and (iii) Company Restricted Stock
+(collectively, the “ Non - Participants ”)) was fair, from a financial point of view, to such holders. On August 16, 2023, William Blair delivered its oral opinion to the Board (subsequently confirmed in its written
+opinion dated August 16, 2023) that, as of the date of such opinion, and based upon and subject to the assumptions, qualifications and limitations stated in its written opinion, the Offer Price to be received by holders of Company Common Stock
+(other than Non-Participants) was fair, from a financial point of view, to such holders.
+THE FULL TEXT OF
+WILLIAM BLAIR’S WRITTEN OPINION, DATED AUGUST 16, 2023, IS ATTACHED AS ANNEX A TO THIS SCHEDULE 14D-9 AND INCORPORATED INTO THIS SCHEDULE 14D-9 BY REFERENCE.
+YOU ARE URGED TO READ THE ENTIRE FAIRNESS OPINION CAREFULLY AND IN ITS ENTIRETY TO LEARN ABOUT THE ASSUMPTIONS MADE, PROCEDURES FOLLOWED, MATTERS CONSIDERED AND LIMITS ON THE SCOPE OF THE REVIEW UNDERTAKEN BY WILLIAM BLAIR IN RENDERING ITS OPINION.
+THE ANALYSIS PERFORMED BY WILLIAM BLAIR SHOULD BE VIEWED IN ITS ENTIRETY; NONE OF THE METHODS OF ANALYSIS SHOULD BE VIEWED IN ISOLATION. WILLIAM BLAIR’S FAIRNESS OPINION WAS DIRECTED TO THE BOARD FOR ITS USE AND BENEFIT IN EVALUATING THE
+FAIRNESS OF THE OFFER PRICE TO BE RECEIVED BY THE HOLDERS OF SHARES (OTHER THAN NON-PARTICIPANTS) PURSUANT TO THE MERGER AGREEMENT AND RELATES ONLY TO THE FAIRNESS, AS OF THE DATE OF WILLIAM BLAIR’S
+FAIRNESS OPINION AND FROM A FINANCIAL POINT OF VIEW, OF THE OFFER PRICE TO BE RECEIVED BY THE HOLDERS OF SHARES (OTHER THAN NON-PARTICIPANTS) IN THE MERGER. WILLIAM BLAIR’S FAIRNESS OPINION DOES NOT
+ADDRESS ANY OTHER ASPECTS OF THE MERGER OR ANY RELATED TRANSACTION, AND DOES NOT CONSTITUTE A RECOMMENDATION TO ANY HOLDER OF COMPANY COMMON STOCK AS TO WHETHER SUCH STOCKHOLDER SHOULD TENDER ITS SHARES IN CONNECTION WITH THE OFFER OR HOW SUCH
+STOCKHOLDER SHOULD VOTE OR ACT WITH RESPECT TO THE TRANSACTIONS. WILLIAM BLAIR DID NOT ADDRESS THE MERITS OF THE UNDERLYING DECISION BY THE COMPANY TO ENGAGE IN THE TRANSACTIONS. THE FOLLOWING SUMMARY OF WILLIAM BLAIR’S FAIRNESS OPINION IS
+QUALIFIED IN ITS ENTIRETY BY REFERENCE TO THE FULL TEXT OF ITS FAIRNESS OPINION ATTACHED TO THIS SCHEDULE 14D-9 AS ANNEX A.
+In connection with William Blair’s review of the Merger and the preparation of its opinion, William Blair examined:
+• |
+the draft Merger Agreement, dated August 16, 2023, and William Blair assumed that the final form of the
+Merger Agreement would not differ from such draft in any material respect;
+31
+Table of Contents
+• |
+audited historical financial statements of the Company included in its filings with the SEC as of and for the
+three fiscal years ended December 31, 2022, 2021 and 2020;
+• |
+unaudited financial statements of the Company included in its filings with the SEC as of and for the six-months ended June 30, 2023;
+• |
+audited historical financial statements of IsoPlexis Corp., acquired by the Company on March 21, 2023,
+included in its filings with the SEC for the fiscal years ended December 31, 2022 and 2021;
+• |
+internal unaudited pro forma financial information from fiscal year ending December 31, 2022;
+• |
+certain internal business, operating and financial information and the Financial Forecasts (as defined below),
+prepared by the Company’s senior management and provided to William Blair on June 20, 2023, and sensitivities approved by the Company relating thereto (the “ Sensitivities ”);
+• |
+information regarding publicly available financial terms of certain other transactions William Blair deemed
+relevant;
+• |
+the financial position and operating results of the Company compared with those of certain other publicly traded
+companies William Blair deemed relevant; and
+• |
+current and historical market prices and trading volumes of the Company common stock; and certain other publicly
+available information on the Company.
+William Blair also held discussions with members of the Company’s senior management to
+discuss the foregoing, considered other matters that it deemed relevant to its analysis, and took into account the accepted financial and investment banking procedures and considerations that it deemed relevant.
+In rendering its opinion, William Blair assumed and relied, without independent verification, upon the accuracy and completeness of all the financial, legal,
+regulatory, tax, accounting and other information provided to, examined by or otherwise reviewed or discussed with William Blair for purposes of its fairness opinion, including without limitation the Financial Forecasts provided by the
+Company’s senior management. William Blair did not make or obtain an independent valuation or appraisal of the assets, liabilities or solvency of the Company. William Blair was advised by the Company’s senior management that the Financial
+Forecasts examined by William Blair were reasonably prepared on bases reflecting the best currently available estimates and judgments of the Company’s senior management and at the direction of the Company have also applied the Sensitivities to
+the Financial Forecasts. In that regard, William Blair assumed, with the consent of the Board, that, (i) the Financial Forecasts would be achieved in the amounts and at the times contemplated thereby, taking into account the Sensitivities, and
+(ii) all material assets and liabilities (contingent or otherwise) of the Company were as set forth in the Company’s financial statements or other information made available to William Blair. William Blair did not express an opinion with
+respect to the Financial Forecasts, the Sensitivities, or the estimates and judgments on which they were based. William Blair did not consider and expressed no opinion as to the amount or nature of the compensation payable to any of the
+Company’s officers, directors or employees (or any class of such persons) relative to the compensation payable to the Company’s other stockholders. William Blair’s opinion was based upon economic, market, financial and other
+conditions existing on, and other information disclosed to William Blair as of, the date of its opinion. It should be understood that, although subsequent developments may affect William Blair’s opinion, William Blair does not have any
+obligation to update, revise or reaffirm its opinion. William Blair did not make any determinations as to legal matters related to the Merger, and assumed that the Merger would be consummated on the terms described in the Merger Agreement, without
+any waiver of any material terms or conditions by the Company.
+The following is a summary of the material financial analyses performed and material
+factors considered by William Blair to arrive at its opinion. William Blair performed certain procedures, including each of
+32
+Table of Contents
+the financial analyses described below, and reviewed with the Board the assumptions upon which such analyses were based, as well as other factors. Although the summary does not purport to
+describe all of the analyses performed or factors considered by William Blair in this regard, it does set forth those considered by William Blair to be material in arriving at its fairness opinion. The financial analyses summarized below include
+information presented in a tabular format. In order to fully understand the financial analyses performed by William Blair, the tables must be read together with the text of each summary. The tables alone do not constitute a complete description of
+the financial analyses performed by William Blair. Considering the data set forth in the tables below without considering the full narrative description of the financial analyses, including the methodologies and assumptions underlying the analyses,
+could create a misleading or incomplete view of the financial analyses performed by William Blair. The order of the summaries of the analyses described below does not represent the relative importance or weight given to those analyses by William
+Blair.
+Selected Public Companies Analysis
+William Blair reviewed and compared certain financial information relating to the Company to corresponding financial information, ratios and public market
+multiples for publicly traded companies in the life science tools sector with similar business models and financial profiles that William Blair deemed relevant. The companies selected by William Blair were: (i) BioLife Solutions, Inc.
+(ii) Standard BioTools Inc. (iii) NanoString Technologies, Inc., (iv) Akoya Biosciences, Inc., (v) MaxCyte, Inc. (vi) 908 Devices Inc., (vii) Alpha Teknova, Inc. and (viii) Rapid Micro Biosystems, Inc., which eight companies William
+Blair deemed appropriate comparisons to the Company based on the foregoing factors. William Blair considered the enterprise value for each company (including the Company), which William Blair calculated as the equity value of the company, plus total
+debt, minority interest and preferred stock, less cash and cash equivalents. The equity value of each company was calculated using the closing stock price as of August 14, 2023 (the latest practicable trading day for reference prior to the
+entry into the Merger Agreement), multiplied by the total diluted Shares outstanding (using the most recent publicly available information as of August 14, 2023). William Blair considered the enterprise value as a multiple of (i) last
+twelve months (“ LTM ”) revenue and (ii) next twelve months (“ NTM ”) expected revenue based on Wall Street consensus estimates for each company. William Blair then used the implied enterprise value based on the
+Offer Price of $1.00 to derive implied valuation multiples for the Company for LTM and NTM revenue based on Wall Street consensus estimates and the Financial Forecasts. William Blair compared the multiples implied for the Company based on the Offer
+Price to the range of trading multiples of the aggregate group of selected publicly traded life science tools companies. Information regarding the multiples derived from William Blair’s selected public company analysis is set forth in the
+following tables.
+Company
+Enterprise
+Value /
+LTM
+Revenue |
+Enterprise
+Value /
+NTM
+Revenue |
+908 Devices, Inc.
+1.90x |
+1.68x |
+Akoya Biosciences, Inc.
+2.98x |
+2.25x |
+Alpha Teknova, Inc.
+1.90x |
+1.70x |
+BioLife Solutions, Inc.
+3.42x |
+3.53x |
+MaxCyte, Inc.
+4.52x |
+3.53x |
+NanoString Technologies, Inc
+1.89x |
+1.37x |
+Rapid Micro Biosystems, Inc. (1)
+N/A |
+N/A |
+Standard BioTools Inc.
+3.90x |
+3.68x |
+(1) |
+Rapid Micro Biosystems, Inc. currently trades at a negative enterprise value.
+33
+Table of Contents
+Implied
+Transaction
+Multiple |
+Selected Public Company Valuation
+Multiples (1) |
+Min |
+Mean |
+Median |
+Max |
+Enterprise Value / LTM Revenue
+0.97x |
+1.89x |
+2.93x |
+2.98x |
+4.52x |
+Enterprise Value / NTM Revenue
+Management Forecast
+0.89x |
+1.37x |
+2.54x |
+2.25x |
+3.68x |
+Wall Street Consensus Estimate
+0.79x |
+1.37x |
+2.54x |
+2.25x |
+3.68x |
+(1) |
+Does not take into account Rapid Micro Biosystems, Inc. which trades at a negative enterprise value.
+William Blair noted that, with respect to the enterprise value LTM and NTM revenue multiple, the analyzed implied valuation multiple
+for the Company based on the Offer Price was below the range of multiples of the selected publicly companies.
+Although William Blair compared the trading
+multiples of the selected public companies to those implied for the Company, none of the selected public companies is directly comparable to the Company. Accordingly, any analysis of the selected public companies necessarily involved complex
+considerations and judgments concerning the differences in financial and operating characteristics and other factors that would necessarily affect the implied value of the Company versus the trading multiples of the selected public companies.
+Selected Precedent Transactions Analysis
+William Blair
+performed an analysis of five selected transactions that closed subsequent to January 1, 2016 that involved the acquisition of companies in the life science tools sector with similar business models and financial profiles that William Blair
+deemed relevant. William Blair’s analysis was based solely on publicly available information regarding such transactions. Although none of the companies or transactions used in this analysis is directly comparable to the Company or the
+Transactions, the companies included in the selected transactions above were chosen by William Blair, among other reasons, because they are life science tools companies with certain business, operational, and/or financial characteristics that, for
+purposes of William Blair’s analysis, may be considered similar to those of the Company. William Blair did not take into account any announced or consummated transaction whereby relevant financial information was not publicly disclosed and
+available. The selected transactions were not intended to be representative of the entire range of possible life science tools transactions.
+William
+Blair reviewed the consideration paid in the selected transactions in terms of the enterprise value of such transactions as a multiple of LTM revenue and NTM revenue based on the latest reported actual financial information or Wall Street consensus
+estimates, respectively, at the time of announcement for each respective transaction. William Blair considered the transaction multiples for the Company for the LTM and NTM revenue based on Wall Street consensus estimates and the Financial Forecasts
+and compared such multiples to the resulting range of transaction multiples. Information regarding the multiples from William Blair’s analysis of the selected transactions is set forth in the following tables:
+Date Announced
+Target
+Acquiror
+Enterprise
+Value /
+LTM
+Revenue |
+Enterprise
+Value /
+NTM
+Revenue |
+December 2022
+IsoPlexis |
+Berkeley Lights |
+3.18x |
+2.08x |
+April 2021
+Luminex Corporation |
+DiaSorin |
+4.16x |
+3.71x |
+November 2020
+Horizon Discovery Group |
+PerkinElmer |
+5.20x |
+4.55x |
+May 2016
+Nanosphere |
+Luminex Corporation |
+4.42x |
+3.35x |
+January 2016
+Affymetrix |
+Thermo Fisher Scientific |
+3.69x |
+3.57x |
+34
+Table of Contents
+Implied
+Transaction
+Multiple |
+Range of Selected Precedent
+Transaction Valuation Multiples |
+Multiple
+Min |
+Mean |
+Median |
+Max |
+Enterprise Value / LTM Revenue
+0.97x |
+3.18x |
+4.13x |
+4.16x |
+5.20x |
+Enterprise Value / NTM Revenue
+Management Forecast
+0.89x |
+2.08x |
+3.45x |
+3.57x |
+4.55x |
+Wall Street Consensus Estimate
+0.79x |
+2.08x |
+3.45x |
+3.57x |
+4.55x |
+William Blair noted that the implied transaction multiples of LTM and NTM revenue based on consensus estimates and the
+Financial Forecasts for the Company based on the Offer Price was below the range of multiples of the selected transactions.
+Although William Blair
+analyzed the multiples implied by the selected transactions and compared them to the implied transaction multiple of the Company, none of these transactions or associated companies is identical to the Company or the transactions contemplated by the
+Merger Agreement. Accordingly, any analysis of the selected transactions necessarily involved complex considerations and judgments concerning the differences in financial and operating characteristics, parties involved and terms of their
+transactions and other factors that would necessarily affect the implied value of the Company versus the values of the companies in the selected transactions.
+Discounted Cash Flow Analysis
+William Blair utilized the
+Financial Forecasts to perform a discounted cash flow analysis of the Company’s projected future free cash flows for the six months ending December 31, 2023 through December 31, 2028. Using the discounted cash flow methodology,
+William Blair calculated the present values of the projected after-tax unlevered free cash flows for the Company. In this analysis, William Blair exercised its professional judgment, based on its experience
+and expertise, and calculated the assumed terminal value of the Company with a range of 1.75x-3.75x of calendar year 2028 expected revenue. To discount the projected unlevered free cash flows and assumed
+terminal value to present value, William Blair used discount rates ranging from 25.0% to 27.0%. The discount rate range was derived based upon a weighted average cost of capital of the selected public companies using the capital asset pricing model.
+William Blair aggregated the present value of the after-tax unlevered free cash flows over the applicable
+Financial Forecast period, the present value of the potential tax savings expected to result from the utilization of the Company’s federal net operating losses ($4 million), and the present value of the assumed terminal value. William Blair
+then derived a range of implied equity values per share by adding the Company’s net cash as of June 30, 2023 and dividing such amount by the Company’s total diluted Shares outstanding as of June 30, 2023, as adjusted to take into
+account the impact of dilutive securities based on the treasury stock method at the implied share price. This analysis resulted in a range of implied equity values of $0.80 to $2.26 per Share, as compared to the Offer Price.
+At the direction of the senior management of the Company, given the liquidity position of the Company and the need for additional capital to finance the
+operations of the Company to achieve the Financial Forecasts, William Blair conducted an additional discounted cash flow analysis consistent with the above methodologies. In such analysis, William Blair assumed an immediate equity capital raise of
+$50 million by the Company both at a 0% discount and a 25% discount to the closing stock price as of August 14, 2023 (the latest practicable trading day for reference prior to the entry into the Merger Agreement). This analysis resulted in
+a range of implied equity values of $0.72 to $1.55 per Share in the 0% discount scenario and a range of implied equity values of $0.63 to $1.35 per share in the 25% discount scenario.
+M&A Premiums Paid Analysis
+William Blair reviewed
+data from 505 acquisitions of North American publicly traded companies announced across all industries since January 1, 2010 in which 100% of the target’s equity was acquired with equity values
+35
+Table of Contents
+between $50 million and $150 million. Specifically, William Blair analyzed the acquisition price per Share as a premium to the closing Share price one day, one week and one month prior
+to the announcement of each transaction. William Blair compared the range of resulting per Share price premiums for the reviewed transactions to the premiums implied by the Offer Price based on Company Common Stock prices one day, one week and one
+month prior to each of August 14, 2023 (the latest practicable trading day for reference prior to the entry into the Merger Agreement). Information regarding the premiums from William Blair’s analysis of selected transactions is set forth
+in the following tables:
+Period
+Implied
+Premium at
+$1.00/ share |
+Premiums Paid Data Percentile |
+10th |
+20th |
+30th |
+40th |
+50th |
+60th |
+70th |
+80th |
+90th |
+One Day Prior
+64.3 |
+% |
+0.2 |
+% |
+12.4 |
+% |
+20.9 |
+% |
+28.2 |
+% |
+35.5 |
+% |
+45.0 |
+% |
+56.2 |
+% |
+68.7 |
+% |
+98.4 |
+% |
+One Week Prior
+75.4 |
+% |
+1.4 |
+% |
+12.9 |
+% |
+22.5 |
+% |
+29.8 |
+% |
+38.2 |
+% |
+47.2 |
+% |
+58.0 |
+% |
+72.4 |
+% |
+100.0 |
+% |
+One Month Prior
+62.3 |
+% |
+0.7 |
+% |
+16.0 |
+% |
+25.0 |
+% |
+31.2 |
+% |
+38.7 |
+% |
+48.6 |
+% |
+61.7 |
+% |
+74.5 |
+% |
+103.3 |
+% |
+General
+This summary is
+not a complete description of the analysis performed by William Blair, but contains the material elements of the analysis. The preparation of an opinion regarding fairness is a complex process involving various determinations as to the most
+appropriate and relevant methods of financial analysis and the application of those methods to the particular circumstances, and, therefore, such an opinion is not readily susceptible to partial analysis or summary description. The preparation of an
+opinion regarding fairness does not involve a mathematical evaluation or weighing of the results of the individual analyses performed, but requires William Blair to exercise its professional judgment, based on its experience and expertise, in
+considering a wide variety of analyses taken as a whole. Each of the analyses conducted by William Blair was carried out in order to provide a different perspective on the Offer Price and add to the total mix of information available. The analyses
+were prepared solely for the purpose of William Blair providing its opinion and do not purport to be appraisals or necessarily reflect the prices at which securities actually may be sold. William Blair did not form a conclusion as to whether any
+individual analysis, considered in isolation, supported or failed to support an opinion about the fairness of the Offer Price to be received by the holders of Company Common Stock (other than
+Non-Participants). Rather, in rendering its oral opinion on August 16, 2023 (subsequently confirmed in its written opinion dated August 16, 2023) to the Board, as of that date and based upon and
+subject to the assumptions, qualifications and limitations stated in its written opinion, as to whether the Offer Price to be received by the holders of Company Common Stock (other than Non-Participants) was
+fair, from a financial point of view, to such holders, William Blair considered the results of the analyses in light of each other and ultimately reached its opinion based on the results of all analyses taken as a whole. William Blair’s
+fairness opinion considered each valuation method equally and did not place any particular reliance or weight on any particular analysis, but instead concluded that its analyses, taken as a whole, supported its determination. Accordingly,
+notwithstanding the separate factors summarized above, William Blair believes that its analyses must be considered as a whole and that selecting portions of its analyses and the factors considered by it, without considering all analyses and factors,
+may create an incomplete view of the evaluation process underlying its opinion. No company or transaction used in the above analyses as a comparison is directly comparable to the Company or the proposed transaction under the Merger Agreement. In
+performing its analyses, William Blair made numerous assumptions with respect to industry performance, business and economic conditions and other matters. The analyses performed by William Blair are not necessarily indicative of future actual values
+and future results, which may be significantly more or less favorable than suggested by such analyses.
+William Blair has been engaged in the investment
+banking business since 1935. William Blair continually undertakes the valuation of investment securities in connection with public offerings, private placements, business combinations, estate and gift tax valuations and similar transactions. In the
+ordinary course of its business, William Blair may from time to time trade the securities of the Company or other parties involved in the Transactions for its own account and for the accounts of its customers, and accordingly may at any time hold a
+long or short position in such securities. William Blair is familiar with the Company, having been engaged on
+36
+Table of Contents
+May 31, 2023 in connection with advising the Company on potential strategic alternatives. William Blair received a fee in the amount $150,000 for such services. The Board hired William Blair
+based on its deep understanding of the Company’s business, and that William Blair had a significant wealth of experience in both the life science tools industry and in transactions of this type.
+Fees
+Pursuant to a letter agreement dated July 14,
+2023, a fairness opinion fee of $1 million became payable to William Blair upon delivery of its fairness opinion. A fee of approximately $3.5 million, less the $1 million fairness opinion fee previously paid to William Blair, will
+become payable to William Blair upon the consummation of the Merger. No portion of the fees payable to William Blair were contingent on the conclusions reached by William Blair in William Blair’s fairness opinion. In addition, the Company
+agreed to reimburse William Blair for certain of its out-of-pocket expenses (including fees and expenses of its counsel and any other independent experts retained by
+William Blair) reasonably incurred by it in connection with its services and to indemnify William Blair against certain potential liabilities arising out of its engagement, including certain liabilities under the U.S. federal securities laws.
+Certain Company Forecasts
+Other than annual
+guidance—including the guidance included in the Company’s press release dated May 11, 2023 and the update of such guidance in the Company’s press release dated August 14, 2023 (collectively, the “ 2023 Earnings
+Guidance ”) with respect to full year revenue, gross margin, adjusted gross margin and operating expenses, some of which guidance the Company presents as a range—the Company does not, as a matter of course, publicly disclose forecasts
+as to future performance, earnings or other results due to the unpredictability of the underlying assumptions and estimates. However, in connection with the Board’s and the Transaction Committee’s evaluation of strategic and financial
+alternatives and their evaluation of the Transactions, the Company’s management prepared certain nonpublic, unaudited prospective financial information for the fiscal years 2023 through 2028 (which we refer to as the “ Financial
+Forecasts ”) and the Company has included a summary of the Financial Forecasts in this Schedule 14D-9. The Financial Forecasts were furnished to (1) the Board, the Transaction Committee,
+William Blair (the Company’s financial advisor) and Parent in connection with the discussions concerning the Transactions and (2) certain other parties potentially interested in a transaction with the Company.
+The Financial Forecasts were not prepared with a view toward public disclosure or complying with the guidelines established by the American Institute of
+Certified Public Accountants for preparation and presentation of prospective financial data, published guidelines of the SEC regarding forward-looking statements or generally accepted accounting principles in the United States
+(“ GAAP ”).
+No assurances can be made regarding future events and the estimates and assumptions underlying the Financial Forecasts involve
+judgments with respect to, among other things, future economic, competitive, regulatory and financial market conditions and future business decisions that may not be realized and that are inherently subject to significant business, economic,
+competitive and regulatory uncertainties and contingencies, including, among other things, the inherent uncertainty of the business and economic conditions affecting the industries in which the Company operates and the risks and uncertainties
+described under “Item 8. Additional Information—Forward-Looking Statements”, all of which are difficult to predict and many of which are outside the control of the Company and, upon consummation of the Merger, will be beyond the
+control of Parent and the Surviving Company. The Company’s stockholders are urged to review the Company’s SEC filings for a description of risk factors with respect to the Company and its business. There can be no assurance that the
+assumptions underlying the Financial Forecasts will prove to be accurate or that the projected results will be realized. Actual results may differ materially from those reflected in the Financial Forecasts, whether or not the Merger is consummated.
+The inclusion in this Schedule 14D-9 of the Financial Forecasts should not be regarded as an indication that the Company, the Board, the Transaction Committee, William Blair, Parent or any other person
+considered, or now
+37
+Table of Contents
+consider, these forecasts to be a reliable predictor of future results. The Financial Forecasts are not fact, and neither they nor any underlying assumptions should be relied on as being
+indicative of future results. Readers of this Schedule 14D-9 are cautioned not to place reliance on this information. The Financial Forecasts assumed that the Company would continue to operate as a standalone
+company and do not reflect any impacts of the Transactions, including the Offer and the Merger.
+Certain of the financial measures included in the
+Financial Forecasts are “non-GAAP financial measures.” These are financial performance measures that are not calculated in accordance with GAAP. Investors should also note that the non-GAAP financial measures presented in this Schedule 14D-9 are not prepared under any comprehensive set of accounting rules or principles and do not reflect all of the
+amounts associated with the Company’s results of operations as determined in accordance with GAAP. Investors should also note that the non-GAAP financial measures presented in this Schedule 14D-9 have no standardized meaning prescribed by GAAP and, therefore, have limits in their usefulness to investors. Because of the non-standardized definitions, the non-GAAP financial measures in this Schedule 14D-9 and the accompanying footnotes may be calculated differently from, and may not be directly comparable to, similarly titled
+measures used by the Company’s competitors and other companies, or any similarly titled measures used by Parent or any of its affiliates.
+Due to the
+inherent limitations of non-GAAP financial measures, investors should consider non-GAAP measures only as a supplement to, not as a substitute for or as a superior
+measure to, measures of financial performance prepared in accordance with GAAP. The footnotes to the tables below provide certain supplemental information with respect to the calculation of these non-GAAP
+financial measures.
+The Financial Forecasts included in this document have been prepared by, and are the responsibility of, the Company’s
+management. KPMG LLP, the Company’s independent auditor, has not audited, reviewed, examined, compiled or applied agreed upon procedures with respect to the accompanying Financial Forecasts and, accordingly, KPMG LLP does not express an opinion
+or any other form of assurance with respect thereto. The KPMG LLP report incorporated by reference in this document relates to the Company’s previously issued financial statements. It does not extend to the Financial Forecasts and should not be
+read to do so.
+The non-GAAP financial measures included in the Financial Forecasts were first provided to William
+Blair on June 20, 2023 and were approved by the Board, acting by unanimous written consent, on July 13, 2023 for use by William Blair and were relied on by William Blair for its financial analysis in connection with the preparation of its
+opinion and by the Board and the Transaction Committee for their consideration of the Transactions. Financial measures included in forecasts provided to a financial advisor and a board of directors in connection with a business combination
+transaction, such as the Financial Forecasts, are excluded from the definition of “non-GAAP financial measures” under applicable SEC rules and regulations. As a result, the Financial Forecasts are
+not subject to SEC rules regarding disclosures of non-GAAP financial measures, which would otherwise require a reconciliation of a non-GAAP financial measure to the most
+directly comparable GAAP financial measure. Reconciliations of these non-GAAP financial measures were not provided to or relied on by the Board, the Transaction Committee or William Blair in connection with
+their respective evaluations of the Merger. Accordingly, the Company has not provided a reconciliation of the non-GAAP financial measures included in the Financial Forecasts to the relevant GAAP financial
+measures.
+By including in this Schedule 14D-9 the Financial Forecasts below, neither the Company nor Parent nor
+any of their respective representatives has made or makes any representation to any person regarding the ultimate performance of the Company compared to the information contained in the Financial Forecasts. Accordingly, the Financial Forecasts
+should not be construed as financial guidance, nor relied on as such, and the Financial Forecasts may differ in important respects from the 2023 Earnings Guidance, some of which guidance was presented as a range when first issued and which the
+Company’s management prepared based on a different set of assumptions. The inclusion of the Financial Forecasts in this Schedule 14D-9 does not constitute an admission or representation by the Company
+that the information contained therein is material. The Financial Forecasts reflected the opinions, estimates and judgments of the Company’s management at the time they were prepared
+38
+Table of Contents
+and have not been updated to reflect any subsequent changes. NONE OF THE COMPANY, PARENT OR MERGER SUB OR, AFTER CONSUMMATION OF THE MERGER, THE SURVIVING COMPANY, UNDERTAKES ANY OBLIGATION,
+EXCEPT AS REQUIRED BY LAW, TO UPDATE OR OTHERWISE REVISE THE FINANCIAL FORECASTS TO REFLECT CIRCUMSTANCES EXISTING SINCE THEIR PREPARATION, CHANGES IN GENERAL ECONOMIC OR INDUSTRY CONDITIONS OR THE OCCURRENCE OF UNANTICIPATED EVENTS, EVEN IN THE
+EVENT THAT ANY OR ALL OF THE UNDERLYING ASSUMPTIONS ARE SHOWN TO BE IN ERROR.
+The Financial Forecasts were relied on by the Board in reaching its
+determination on August 16, 2023 to (1) authorize and approve the execution, delivery and performance by the Company of the Merger Agreement and the consummation by the Company of the Transactions, including the Offer and the Merger,
+(2) determine that it is fair and in the best interests of the Company and its stockholders for the Company to enter into the Merger Agreement and consummate the Transactions, and declare the Merger Agreement and Transactions advisable,
+(3) resolve that the Merger Agreement and the Merger be governed by and effected under Section 251(h) of the DGCL and the Merger be effected as soon as practicable following the consummation (as defined in Section 251(h) of the DGCL)
+of the Offer and (4) resolve to recommend that the stockholders of the Company accept the Offer and tender their Shares in the Offer. The Financial Forecasts were the only forecasts prepared by management that were authorized by the Board for
+use by William Blair in connection with rendering its oral opinion delivered to the Board, which was subsequently confirmed by delivery of a written opinion dated as of August 16, 2023, and performing its financial analysis in connection
+therewith, as summarized in Item 4. The Solicitation or Recommendation—Opinion of the Company’s Financial Advisor”.
+The following table
+sets forth a summary of the Financial Forecasts. The summary of the Financial Forecasts is not included in this Schedule 14D-9 to induce any Company stockholder to tender their Shares in the Offer or to
+influence any Company stockholder to make any investment decision with respect to the Transactions, including whether or not to seek appraisal rights with respect to their Shares.

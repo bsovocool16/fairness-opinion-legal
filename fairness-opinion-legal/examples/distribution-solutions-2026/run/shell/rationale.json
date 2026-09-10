@@ -1,0 +1,58 @@
+{
+ "deck_analyses": [
+  "comps",
+  "dcf",
+  "lbo",
+  "precedents",
+  "premiums",
+  "targets",
+  "trading_range"
+ ],
+ "regime": "13e-3",
+ "candidates": [
+  {
+   "score": 1.154,
+   "id": "0001140361-24-043469",
+   "name": "ARC DOCUMENT SOLUTIONS, INC.  (ARC)  (CIK 0001305168)",
+   "date": "2024-10-16",
+   "regime": "13e-3",
+   "analyses": [
+    "comps",
+    "dcf",
+    "lbo",
+    "precedents",
+    "premiums"
+   ],
+   "chars": 29289,
+   "firm_shell": false
+  },
+  {
+   "score": 0.994,
+   "id": "0001213900-22-010811",
+   "name": "SOC Telemed, Inc.  (CIK 0001791091)",
+   "date": "2022-03-07",
+   "regime": "conventional",
+   "analyses": [
+    "comps",
+    "dcf",
+    "lbo",
+    "precedents",
+    "premiums"
+   ],
+   "chars": 36059,
+   "firm_shell": false
+  },
+  {
+   "score": 0.345,
+   "id": "0001213900-25-086880",
+   "name": "SAPIENS INTERNATIONAL CORP N V  (SPNS)  (CIK 0000885740)",
+   "date": "2025-09-11",
+   "regime": "13e-3",
+   "analyses": [],
+   "chars": 90000,
+   "firm_shell": false
+  }
+ ],
+ "selected": "0001140361-24-043469",
+ "rule": "Jaccard of the book's valuation analyses with the precedent's + regime match + structure (sum of the parts) + length fit + recency (+ firm shell)"
+}

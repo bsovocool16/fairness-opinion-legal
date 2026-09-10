@@ -1,0 +1,596 @@
+Confidential
+Project ECLIPSE
+Discussion Materials for the
+Special Committee of the
+Board of Directors of ECLIPSE
+July 15, 2026
+William Blair
+
+-----PAGE-----
+
+Confidential
+Important Information
+Confidential Material Presented to the Special Committee of ECLIPSE's Board of Directors
+The following pages contain material (together with any accompanying orol presentation and any supplementory documents provided therewith, the "materiols") provided to the
+Special Committee of the Board of Directors (the "Special Committee") of Distribution Solutions Group, Inc. (the "Company" or "ECLIPSE*) in the context of a meeting held to consider
+the Merger Consideration proposed to be paid to the Disinterested Stockholders, other than the holders of Excluded Shares of the Company pursuant to the terms and subject to the
+conditions set forth in the draft Agreement and Plon of Merger dated July 15, 2026 (the "Merger Agreement*) by and among Eclipse Porent Acquisitions, LLC, a Delawore limited
+lability company ("Parent"), Eclipse Intermediate Acquisitions, LLC, a Delaware limited iability company and a wholly owned Subsidiary of Parent ("Intermediate"), Eclipse
+Acquisitions Merger Sub, Inc., a Delaware corporation and a wholly owned Subsidiary of Intermediate ("Merger Sub"), and the Company, a Delaware corporation. The accompanyins
+material was compiled or prepared on a confidential basis solely for use by the Special Committee and not with a view toward public disclosure, and may not be disclosed,
+summarized, reproduced, disseminated or queted, or otherwise referred to in whole or in part, without the prior written consent of William Blair & Compaony, L.L.C. (*William Blair" or
+"Blair"). The information utilized in preparing this presentation was obtained from the Company, the Special Committee, its advisors and public sources. William Blair assumes no
+responsibility for independent investigation or verification of ony such information and has relied on such information being complete and accurate in all respects. Any estimates and
+projections regarding the Company contained herein have been prepared by ECLIPSE Management, and approved for our use by the Special Committee, or are publicly available or
+based upon such estimates and projections and involve numerous and significant subjective determinations, which may or may not prove to be correct, and William Blair expresses no
+opinion with respect to such estimates, projections and determinations. In addition, any analyses relating to the value of assets, businesses or securities do not purport to be
+appraisals or to reflect prices at which they may be sold. No representation or warranty, expressed or implied, is made as to the accuracy or completeness of such information and
+nothing contained herein is, or sholl be relied upon as, a representation or warranty, whether as to the past or the future. William Blair does not take any responsibility for the
+accuracy or completeness of any of the material used by the persons other than the Special Committee. Witliam Blair does not undertake any obligation to update or otherwise revise
+the accompanying materials. William Bleir's only opinion is its written opinion delivered to the Special Committee.
+ECLPSE / William Blair / 2
+
+-----PAGE-----
+
+Confidential
+Table of Contents
+Scope of Review & Analysis
+& Transaction Overview
+ECLIPSE Situation Overview and Financial Information
+Valuation Analyses
+Selected Public Companies Analysis
+I1.  |  Selected Precedent Transactions Analysis
+III.  |  Discounted Cash Flow Analysis
+IV.  |  Leveraged Buyout Analysis
+V.  |  M&A Premiums Paid Analysis
+ECLIPSE / William Blair / 3
+
+-----PAGE-----
+
+Confidential
+Scope of
+Review & Analysis
+William Blair
+
+-----PAGE-----
+
+Confidential
+Scope of Review and Analysis
+• William Blair's role is to render its opinion to the Special Committee as to the fairness, from a financial point of view, to the Disinterested Stockholders (other than holders of Excluded Shares
+(as defined in the Merger Agreement)) of shares of common stock, par value $1.00 per share, of ECLIPSE (the "Company Common Stock") of the Merger Consideration (as defined on page 8
+herein) to be received by such holders pursuant to the Agreement and Plan of Merger, dated as of July 15, 2026 (the "Merger Agreement") by and among Parent, Intermediate, Merger Sub and
+the Company, pursuant to which Merger Sub will merge with and into the Company, with the Company surviving the Merger as the surviving corporation, a wholly-owned subsidiary of
+• In connection with our review of the Merger and the preparation of our opinion, Blair has examined or discussed:
+- The draft of the Merger Agreement dated July 15, 2026, and Blair has assumed that the final form of the Merger Agreement will not differ from such draft in any material respects;
+- Audited historical financial statements of the Company included in its filings with the Securities and Exchange Commission (the "SEC") as of and for the three fiscal years ended December
+31, 2025, 2024 and 2023;
+- Unaudited financial statements of the Company included in its filings with the SEC as of and for the 3 months ended March 31, 2026;
+- Certain internal business, operating and financial information and forecasts of the Company for the fiscal years ending, December 31, 2026 through December 31, 2030, (the "Management
+Plan Forecast"), prepared by the senior management of the Company and provided to us on July 8, 2026;
+- Information regarding publicly available financial terms of certain other transactions Blair deemed relevant;
+- Information regarding certain publicly traded companies Blair deemed relevant;
+- The financial position and operating results of the Company compared with those of certain publicly traded companies Blair deemed relevant;
+- The current and historical market prices and trading volumes of the Company Common Stock; and
+- Certain other publicly available information on the Company.
+• Blair has also held discussions with members of senior management of the Company to discuss the foregoing.
+• Blair was not asked to consider, and its opinion does not address, the relative merits of the Merger as compared to any alternative business strategies that might exist for the Company or the
+effect of any other transaction in which ECLIPSE might engage.
+• Blair has also considered other matters deemed relevant to this analysis and has taken into account such accepted financial and investment banking procedures and considerations as
+deemed relevant.
+ECLIPSE / William Blair / 5
+
+-----PAGE-----
+
+Confidential
+Key Assumptions Underlying Our Review and Analysis
+• Blair has assumed and relied, without any independent verification and with the consent of the Special Committee, upon the accuracy and completeness of all the financial, legal, regulatory,
+tax, accounting and other information provided to, that was examined by, or otherwise reviewed or discussed with us for purposes of this presentation, and approved for our use by Special
+Committee and Blair assumes no responsibility or liability therefor.
+• Blair has not made or obtained an independent valuation or appraisal of the assets, liabilities or solvency of the Company.
+• Blair has been advised by the senior management of the Company that the Management Plan Forecast examined by us have been reasonably prepared on bases reflecting the best currently
+available estimates and judgments of the senior management of the Company. In that regard, Blair has assumed, with the consent of the Special Committee, that (i) the Management Plan
+Forecast will be achieved in the amounts and at times contemplated thereby and (i1) all material assets and liabilities (contingent or otherwise) of the Company are as set forth in the
+Company's financial statements or other information made available to us.
+• Blair expresses no opinion with respect to the Management Plan Forecast or the estimates and judgments on which they are based.
+• Blair did not consider, and express no opinion as to, the amount or nature of the compensation to any of the Company's officers, directors or employees (or any class of such persons) relative
+to the Merger Consideration payable to the Company's other stockholders.
+• Blair expresses no opinion as to any terms or other aspects of the Merger (other than the Merger Consideration to the extent specified herein], including, without limitation, the form or
+structure of the Merger, or tax or accounting consequences thereof.
+• This presentation is based upon economic, market, financial and other conditions existing on, and other information disclosed to Blair, as of the date hereof.
+• It should be understood that although subsequent developments may affect the opinion, Blair does not have any obligation to update, revise or reaffirm the opinion.
+• Blair has not made any determination as to legal matters related to the Merger, has assumed that the final executed Merger Agreement will not materially differ from the drafts of the Merger
+Agreement reviewed by William Blair and has assumed that the Merger will be consummated on the terms described in the Merger Agreement, without any amendment or waiver of any
+material terms or conditions by the Company.
+ECLPSE / William Blair / 6
+
+-----PAGE-----
+
+Confidential
+Transaction Overview
+William Blair
+
+-----PAGE-----
+
+Confidential
+Transaction Summary
+Term  |  Description
+Acquiror  |  • Eclipse Parent Acquisitions, LLC, an entity formed by affiliates of LKCM Headwater Investments, LLC
+Proposed Merger Consideration  |  • $35.00 per share in cash
+Transaction Structure  |  • Pursuant to the terms of and subject to the conditions set forth in the Merger Agreement, Merger Sub will be merged with and into the Company and the
+Disinterested Stockholders (other than holders of Excluded Shares) will be entitled to receive the Merger Consideration
+Rollover Stockholders  |  • Bryan King and LKCM ("Affiliated Stockholders") are rolling over shares, representing approximately 78.7% in aggregate ownership per reported figures in the
+13D filing
+• Parent termination fee equal to $22.2Mi13
+Termination Fees  |  • Company termination fee equal to $9.3M°, payable if (i) the Company terminates to enter into a Superior Proposal or (ii) Parent terminates following an
+Adverse Recommendation Change
+• Customary no-solicitation provisions, provided that ECLIPSE can accept superior proposals subject to the payment of the Company termination fee and other
+Fiduciary Out  |  customary conditions
+• All necessary corporate approvals (other than required shareholder approvals) are assumed to have been obtained prior to signing, the Merger Agreement
+Financing Commitment  |  • Subject to Equity Commitment Letter and availability of debt financing
+• Receipt of the Company stockholder approval
+- Requires a majority of votes cast by Disinterested Stockholders (majority-of-the-minority)
+Closing Conditions
+• Expiration of all applicable antitrust waiting periods, if any
+• Other customary closing conditions for a one-step merger
+Source: Draft Merger Agreemert dated July 15, 2026, Schedule 130 fled by LKCMon March 16, 2008.  |  ECUPSE / William Blair / •
+(1) Egulvalert of 6% of Merzer Contideration to minority shareholders.
+(2) Egulvalert of 2.9% of Meeper Consideration to minority shareholders.
+
+-----PAGE-----
+
+Confidential
+Valuation Summary
+Valuation Summary  |  Implied Premiums(*)
+($ in moilliona, escept per abare Sgurea)  |  Undisturbed  |  Current (for reference only/*
+Offer Price Per Share  |  $35.00
+Premium To  |  Date  |  Price  |  Premium  |  Date  |  Price  |  Premium
+Diluted Shares Outstanding!"  |  46.946
+$1,643  |  One Day Prior  |  3/13/26  |  $19.31  |  81.3%  |  7/14/26  |  $27.59  |  26.9%
+Equity Value
+Plus: Debt'"  |  738  |  One Week Prior  |  3/6/26  |  $22.09  |  58.4%  |  7/7/26  |  $26.94  |  29.9%
+Less: Cash*)  |  (53)
+Implied Enterprise Value  |  $2,328  |  One Month Prior  |  2/13/26  |  $30.84  |  13.5%  |  6/14/26  |  $27.72  |  26.3%
+Memo: Consideration to Disinterested Shareholders  |  5371  |  60 Days Prior  |  1/12/26  |  $30.02  |  16.6%  |  5/15/26  |  $26.96  |  29.8%
+ECLIPSE Statistics  |  Enterprise Value  |  90 Days Prior  |  12/13/25  |  $29.14  |  20.1%  |  4/15/26  |  $26.75  |  30.8%
+Multiples
+LTM Q1 202GA Adj. EBITDA"  |  180 Days Prior  |  9/14/25  |  $31.09  |  12.6%  |  1/15/26  |  $30.00  |  16.7%
+Actual  |  $173  |  13.5X
+One Year Prior  |  3/13/25  |  $28.53  |  22.7%  |  7/14/25  |  $28.27  |  23.8%
+CY 2026E Adj. EBITDA  |  30-Day VWAP  |  3/13/26  |  $25.84  |  35.4%  |  7/14/26  |  $27.49  |  27.3%
+Management Plan Forecast°L9  |  $203  |  11.5x
+Wall Street Consensus®)  |  $180  |  12.9x  |  60-Day VWAP  |  3/13/26  |  $26.80  |  30.6%  |  7/14/26  |  $27.33  |  28.0%
+Soustee S0C Föngs and Fectßet as ol July 14, 2026.
+I8] Dilutod shares oubsbanding calculased benod o1 46,256,422 common tharen, GVT,154 In-the-money optionn at a weigheed eveinge soike prlce ol 527.30, 424,T17 RSU%, and 185,905 delerod sharet en of July 14, 2026 per ECUPSE masogerent.
+1,5G1,504 out-of-the-money options and 26,754 528s are cotluded. (2) Per ECLIPSE belance sheet an of March 31, 2026. [] ECLIPSE finascialt are pro forma for acqubitions. (4) ECUIPSE Managemont Plan Forecant as of July $, 200%. (5) Represents  |  ECLPSE / William Blair / •
+Wall Street comse sus average ad, EBITOA estinuber. 00 Preniu m caloulated based on Merger Consideration ol 535.00 pershare congered to ECUPSE)y diosing share price per FactSet on dates soted. Doys prior besed e a calendar days. (75 135
+with decails of isital aler  |  -market open oa March 16, 2926, 0N0 $27.39 shane price an of July 14, 2006)
+
+-----PAGE-----
+
+Confidential
+ECLIPSE Situation
+Overview and
+Financial Information
+William Blair
+
+-----PAGE-----
+
+Confidential
+ECLIPSE Trading Snapshot
+Historical Stock Price Performance
+$45.00 -
+High: $40.85
+$40.00 -
+Offer Price: $35.00  |  12
+$35.00
+$30.00 -
+н-..
+LECLIPSE:
+Undisturbed  |  $27.59
+Dates
+3/13/2026  |  - 0.4
+Low: $13.01
+MMR.I  |  enrarel piyn
+Apr-22  |  Apr-23  |  May-24  |  Jun-25  |  Ju1-25
+Current Pricing lnfo (üs millions, encept shore price)  |  Undisturbed Share Price Perfonnance'"  |  Current Valuation Muttiples
+Price 2y14,2026  |  327.55  |  1 Moeth ta Change  |  (ST.A%)  |  EV/ LTM Q1 2026A Adj. EBITGA - (51T3M)*)  |  11.4x
+Diluted Shares Outstanding (M]™  |  46.T98  |  3 Morth % Change  |  (33.7%)  |  EV / 2026E ACj. EBITDA (Consersus) - (5130мg"  |  11.0k
+Equity Value  |  $1,291  |  6 Morth % Change  |  (3T.5%6)  |  CY 2008E ACj, EBITDA (Management) - (5203м) |HM  |  9.7x
+Net Debt™  |  Seas
+Undisturbed Average
+Enterprise Value  |  $1,976  |  Mokrse  |  ADTV (5M's)  |  VWAP  |  Undinturbed Valuation Multiples
+30 Tracing Dayz®  |  $3.44  |  $75,.84  |  EN /LTM Q1 3026A Adj, EBITDA - (SBTSM)*  |  9.2x
+Undisturbed Pricing info (in milions, enceot shore pricel
+60 Tracing Dayz®  |  $2.45  |  $26.80  |  EV / 2026E AGJ EBITDA (Consersus) - [SLaOMy"  |  B.Ax
+Price 3/13/2026  |  $19.31  |  CY 200SE Adj. EBITDA (Management) - (5200м)*A
+S0 Tracing Days®  |  $2.46  |  $26.92  |  7.Ax
+Diluted Shares Outstanding (Mj*  |  46,796
+Gquity Value  |  $904
+Net Debt™  |  5685
+Enterprive Value  |  $1.589
+Sounoe Edopmboet, Faetbet und S0C Manto as et 18y 14, 2005.
+I1) Oevted shana outatandinc cilolonch  |  L258, 412 cmmon share, S9T.2S4 in-the morry opsiona it. a solfted «reonnçe siribe pelce of $27.34, 434717 M3Ais, ind 125,999 de larmed Sharei aa-dl Jady 14, 232%-per DCLIMSA ANPACHmHE. 1,941,504 out-of-the eaorervoptiona
+und 25,754 599% um-exchaded, (2) Nat chbrt indlvden 945% of revohvn, 55M1 M of sankor secwred tarm koon, 53,49l ol olhar tevahem, 51.390 ol Snandieg keasnl, and 553M of cush und cash eoulvalarts per EOLIPSl belance shoet ka of Murch 31, 297%. Di Dluted shares setatindir  |  ECLPSE / William Blair / 11
+clloulated based on 46,296,433 comon ahmнs, 434,73F RRliz, und 515.095 defemed ahara anol JA4, 34, 2005 pнr DOLPSE menmpment. 1,.254,054-out-ol-the axoeey opoiona und 26,754 5P9a un wadladed. 411 Rlntiwe to undkcturtrd ahure pulce-date off Murch 11, 2106, ) Trndin
+Intomution based on tand  |  a ind inlthm to undistatbed date of Muach LX, 2005 49 ECLJPSE Sinuedola une pes Rorene Nor Bopuliãona. (T) Aopresenta WUA Soreet conceront wc ge BC). CAM3A eodmateL, (0 DOLIPSE Managueont Plыn Ranecaat aaof Jaly k, 200%.
+
+-----PAGE-----
+
+Confidential
+ECLIPSE: Historical Trading Histogram
+Last Twelve Months
+Undisturbed  |  Offer Price  |  • 18.3 million shares
+$19.31  |  $35.00  |  traded over the last
+twelve months
+33.8%  |  - -2.1x total float
+27.9%
++ Average daily trading
+16.0%  |  value: $2.0 million
+(average of 72K shares)
+5.2%  |  5.4%  |  7.2%
+1.1%  |  3.4%
+$18.00 - $20.00  |  $20.00 - $22.00 $22.00 - $24.00  |  $24.00 - $26.00  |  $26.00 - $28.00  |  $28.00 - $30.00  |  $30.00 - $32.00  |  $32.00 - $34.00
+Last Three Years
+• 43.4 million shares
+Undisturbed  |  Offer Price  |  traded over the last three
+$19.31  |  $35.00  |  years
+- -5.0x total float
+21.2%
+16.6%  |  • Average daily trading
+15.1%  |  value: $1.7 million
+13.0%
+(average of 58K shares)
+8.1%
+6.1%  |  5.0%  |  4.7%
+3.7%  |  3.8%  |  2.9%
+$19.00 - $21.00  |  $21.00 - 523.00  |  $23.00 - 525.00  |  $25.00 - $27.00  |  $27.00 - $29.00  |  $29.00 - 531.00  |  $31.00 - 533.00  |  533.00 - $35.00 535.00 - 537.00  |  $37.00 - $39.00 $39.00 - 541.00
+Sources: Capital IQ and FactSet asof the undhstarbed date of March 13, 2026.  |  ECUPSE / William Blair / 12
+Note: Assumes dally volame traded at the average of the intraday high and low price for each day across the time period represented
+
+-----PAGE-----
+
+Confidential
+Summary of Research Recommendations
+2026E  |  Price  |  Premium  |  Premium
+Firm  |  Rating  |  Rating Date  |  Adj. EBITDA  |  Target  |  to Undisturbedia)  |  to Current(2)
+Barrington  |  Buy  |  May 21, 2026  |  $176.0  |  $33.00  |  70.9%  |  19.6%
+BENARTAE
+KeyBanc
+oital Markots  |  Hold  |  May 18, 2026  |  $180.1  |  -  |  -
+Stephens  |  Buy  |  May 4, 2026  |  $184,0  |  $36.00  |  86.4%  |  30.5%
+Consensus - Mean  |  $180.0  |  $34.50  |  78.7%  |  25.0%
+Sources: Wall Sareet equity research and FactSet as of July 14, 2026.
+(1) Undisturbed share price of $19.31 as of March 13, 2026.  |  ECLPSE / William Blair / 13
+(2) Curent share price of 527.99 as ol July 14, 2026.
+
+-----PAGE-----
+
+Confidential
+ECLIPSE - Management Plan Forecast (July 2026)
+Historical  |  Management Projections  |  CAGR
+(S in Miillions)  |  2025A**  |  2026P*™  |  2027P  |  2028P  |  2029P  |  2030P  |  2025A - 2030P
+Total ECLIPSE Revenue  |  $1,989  |  $2,150  |  $2,256  |  $2,414  |  $2,574  |  $2,746  |  6.7%
+% Growth  |  1.3%  |  8.196  |  4.9%6  |  7.0%6  |  6.6%  |  6.7%
+Adjusted EBITDA  |  $178  |  $203  |  $232  |  $277  |  $313  |  $352  |  14.7%
+% Margin  |  8.9%  |  9.436  |  10.396  |  1159  |  12.2%6  |  12.8%
+(-) Stock-Based Compensation  |  (7)  |  (8)  |  (7)  |  (7)  |  (7)  |  (7)
+(-) Other Adjustments"  |  (9)  |  (5)  |  (5)  |  (5)  |  (5)  |  (5)
+EBITDA  |  $162  |  $190  |  $220  |  $265  |  $301  |  $340  |  16.1%
+(-) DSA  |  (81)  |  (82)  |  (77)  |  (73)  |  (70)  |  (60)
+EBIT  |  $81  |  $108  |  $143  |  $192  |  $231  |  $280  |  28.3%6
+% Margin  |  4.196  |  5.096  |  6.396  |  8.096  |  9.0%  |  10.2%
+(-) Taxes"  |  (24)  |  (32)  |  (42)  |  (57)  |  (68)  |  (83)
+Net Operating Profit After Tax  |  $57  |  $76  |  $101  |  $135  |  $163  |  $197  |  28.3%
+(+) D&A  |  81  |  82  |  77  |  73  |  70  |  60
+(-) CapEx  |  (27)  |  (28)  |  (26)  |  (28)  |  (30)  |  (32)
+(-) 4 in Net Working Capital  |  (2)  |  (67)  |  (10)  |  (24)  |  (38)  |  (41)
+Unlevered Free Cash Flow  |  $109  |  $63  |  $142  |  $157  |  $166  |  $136  |  11.2%
+Sevroe: ECLIPSE Masagernent Ples Forecast an ol 2uly-$. 200%.
+ECUPSE Tinenclai are pro ferena fer aoguisldenn  |  ECUPSE / William Blair / 14
+Othor adjuvt ments include Severance/Retontion, Acqulsition Conts, and Other/Consultanty.
+Ten rate of 29.31 per Eclipse Management, Excludes utration ol Fedoral Not Operating Lomen.
+
+-----PAGE-----
+
+Confidential
+Valuation Analyses
+William Blair
+
+-----PAGE-----
+
+Confidential
+Summary of Valuation Analyses
+• Selected Public Companies Analyses
+- Trading multiple analysis based on a total of seven publicly traded companies in the industrial / specialty distribution sector with similar business models or financial profiles that William
+Blair deemed relevant
+• Selected Transactions Analysis
+- Transaction multiple analysis based on a total of twelve publicly available transactions in the industrial / specialty distribution sector with similar business models or financial profiles that
+William Blair deemed relevant
+* Discounted Cash Flow Analysis
+- Utilized Management Plan Forecast to derive free cash flows for the Company based on a 9.0% - 11.0% range of discount rates to determine the present values of such cash flows.
+Estimated a terminal value by utilizing a perpetuity growth rate of 2.0% - 3.0%
+• Leveraged Buyout Analysis
+- Analyzed the purchase prices at which a leveraged buyout of ECLIPSE could occur, based on a range of required rates of return of 18.0% - 22.0% and LTM Adj. EBITDA exit multiples ranging
+from 9.0x - 11.0x
++ M&A Premiums Paid Analysis
+• Reviewed the premiums derived by comparing the per share equity consideration paid to the closing price of the target stock one day, one week and one month prior to transactios
+innouncement. Premiums were then compared against 239 public North America tarpet transactions across all industries since January 1, 2016 with transaction equity values ranging fror
+S1B - S2B
+ECLIPSE / William Blair / 16
+
+-----PAGE-----
+
+Confidential
+Selected Public
+Companies Analysis
+William Blair
+
+-----PAGE-----
+
+Confidential
+Selected Public Companies Analysis
+Methodologies and Assumptions  |  Selected Public Companies
+($ in millions)  |  Enterprise Value/
+• Identified seven publicly traded  |  2025A-2026E
+companies in the industrial / specialty  |  Enterprise  |  Revenue  |  LTM EBITDA  |  LTM Adj.  |  CY 2026E Adj.
+distribution sector with similar business  |  Company  |  Equity Value  |  Value  |  Growth  |  Margin  |  EBITDA  |  EBITDA
+models or financial profiles that William  |  GRAINGER  |  $64,893  |  $67,042  |  10.7%  |  17.4%  |  21.8x  |  19.6k
+Blair deemed relevant
+• Calculated relevant operating and  |  FASTENAL  |  $52,642  |  $52,557  |  11.9%  |  22.4%  |  26.8x  |  25.1x
+financial metrics and the following  |  $16,868  |  $21,991  |  8.4%  |  6.7%  |  13.6x  |  12.7x
+relevant multiples and compared them to  |  wesco
+the similar multiples for ECLIPSE at the  |  GAFPLIED  |  $12,258  |  $12,451  |  6.1%  |  12.5%  |  20.6x  |  19,4x
+current enterprise value and implied
+transaction value:  |  MSC  |  $6,990  |  $7,424  |  7.3%  |  12.0%  |  15.8x  |  14.4x
+- Enterprise Value / LTM Adj. EBITDA  |  HILLMAN  |  $1,590  |  $2,316  |  6.896  |  17.3%  |  8.6x  |  8.3x
+- Enterprise Value / CY 2026E Adj. EBITDA
+• SLORAL  |  $1,304  |  $1,243  |  5.7%  |  8.1%  |  10.8x  |  11.3x
+Maximum  |  $64,893  |  $67,042  |  11.9%  |  22.496  |  26.8x  |  25.1x
+Median  |  $12,258  |  $12,451  |  7.3%  |  12.5%  |  15.8x  |  14,4x
+Mean  |  $22,363  |  $23,575  |  8.1%  |  13.89  |  16.9x  |  15.8x
+Minimum  |  $1,304  |  $1,243  |  5.7%  |  6.7%  |  8.6x  |  8.3x
+ECLIPSE (Consensus)  |  4.09609  |  8.6%(1  |  13.5XPMN  |  12.920019
+ECLIPSE (Management Projections)  |  8.1%0114)  |  8.64(1  |  13.5x0115)  |  11.5x014,3)
+ane proor matat atd Tectoos EEcuM Mand ueria metae oalerdäarae baved on Flscal Year erd ef Jurg and Augvit, reipesthvedy, (2) Seperseees Wall sereet consersus average estimates. () BGLIPse iranclals ECLIPSE / William Blair / 1s  |  Souroes: SEC fiüngs ard Factset as of July 14, 2026,
+are pro formafor aoguisitions. (4) ECLIPSE Maragement Plan Forecast as of July 8, 2026. (5) Implied multiple baved on Merper Consideration of 535.00 per share.
+
+-----PAGE-----
+
+Confidential
+Selected Public Companies Performance Metrics
+CY 2025A - CY 2026E Revenue Growth
+Selected Public Companies  |  ECLIPSE
+Mediarc 7.3%
+10.7%
+$.1%6
+4.09
+NU (1)  |  GAPPLIED" & SLORAL  |  Management Plan  |  Consensus
+FASTENAL  |  GRAINGER  |  MSC  |  te wu  |  HILLMAN  |  Forecast P01  |  Estimates'4
+wesco  |  YOU BEFTER
+Souroes: FactSet, SEC Flings and Wall Street convendus estimates as of Juty 14, 2026.
+Note: Projections reflect Wall Street consensas estimabes unless otherwise stated.  |  ECUPSE / William Blair / 19
+(1) Applied Industrial Techeologies and MSC Industrial metrics calendarized baped on Fiscal Yearend of June and Augast, respectively, (2) Management Plan Forecast per EGLIPSE management as of Jaly 8, 2026.
+(3) ECLIPSE financials are pro forma fer accuisitions. (4) Represents Wall Street consensus average estimates.
+
+-----PAGE-----
+
+Confidential
+Selected Public Companies Performance Metrics
+LTM Adj. EBITDA Margin
+Selected Public Companies  |  ECLIPSE
+Median: 12.5%6
+22.49
+114%
+12.5%6  |  12.0%6
+8.6%6
+HILLMAN SArPLIED  |  MSC  |  (1)  |  ECLIPSE
+FASTENAL GRAINGER  |  SLORAL  |  Management**
+wesco
+CY 2026E Adj. EBITDA Margin
+Selected Public Companies  |  ECLIPSE
+Median: 12.7%
+17.6%61  |  16.8%
+12.79
+9.4%  |  8.7%
+FASTENAL  |  GRAINGER  |  @APPLIED  |  MSCIE  |  [1)  |  GLORAL  |  Management Plan  |  Consensus
+HILLMAN  |  wesco  |  Forecast(2,130  |  Estimatesi0
+Souroes: FactSet, StC Flings and Wall Street corvendus estimates as of July 14, 2026.
+Note: Projections reflect Wall Street consensas estimabes unless otherwise stated.  |  ECUPSE / William Blair / 20
+(1) Applied Industrial Techeologies and MSC Industrial metrics calendarized baped on Fiscal  |  IYearend of June and Ausunt, respectively, (2) ECLIPSE financials are pro forma for acoaisitions.
+(3) Maragement Plan Forecast per ECLIPSE maragemertasof.  |  8, 2026. (4) Represents WVal  |  adL EBITDA estimates.
+
+-----PAGE-----
+
+Confidential
+Selected Public Companies Valuation Metrics
+EV / LTM EBITDA
+Selected Public Companies  |  ECLIPSE"
+Median: 15.8x
+21.8х  |  20.6x
+15.8x
+13.đx  |  13.5x
+10.8x  |  11.4x
+8.6K  |  9.2x
+Implied  |  Current  |  implied
+FASTENAL  |  GRAINGER  |  G APPLIED  |  MSCIE  |  # 26996t  |  HILLMAN  |  Undisturbed  |  Multiple  |  Transaction
+wesco  |  Multiple'"
+Multiplel)
+EV / CY2026E EBITDA
+Selected Public Companies  |  ECLIPSE
+Medianc 14,4x  |  Management Plan Forecast()9)  |  Consensus Estimates/*
+15.1x
+19.6x
+12.Tx  |  11.3x  |  115x  |  11 0x  |  12.9x
+7.8x  |  9.Tx  |  8.8x
+(1)  |  implied  |  Current  |  Implied  |  implied  |  Ourrent  |  Implied
+FASTEMAL  |  GRAINGEN  |  GAFPLID  |  $962R6E  |  HILLMAN  |  Undisturbed  |  Multiple  |  Transaction  |  Undisturbed  |  Multiple  |  Transaction
+wesco  |  Multiplel0  |  Multiple/*  |  Multiplel30  |  Multiplel*
+Souroes FactSet, SBC fiüngs and Wall Stveet consenous estimates an of July D4, 2006, Clesing price deta as of 2uly #4, 2026.
+Nonк Projections seflect Wall Street csaserнaн estimates unles ethenwise sbated  |  ECUPSE / William Blair / 21
+(1) Aooliod industlal Techaoleg'es and uod indntrial metries celenderleed bened on Focal Yoar end of June and Aupunt, rnobetlvele. (2) ECUPSE Raendal ane oro fora for acquisitlons. 0) ECLIPSEy cloting share price el 519.30
+en ef the undntu bed date of March 13, 2006, (4) Caloulated bened on Merper Comnideration ol $35.00 per share. 15) Masagerent Plan Forocast per ÉCUIPSE manepemont as ol JulyS, 2006, 09) Megresents Well Street coneirien
+
+-----PAGE-----
+
+Confidential
+Selected Public Companies Analysis Summary
+(S in millions)  |  ECLIPSE  |  Range of Selected Public Companies
+Implied
+ECLIPSE  |  Transaction
+Valuation Multiple  |  Metric  |  Multiple(a)  |  Min  |  Mean  |  Median  |  Max
+Enterprise Value / LTM EBITDA
+Actuals  |  $173(2)  |  13.5x  |  8.6x  |  16.9x  |  15.8x  |  26.8x
+Enterprise Value / CY2026E EBITDA
+Management Plan Forecast  |  $203/21131  |  11.5x  |  8.3x  |  15.8x  |  14.4x  |  25.1x
+Consensus Estimates  |  $180*)  |  12.9x  |  8.3x  |  15.8x  |  14.4x  |  25.1x
+iource: FactSet, SDC fiängs and Wall Street consensat estimates at of Juty 14, 2006. Closingprice data as of Juby 34, 200%  |  ECUPSE / William Blair / 22
+1) Implied multiple based on Merzer Consideration of $35.00 pershare. (2) ECLIPSE firancials are pro forma for accuisitions. (8) Manazemert Plan Forecast per ECLIPSE mar agement as of July B, 2020
+(4) Represents Wall Sbreet consersas average adi. EBITDA estimates.
+
+-----PAGE-----
+
+Confidential
+Selected Precedent
+Transactions Analysis
+William Blair
+
+-----PAGE-----
+
+Confidential
+Selected Precedent Transactions Analysis
+Methodologies and Assumptions
+• Identified twelve publicly available transactions in the industrial /
+specialty distribution sector with similar business models or financial
+profiles that William Blair deemed relevant
+• Compared the following multiple for each transaction to the multiple for
+ECLIPSE as the implied transaction value:
+- Enterprise Value / LTM Adj. EBITDA
+ECLIPSE / William Blair / 24
+
+-----PAGE-----
+
+Confidential
+Selected Precedent Transactions
+(S in millions)  |  Enterprise Value /
+Date Announced  |  Target  |  Acquirer  |  Enterprise Value  |  LTM Adj. EBITDA
+Apr-26  |  TopBuild Corp.  |  QXO, Inc.  |  $16,951  |  14.8x
+Aug-25  |  Foundation Building Materials, LLC  |  Lowe's Companies, Inc.  |  $8,900  |  13.9x
+Aug-25  |  HVAC Division of NSI Industries  |  Lennox International Inc.  |  $550  |  10.0x
+Jun-25  |  GMS, Inc.  |  Home Depot, Inc.  |  $5,553  |  11.1x
+Mar-25  |  Beacon Roofing Supply, Inc.  |  QXO, Inc.  |  $10,665  |  11.5x
+Nov-24  |  Hydradyne LLC  |  Applied Industrial Technologies, Inc.  |  $273  |  9.1x
+Mar-24  |  SRS Distribution, Inc.  |  Home Depot, Inc.  |  $18,250  |  17.3X*
+Mar-23  |  Hisco, Inc  |  Distribution Solutions Group, Inc.  |  $307  |  10.8x
+Jun-22  |  Industrial Businesses of Roper Technologies, Inc.  |  Clayton, Dubilier & Rice, LLC  |  $2,600  |  10.0x
+Dec-21  |  Kaman Distribution Group  |  Genuine Parts Company  |  $1,300  |  13.8x'
+Nov-20  |  HD Supply Holdings, Inc.  |  Home Depot, Inc.  |  $7,962  |  16.1x
+Sep-20  |  Windy City Wire Cable & Technology Products LLC  |  Diploma PLC  |  $450  |  10.1x
+Max  |  $18,250  |  17.3x
+Mean  |  $6,138  |  12.4x
+Median  |  $4,076  |  11.3x
+Min  |  $273  |  9.1x
+nн-ail innouncHemniL. ILI LTM EIT34/for #w Clanding Oeounbee 30, 2004, warxgorted in ive N-K Shod ler Loned'a-on Auqaut 24)
+Jannuhielaat dectuon axrrde 1i,dat, abiepor mtieLenna  |  on.Augut: 34, 200%, CR LTN E/T 5i кр  |  d sa be corbeltutad by iApdradyme nitt in 13 anoetha of tranzaction dining an disdkound ln $-K SBed an Novuetoe 20, 2104. H9/2TM
+ILEHIEIDAFy to toawiiitOobn1,210 bintede ФЛТ НDОКОН 11 J01 (У8681114ЕСРВан1800
+dn Aune 1, 2022, Eochades S50 M ie ge
+
+-----PAGE-----
+
+Confidential
+Selected Precedent Transactions Analysis Summary
+(S in millions)
+ECLIPSE  |  Range of Selected Precedent Transactions
+Implied
+ECLIPSE  |  Transaction
+Valuation Multiple  |  Metric  |  Multiple(1)  |  Min.  |  Mean  |  Median  |  Max
+Enterprise Value / LTM EBITDA
+Actual  |  $173(2)  |  13.5x  |  9.1x  |  12.4x  |  11.3x  |  17.3x
+Source: SEC filings and FactSet as of July 14, 2626.
+(4)  |  leplied multiple based on Merger Consiéeration ol $35.00 per share.  |  ECUIPSE / William Blair / 26
+(2)  |  ECLIPSE financials ane pro forma for acquluitions.
+
+-----PAGE-----
+
+Confidential
+Discounted
+Cash Flow Analysis
+William Blair
+
+-----PAGE-----
+
+Confidential
+ECLIPSE Discounted Cash Flow Analysis
+Assumptions  |  Sensitivity Analysis
+• William Blair utilized Management Plan Forecast to calculate unlevered free cash  |  Implied Equity Value Per Share(a)
+flows for the years ending December 31, 2026, through December 31, 2030
+Offer Price: $35.00
+• Valuation date as of March 31, 2026  |  Perpetuity Growth Rate
+• Utilizes a mid-year discount convention  |  2.0%  |  2.5%  |  3.0%
+• Assumes 29.5% tax rate per ECLIPSE Management  |  9.0%  |  $35.97  |  $39.06  |  $42.63
+Discount  |  10.0%
+$29.74  |  $32.02  |  $34.63
+• A range of discount rates of 9.0% to 11.0% was selected and used to calculate a  |  Rate  |  $26.62
+present value of the free cash flows and the terminal value  |  11.0%  |  $24.86  |  $28.59
+• Estimated a terminal value by utilizing a perpetuity growth rate of 2.0% - 3.0%
+terminal year unlevered FCF(2)
+• Assumes PV of Federal NOL of S4M
+Sounce: ECLIPSIE M  |  by $, 2325
+Note: Cash Tic
+180  |  As een  |  wola rane potloek of 1.9% eocondine to the Congonsienel Budeet C/Tice as ef Febraery 2026  |  ECUPSE / William Blair / 28
+120  |  •46.255.422 40m.700 sharn. 2.25%,658 eptioas at a weiphoed evernce strite price el 502.25, 424.T1T N640s, and 185.90% defered s/hares an ef July D4, 2000 Der ECLIPSE manаpeте
+
+-----PAGE-----
+
+Confidential
+Leveraged Buyout
+Analysis
+William Blair
+
+-----PAGE-----
+
+Confidential
+Leveraged Buyout Analysis
+Assumptions  |  Sensitivity Analysis
+• William Blair utilized Management Plan Forecast to derive free cash flows for the  |  Implied Offer Price
+years ending December 31, 2026, through December 31, 2030  |  Offer Price: 535.00
+• William Blair analyzed the value at which leveraged acquisition of ECLIPSE could  |  2030E LTM EBITDA Multiple *4)
+occur and yield an IRR between 18.0% and 22.0% for a potential investor
+9.0x  |  10.0x  |  11.0x
+• Valuation and balance sheet figures as of March 31, 2026  |  18.0%  |  $30.55  |  $33.77  |  $37.00
+• Assumes total net debt of $920M (5.3x LTM Adj. EBITDA(*); Unitranche at SOFR+500  |  IRR  |  20.0%  |  $28.48  |  $31.45  |  $34.42
+• Estimated an exit value by utilizing an LTM Adj. EBITDA multiple of 9.0x - 11.0x  |  22.0%  |  $26.61  |  $29.36  |  $32.09
+applied to CY 2030 Adj. EBITDA of $357M
+• Analysis reflects S5M of annual public company cost savings
+• Assumes 29.5% tax rate per ECLIPSE Management(2)
+• Assumes management option pool of 10.0%
+Scunce: ECLIPSit Managemont Plas Fonecanit as ol July $, 2325
+11) DCLIPSE, Ananciais are pro forma for anquittiomn, (2) Utnes NOLa to ofiset tax fability during the prejection period. 17) 2090E AB, LTM AJ, EN 1DA of 575TM [inclades 55M public company cost savings). M] Diluted shares cortsbanding
+caliolaned baned on 46.255,422 obmemen shares. 2.259.454 ootiorn at a welehted everage sg/iue pelce of 542.29. 424,717 R50%. end 115569 defered shares as ol Auly 34, 2506 per ECUPSE manecement outelshe-meneyodeas am  |  ECUIPSE / William Blair / 30
+26.154 SPis are excluded.
+
+-----PAGE-----
+
+Confidential
+M&A Premiums Paid
+Analysis
+William Blair
+
+-----PAGE-----
+
+Confidential
+M&A Premiums Paid Analysis
+Methodologies and Assumptions
+• William Blair analyzed 239 public North America target transactions across all industries with transaction equity values between $1B - $2B that were announced since January 1, 2016
+• William Blair compared the price of each transaction to the closing price of the target stock one day, one week and one month prior to the announcement of the transaction
+• William Blair then compared the range of premiums calculated from that universe to the premiums implied by the offer
+Implied Premium  |  Premiums Paid Data Percentile
+@$35.00 / sharel*)
+Period  |  Premium to  |  Premium to  |  10%h  |  20th  |  30th  |  4g*h  |  50%h  |  60%h  |  70%h  |  80m  |  90%
+Undisturbed  |  Current
+(for reference ony)
+One Day Prior  |  81.3%  |  26.9%  |  (0.7%)  |  5.9%  |  12.2%  |  17.2%  |  22.9%  |  29.9%  |  45.0%  |  57.9%  |  79.4%
+One Week Prior  |  58.4%  |  29.9%  |  (1.2%)  |  8.2%  |  13.7%  |  18.0%  |  23.2%  |  31.5%  |  44.6%  |  62.3%  |  81.3%
+One Month  |  13.5%  |  26.3%  |  (2.1%6)  |  11.5%  |  17.6%  |  25.0%  |  31.1%6  |  38.4%  |  48.7%  |  63.3%  |  94.7%
+Prior
+Sources: Dealogic transaction data through June 30, 2026.  |  ECUPSE / William Blair / 32
+(1)  |  Impüed premium based on Merger CoesiCeration of $35,00 per share. Relative to undisturbed share price of $19.31 as of March 13, 2006, and curent share price of 527.30 asof July 14, 2026, respectively.

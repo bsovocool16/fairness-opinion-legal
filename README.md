@@ -18,8 +18,9 @@ attorney review, not legal advice.
 | 3 | `shell-builder` | picks the base section and splices in same-advisor paragraphs for analyses it lacks, with provenance | optional |
 | 4 | `section-draft` | marks the shell up with the deal's facts, scores itself against the package, writes the log | |
 | 5 | `redline` | clean draft plus a redline against the shell (and against any prior draft) | reviewer sign-off |
+| – | `demo` | replays a completed run on the bundled public deal stage by stage, through to a comparison with the section as filed; `--live` runs the chain for real on the same inputs | |
 
-`pipeline` runs 1 to 5 in sequence, stopping at every gate the profile turns on. `proxy-glossary` is the optional step
+`pipeline` runs 1 to 5 in sequence, stopping at every gate the profile turns on. The drafter runs on Opus by default; `--model fable` on `pipeline`, `section-draft` or `demo --live`, or `Drafter model: fable` in the profile, switches it. `proxy-glossary` is the optional step
 between 1 and 4 when a draft proxy exists. `matter-workspace` keeps deals separate. `customize` edits the profile.
 
 ## Install
@@ -35,11 +36,38 @@ The Word renderer's one npm package installs itself the first time outputs are m
 `cd <plugin>/scripts/redline && npm install`. The commands also work outside a session as `claude plugin marketplace add ...` and
 `claude plugin install ...`, including with the Claude Code binary bundled in the desktop app.
 
-Python 3.9+ with `requests` and `beautifulsoup4`; `pdftotext` for board books; LibreOffice for PDF output. OCR for image-only
-board books: on a Mac the bundled Apple Vision program compiles itself the first time (Xcode command line tools) and reads
-slides cleanly at about half a second a page; elsewhere install tesseract; `pip install rapidocr-onnxruntime pypdfium2` is a
-last resort that needs no system packages but runs words together on dense slides. Then run
-`/fairness-opinion-legal:cold-start-interview`.
+### Prerequisites
+
+Claude Code (the desktop app's Code tab or the `claude` CLI) on a plan that includes Opus, which drafts the section. On a Mac:
+
+```
+xcode-select --install                 # once; compiles the bundled Apple Vision OCR for image-only board books
+brew install poppler pandoc node       # pdftotext for PDFs, Word inputs, the docx renderer
+brew install --cask libreoffice        # optional: PDF versions of the outputs
+pip3 install requests beautifulsoup4 lxml
+```
+
+On Linux or Windows install the same through the package manager, with `tesseract` in place of the Apple Vision step;
+`pip install rapidocr-onnxruntime pypdfium2` is a last-resort OCR that needs no system packages but runs words together
+on dense slides. Anything missing degrades rather than fails: text outputs instead of Word, no PDF, or a prompt to supply
+the book as text. Then run `/fairness-opinion-legal:cold-start-interview`.
+
+### What you bring
+
+- Your own SEC contact identity (name and e-mail). EDGAR requires it in every request and it goes only to sec.gov.
+- The board book and the opinion letter (PDF, PowerPoint, Word or text) and the deal facts intake asks for.
+- Optionally the draft proxy, the engagement letter and the relationship memo.
+
+Nothing else ships with the plugin: no precedent bank, no training data. Every precedent is fetched live from EDGAR for
+the advisor on your deal.
+
+### Try it first
+
+`/fairness-opinion-legal:demo` needs no setup: it replays a completed run on the bundled public deal
+(`examples/distribution-solutions-2026/`, Distribution Solutions Group 2026, William Blair, Rule 13e-3), one stage at a time,
+ending with the draft's redline against the section William Blair actually filed. `/fairness-opinion-legal:demo --live`
+runs the whole chain for real on the same board book: OCR of the 32 slides, the EDGAR search, shell, draft and redline,
+about ten minutes and a few hundred thousand tokens.
 
 ## Inputs, and what is not public
 

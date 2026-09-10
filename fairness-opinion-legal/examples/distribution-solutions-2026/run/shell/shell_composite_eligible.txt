@@ -1,0 +1,513 @@
+Opinion of the Special Committee’s Financial Advisor
+
+William Blair was retained by the Special Committee to act as its financial advisor in connection with (i) analysis of various strategic and financial options of ARC and (ii) a possible business combination with another party. Pursuant to its engagement, the Special Committee requested that William Blair render an opinion to the Special Committee as to whether the Merger Consideration to be received by holders of shares of ARC Common Stock (other than the holders of Rollover Shares or Dissenting Shares) pursuant to the Merger Agreement was fair, from a financial point of view, to such holders. On August 27, 2024, William Blair delivered its oral opinion to the Special Committee at a meeting of the Special Committee (which opinion was subsequently confirmed in its written opinion dated August 27, 2024, and delivered to the Special Committee prior to the execution of the Merger Agreement) that, as of the date of such opinion, and based upon and subject to the assumptions, qualifications and limitations stated in its written opinion, the Merger Consideration to be received by the holders of ARC Common Stock (other than the holders of Rollover Shares or Dissenting Shares) pursuant to the Merger Agreement was fair, from a financial point of view, to such holders.
+
+THE FULL TEXT OF WILLIAM BLAIR’S WRITTEN OPINION, DATED AUGUST 27, 2024, IS ATTACHED AS ANNEX B TO THIS PROXY STATEMENT AND INCORPORATED INTO THIS PROXY STATEMENT BY REFERENCE IN ITS ENTIRETY. YOU ARE URGED TO READ THE ENTIRE FAIRNESS OPINION CAREFULLY AND IN ITS ENTIRETY TO LEARN ABOUT THE ASSUMPTIONS MADE, PROCEDURES FOLLOWED, MATTERS CONSIDERED AND LIMITS ON THE SCOPE OF THE REVIEW UNDERTAKEN BY WILLIAM BLAIR IN RENDERING ITS OPINION. THE ANALYSIS PERFORMED BY WILLIAM BLAIR SHOULD BE VIEWED IN ITS ENTIRETY; NONE OF THE METHODS OF ANALYSIS SHOULD BE VIEWED IN ISOLATION. WILLIAM BLAIR’S FAIRNESS OPINION WAS DIRECTED TO THE SPECIAL COMMITTEE FOR ITS USE AND BENEFIT IN EVALUATING THE FAIRNESS OF THE MERGER CONSIDERATION TO BE RECEIVED BY THE HOLDERS OF ARC COMMON STOCK (OTHER THAN THE HOLDERS OF ROLLOVER SHARES OR DISSENTING SHARES) PURSUANT TO THE MERGER AGREEMENT AND RELATES ONLY TO THE FAIRNESS, AS OF THE DATE OF WILLIAM BLAIR’S FAIRNESS OPINION AND FROM A FINANCIAL POINT OF VIEW, OF THE MERGER CONSIDERATION TO BE RECEIVED BY HOLDERS OF ARC COMMON STOCK (OTHER THAN THE HOLDERS OF ROLLOVER SHARES OR DISSENTING SHARES) PURSUANT TO THE MERGER AGREEMENT. WILLIAM BLAIR’S FAIRNESS OPINION DOES NOT ADDRESS ANY OTHER ASPECTS OF THE MERGER OR ANY RELATED TRANSACTION, AND DOES NOT CONSTITUTE A RECOMMENDATION TO ANY HOLDER OF ARC COMMON STOCK AS TO HOW SUCH STOCKHOLDER SHOULD VOTE ITS SHARES OF ARC COMMON STOCK WITH RESPECT TO THE MERGER. WILLIAM BLAIR DID NOT ADDRESS THE MERITS OF THE UNDERLYING DECISION BY ARC TO ENGAGE IN THE MERGER. THE FOLLOWING SUMMARY OF WILLIAM BLAIR’S FAIRNESS OPINION IS QUALIFIED IN ITS ENTIRETY BY REFERENCE TO THE FULL TEXT OF ITS FAIRNESS OPINION ATTACHED TO THIS PROXY STATEMENT AS ANNEX B.
+
+In connection with William Blair’s review of the Merger and the preparation of its opinion, William Blair examined:
+
+| •
+
+| the draft Merger Agreement, dated as of August 27, 2024, and William Blair assumed that the final form of the Merger Agreement would not differ from such draft in any material respect;
+
+| •
+
+| the audited historical financial statements of ARC included in its filings with the SEC as of and for the three fiscal years ended December 31, 2023, 2022 and 2021;
+
+| •
+
+| the unaudited financial statements of ARC included in its filings with the SEC as of and for the three- and six-months ended June 30, 2024;
+
+| •
+
+| the Projections, including certain estimates as to potentially realizable existing federal net operating loss carryforwards expected to be utilized by ARC, prepared by AlixPartners, a third-party consultant
+
+42
+
+TABLE OF CONTENTS
+
+engaged by the Special Committee, with the assistance and significant input from management and provided to William Blair on June 19, 2024 and subsequently updated by management on August 1, 2024, as more fully described in the section of this proxy statement captioned “ Special Factors—Certain Unaudited Prospective Financial Information ” (updates by management included actual results for the second quarter of fiscal 2024 and marginal forecast changes for the second half of fiscal year 2024 to reflect business conditions as of August 2024. Management did not review and no updates were made to fiscal years 2025-2029);
+
+| •
+
+| information regarding publicly available financial terms of certain other transactions William Blair deemed relevant;
+
+| •
+
+| information regarding certain publicly traded companies William Blair deemed relevant;
+
+| •
+
+| the financial position and operating results of ARC compared with those of certain publicly traded companies William Blair deemed relevant;
+
+| •
+
+| the current and historical market prices and trading volumes of ARC Common Stock; and
+
+| •
+
+| certain other publicly available information on ARC.
+
+William Blair also held discussions with members of the senior management of ARC and AlixPartners to discuss the foregoing, considered other matters that it deemed relevant to its analysis, and took into account such accepted financial and investment banking procedures and considerations as it deemed relevant.
+
+In rendering its opinion, William Blair assumed and relied, without independent verification and with the consent of the Special Committee, upon the accuracy and completeness of all the financial, legal, regulatory, tax, accounting and other information provided to, examined by or otherwise reviewed or discussed with William Blair for purposes of its fairness opinion, including without limitation the Projections provided by AlixPartners with the assistance and significant input from management, and approved for William Blair’s use by the Special Committee, and William Blair assumed no responsibility or liability therefor. William Blair did not make or obtain an independent valuation or appraisal of the assets, liabilities or solvency of ARC. William Blair was advised by the senior management of ARC that the Projections examined by William Blair were reasonably prepared by AlixPartners with significant input from ARC senior management and that such Projections reflected the currently available estimates and judgments of the senior management of ARC and AlixPartners. In that regard, William Blair assumed, with the consent of the Special Committee, that, (i) the Projections would be achieved in the amounts and at the times contemplated thereby and (ii) all material assets and liabilities (contingent or otherwise) of ARC were as set forth in ARC’s financial statements or other information made available to William Blair.
+
+William Blair did not express an opinion with respect to the Projections or the estimates and judgments on which it was based. William Blair did not consider, and expressed no opinion as to, the amount or nature of the compensation to any of ARC’s officers, directors or employees (or any class of such persons) relative to the compensation payable to ARC’s other stockholders. William Blair was not asked to consider, and its fairness opinion did not address, the relative merits of the Merger as compared to any alternative business strategies that might exist for ARC or the effect of any other transaction in which ARC might engage. William Blair’s fairness opinion is based upon economic, market, financial and other conditions existing on, and other information disclosed to us as of, the date of such fairness opinion. It should be understood that, although subsequent developments may affect William Blair’s fairness opinion, it does not have any obligation to update, revise or reaffirm this opinion. William Blair did not make any determination as to legal matters related to the Merger, assumed that the final executed Merger Agreement did not materially differ from the drafts of the Merger Agreement reviewed by it and assumed that the Merger will be consummated on the terms described in the Merger Agreement, without any amendment or waiver of any material terms or conditions. William Blair did not express any opinion as to any tax or other consequences that might result from the Merger, nor did its opinion address any legal, tax, regulatory or accounting matters, as to which it understood that ARC had obtained such advice as it deemed necessary from qualified professionals. William Blair expressed no view or opinion as to any terms or other aspects or implications of the Merger (other than the Merger Consideration to the extent expressly specified in its fairness opinion), including, without limitation, the form or structure of the Merger or any agreements or other arrangements entered into in connection with, or contemplated by, the Merger.
+
+43
+
+TABLE OF CONTENTS
+
+The following is a summary of the material financial analyses performed and material factors considered by William Blair to arrive at its opinion. William Blair performed certain procedures, including each of the financial analyses described below, and reviewed with the Special Committee the assumptions upon which such analyses were based, as well as other factors. Although the summary does not purport to describe all of the analyses performed or factors considered by William Blair in this regard, it does set forth those considered by William Blair to be material in arriving at its fairness opinion. The financial analyses summarized below include information presented in a tabular format. In order to fully understand the financial analyses performed by William Blair, the tables must be read together with the text of each summary. The tables alone do not constitute a complete description of the financial analyses performed by William Blair. Considering the data set forth in the tables below without considering the full narrative description of the financial analyses, including the methodologies and assumptions underlying the analyses, could create a misleading or incomplete view of the financial analyses performed by William Blair. The order of the summaries of the analyses described below does not represent the relative importance or weight given to those analyses by William Blair.
+
+For more information on the Projections, including a discussion of estimates and judgments used by AlixPartners in the preparation of the Projections, see the section of this proxy statement titled “ Special Factors—Certain Effects of the Merger—Certain Unaudited Prospective Financial Information ”.
+
+Selected Public Companies Analysis
+
+William Blair reviewed and compared certain financial information relating to ARC to corresponding financial information and multiples for six selected publicly traded companies in the printing and promotional marketing sectors with similar business models or financial profiles that William Blair deemed relevant based on its professional judgment and experience. William Blair considered the enterprise value for each company (including ARC), which William Blair calculated as the equity value of ARC, plus total debt, minority interest and preferred stock, less cash and cash equivalents. The equity value of each company was calculated using the closing stock price as of August 26, 2024 (the last trading day for reference prior to the entry into the Merger Agreement), multiplied by the total diluted shares outstanding (using the most recent publicly available information as of August 26, 2024). William Blair reviewed the enterprise value as a multiple of (i) calendar year 2024 expected (“ CY 2024E ”) Adjusted EBITDA and (ii) calendar year 2025 expected (“ CY 2025E ”) Adjusted EBITDA, in each case, based on the Projections for the Company and consensus estimates for each other company, sourced from SEC filings and subscription services as of August 26, 2024. Set forth below are the companies and relevant metrics:
+
+| Company
+
+| Enterprise Value/CY 2024E
+
+Adjusted EBITDA
+
+| Enterprise Value
+
+(millions)
+
+| Enterprise Value/CY
+
+2025E
+
+Adjusted EBITDA
+
+| Cimpress plc
+
+| 8.0x
+
+| $3,870
+
+| 7.4x
+
+| Transcontinental Inc.
+
+| 5.1x
+
+| $1,787
+
+| 5.0x
+
+| The ODP Corporation
+
+| 2.9x
+
+| $1,062
+
+| 2.5x
+
+| Deluxe Corporation
+
+| 6.1x
+
+| $2,476
+
+| 5.8x
+
+| Ennis, Inc.
+
+| 6.1x
+
+| $ 488
+
+| N/A
+
+| Quad/Graphics, Inc.
+
+| 3.3x
+
+| $ 786
+
+| 3.3x
+
+William Blair then used the implied enterprise value of $162 million based on the per share Merger Consideration of $3.40, ARC’s fully diluted shares outstanding as of August 1, 2024 as provided by ARC's senior management and the net debt and minority interest of ARC of $11 million as of June 30, 2024, as set forth in and calculated from ARC’s public filings, to derive implied valuation multiples for ARC for CY 2024E Adjusted EBITDA of $37 million and CY 2025E Adjusted EBITDA of $35 million based on the August Projections. William Blair compared the multiples implied for ARC based on the Merger Consideration to the range of trading multiples of the aggregate group of such selected publicly traded companies. Information regarding the multiples derived from William Blair’s selected public company analysis is set forth in the following table.
+
+44
+
+TABLE OF CONTENTS
+
+| Implied
+
+Valuation
+
+Multiples
+
+| Selected Public Company
+
+Valuation Multiples
+
+| Min
+
+| Median
+
+| Mean
+
+| Max
+
+| Enterprise Value/CY 2024E Adjusted EBITDA
+
+| August Projections
+
+| 4.4x
+
+| 2.9x
+
+| 5.6x
+
+| 5.3x
+
+| 8.0x
+
+| Enterprise Value/CY 2025E Adjusted EBITDA
+
+| August Projections
+
+| 4.6x
+
+| 2.5x
+
+| 5.0x
+
+| 4.8x
+
+| 7.4x
+
+William Blair noted that the analyzed implied valuation multiple for ARC based on the Merger Consideration was within the range of multiples of the selected publicly companies.
+
+Although William Blair compared the trading multiples of the selected public companies to those implied for ARC, none of the selected public companies is directly comparable to ARC. Accordingly, any analysis of the selected public companies involved complex considerations and judgments concerning the differences in financial and operating characteristics and other factors that would affect the analysis of trading multiples of the selected public companies.
+
+Selected Precedent Transactions Analysis
+
+William Blair reviewed and compared certain financial information relating to ARC to corresponding financial information and multiples for ten selected transactions that were announced subsequent to August 1, 2012, that involved the acquisition of companies in the printing and promotional marketing sectors with similar business models or financial profiles that William Blair deemed relevant based on its professional judgment and experience. William Blair did not take into account any announced or consummated transaction whereby relevant financial information was not publicly disclosed and the selected transactions are not intended to be representative of the entire range of possible relevant transactions. William Blair reviewed the consideration paid in the selected transactions in terms of the enterprise value of such transactions as a multiple of last twelve months (“ LTM ”) Adjusted EBITDA based on the most recently available publicly disclosed 12-month historical period at the time of announcement for each respective transaction, and is sourced from SEC filings, company disclosures, press releases and subscription services as of August 26, 2024. Set forth below are the transactions and relevant metrics:
+
+| Announcement Date
+
+| Target
+
+| Acquiror
+
+| Enterprise
+
+Value
+
+(millions)
+
+| Enterprise
+
+Value/LTM
+
+Adj. EBITDA
+
+| December 2021
+
+| R.R. Donnelley & Sons Company
+
+| Chatham Asset Management
+
+| $2,291
+
+| 5.8x (1)
+
+| September 2020
+
+| LSC Communications
+
+| Atlas Holdings LLC
+
+| $ 440
+
+| 3.1x (1)(2)
+
+| July 2020
+
+| InnerWorkings
+
+| HH Global
+
+| $ 302
+
+| 5.5x
+
+| December 2017
+
+| IWCO Direct
+
+| Steel Connect
+
+| $ 476
+
+| 5.8x (3)
+
+| December 2013
+
+| Valassis Communications
+
+| Harland Clarke
+
+| $1,839
+
+| 6.7x
+
+| October 2013
+
+| Consolidated Graphics
+
+| R.R. Donnelley & Sons Company
+
+| $ 719
+
+| 5.5x
+
+| August 2013
+
+| WorkflowOne
+
+| Standard Register
+
+| $ 218
+
+| 6.3x
+
+| April 2013 (4)
+
+| American Greetings Corporation
+
+| Weiss Family
+
+| $ 847
+
+| 3.9x
+
+| October 2012
+
+| Vertis
+
+| Quad/Graphics
+
+| $ 267
+
+| 4.9x (5)
+
+| August 2012
+
+| SuperMedia
+
+| Dex One Corporation
+
+| $1,477
+
+| 2.5x
+
+| (1)
+
+| Pension-adjusted multiples.
+
+| (2)
+
+| 3.1x multiple based on 2020 expected EBITDA of $144 million including normalization for cost savings (for completed or announced plant closures) and COVID-19 as provided in company filings. Multiple would be 4.2x based on estimated 2020 expected EBITDA of $105 million and normalization for COVID-19 only as provided in company filings.
+
+| (3)
+
+| LTM represents the last twelve months through October 2017 per the Current Report on Form 8-K filed by Steel Connect on December 18, 2017.
+
+| (4)
+
+| Values reflect the revised offer in July 2013.
+
+| (5)
+
+| LTM represents 2012 figures per the Current Report on Form 8-K filed by Quad/Graphics on January 22, 2013. 4.9x multiple includes $97 million payment for current assets in excess of working capital requirements. Excluding payment, multiple would be 3.1x.
+
+William Blair then used the implied enterprise value of $162 million based on the per share Merger Consideration of $3.40 and the net debt and minority interest of ARC of $11 million as of June 30, 2024, as set
+
+45
+
+TABLE OF CONTENTS
+
+forth in and calculated from ARC’s public filings, to derive an implied transaction multiple for ARC for LTM Adjusted EBITDA for the twelve months ended June 30, 2024 of $38 million. William Blair compared the multiple implied for ARC based on the Merger Consideration to the range of transaction multiples of the aggregate group of such selected transactions. Information regarding the multiples from William Blair’s selected transaction analysis is set forth in the following table:
+
+| Multiple
+
+| Implied
+
+Transaction
+
+Multiple
+
+| Range of Selected Precedent
+
+Transaction
+
+Valuation Multiples
+
+| Min.
+
+| Median
+
+| Mean
+
+| Max.
+
+| Enterprise Value/LTM Adjusted EBITDA
+
+| Actual
+
+| 4.3x
+
+| 2.5x
+
+| 5.5x
+
+| 5.0x
+
+| 6.7x
+
+William Blair noted that the analyzed implied transaction multiple for ARC based on the Merger Consideration was within the range of multiples of the selected transactions.
+
+Although William Blair compared the multiples of the selected transactions to that implied for ARC, none of these transactions or associated companies is directly comparable to ARC or the Merger. Accordingly, any analysis of the selected transactions involved complex considerations and judgments concerning the differences in financial and operating characteristics, parties involved and terms of their transactions and other factors that would affect the analysis of multiples of the selected transactions.
+
+Discounted Cash Flow Analysis
+
+William Blair utilized the August Projections to perform a discounted cash flow analysis of ARC’s projected future free cash flows for the fiscal years ending December 31, 2024 through December 31, 2029. Using the discounted cash flow methodology, William Blair calculated the present values of the projected after-tax unlevered free cash flows for ARC. In this analysis, William Blair exercised its professional judgment, based on its experience and expertise, and calculated the assumed terminal value of ARC by utilizing a perpetuity growth rate range of 0.0% to 2.0% applied to calendar year 2029 expected unlevered free cash flows. To discount the projected unlevered free cash flows and assumed terminal value to present value, William Blair used discount rates ranging from 9.5% to 11.5% using its professional judgment, based on its experience and expertise, and a calculation of the weighted average cost of capital using the capital asset pricing model. In performing its analysis, as directed by the management of the Company, William Blair assumed a 29% effective tax rate.
+
+William Blair aggregated the present value of the after-tax unlevered free cash flows over the applicable forecast period, the present value of the potential federal tax savings expected to result from the utilization of ARC’s federal net operating losses of $9 million and the present value of the assumed terminal value. William Blair then derived a range of implied equity values per share by subtracting net debt and minority interest of $11 million as of June 30, 2024, as set forth in and calculated from ARC’s public filings, and dividing such amount by ARC’s fully diluted shares outstanding as of August 1, 2024 as provided by ARC’s senior management (calculated based on 43,249,749 common shares and 6,525,345 options at a weighted average strike price of $3.27 and excluding out-of-the-money options). This analysis resulted in a range of implied equity values of $2.47 to $3.41 per share, as compared to the Merger Consideration of $3.40 per share.
+
+Leveraged Buyout Analysis
+
+William Blair utilized the August Projections to perform a hypothetical leveraged buyout analysis and calculated the illustrative implied purchase prices at which a leveraged buyout of ARC could occur and yield a target range of annualized internal rates of return from 18.0% to 22.0% for a potential investor, assuming a net leverage ratio of 2.25x LTM Adjusted EBITDA. In this analysis, William Blair estimated an exit value by utilizing a range of multiples of 3.5x to 5.5x applied to calendar year 2029 Adjusted EBITDA of $37 million (including an estimated $1 million of direct costs associated with ARC’s operations as a public company which the management of ARC indicated would no longer be incurred). The target annualized internal rate of return and the range of total net leverage were derived by William Blair utilizing its professional judgment and experience. For purposes of the analysis William Blair utilized net debt and minority interest of $11 million as of June 30, 2024, as set forth in and calculated from ARC’s public filings and ARC's fully diluted shares outstanding as of August 1, 2024 as provided by ARC’s senior management. Based on the range of internal rates of return and exit multiples above, this analysis resulted in a range of implied equity value $2.34 to $3.14 per share of ARC
+
+46
+
+TABLE OF CONTENTS
+
+Common Stock, as compared to the Merger Consideration of $3.40 per share of ARC Common Stock. For the Special Committee’s reference only purposes, William Blair also calculated the implied equity values per share for a range of total net leverage of 2.25x to 3.75x, the exit multiples above and a 20% internal rate of return. This analysis resulted in a range of implied equity values of $2.43 to $3.57 per share of ARC Common Stock, as compared to the Merger Consideration of $3.40 per share of ARC Common Stock.
+
+M&A Premiums Paid Analysis
+
+William Blair analyzed data from 324 acquisitions of North American publicly traded companies across all industries with transaction equity values between $100 million and $300 million that were announced since January 1, 2015. Specifically, William Blair compared the acquisition price per share of each transaction to the closing price of the target company’s stock one day, one week, and one month prior to the announcement of such transaction. William Blair then compared the range of resulting per share price premiums for the reviewed transactions to the premiums implied by the Merger Consideration based on Company’s undisturbed share price of $2.64 one day, one week, and one month prior to June 28, 2024 (the last trading day prior to public announcement of Mr. Suriyakumar’s proposal to acquire ARC). Information regarding the premiums from William Blair’s analysis of selected transactions is set forth in the following table:
+
+| Period
+
+| Implied
+
+Premium at
+
+$3.40/
+
+share (1)
+
+| Premiums Paid Data Percentile
+
+| 10th
+
+| 20th
+
+| 30th
+
+| 40th
+
+| 50th
+
+| 60th
+
+| 70th
+
+| 80th
+
+| 90th
+
+| One Day Prior
+
+| 28.8%
+
+| (0.9%)
+
+| 10.2%
+
+| 18.8%
+
+| 26.1%
+
+| 35.6%
+
+| 42.8%
+
+| 53.4%
+
+| 68.4%
+
+| 106.0%
+
+| One Week Prior
+
+| 30.8%
+
+| (0.9%)
+
+| 10.6%
+
+| 21.1%
+
+| 28.8%
+
+| 38.1%
+
+| 46.7%
+
+| 57.1%
+
+| 72.5%
+
+| 105.6%
+
+| One Month Prior
+
+| 24.5%
+
+| 1.8%
+
+| 13.0%
+
+| 23.0%
+
+| 30.7%
+
+| 37.8%
+
+| 49.3%
+
+| 63.8%
+
+| 78.8%
+
+| 113.7%
+
+| (1)
+
+| Implied premium based on Merger Consideration of $3.40 per share. Relative to undisturbed share price of $2.64 as of June 28, 2024.
+
+General
+
+This summary is not a complete description of the analysis performed by William Blair, but contains the material elements of the analysis. The preparation of an opinion regarding fairness is a complex process involving various determinations as to the most appropriate and relevant methods of financial analysis and the application of those methods to the particular circumstances, and, therefore, such an opinion is not readily susceptible to partial analysis or summary description. The preparation of an opinion regarding fairness does not involve a mathematical evaluation or weighing of the results of the individual analyses performed, but requires William Blair to exercise its professional judgment, based on its experience and expertise, in considering a wide variety of analyses taken as a whole. Each of the analyses conducted by William Blair was carried out in order to provide a different perspective on the Merger Consideration and add to the total mix of information available. The analyses were prepared solely for the purpose of William Blair providing its opinion and do not purport to be appraisals or necessarily reflect the prices at which securities actually may be sold. William Blair did not form a conclusion as to whether any individual analysis, considered in isolation, supported or failed to support an opinion about the fairness of the Merger Consideration to be received by the holders of shares of ARC Common Stock (other than the holders of Rollover Shares or Dissenting Shares). Rather, in rendering its oral opinion on August 27, 2024 (subsequently confirmed in its written opinion dated August 27, 2024) to the Special Committee, as of that date and based upon and subject to the assumptions, qualifications and limitations stated in its written opinion, as to whether the Merger Consideration to be received by the holders of shares of ARC Common Stock (other than the holders of Rollover Shares or Dissenting Shares) was fair, from a financial point of view, to such holders, William Blair considered the results of the analyses in light of each other and ultimately reached its opinion based on the results of all analyses taken as a whole. William Blair’s fairness opinion considered each valuation method equally and did not place any particular reliance or weight on any particular analysis, but instead concluded that its analyses, taken as a whole, supported its determination. Accordingly, notwithstanding the separate factors summarized above, William Blair believes that its analyses must be considered as a whole and that selecting portions of its analyses and the factors considered by it, without considering all analyses and factors, may create an incomplete view of the evaluation process underlying its opinion. No company or transaction used in the above analyses as a comparison is directly comparable to ARC or the Merger. In performing its analyses, William Blair made numerous assumptions with respect to industry
+
+47
+
+TABLE OF CONTENTS
+
+performance, business and economic conditions and other matters. The analyses performed by William Blair are not necessarily indicative of future actual values and future results, which may be significantly more or less favorable than suggested by such analyses.
+
+William Blair has been engaged in the investment banking business since 1935. William Blair continually undertakes the valuation of investment securities in connection with public offerings, private placements, business combinations and similar transactions. In the ordinary course of its business, William Blair may from time to time trade the securities of ARC or other parties involved in the Merger for its own account and for the accounts of its customers, and accordingly may at any time hold a long or short position in such securities. William Blair is familiar with ARC, having provided certain investment banking services to ARC from time to time. William Blair and its affiliates have not performed any financial advisory or other services to ARC, Mr. Suriyakumar or their respective related parties or affiliates in the preceding two years.
+
+Fees
+
+Pursuant to a letter agreement dated May 14, 2024, a fairness opinion fee of $1.0 million became payable to William Blair upon delivery of its fairness opinion. A fee of approximately $3.9 million, less the $1.0 million fairness opinion fee previously paid to William Blair, will become payable to William Blair in connection with the consummation of the Merger and is contingent on consummation of the Merger. No portion of the fees payable to William Blair were contingent on the conclusions reached by William Blair in William Blair’s fairness opinion. In addition, ARC agreed to reimburse William Blair for certain of its out-of-pocket, documented expenses (including fees and expenses of its counsel and any other independent experts retained by William Blair) reasonably incurred by it in connection with its engagement and to indemnify William Blair against certain potential liabilities arising out of its engagement.

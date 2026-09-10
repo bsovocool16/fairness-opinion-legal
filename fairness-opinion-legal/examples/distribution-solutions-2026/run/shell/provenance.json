@@ -1,0 +1,71 @@
+{
+ "base": "0001140361-24-043469",
+ "deck_analyses": [
+  "comps",
+  "dcf",
+  "lbo",
+  "precedents",
+  "premiums",
+  "targets",
+  "trading_range"
+ ],
+ "segments": [
+  {
+   "label": "comps",
+   "source": "0001140361-24-043469",
+   "in_book": true
+  },
+  {
+   "label": "comps",
+   "source": "0001140361-24-043469",
+   "in_book": true
+  },
+  {
+   "label": "precedents",
+   "source": "0001140361-24-043469",
+   "in_book": true
+  },
+  {
+   "label": "dcf",
+   "source": "0001140361-24-043469",
+   "in_book": true
+  },
+  {
+   "label": "lbo",
+   "source": "0001140361-24-043469",
+   "in_book": true
+  },
+  {
+   "label": "premiums",
+   "source": "0001140361-24-043469",
+   "in_book": true
+  },
+  {
+   "label": "premiums",
+   "source": "0001140361-24-043469",
+   "in_book": true
+  },
+  {
+   "label": "other",
+   "source": "0001140361-24-043469",
+   "in_book": true
+  },
+  {
+   "label": "other",
+   "source": "0001140361-24-043469",
+   "in_book": true
+  },
+  {
+   "label": "trading_range",
+   "source": null,
+   "borrowed": false,
+   "note": "no precedent in the set has this analysis"
+  },
+  {
+   "label": "targets",
+   "source": null,
+   "borrowed": false,
+   "note": "no precedent in the set has this analysis"
+  }
+ ]
+}

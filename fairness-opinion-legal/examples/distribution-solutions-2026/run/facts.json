@@ -1,0 +1,24 @@
+{
+ "advisor": "William Blair & Company L.L.C.",
+ "role": "Special Committee financial advisor",
+ "addressee": "the Special Committee",
+ "opinion_date": "2026-07-15",
+ "pricing_date": "2026-07-14",
+ "target": "Distribution Solutions Group, Inc.",
+ "ticker": "DSGR",
+ "buyer": "Eclipse Parent Acquisitions, LLC",
+ "buyer_type": "sponsor",
+ "consideration": "cash",
+ "offer_price": 35.0,
+ "engagement_letter": {
+  "fee_mm": 2.0,
+  "fee_note": "$2.0mm opinion fee + $4.6mm contingent on closing"
+ },
+ "deck_source": {
+  "filing": "0001193125-26-377697",
+  "exhibit": "d75849dex99cviii.htm",
+  "pages": 32,
+  "ocr": false
+ },
+ "regime": "13e-3"
+}

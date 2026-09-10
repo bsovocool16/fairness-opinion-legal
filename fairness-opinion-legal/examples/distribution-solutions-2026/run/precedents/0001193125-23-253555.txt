@@ -1,0 +1,1064 @@
+opinion of William Blair as to the fairness, from a financial point of view, to the Acer Stockholders, of the Merger Consideration to be paid to the Acer Stockholders pursuant to the terms and subject to the conditions set forth in the Merger
+Agreement, as of August 28, 2023 (i.e., the date of the meeting of the Acer Board at which the Merger Agreement was approved), which opinion was based on and subject to the various assumptions made, procedures followed, matters considered and
+limitations and qualifications on the review undertaken by William Blair set forth in such opinion as more fully described under the heading “ The Merger—Opinion of Acer’s Financial Advisor ,” beginning on page 94 in this
+proxy statement/prospectus
+In the course of its deliberations, the Acer Board also considered a variety of risks and other
+countervailing factors related to entering into the Merger Agreement, including:
+• |
+The possibility that Acer Stockholders may not vote in favor of the adoption of the Merger Agreement.
+• |
+If the Merger is not consummated, then at least $54.5 million in Acer’s debt (projected as of
+October 31, 2023) is expected to become due, consisting of $37.0 million under the SWK Loans and the Marathon Convertible Notes (projected as of October 31, 2023), $1.0 million under the Schelling Note, and $16.5 million
+under the Bridge Loan Facility (since the $10.0 million in upfront payment to Relief has already been made, and assuming a full draw-down of the remaining $6.5 million available under the Bridge Loan Facility), plus obligations for accrued and
+ongoing trade debt (which was approximately $8.0 million as of the date of the meeting of the Acer Board on August 28, 2023, at which the Merger Agreement was approved) together with ordinary course payables, and thus the substantial risk
+to the ability of Acer to carry on its business and operations in the event that the Merger is not consummated.
+• |
+The right of each of Acer and Zevra to terminate the Merger Agreement in certain instances, and the obligation of
+Acer in certain termination-related situations to pay the potential Termination Fee, as more fully described below under the caption “ The Merger Agreement— Fees and Expenses; Termination Fee ,” beginning on page 132
+in this proxy statement/prospectus.
+• |
+The prohibition on Acer to solicit alternative Acquisition Proposals during the pendency of the Merger Agreement,
+plus the Termination Fee payable to Zevra upon the occurrence of certain events and the potential effect of the Termination Fee in deterring other potential acquirers from proposing an alternative transaction that may be more advantageous to the
+Acer Stockholders.
+• |
+The substantial expenses to be incurred by Acer in connection with the Merger.
+• |
+The possible volatility of the trading price of Acer Common Stock which could result from an announcement of the
+execution of the Merger Agreement.
+• |
+The risk that the Merger might not be consummated in a timely manner or at all, and the potential adverse effect
+of a public announcement of the cancellation, delay or failure to complete the Merger on the reputation of Acer and its ability to carry on its business on any basis.
+• |
+The lack, despite months of extensive effort by Acer management, of any realistic, adequate and viable
+alternative transactions which could be realized with the extremely limited resources and time available to Acer.
+• |
+The strategic direction of post-Merger Zevra following the completion of the Merger, which will be determined by
+the Zevra Board (as to which there is no right for representation by any of the members of the current Acer Board).
+93
+Table of Contents
+• |
+Despite Zevra’s obligation to exercise diligent efforts as required by the CVR Agreement, the possibility
+that Acer Stockholders may not receive any value from milestone payments under the CVR Agreement associated with commercial and regulatory milestones with respect to OLPRUVA ™ , regulatory
+milestones with respect to EDSIVO ™ and development milestones with respect to ACER-2820.
+• |
+Various other risks associated with post-Merger Zevra and the Merger, including those described in the section
+titled “ Risk Factors ” beginning on page 19 in this proxy statement/prospectus.
+The foregoing information and factors
+considered by the Acer Board are not intended to be exhaustive, but are believed to include certain material factors considered by the Acer Board in evaluating the Merger. In view of the wide variety and complexity of factors considered in
+connection with its evaluation of the Merger, the Acer Board did not find it useful, and did not attempt, to quantify, rank or otherwise assign relative weights to these factors. In considering the factors described above, individual members of the
+Acer Board may have given different weight to different factors. The Acer Board conducted an overall review of the factors described above and considered the factors generally to be favorable to, and to support, its determination that entering into
+the Merger Agreement and consummating the Merger is in the best interest of Acer Stockholders.
+Opinion of Acer’s
+Financial Advisor
+William Blair was retained to act as financial advisor to Acer in connection with a possible business combination.
+Pursuant to its engagement, the Acer Board requested that William Blair render an opinion to the Acer Board as to the fairness, from a financial point of view, to the Acer Stockholders (other than such holders who properly exercised their appraisal
+rights with respect to their Acer Common Stock), of the Merger Consideration to be paid to the Acer Stockholders pursuant to the terms and subject to the conditions set forth in the Merger Agreement. On August 28, 2023, William Blair delivered
+its oral opinion to the Acer Board (subsequently confirmed in its written opinion dated August 28, 2023) that, based upon and subject to the assumptions, qualifications and limitations stated in its written opinion, as of the date of such
+opinion, the Merger Consideration was fair, from a financial point of view, to the Acer Stockholders.
+THE FULL TEXT OF WILLIAM
+BLAIR’S WRITTEN OPINION, DATED AUGUST 28, 2023, IS ATTACHED AS APPENDIX C TO THIS PROXY STATEMENT/PROSPECTUS AND INCORPORATED INTO THIS PROXY STATEMENT/PROSPECTUS BY REFERENCE. YOU ARE URGED TO READ THE ENTIRE FAIRNESS OPINION CAREFULLY
+AND IN ITS ENTIRETY TO LEARN ABOUT THE ASSUMPTIONS MADE, PROCEDURES FOLLOWED, MATTERS CONSIDERED AND LIMITS ON THE SCOPE OF THE REVIEW UNDERTAKEN BY WILLIAM BLAIR IN RENDERING ITS OPINION. THE ANALYSIS PERFORMED BY WILLIAM BLAIR SHOULD BE VIEWED IN
+ITS ENTIRETY; NONE OF THE METHODS OF ANALYSIS SHOULD BE VIEWED IN ISOLATION. WILLIAM BLAIR’S FAIRNESS OPINION WAS PROVIDED TO THE ACER BOARD FOR ITS USE AND BENEFIT IN CONNECTION WITH ITS CONSIDERATION OF THE TRANSACTION CONTEMPLATED BY THE
+MERGER AGREEMENT AND RELATES ONLY TO THE FAIRNESS, AS OF THE DATE OF WILLIAM BLAIR’S FAIRNESS OPINION AND FROM A FINANCIAL POINT OF VIEW, TO THE ACER STOCKHOLDERS OF THE MERGER CONSIDERATION IN CONNECTION WITH THE MERGER. WILLIAM BLAIR DID NOT
+ADDRESS THE MERITS OF THE UNDERLYING DECISION BY ACER TO ENGAGE IN THE MERGER, AND ITS FAIRNESS OPINION DOES NOT CONSTITUTE A RECOMMENDATION TO ANY ACER STOCKHOLDER AS TO HOW SUCH ACER STOCKHOLDER SHOULD VOTE WITH RESPECT TO THE MERGER. THE
+FOLLOWING SUMMARY OF WILLIAM BLAIR’S FAIRNESS OPINION IS QUALIFIED IN ITS ENTIRETY BY REFERENCE TO THE FULL TEXT OF ITS FAIRNESS OPINION ATTACHED TO THIS PROXY STATEMENT/PROSPECTUS AS APPENDIX C.
+94
+Table of Contents
+In connection with William Blair’s review of the Merger and the preparation of its
+opinion, William Blair examined or discussed:
+• |
+a draft of the Merger Agreement dated August 28, 2023, and William Blair has assumed that the final executed
+Merger Agreement would not materially differ from the drafts of the Merger Agreement reviewed by William Blair;
+• |
+a draft of the CVR Agreement proposed to be entered into by Zevra and rights agent at the Effective Time, and
+William Blair has assumed that the final executed CVR Agreement would not materially differ from the drafts of the CVR Agreement reviewed by William Blair;
+• |
+audited historical financial statements of Acer and Zevra for the fiscal years ended December 31, 2022, 2021
+and 2020;
+• |
+unaudited historical financial statements of Acer and Zevra for the three- and
+six-month periods ended June 30, 2023;
+• |
+certain internal business, operating and financial information and forecasts of Acer for the fiscal years ending
+December 31, 2023 through December 31, 2038 (the “Forecasts”), prepared by the senior management of Acer and the final versions of which were provided to William Blair on August 24, 2023, and approved by Acer for William
+Blair’s use;
+• |
+a liquidation analysis (the “Management’s Illustrative Liquidation Analysis”) prepared by the
+senior management of Acer and provided to William Blair on August 24, 2023, and approved by Acer for William Blair’s use;
+• |
+sensitivities for the Forecasts (the “Sensitivities”), prepared by the senior management of Acer and
+provided to William Blair on August 24, 2023, and approved by Acer for William Blair’s use;
+• |
+the probability of achievement and estimated timing of the nine payment milestones upon which the CVR is
+contingent, prepared by the senior management of Acer and provided to William Blair on August 24, 2023, and approved by Acer for William Blair’s use;
+• |
+information regarding publicly available financial terms of certain other transactions William Blair deemed
+relevant;
+• |
+the financial position and operating results of Acer and Zevra compared with those of certain other publicly
+traded companies that William Blair deemed relevant;
+• |
+the current and historical market prices and trading volume of Acer Common Stock and Zevra Common Stock; and
+• |
+certain other publicly available information on Acer and Zevra.
+William Blair also held discussions with members of the senior management of Acer to discuss the foregoing, considered other matters that it
+deemed relevant to its inquiry, and took into account the accepted financial and investment banking procedures and considerations that it deemed relevant. William Blair was advised by senior management of Acer that without third party funding, Acer
+currently has insufficient liquidity to operate the business and execute on the Forecasts through fourth quarter 2023 and beyond.
+In
+rendering its opinion, William Blair assumed and relied, without independent verification and with the consent of the Acer Board, upon the accuracy and completeness of all the financial, legal, regulatory, tax, accounting and other information
+examined by or otherwise reviewed or discussed with William Blair for purposes of its fairness opinion including, without limitation, the Forecasts, Sensitivities and Management’s Illustrative Liquidation Analysis provided by senior management
+of Acer, and William Blair assumes no responsibility or liability therefor. William Blair did not make or obtain an independent valuation or appraisal of the assets, liabilities or solvency of Acer or Zevra. William Blair was advised by the senior
+management of Acer that the Forecasts examined by William Blair were reasonably prepared on bases reflecting the best currently
+95
+Table of Contents
+available estimates and judgments of the senior management of Acer, and at the direction of Acer, William Blair applied the Sensitivities to the Forecasts. In that regard, William Blair assumed,
+with the consent of the Acer Board, that (i) the Forecasts would be achieved in the amounts and at the times contemplated thereby taking into account the Sensitivities, and (ii) all material assets and liabilities (contingent or otherwise)
+of Acer were as set forth in Acer’s financial statements or other information made available to William Blair. William Blair assumed no responsibility for, and did not express an opinion with respect to the Forecasts, the Sensitivities, the
+Management’s Illustrative Liquidation Analysis, or other prospective financial information or the estimates and judgments on which they were based. William Blair was advised by senior management of Acer that the Forecasts were prepared based on
+cash accounting principles and not in accordance with GAAP. William Blair was advised by senior management of Acer to not take into account the impact of any potentially realizable existing net operating loss carryforwards and credits (collectively,
+“NOLs”) in rendering the opinion due to potential future limitations on the use thereof. William Blair expressed no opinion as to the realizability or use of any existing or future NOLs by any person, whether before or after the Effective
+Time. William Blair did not consider and expressed no opinion as to the amount or nature of the compensation to any of Acer’s officers, directors or employees (or any class of such persons) relative to the Merger Consideration payable to
+Acer’s other stockholders. In addition, William Blair did not express an opinion as to the consideration to be received in connection with the Merger with respect to the Acer warrants. William Blair assumed no responsibility for and expressed
+no view as to the appropriateness of the probability adjustments related to the CVR milestone payments, including any inherent forecasts or the assumptions on which they were based. Senior management of Acer advised William Blair, and William Blair
+assumed with Acer’s consent, that the Management’s Illustrative Liquidation Analysis was reasonably prepared in good faith on bases reflecting the best currently available estimates and judgments of such management as to the future
+financial results and condition of Acer, and William Blair expressed no view or opinion with respect to the Management’s Illustrative Liquidation Analysis or the assumptions upon which it was based.
+At the direction of the senior management of Acer, William Blair assumed that the Management’s Illustrative Liquidation Analysis provided
+a reasonable basis on which to evaluate Acer and the transaction contemplated by the Merger Agreement, and William Blair, at the direction of the senior management of Acer, used and relied upon the Management’s Illustrative Liquidation Analysis
+for purposes of its analysis and opinion. In this regard, the senior management of Acer advised William Blair, and William Blair relied upon such advice, that (i) Acer’s financial condition raised substantial doubt as to its ability to
+continue as a going concern, (ii) Acer’s cash, cash equivalents and marketable securities would be insufficient to enable Acer to fund normal operations through fourth quarter 2023, (iii) Acer would require substantial additional
+financing to achieve its goals, (iv) Acer had not obtained financing on terms acceptable to it, (v) Acer’s failure to conclude the transaction contemplated by the Merger Agreement or an alternative strategic transaction would force it
+to consider other strategic alternatives such as wind-down and dissolution, and (vi) any proceeds the holders of Acer Common Stock would receive in a liquidation and dissolution of Acer would be materially less on
+a per-share basis than the Merger Consideration to be received by such holders in the proposed transaction contemplated by the Merger Agreement.
+William Blair expressed no opinion as to any terms or other aspects of the transactions contemplated by the Merger Agreement (other than the
+Merger Consideration, to the extent specified in the opinion), including, without limitation, the form or structure of the transactions contemplated by the Merger Agreement, or tax and accounting consequences thereof. William Blair’s opinion
+was based upon general economic, market, financial and other conditions existing on, and other information disclosed to William Blair as of, the date of its opinion. It should be understood that, although subsequent developments may affect William
+Blair’s opinion, William Blair does not have any obligation to update, revise or reaffirm its opinion. William Blair has not made any determination as to legal matters related to the transactions contemplated by the Merger Agreement. William
+Blair assumed that the final executed Merger Agreement (including the CVR Agreement), would not materially differ from the drafts of the Merger Agreement reviewed by William Blair, and William Blair assumed that the Merger and issuance of CVRs and
+enforcement of the CVR Agreement would be consummated on the terms described in the Merger Agreement, without any waiver of any material terms or conditions by any party thereto.
+96
+Table of Contents
+Due to the unique nature of the business of Acer, William Blair did not believe that the results of the selected companies analysis or precedent transactions analysis related to Acer were
+meaningful for purposes of its opinion.
+William Blair expressed no opinion as to the price at which Acer Common Stock or Zevra Common
+Stock will trade at any future time or as to the effect of the Merger on the trading prices of Acer Common Stock or Zevra Common Stock. Such trading prices may be affected by a number of factors, including but not limited to (i) dispositions of
+the common stock of Zevra by stockholders within a short period of time after the Effective Time, (ii) changes in prevailing interest rates and other factors which generally influence the price of securities, (iii) adverse changes in the
+current capital markets, (iv) the occurrence of changes in the financial condition, business, assets, results of operations or prospects of Acer or of Zevra or in the markets where they provide goods or services, (v) any necessary actions
+by or restrictions of federal, state or other governmental agencies or regulatory authorities, and (vi) timely completion of the Merger on terms and conditions that are acceptable to all parties in interest.
+The following is a summary of the material financial analyses performed and material factors considered by William Blair to arrive at its
+opinion. William Blair performed certain procedures, including each of the financial analyses described below, and reviewed with the Acer Board the assumptions upon which such analyses were based, as well as other factors. Although the summary does
+not purport to describe all of the analyses performed or factors considered by William Blair in this regard, it does set forth those considered by William Blair to be material in arriving at its fairness opinion. The financial analyses summarized
+below include information presented in a tabular format. In order to fully understand the financial analyses performed by William Blair, the tables must be read together with the text of each summary. The tables alone do not constitute a complete
+description of the financial analyses performed by William Blair. Considering the data set forth in the tables below without considering the full narrative description of the financial analyses, including the methodologies and assumptions underlying
+the analyses, could create a misleading or incomplete view of the financial analyses performed by William Blair. The order of the summaries of the analyses described below does not represent the relative importance or weight given to those analyses
+by William Blair.
+Analysis of Consideration
+For purposes of the financial analyses summarized below, the term Merger Consideration refers to an implied price of $1.89 per share of Acer
+Common Stock calculated as (i) Stock Consideration of $0.62 per share of Acer Common Stock based on Zevra’s share price of $5.11 as of August 28, 2023, and total Zevra shares issued to Acer of 2,970,511 (based on an implied exchange
+ratio of 0.1214 shares of Zevra Common Stock for each share of Acer Common Stock, calculated by applying $15.0 million of upfront Stock Consideration divided by Zevra’s 20-Day VWAP of $5.05 as of
+August 28, 2023, per the framework outlined in the Merger Agreement), and (ii) CVR consideration equal to $1.27 per share of Acer Common Stock, on a probability-weighted and net present value basis.
+At the time William Blair made its presentation to the Acer Board on August 28, 2023, Zevra’s Acquisition Proposal for the CVRs was
+expressed in terms of aggregate values payable upon achievement of each CVR milestone, rather than per share amounts. Accordingly, in performing their financial analyses, William Blair derived per share amounts for the amounts payable upon
+achievement of each CVR milestone by dividing such aggregate amounts by the number of fully diluted shares outstanding, using the treasury stock method, based upon information provided by the senior management of Acer.
+For analytical purposes, William Blair calculated the net present value (“NPV”) of the CVR milestone payments as set forth in the
+following table based upon certain probability of success and timing assumptions prepared by senior management and confirmed by the Acer Board, and approved for William Blair’s use on August 24, 2023, in each case as described in the table
+below. For purposes of this analysis, William Blair
+97
+Table of Contents
+utilized a discount rate of 21.5%, the midpoint of the 20% to 23% range of discount rates based on William Blair’s respective analyses of Acer’s weighted average cost of capital, to
+calculate the NPV of potential payments pursuant to the CVRs as of August 28, 2023. The upfront payment was not discounted for purposes of these calculations. There is no guarantee that the conditions triggering any or all of the CVR milestone
+payments will be satisfied or, if triggered, when such conditions will be satisfied.
+CVR Consideration Summary
+Implied
+Aggregate
+Value
+($ in millions) |
+Upfront Payment
+$ |
+15.2 |
+CVR Payment Milestones Description |
+Aggregate
+Undiscounted
+Payment
+($ in millions) |
+Assumed
+Event Date (1) |
+Probability of
+Success |
+Aggregate
+NPV
+($ in millions) |
+Annual OLPRUVA Net Sales Exceeding $35
+$7.0 |
+Q4 2024 |
+N/A |
+(2) |
+$ |
+5.3 |
+Annual OLPRUVA Net Sales Exceeding $50
+$7.0 |
+Q1 2025 |
+N/A |
+(2) |
+$ |
+5.1 |
+Annual OLPRUVA Net Sales Exceeding $100
+$10.0 |
+Q4 2025 |
+N/A |
+(2) |
+$ |
+6.2 |
+Annual OLPRUVA Net Sales Exceeding $200
+$10.0 |
+2030 |
+N/A |
+(2) |
+$ |
+2.6 |
+OLPRUVA LCM Approval of MSUD by FDA
+$12.0 |
+2026 |
+25.2 |
+% |
+$ |
+1.7 |
+OLPRUVA LCM Approval of Additional Indication by FDA
+$10.0 |
+2027 |
+25.2 |
+% |
+$ |
+1.2 |
+EDSIVO Approval of vEDS Indication by FDA
+$20.0 |
+2026 |
+56.6 |
+% |
+$ |
+6.4 |
+Emetine (ACER-2820) Sublicense or Asset Sale Following Receipt of Anticipated Government Program
+Funding of at least $20M OR FDA Approval of Emetine in any indication (3)
+10% of cash
+consideration
+OR $5.0
+2027 |
+33.3 |
+% |
+$ |
+0.8 |
+Emetine (ACER-2820) Sale of Medical Counter Measure Priority Review Voucher (4)
+25% of cash
+consideration /
+~$25.0
+2028 |
+18.3 |
+% |
+$ |
+1.8 |
+Risk-Adjusted NPV of the CVRs
+$ |
+31.1 |
+Offer Value Including Risk-Adjusted NPV of the CVRs
+$ |
+46.2 |
+NPV per
+Share |
+Upfront Payment Only (Undiscounted)
+$ |
+0.62 |
+CVR Milestone Payments (Discounted)
+$ |
+1.27 |
+Implied Offer Price per Share Including Risk-Adjusted NPV of CVR (Discounted)
+$ |
+1.89 |
+(1) |
+First four CVR payments are assumed to be paid at respective quarter end as listed; remaining CVR payments are
+assumed to be paid mid-year for respective year listed.
+(2) |
+Acer senior management assumed 100% probability of achievement of revenue milestones.
+(3) |
+Acer senior management assumed $5.0 million milestone payment based on FDA approval of Emetine in 2027.
+(4) |
+Acer senior management assumed a sale of the Medical Counter Measure Priority Review Voucher could generate
+gross cash consideration of approximately $100.0 million.
+98
+Table of Contents
+Acer Financial Analyses
+Acer Discounted Cash Flow Analysis
+William Blair utilized the Forecasts to perform a discounted cash flow analysis of Acer’s projected future free cash flows for the five
+months ending December 31, 2023 through December 31, 2038, performing such analysis on both Management Plan 1 and Management Plan 2. See “ Management Forecasts ” beginning on page 104 for more information. Using the
+discounted cash flow methodology, William Blair calculated the present values of the projected after-tax unlevered free cash flows for Acer. In this analysis, William Blair exercised its professional judgment,
+based on its experience and expertise, and used the perpetuity growth method to estimate a terminal value of Acer by utilizing a perpetuity growth rate of negative 80.0% and assumed an effective tax rate of 26.0%, per estimates of senior management
+of Acer. To discount the projected unlevered free cash flows and assumed terminal value to present value, William Blair used discount rates ranging from 20.0% to 23.0%. The discount rate range was derived based upon a weighted average cost of
+capital using the capital asset pricing model.
+At the direction of the senior management of Acer, given the liquidity position of Acer
+and the need for additional capital to finance the operations of Acer to achieve the Forecasts, William Blair assumed, per senior management of Acer, an immediate equity capital raise of $40.0 million in order to fund operations of Management
+Plan 1 and an immediate equity capital raise of $60.0 million in order to fund operations of Management Plan 2. Reflecting the Sensitivities, each capital raise was conducted ranging from a 25% – 75% discount to the closing stock price as
+of August 28, 2023 (the latest practicable trading day for reference prior to the entry into the Merger Agreement). Also at the direction of senior management of Acer, William Blair excluded the impact of existing NOLs due to their expected de
+minimis value arising from potential future limitations on their use but included the impact of NOLs created during the applicable forecast period.
+William Blair aggregated the present value of the after-tax unlevered free cash flows over the
+applicable forecast period, the present value of the potential tax savings expected to result from utilization of Acer’s future NOLs ($3.2 million and $7.0 million for Management Plan 1 and Management Plan 2, respectively), and the
+present value of the assumed terminal value. William Blair then derived a range of implied equity values per share by subtracting Acer’s net debt as of July 31, 2023, and the upfront and buy-out
+payments to Relief Therapeutics, and dividing such amount by Acer’s total diluted shares outstanding as of August 28, 2023 (as adjusted to take into account the impact of dilutive securities based on the treasury stock method at the
+implied share price), and further adjusted to incorporate the pro forma impacts of the referenced capital raises in the preceding paragraph. This analysis resulted in (i) a range of implied equity values of $0.90 to $2.71 per share with respect
+to Management Plan 1 and (ii) a range of implied equity values of $1.13 to $3.63 per share with respect to Management Plan 2.
+Acer
+Management’s Illustrative Liquidation Analysis
+William Blair reviewed and considered Management’s Illustrative Liquidation
+Analysis prepared by management of Acer and noted that the estimates resulted in an aggregate implied equity value for Acer ranging from approximately negative $57.1 million to negative $23.5 million, implying no proceeds for Acer
+Stockholders, as compared to the Merger Consideration of $1.89 per share.
+Acer M&A Premiums Paid Analysis
+William Blair reviewed data from 664 acquisitions of U.S. publicly traded companies announced across all industries since January 1, 2010,
+in which 100% of the target’s equity was acquired with equity values between $25.0 million and $125.0 million. Specifically, William Blair analyzed the acquisition price per share as a premium to the closing share price one day, one
+week and one month prior to the announcement of each transaction. William Blair compared the range of resulting per share common share price premiums for the reviewed transactions to the premiums implied by the Merger Consideration based on common
+stock prices one
+99
+Table of Contents
+day, one week and one month prior to August 28, 2023 (the latest practicable trading day for reference prior to the entry into the Merger Agreement). Information regarding the premiums from
+William Blair’s analysis of selected transactions is set forth in the following table:
+Period |
+Implied
+Premium
+at $1.89 /
+share |
+Premiums Paid Data Percentile |
+10th |
+20th |
+30th |
+40th |
+50th |
+60th |
+70th |
+80th |
+90th |
+One Day Prior
+206.5 |
+% |
+0.3 |
+% |
+11.4 |
+% |
+20.1 |
+% |
+28.6 |
+% |
+37.7 |
+% |
+47.3 |
+% |
+58.9 |
+% |
+74.4 |
+% |
+106.3 |
+% |
+One Week Prior
+173.9 |
+% |
+0.8 |
+% |
+12.6 |
+% |
+22.4 |
+% |
+30.0 |
+% |
+39.1 |
+% |
+49.7 |
+% |
+61.5 |
+% |
+78.8 |
+% |
+106.4 |
+% |
+One Month Prior
+125.2 |
+% |
+0.8 |
+% |
+13.3 |
+% |
+24.7 |
+% |
+31.6 |
+% |
+40.2 |
+% |
+52.4 |
+% |
+64.9 |
+% |
+80.3 |
+% |
+109.6 |
+% |
+Zevra Financial Analyses
+Zevra Selected Public Companies Analysis
+William Blair reviewed and compared certain financial information relating to Zevra to corresponding financial information, ratios and public
+market multiples for publicly traded commercial and/or late-stage biopharmaceutical companies with similar business models or financial profiles that William Blair deemed relevant. The publicly traded companies with similar business models or
+financial profiles identified by William Blair were: (i) Amarin Corporation plc, (ii) Calliditas Therapeutics AB, (iii) Cara Therapeutics, Inc., (iv) Genfit S.A., (v) Intercept Pharmaceuticals, Inc., (vi) Lexicon Pharmaceuticals,
+Inc., (vii) Optinose Inc, (viii) Rigel Pharmaceuticals, Inc., and (ix) Xeris Pharmaceuticals, Inc., which nine companies William Blair deemed appropriate comparisons to Zevra based on the foregoing factors. William Blair considered the
+enterprise value for each company (including Zevra), which William Blair calculated as the equity value of the company, plus total debt, minority interest and preferred stock, less cash and cash equivalents. The equity value of each company was
+calculated using the closing stock price as of August 28, 2023 (the latest practicable trading day for reference prior to the entry into the Merger Agreement), multiplied by the total diluted shares outstanding (using the most recent publicly
+available information as of August 28, 2023). William Blair considered the enterprise value as a multiple of calendar year 2026 (“CY 2026E”) expected revenue based on Wall Street consensus estimates for each company, including Zevra.
+William Blair compared the trading multiple implied for Zevra to the range of trading multiples of the aggregate group of selected publicly traded biopharmaceutical companies. Information regarding the multiples derived from William Blair’s
+selected public company analysis is set forth in the following tables:
+Company
+Enterprise
+Value
+/
+CY 2026E
+Revenue
+Amarin Corporation PLC
+0.25x |
+Calliditas Therapeutics AB
+0.78x |
+Cara Therapeutics, Inc.
+0.35x |
+Genfit S.A.
+1.28x |
+Intercept Pharmaceuticals, Inc.
+1.08x |
+Lexicon Pharmaceuticals, Inc.
+1.43x |
+Optinose, Inc.
+0.95x |
+Rigel Pharmaceuticals, Inc.
+1.04x |
+Xeris Biopharma Holdings, Inc.
+1.59x |
+Multiple
+Implied
+Zevra
+Multiple
+Selected Public Company
+Valuation
+Multiples
+Min |
+Mean |
+Median |
+Max |
+Enterprise Value / CY 2026E Revenue
+Wall Street Consensus Estimate
+0.84x |
+0.25x |
+0.97x |
+1.04x |
+1.59x |
+100
+Table of Contents
+William Blair noted that, with respect to the enterprise value CY 2026E revenue multiple,
+the analyzed implied valuation multiple for Zevra based on the enterprise value as of August 28, 2023, was within the range of multiples of the selected public companies.
+Although William Blair compared the trading multiples of the selected public companies to those implied for Zevra, none of the selected public
+companies is directly comparable to Zevra. Accordingly, any analysis of the selected public companies involves considerations and judgments concerning the differences in financial and operating characteristics and other factors that would affect the
+analysis of trading multiples of the selected public companies.
+Zevra Selected Precedent Transactions Analysis
+William Blair performed an analysis of six selected transactions since 2016 that involved the acquisition of companies William Blair deemed
+relevant. William Blair’s analysis was based solely on publicly available information regarding such transactions. Although none of the companies or transactions used in this analysis is directly comparable to Zevra, the companies included in
+the selected transactions below were chosen by William Blair, among other reasons, because they are biopharmaceutical companies with certain business, operational, and/or financial characteristics that, for purposes of William Blair’s analysis,
+may be considered similar to those of Zevra. William Blair did not take into account any announced or consummated transaction whereby relevant financial information was not publicly disclosed and available. The selected transactions were not
+intended to be representative of the entire range of possible biopharmaceutical transactions.
+William Blair reviewed the consideration
+paid in the selected transactions in terms of the enterprise value of such transactions as a multiple of calendar year (“CY”) plus three years revenue based on Wall Street consensus estimates at the time of announcement for each respective
+transaction. William Blair calculated equity and enterprise values for the selected transactions based on (i) upfront consideration alone and (ii) upfront consideration plus total value of CVRs to be issued as contingent consideration. The
+transactions examined and information regarding the multiples from William Blair’s analysis of the selected transactions is set forth in the following tables:
+Date Announced
+Enterprise Value / Revenue |
+Upfront |
+Upfront +
+CVR |
+Target
+Acquiror
+CY+3 |
+CY+3 |
+January 2023
+Concert Pharmaceuticals |
+Sun Pharmaceutical Industries |
+1.84x |
+2.92x |
+October 2021
+Adamas Pharmaceuticals |
+Supernus Pharmaceuticals |
+3.05x |
+3.39x |
+October 2020
+AMAG Pharmaceuticals |
+Covis Group SARL |
+3.07x |
+3.07x |
+April 2018
+Wilson Therapeutics |
+Alexion Pharmaceuticals |
+NMF |
+NMF |
+October 2017
+Dimension Therapeutics |
+Ultragenyx Pharmaceuticals |
+0.39x |
+0.39x |
+September 2016
+Raptor Pharmaceuticals |
+Horizon Therapeutics |
+3.69x |
+3.69x |
+Upfront Consideration
+Multiple
+Implied
+Zevra
+Multiple |
+Range of Selected Precedent
+Transaction Valuation Multiples |
+Min |
+Mean |
+Median |
+Max |
+Enterprise Value / CY Revenue +3
+Wall Street Consensus Estimate (1)
+0.84x |
+0.39x |
+2.41x |
+3.05x |
+3.69x |
+101
+Table of Contents
+Upfront Consideration + CVR
+Multiple
+Implied
+Zevra
+Multiple |
+Range of Selected Precedent
+Transaction Valuation Multiples |
+Min |
+Mean |
+Median |
+Max |
+Enterprise Value / CY Revenue +3
+Wall Street Consensus Estimate (1)
+0.84x |
+0.39x |
+2.69x |
+3.07x |
+3.69x |
+(1) |
+Represents Wall Street consensus estimates as of August 28, 2023, for Zevra, and the most recently
+available Wall Street consensus estimates for each precedent transaction at the time of announcement.
+William Blair
+noted that the implied trading multiple of CY 2023E plus three years revenue based on Wall Street consensus estimates for Zevra calculated using the closing stock price as of August 28, 2023, was within the range of multiples of the selected
+transactions.
+Although William Blair analyzed the multiples implied by the selected transactions and compared them to the implied trading
+multiple of Zevra, none of these transactions or associated companies is identical to Zevra. Accordingly, any analysis of the selected transactions necessarily involved complex considerations and judgments concerning the differences in financial and
+operating characteristics, parties involved and terms of their transactions and other factors that would necessarily affect the implied value of Zevra versus the values of the companies in the selected transactions.
+General
+This summary is not a
+complete description of the analysis performed by William Blair, but contains the material elements of the analysis. The preparation of an opinion regarding fairness is a complex process involving various determinations as to the most appropriate
+and relevant methods of financial analysis and the application of those methods to the particular circumstances, and, therefore, such an opinion is not readily susceptible to partial analysis or summary description. The preparation of an opinion
+regarding fairness does not involve a mathematical evaluation or weighing of the results of the individual analyses performed, but requires William Blair to exercise its professional judgment, based on its experience and expertise, in considering a
+wide variety of analyses taken as a whole. Each of the analyses conducted by William Blair was carried out in order to provide a different perspective on the Merger Consideration and add to the total mix of information available. The analyses were
+prepared solely for the purpose of William Blair providing its opinion and do not purport to be appraisals or necessarily reflect the prices at which securities actually may be sold. William Blair did not form a conclusion as to whether any
+individual analysis, considered in isolation, supported or failed to support an opinion about the fairness, from a financial point of view, to the Acer Stockholders of the Merger Consideration proposed to be paid to Acer Stockholders pursuant to the
+terms and subject to the conditions set forth in the Merger Agreement. Rather, in rendering its oral opinion on August 28, 2023, to the Acer Board (subsequently confirmed in its written opinion dated August 28, 2023) based upon and subject
+to the assumptions, qualifications and limitations stated in its written opinion, as of the date of such opinion, as to whether the Merger Consideration was fair, from a financial point of view, to the Acer Stockholders, William Blair considered the
+results of the analyses in light of each other and ultimately reached its opinion based on the results of all analyses taken as a whole. William Blair’s fairness opinion considered each valuation method equally and did not place any particular
+reliance or weight on any particular analysis, but instead concluded that its analyses, taken as a whole, supported its determination. Accordingly, notwithstanding the separate factors summarized above, William Blair believes that its analyses must
+be considered as a whole and that selecting portions of its analyses and the factors considered by it, without considering all analyses and factors, may create an incomplete view of the evaluation process underlying its opinion. In performing its
+analyses, William Blair made numerous assumptions with respect to industry performance, business and economic conditions and other matters. The analyses performed by William Blair are not necessarily indicative of future actual values and future
+results, which may be significantly more or less favorable than suggested by such analyses.
+102
+Table of Contents
+William Blair has been engaged in the investment banking business since 1935. William Blair
+continually undertakes the valuation of investment securities in connection with public offerings, private placements, business combinations and similar transactions. In the ordinary course of its business, William Blair may from time to time trade
+the securities of Acer or Zevra for its own account and for the accounts of its customers, and accordingly may at any time hold a long or short position in such securities. The Acer Board hired William Blair based on its familiarity with Acer,
+having provided certain investment banking services to Acer from time to time, including capital advisory services and underwriting in connection with potential offerings of Acer’s equity securities.
+Acer’s Management Liquidation Analysis
+Acer’s senior management prepared the Management’s Illustrative Liquidation Analysis utilizing its best estimates of values that
+could be achieved if the remaining operations of Acer were wound down, assets were sold or recovered and liabilities were settled or paid over a period of time, to illustrate the value per share that might be realized in a liquidation as an
+alternative to pursuing a strategic transaction. In conducting this analysis, Acer’s management determined the implied equity value of the shares in liquidation to be equal to the total assets of Acer minus the total liabilities of Acer, each
+as of June 30, 2023, pro forma for debt and cash as of July 31, 2023, minus wind down charges incurred over a hypothetical three month period. The liquidation analysis assumes that Acer would incur approximately $10.8 million to
+$12.8 million in expenses and future wind-down charges prior to dissolution and that no funds would be held back to cover future claims. This analysis resulted in a range of aggregate implied equity values of Acer of approximately negative
+$57.1 million to negative $23.5 million. Based on the number of shares of Acer Common Stock outstanding at the time of the analysis, Acer then determined that the range of liquidation values to be received by Acer Stockholders was $0.00
+(implying negative $2.33 to negative $0.96 per share).
+The high end of the range of expected costs assumes (i) $4.5 million to
+operate the business over a three-month period, (ii) $5.8 million in severance costs, (iii) $1.5 million in transaction costs, and (iv) $1.0 million for directors and officers insurance, whereas the low end of this range assumes (i)
+$3.0 million to operate the business over a three-month period, (ii) $5.8 million in severance costs, (iii) $1.0 million in transaction costs, and (iv) $1.0 million for directors and officers insurance.
+Additional assumptions in this analysis included (i) recovering all cash and cash equivalents and short term marketable securities held
+by Acer, (ii) recovering 50% –100% of active pharmaceutical ingredients, a component of inventory, valued at $2.9 million and recovering 0% of the remainder of inventory, (iii) recovering 0% – 25% of prepaid expenses,
+including prepaid contracts, prepaid clinical trials, expected recoveries from insurance carriers, and other current assets, (iv) recovering 0% of property of equipment and other non-current assets,
+including a lease right-of-use asset, (v) paying all of Acer’s approximately $35.0 million of outstanding debt in full, (vi) paying all of
+Acer’s accounts payable in full, (vii) paying all of Acer’s accrued expenses in full, (viii) recognizing 0% of deferred collaboration funding liability of $4.6 million, and (ix) assigning recoveries of (x) $0.0 –
+$15.0 million of value for OLPRUVA ™ rights (net of payment to Relief Therapeutics to reacquire such rights), (y) $0.0 – $15.0 million of value for EDSIVO ™ rights, and (z) $0.0 of value for other Acer intellectual property.
+Fees
+Pursuant to a letter agreement dated August 21, 2023, William Blair is to receive an aggregate fairness opinion fee of $1.0 million.
+A fee of approximately $1.3 million, less any fairness opinion fee previously paid to William Blair, will become payable to William Blair upon the consummation of the Merger. No portion of the fees payable to William Blair were contingent on
+the conclusions reached by William Blair in William Blair’s fairness opinion. In addition, Acer agreed to reimburse William Blair for certain of its out-of-pocket
+expenses (including fees and expenses of its counsel and any other independent experts retained by William Blair) reasonably incurred by it in connection with its services and to indemnify William Blair against certain potential
+103
+Table of Contents
+liabilities arising out of its engagement, including certain liabilities under the U.S. federal securities laws. During the two years preceding the date of William Blair’s fairness opinion,
+William Blair has not received a fee under an engagement to provide investment banking services to Acer or Zevra (other than William Blair’s engagement to Acer in connection with the fairness opinion).
+Management Forecasts
+Summary of Management Forecasts
+Acer does not, as a matter of course, make public projections regarding future performance, earnings or other results due to, among other
+reasons, the difficulty of predicting financial performance for future periods and the likelihood that the underlying assumptions and estimates may not be realized. In connection with the evaluation of the business, and before receiving an
+indication of interest from Zevra, Acer’s senior management began preparing projections, which ultimately were extended through the year 2038 (such financial projections, the “Forecasts”). The Forecasts comprise two cases, which
+include (i) OLPRUVA UCD Indication (“Management Plan 1 – OLPRUVA UCD Indication” or “Management Plan 1”), which assumes Acer’s only source of revenue is from sales of OLPRUVA for oral suspension in the U.S. for the
+treatment of certain patients with UCDs and (ii) OLPRUVA UCD Indication and EDSIVO (“Management Plan 2 – OLPRUVA UCD Indication” or “Management Plan 2”), which assumes Acer’s source of revenue will also include
+sales of EDSIVO (celiprolol) for the treatment of vascular Ehlers-Danlos syndrome. Management Plan 1 was the primary case for Acer and the Acer Board to evaluate potential strategic alternatives and Management Plan 2 was considered an upside case.
+Management Plan 2 was prepared assuming a 55% probability of success for the commercialization and development of EDSIVO. Acer senior management provided the Forecasts to (i) the Acer Board and (ii) William Blair on August 24, 2023
+(which was approved by Acer for William Blair’s use) during the evaluation of the transactions contemplated by the Merger Agreement.
+To give Acer stockholders access to certain nonpublic information that was available to the Acer Board and Zevra at the time of the Acer
+Board’s evaluation of the transactions contemplated by the Merger Agreement, Acer has included the Forecasts below. The Forecasts were developed by Acer management assuming continued standalone operation and did not give effect to any changes
+or expenses as a result of the transactions contemplated by the Merger Agreement. The Forecasts were not prepared with a view toward public disclosure. The Forecasts do not comply with the guidelines of the SEC or the guidelines established by the
+American Institute of Certified Public Accountants for the preparation and presentation of prospective financial information. Acer’s independent registered public accounting firm has not examined, audited or performed any procedures with
+respect to the Forecasts, and has not expressed any opinion or any other form of assurance on this information or its achievability.
+The
+Forecasts were prepared based on cash accounting principles and not in accordance with GAAP. Adjusted EBITDA, EBIT, NOPAT and Unlevered Free Cash Flow contained in the Forecasts are each a “non-GAAP
+financial measure,” which is a financial performance measure that is not calculated in accordance with GAAP. Acer has not prepared or provided a reconciliation of the financial measures included in the Forecasts to GAAP financial measures. The non-GAAP financial measures used in the Forecasts were assumed and relied upon by William Blair without independent verification and with the consent of the Acer Board, for purposes of its opinion and by the Acer
+Board in connection with its evaluation of the Merger.
+The inclusion of the Forecasts in this proxy statement/prospectus should not be
+regarded as and is not an indication that the Acer Board, Acer, William Blair, any of their affiliates or any director, officer, or employee of the foregoing, or any other recipient of this information considered, or now considers, the Forecasts to
+be a reliable prediction of future results or any actual future events which may be significantly more or less favorable than suggested by the Forecasts. None of Acer, William Blair, Zevra, any of their respective affiliates, or any director,
+officer, or employee of the foregoing intends to, and each of them disclaims any obligations to, update, revise, reaffirm or correct the Forecasts if they are or become inaccurate (in the long term or the short term), except as may be required by
+applicable laws. The inclusion of the Forecasts below should not be deemed an
+104
+Table of Contents
+admission or representation by Acer, William Blair, Zevra or any of their respective affiliates with respect to such Forecasts or that the Forecasts included are viewed by Acer, William Blair,
+Zevra or any of their respective affiliates as material information regarding Acer. Acer views any utility of the Forecasts as limited by the inherent risks and uncertainties associated with such Forecasts. The Forecasts are being included in this
+proxy statement/prospectus because such Forecasts were provided to the Acer Board, William Blair and, in preliminary form, Zevra.
+Acer’s actual future financial results may differ materially from those expressed or implied in the Forecasts due to numerous factors,
+many that are beyond Acer’s ability to control or predict. We cannot assure you that any of the Forecasts will be realized or that Acer’s future financial results will not materially vary from the Forecasts. Furthermore, while presented
+with numerical specificity, the Forecasts necessarily are based on numerous assumptions, many of which are beyond Acer’s control, including general business, economic, regulatory, market and financial conditions, as well as matters specific to
+Acer’s business, such as future business initiatives and changes to Acer’s business model. The Forecasts do not take into account any circumstances or events occurring after August 24, 2023, the date they were prepared, including the
+August 31, 2023 announcement of the transactions contemplated in the Merger Agreement or subsequent integration planning activities, and have not been updated since their respective dates of preparation. In addition, the Forecasts do not take
+into account the adverse effects that may arise out of the termination of the transactions contemplated by the Merger Agreement, and should not be viewed as accurate or continuing in that context. The Forecasts cover many years, and forecasts by
+their nature becomes less reliable with each successive year. The Forecasts are not public guidance and will not be provided in the ordinary course of Acer’s business in the future.
+The information from the Forecasts should be evaluated, if at all, in conjunction with the historical financial statements and other
+information regarding Acer contained in Acer’s public filings with the SEC. In light of the foregoing factors and the uncertainties inherent in the Forecasts, stockholders are cautioned not to place undue, if any, reliance on the Forecasts
+included in this proxy statement/prospectus, including in making a decision as to whether to vote in favor of the Merger.
+The Forecasts
+included in this proxy statement/prospectus have been prepared by Acer’s management.
+The following tables present a summary of the
+Forecasts (which are unaudited and which were not prepared in accordance with GAAP).
+Management Plan 1 – OLPRUVA UCD Indication—Year ended December 31, |
+($ in millions)
+5Mos.
+2023E |
+2024E |
+2025E |
+2026E |
+2027E |
+2028E |
+2029E |
+2030E |
+2031E |
+Revenues
+$ |
+5.1 |
+$ |
+44.5 |
+$ |
+106.6 |
+$ |
+158.2 |
+$ |
+170.4 |
+$ |
+189.9 |
+$ |
+196.3 |
+$ |
+205.7 |
+$ |
+215.4 |
+Adjusted EBITDA (1)
+$ |
+(18.5 |
+) |
+$ |
+3.0 |
+$ |
+60.9 |
+$ |
+104.5 |
+$ |
+117.9 |
+$ |
+150.7 |
+$ |
+156.6 |
+$ |
+164.9 |
+$ |
+173.5 |
+EBIT (2)
+$ |
+(19.0 |
+) |
+$ |
+1.1 |
+$ |
+59.0 |
+$ |
+102.6 |
+$ |
+116.1 |
+$ |
+148.9 |
+$ |
+154.7 |
+$ |
+163.0 |
+$ |
+171.6 |
+NOPAT (3)
+$ |
+(19.0 |
+) |
+$ |
+0.8 |
+$ |
+43.7 |
+$ |
+75.9 |
+$ |
+85.9 |
+$ |
+110.2 |
+$ |
+114.5 |
+$ |
+120.6 |
+$ |
+127.0 |
+Unlevered Free Cash Flow (4)
+$ |
+(19.1 |
+) |
+$ |
+0.7 |
+$ |
+43.6 |
+$ |
+75.8 |
+$ |
+85.8 |
+$ |
+110.0 |
+$ |
+114.4 |
+$ |
+120.5 |
+$ |
+126.9 |
+($ in millions)
+2032E |
+2033E |
+2034E |
+2035E |
+2036E |
+2037E |
+2038E |
+Revenues
+$ |
+225.0 |
+$ |
+235.5 |
+$ |
+246.3 |
+$ |
+257.7 |
+$ |
+269.4 |
+$ |
+53.9 |
+$ |
+10.8 |
+Adjusted EBITDA (1)
+$ |
+181.9 |
+$ |
+191.1 |
+$ |
+200.7 |
+$ |
+210.7 |
+$ |
+221.0 |
+$ |
+44.2 |
+$ |
+8.8 |
+EBIT (2)
+$ |
+180.0 |
+$ |
+189.3 |
+$ |
+198.8 |
+$ |
+208.8 |
+$ |
+219.2 |
+$ |
+42.3 |
+$ |
+7.0 |
+NOPAT (3)
+$ |
+133.2 |
+$ |
+140.0 |
+$ |
+147.1 |
+$ |
+154.5 |
+$ |
+162.2 |
+$ |
+31.3 |
+$ |
+5.2 |
+Unlevered Free Cash Flow (4)
+$ |
+133.1 |
+$ |
+139.9 |
+$ |
+147.0 |
+$ |
+154.4 |
+$ |
+162.1 |
+$ |
+31.2 |
+$ |
+5.1 |
+(1) |
+Adjusted EBITDA is defined as net income (loss) before interest, taxes, depreciation and amortization, and
+stock-based compensation.
+105
+Table of Contents
+(2) |
+EBIT is defined as Adjusted EBITDA, less depreciation and amortization of $0.0 million for the 5 months
+ended 2023 and $0.1 million thereafter, less stock-based compensation of $0.5 million for the 5 months ended 2023 and $1.8 million thereafter.
+(3) |
+NOPAT is defined as EBIT less taxes at an effective rate of 26%.
+(4) |
+Unlevered free cash flow is defined as NOPAT, plus depreciation and amortization of $0.0 million for the 5
+months ended 2023 and $0.1 million thereafter, less capital expenditures of $0.1 million for the 5 months ended 2023 and $0.2 million thereafter, less change in net working capital of $0.0 million.
+Management Plan 2 – OLPRUVA UCD Indication + EDSIVO—Year ended December 31, |
+($ in millions)
+5Mos.
+2023E |
+2024E |
+2025E |
+2026E |
+2027E |
+2028E |
+2029E |
+2030E |
+2031E |
+Revenues
+$ |
+5.1 |
+$ |
+44.5 |
+$ |
+106.6 |
+$ |
+158.2 |
+$ |
+184.1 |
+$ |
+332.1 |
+$ |
+402.6 |
+$ |
+433.7 |
+$ |
+449.2 |
+Adjusted EBITDA (1)
+$ |
+(30.4 |
+) |
+$ |
+(9.4 |
+) |
+$ |
+41.9 |
+$ |
+79.3 |
+$ |
+119.4 |
+$ |
+278.3 |
+$ |
+346.7 |
+$ |
+375.9 |
+$ |
+389.9 |
+EBIT (2)
+$ |
+(31.0 |
+) |
+$ |
+(11.3 |
+) |
+$ |
+40.0 |
+$ |
+76.5 |
+$ |
+116.6 |
+$ |
+275.5 |
+$ |
+343.9 |
+$ |
+373.2 |
+$ |
+387.2 |
+NOPAT (3)
+$ |
+(31.0 |
+) |
+$ |
+(11.3 |
+) |
+$ |
+29.6 |
+$ |
+56.6 |
+$ |
+86.3 |
+$ |
+203.9 |
+$ |
+254.5 |
+$ |
+276.1 |
+$ |
+286.5 |
+Unlevered Free Cash Flow (4)
+$ |
+(31.0 |
+) |
+$ |
+(11.4 |
+) |
+$ |
+29.5 |
+$ |
+56.5 |
+$ |
+86.2 |
+$ |
+203.8 |
+$ |
+254.4 |
+$ |
+276.0 |
+$ |
+286.4 |
+($ in millions)
+2032E
+2033E
+2034E
+2035E
+2036E
+2037E
+2038E
+Revenues
+$ |
+461.7 |
+$ |
+474.0 |
+$ |
+486.6 |
+$ |
+499.6 |
+$ |
+511.3 |
+$ |
+295.8 |
+$ |
+252.7 |
+Adjusted EBITDA (1)
+$ |
+400.9 |
+$ |
+411.9 |
+$ |
+422.8 |
+$ |
+434.1 |
+$ |
+444.5 |
+$ |
+267.7 |
+$ |
+232.3 |
+EBIT (2)
+$ |
+398.1 |
+$ |
+409.2 |
+$ |
+420.1 |
+$ |
+431.4 |
+$ |
+441.7 |
+$ |
+264.9 |
+$ |
+229.5 |
+NOPAT (3)
+$ |
+294.6 |
+$ |
+302.8 |
+$ |
+310.9 |
+$ |
+319.2 |
+$ |
+326.9 |
+$ |
+196.0 |
+$ |
+169.9 |
+Unlevered Free Cash Flow (4)
+$ |
+294.5 |
+$ |
+302.7 |
+$ |
+310.8 |
+$ |
+319.1 |
+$ |
+326.8 |
+$ |
+195.9 |
+$ |
+169.8 |
+(1) |
+Adjusted EBITDA is defined as net income (loss) before interest, taxes, depreciation and amortization, and
+stock-based compensation.
+(2) |
+EBIT is defined as Adjusted EBITDA, less depreciation and amortization of $0.0 million for the 5 months
+ended 2023 and $0.1 million thereafter, less stock-based compensation of $0.0 million for the 5 months ended 2023, $1.8 million for the years ended 2024 and 2025, and $2.7 million thereafter.
+(3) |
+NOPAT is defined as EBIT less taxes at an effective rate of 26%.
+(4) |
+Unlevered free cash flow is defined as NOPAT, plus depreciation and amortization of $0.0 million for the 5
+months ended 2023, and $0.1 million thereafter, less capital expenditures of $0.1 million for the 5 months ended 2023 and $0.2 million thereafter, less change in net working capital of $0.0 million.
+As noted above, the Forecasts reflect numerous estimates and assumptions regarding general business, economic, regulatory, market and
+financial conditions and other future events, as well as matters specific to Acer’s business, all of which are difficult to predict and many of which are beyond Acer’s control. The Forecasts are forward looking statements. For information
+on factors that may cause Acer’s future results to materially vary, see “ Cautionary Statement Concerning Forward-Looking Statements. ”
+106
+Table of Contents

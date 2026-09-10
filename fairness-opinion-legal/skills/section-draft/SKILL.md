@@ -6,14 +6,14 @@ description: >
   defined terms, in the advisor's own language, scored against the package as
   it goes. Use when the user says "draft the section", "mark up the shell",
   "write the opinion section", or after the shell in the pipeline.
-argument-hint: "[deal code] [--mode objective|procedure]"
+argument-hint: "[deal code] [--mode objective|procedure] [--model opus|fable]"
 ---
 
 # /section-draft
 
-1. Read the profile's drafting mode (default objective). Read `${CLAUDE_PLUGIN_ROOT}/references/task-objective.md` or `task-procedure.md` accordingly; substitute the deal directory.
-2. Draft `draft/section.txt` and `draft/log.md` following that task text. Run `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/selfscore.py <deal dir> draft/section.txt` as often as useful; save the last result to `draft/selfscore.json`.
-3. Show the self-score summary and the log's list of missing facts. Hand off to redline.
+1. Read the profile's drafting mode (default objective) and drafter model (default opus); `--mode` and `--model` in `$ARGUMENTS` win for this run. Read `${CLAUDE_PLUGIN_ROOT}/references/task-objective.md` or `task-procedure.md` accordingly; substitute the deal directory.
+2. Draft through the `fairness-opinion-legal:section-drafter` agent: Agent tool with `model` set to the drafter model (`opus` or `fable`) and the prompt `stage: section-draft only; deal: <deal dir>; mode: <mode>`. Without an Agent tool, draft in this session and record its model. Either way the drafter writes `draft/section.txt` and `draft/log.md` following the task text, runs `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/selfscore.py <deal dir> draft/section.txt` as often as useful, and saves the last result to `draft/selfscore.json`.
+3. Show the self-score summary, the drafter model, and the log's list of missing facts. Hand off to redline.
 
 ## The two modes
 
@@ -33,6 +33,7 @@ Both were run on the same 24 deals; see `references/scoring.md` for what is meas
 
 ```
 # <deal code> drafting log
+Drafter: <opus | fable> (<objective | procedure> mode)
 Base: <accession> (<target>, <date>) ; borrowed: <accession>: <analysis> ...
 Analyses classified: ...
 Deletions (paragraph, reason grounded in the book or the letter): ...

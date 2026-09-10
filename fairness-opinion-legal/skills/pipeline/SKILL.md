@@ -6,7 +6,7 @@ description: >
   every gate the profile turns on. Use when the user says "draft the opinion
   section", "run the pipeline", "start from the deck", or hands over a board book
   and wants the section back.
-argument-hint: "[deal code]"
+argument-hint: "[deal code] [--model opus|fable]"
 ---
 
 # /pipeline
@@ -18,14 +18,14 @@ argument-hint: "[deal code]"
    - `proxy-glossary` if a draft proxy was supplied
    - `precedent-search` → gate: approve the set
    - `shell-builder` → gate only if the profile turns it on
-   - `section-draft`
+   - `section-draft` (drafter model: `--model` for this run, else the profile's `Drafter model`, default opus)
    - `redline` → gate: reviewer sign-off
 4. After each stage append one line to `history.md` and show a one-line status. On a gate, stop and wait; do not continue on silence.
 
 ## Status line
 
 ```
-[intake ✓] [glossary –] [search ✓ 8 precedents] [shell ✓ base ARC 2024] [draft ✓ self-score 0.61 / terms 12 / names 7/7] [redline ✓]
+[intake ✓] [glossary –] [search ✓ 8 precedents] [shell ✓ base ARC 2024] [draft ✓ opus · self-score 0.61 / terms 12 / names 7/7] [redline ✓]
 ```
 
 ## When a stage cannot complete

@@ -45,7 +45,7 @@ Quick path: accept every `[DEFAULT]`, write the profile, close with: "Done. Run 
 4. Reviewer: who signs off before anything leaves the building.
 5. House style: does the firm depart from the advisor's precedents anywhere (section title, table format, how reference items are placed)? Paste a prior section the firm drafted if one exists; extract the departures, do not copy deal facts.
 6. Shell library: a folder of the firm's own shells by advisor, or none. If given, note that intake will offer it alongside EDGAR results.
-7. Drafting mode: objective (default) or procedure. One sentence each; see `references/drafting-modes.md`.
+7. Drafting mode: objective (default) or procedure. One sentence each; see `references/drafting-modes.md`. Then the drafter model: opus (default, the tested drafter) or fable (the top model; for unusual deals; costs more). Write both into the Drafting section.
 8. Gates: which of the four stay on. Default: intake confirm, precedent-set approval, final sign-off on; shell review off.
 9. Output formats and the work-product header text.
 

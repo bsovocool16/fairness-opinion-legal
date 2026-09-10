@@ -2,9 +2,9 @@
 name: customize
 description: >
   Edit the fairness-opinion-legal practice profile: the SEC contact identity,
-  precedent window, drafting mode, house style, output formats, gates, or the
+  precedent window, drafting mode, drafter model (Opus or Fable), house style, output formats, gates, or the
   reviewer. Use when the user says "change the default", "turn the shell gate
-  off", "switch to procedure mode", "update my profile", or complains that an
+  off", "switch to procedure mode", "use Fable for the drafter", "update my profile", or complains that an
   output keeps doing something the profile drives.
 argument-hint: "[section name] [new value]"
 ---
