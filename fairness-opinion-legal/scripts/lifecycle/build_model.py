@@ -79,8 +79,21 @@ def defaults(co, terms):
     cagr = (A[-1]["revenue"] / A[-4]["revenue"]) ** (1 / 3) - 1 if len(A) >= 4 else ((A[-1]["revenue"] / A[0]["revenue"]) ** (1 / max(1, len(A) - 1)) - 1 if len(A) > 1 else 0.03)
     g_term = 0.025; g0 = clamp(cagr, -0.05, 0.15)
     growth = [r2(g0 + (g_term + 0.01 - g0) * i / (N_PROJ - 1), 0.0025) for i in range(N_PROJ)]
+    # Year one starts from what has already happened: LTM revenue, plus the rest of the fiscal year at the year-two rate.
+    # Without this a projection off the last 10-K can forecast a year below the twelve months already reported.
+    LV = t["ltm"]["values"]; lfy_end = datetime.date.fromisoformat(A[-1]["period_end"])
+    ltm_end = (t["ltm"]["sources"].get("revenue") or {}).get("ending")
+    anchor = None
+    if ltm_end and LV.get("revenue") and A[-1]["revenue"]:
+        fy1_end = lfy_end + datetime.timedelta(days=365 + (1 if (lfy_end.month > 2 and (lfy_end.year + 1) % 4 == 0) else 0))
+        rest = clamp((fy1_end - datetime.date.fromisoformat(ltm_end)).days / 365, 0, 1)
+        g1 = LV["revenue"] * (1 + growth[1] * rest) / A[-1]["revenue"] - 1
+        anchor = (g1, ltm_end, rest); growth[0] = r2(clamp(g1, -0.5, 1.0), 0.0025)
     ebitda_m = [((r.get("ebit") or 0) + (r.get("da") or 0)) / r["revenue"] for r in last3 if r.get("ebit") is not None]
-    margin = r2(sum(ebitda_m) / len(ebitda_m), 0.0025) if ebitda_m else 0.15
+    avg_m = sum(ebitda_m) / len(ebitda_m) if ebitda_m else 0.15
+    ltm_m = ((LV.get("ebit") or 0) + (LV.get("da") or 0)) / LV["revenue"] if LV.get("revenue") and LV.get("ebit") is not None else None
+    rising = ltm_m is not None and len(ebitda_m) >= 2 and ltm_m >= ebitda_m[-1] >= avg_m
+    margin = r2(ltm_m if rising else avg_m, 0.0025)
     da = r2(avg("da") or 0.03, 0.0025); capex = r2(avg("capex") or da, 0.0025)
     nwc = r2((A[-1]["nwc"] / A[-1]["revenue"]) if A[-1].get("nwc") is not None else 0.10, 0.0025)
     peers = co["peers"]; mults, dcaps, betas = [], [], []
@@ -100,8 +113,9 @@ def defaults(co, terms):
             "wacc_step": 0.005, "g_mid": g_term, "g_step": 0.005, "exit_mid": r2(med, 0.5), "exit_step": 1.0, "midyear": 1,
             "comps_lo": r2(lo, 0.5), "comps_hi": max(r2(hi, 0.5), r2(lo, 0.5) + 0.5), "nm_cap": 50.0, "prem_lo": 0.25, "prem_hi": 0.45,
             "lbo_lev": 5.0, "lbo_rate": r2(rf + 0.04, 0.0025), "lbo_exit": r2(med, 0.5), "irr_lo": 0.20, "irr_hi": 0.25, "lbo_fees": 0.02, "hold": N_PROJ,
-            "basis": {"growth": f"3-year revenue CAGR {cagr:.1%} (capped -5% to 15%), fading to terminal growth + 1.0% by year {N_PROJ}",
-                      "margin": "3-year average EBITDA margin (EBIT + D&A over revenue)", "da": "3-year average D&A / revenue", "capex": "3-year average capex / revenue",
+            "basis": {"growth": (f"year 1: LTM revenue to {anchor[1]} plus the remaining {anchor[2]:.2f} of the year at the year-2 rate; then " if anchor else "")
+                                + f"3-year revenue CAGR {cagr:.1%} (capped -5% to 15%), fading to terminal growth + 1.0% by year {N_PROJ}",
+                      "margin": (f"LTM EBITDA margin {ltm_m:.1%}, held flat: margins have risen (3-year average {avg_m:.1%})" if rising else f"3-year average EBITDA margin {avg_m:.1%} (EBIT + D&A over revenue)"), "da": "3-year average D&A / revenue", "capex": "3-year average capex / revenue",
                       "nwc": "latest fiscal year NWC (current assets less cash, less current liabilities excluding debt) / revenue",
                       "tax": "U.S. federal 21% plus a blended state rate", "exit": "peer median EV / LTM EBITDA, rounded to 0.5x", "comps": "peer 25th-75th percentile EV / LTM EBITDA, rounded to 0.5x",
                       "erp": "long-horizon equity risk premium, judgment input", "kd": "LTM interest expense / total debt (bounded rf + 0.5% to 12%)", "dcap": "peer median debt / total capitalization, rounded to 5%",
@@ -177,7 +191,8 @@ def build(co, terms, out):
     r += 1; asm.header(r, 2, 9, "Terminal value"); r += 1
     scalar("Perpetuity growth rate (midpoint)", D["g_mid"], "pct", "g_mid", "long-run nominal growth, judgment input")
     scalar("Perpetuity growth step", D["g_step"], "pct", "g_step", "selected range is midpoint ± one step")
-    scalar("Exit multiple, EV / EBITDA (midpoint)", D["exit_mid"], "x", "exit_mid", D["basis"]["exit"])
+    scalar("Exit multiple, EV / EBITDA (midpoint)", D["exit_mid"], "x", "exit_mid", D["basis"]["exit"] + "; the target's own multiple at the unaffected price is beside it, for reference")
+    exit_ref_row = r - 1
     scalar("Exit multiple step", D["exit_step"], "x", "exit_step", "selected range is midpoint ± one step")
     scalar("Mid-year convention (1 = on, 0 = off)", D["midyear"], "flag", "midyear", "cash flows assumed to arrive mid-period")
     r += 1; asm.header(r, 2, 9, "Selected public companies"); r += 1
@@ -291,6 +306,9 @@ def build(co, terms, out):
                 "comps_median_rev": cp.a(srow["Median"], 15), "tgt_ev_ltm_ebitda_unaff": cp.a(rt, 16)})
     cp.ws.cell(row=r + 2, column=2, value=f"Peers: {co['peer_basis']}. Balance sheets as of each company's latest 10-Q or 10-K; prices as of {co['as_of']}.").font = Font(italic=True, size=9, color=GREY)
     cp.ws.freeze_panes = "C5"
+    cell = asm.ws.cell(row=exit_ref_row, column=4, value=f"=Comps!$P${rt}"); cell.font = Font(color=GREEN, size=10, italic=True); cell.number_format = FMT["x"]
+    cell = asm.ws.cell(row=exit_ref_row, column=5, value=f"=Comps!$P${srow['Median']}"); cell.font = Font(color=GREEN, size=10, italic=True); cell.number_format = FMT["x"]
+    asm.ws.cell(row=exit_ref_row - 1, column=4, value="target").font = Font(italic=True, size=8, color=GREY); asm.ws.cell(row=exit_ref_row - 1, column=5, value="peer median").font = Font(italic=True, size=8, color=GREY)
     reg["comps_table"] = f"Comps!B{r0}:R{rN}"; reg["comps_stats"] = f"Comps!B{srow['Maximum']}:R{srow['Minimum']}"; reg["comps_target_row"] = f"Comps!B{rt}:R{rt}"
 
     # ---------------- WACC (now that Comps exists) ----------------
@@ -391,6 +409,17 @@ def build(co, terms, out):
     radj_d = two("Net adjustments", f"=SUM(D{rd}:D{rnci})", f"=SUM(E{rd}:E{rnci})", "mm", bold=True); dc.total(radj_d, 4, 5); reg["net_adj"] = dc.a(radj_d, 4)
     req_d = two("Equity value", f"=D{rev}+D{radj_d}", f"=E{rev}+E{radj_d}", "mm", "equity", bold=True)
     two("Implied value per share", f"=D{req_d}/{reg['shares']}", f"=E{req_d}/{reg['shares']}", "ps", "dcf_ps_mid", bold=True)
+    r += 1; dc.header(r, 2, 5, "Reverse DCF: what the unaffected price implies (at the midpoint WACC)"); r += 1
+    def one(label, f, fmt, key, bold=False, note=None):
+        nonlocal r
+        dc.label(r, label, bold=bold, indent=0 if bold else 1); reg[key] = dc.put(r, 4, f, fmt, bold=bold)
+        if note: dc.ws.cell(row=r, column=10, value=note).font = Font(italic=True, size=9, color=GREY)
+        r += 1; return r - 1
+    ru = one("Enterprise value at the unaffected price", f"={reg['px_unaff']}*{reg['shares']}-D{radj_d}", "mm", "rdcf_ev")
+    rpt = one("Less: PV of projected unlevered free cash flow", f"=-D{rs}", "mm", "rdcf_pvcf")
+    rtt = one("Terminal value the price requires", f"=(D{ru}+D{rpt})*(1+D{rw})^D{rn}", "mm", "rdcf_tv", note="undiscounted, at the end of the final projection year")
+    one("Implied perpetuity growth rate", f"=(D{rtt}*D{rw}-{LC}{R['ufcf']})/(D{rtt}+{LC}{R['ufcf']})", "pct", "rdcf_g", bold=True, note="compare with the perpetuity growth rate assumed; a gap means the projections and the market disagree")
+    one("Implied exit multiple (EV / final-year EBITDA)", f"=D{rtt}/{LC}{R['ebitda']}", "x", "rdcf_x", bold=True, note="compare with the exit multiple assumed")
     dc.ws.freeze_panes = "C6"
     reg.update({k: dc.a(R[k], last) for k in ("ufcf", "ebitda")}); reg["ufcf_N"], reg["ebitda_N"] = reg.pop("ufcf"), reg.pop("ebitda")
     reg["ebitda_fy1"] = dc.a(R["ebitda"], cols[0]); reg["tv_period"] = dc.a(rn, 4)
@@ -556,7 +585,9 @@ def sanity(v):
     px = g("px_unaff"); intrinsic = [((g(f"ff_{k}_lo") or 0) + (g(f"ff_{k}_hi") or 0)) / 2 for k in ("comps", "dcf_pgr", "dcf_exit")]
     if isinstance(px, (int, float)) and px > 0:
         far = [m for m in intrinsic if abs(m / px - 1) > 0.30]
-        if len(far) >= 2: F.append(f"the comps and DCF midpoints ({', '.join(f'${m:,.2f}' for m in intrinsic)}) sit more than 30% from the unaffected price of ${px:,.2f}: the projections or the peers likely do not reflect what the market prices in; review both before relying on a 'fair' result")
+        rg, rx = g("rdcf_g"), g("rdcf_x")
+        rev = f" (reverse DCF: the unaffected price implies {rg:.1%} perpetuity growth or a {rx:.1f}x exit multiple)" if isinstance(rg, (int, float)) and isinstance(rx, (int, float)) else ""
+        if len(far) >= 2: F.append(f"the comps and DCF midpoints ({', '.join(f'${m:,.2f}' for m in intrinsic)}) sit more than 30% from the unaffected price of ${px:,.2f}: the projections or the peers likely do not reflect what the market prices in; review both before relying on a 'fair' result{rev}")
     for k in ("trading_range", "premiums", "comps", "dcf_pgr", "dcf_exit", "lbo"):
         lo, hi = g(f"ff_{k}_lo"), g(f"ff_{k}_hi")
         if not isinstance(lo, (int, float)) or not isinstance(hi, (int, float)): F.append(f"{k}: no numeric range"); continue
