@@ -21,7 +21,10 @@ def glossary(raw):
             after = raw[m.end():m.end() + 400]; cut2 = min([x for x in (after.find(". "), after.find("\n")) if x >= 0] or [len(after)])
             terms[term] = {"term": term, "definition": " ".join(raw[start:m.end() + cut2 + 1].split())[:450]}; order.append(term)
     return [terms[t] for t in order]
-src, deal = Path(sys.argv[1]), Path(sys.argv[2]); g = glossary(clean(extract(src)))
-json.dump({"source": src.name, "terms": g}, open(deal / "defined_terms.json", "w"), indent=1)
-(deal / "defined_terms.md").write_text(f"# Defined terms from {src.name}\n\n" + "\n".join(f"- **{t['term']}**: {t['definition']}" for t in g) + "\n")
-print(f"{len(g)} defined terms from {src.name}; first: " + ", ".join(t["term"] for t in g[:15]))
+def main(argv=None):
+    argv = sys.argv[1:] if argv is None else argv
+    src, deal = Path(argv[0]), Path(argv[1]); g = glossary(clean(extract(src)))
+    json.dump({"source": src.name, "terms": g}, open(deal / "defined_terms.json", "w"), indent=1)
+    (deal / "defined_terms.md").write_text(f"# Defined terms from {src.name}\n\n" + "\n".join(f"- **{t['term']}**: {t['definition']}" for t in g) + "\n")
+    print(f"{len(g)} defined terms from {src.name}; first: " + ", ".join(t["term"] for t in g[:15]))
+if __name__ == "__main__": main()

@@ -1,0 +1,8 @@
+Base: ARC DOCUMENT SOLUTIONS, INC.  (ARC)  (CIK 0001305168) 2024-10-16 (13e-3) score 1.154; has comps, dcf, lbo, precedents, premiums
+Alternatives: SOC Telemed, Inc.  (CIK 000179 2022-03-07 (0.994); TESSCO TECHNOLOGIES INC  (CIK  2023-06-08 (0.856)
+Spliced in: none
+Not in this book (marked): none
+In the book, in none of the precedents (omit, log): targets, trading_range
+Reference-item form in the precedents: For the Special Committee’s reference only purposes, William Blair also calculated the implied equity values per share for a range of total net leverage of 2.…
+Missing with no donor: none
+Shell length: 29,544 characters
