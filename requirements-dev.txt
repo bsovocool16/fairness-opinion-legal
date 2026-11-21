@@ -5,3 +5,5 @@ requests
 beautifulsoup4
 lxml
 python-docx
+openpyxl
+python-pptx
