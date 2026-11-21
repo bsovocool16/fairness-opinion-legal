@@ -150,7 +150,7 @@ def shares_out(facts):
     s = duration_series(facts, ["WeightedAverageNumberOfDilutedSharesOutstanding"])
     if s:
         (st, en), (v, _, src) = max(s.items(), key=lambda kv: kv[0][1])
-        return mm(v), {**src, "basis": "diluted weighted average (no cover-page count)"}
+        return mm(v), {**src, "basis": "diluted weighted average, latest period (the XBRL company facts carry no single cover-page count, as with more than one share class)"}
     return None, {"basis": "not found"}
 
 # ---- market data ---------------------------------------------------------------------------------------------------
@@ -266,6 +266,16 @@ def run(ticker, out, peers=None, max_peers=6, as_of=None, log=print):
     else:
         cands = sic_candidates(tgt["sic"], tmap, cik); log(f"SIC {tgt['sic']}: {len(cands)} listed candidates")
         chosen = pick_peers(tgt, cands, mkt, as_of, max_peers, log); basis = f"same SIC code ({tgt['sic']} {tgt['sic_description']}), revenue within 0.2x-5x of the target's, closest {max_peers} by revenue"
+        if len(chosen) < 3 and tgt.get("sic"):          # thin set: widen to the SIC industry group (same first three digits)
+            seen = {c for _, c in cands}; more = []
+            for d in range(10):
+                code = f"{str(tgt['sic'])[:3]}{d}"
+                if code == str(tgt["sic"]): continue
+                try: more += [(t, c) for t, c in sic_candidates(code, tmap, cik) if c not in seen]
+                except Exception as e: log(f"  SIC {code}: {e}")
+            log(f"only {len(chosen)} peers in SIC {tgt['sic']}; widening to SIC {str(tgt['sic'])[:3]}x: {len(more)} more candidates")
+            chosen = sorted(chosen + pick_peers(tgt, more, mkt, as_of, max_peers - len(chosen), log), key=lambda p: abs(math.log(p["ltm"]["values"]["revenue"] / tgt["ltm"]["values"]["revenue"])))
+            basis = f"SIC industry group {str(tgt['sic'])[:3]}x (own code {tgt['sic']} {tgt['sic_description']} had fewer than three), revenue within 0.2x-5x of the target's, closest {max_peers} by revenue"
     doc = {"schema": SCHEMAS["company"], "as_of": as_of, "units": "$ in millions, shares in millions, per-share in $", "target": tgt,
            "peers": chosen, "peer_basis": basis, "market": {"risk_free": risk_free(as_of), "index": "S&P 500 (^GSPC)"}}
     p = save(doc, Path(out) / "company.json"); log(f"wrote {p} ({len(chosen)} peers)"); return doc

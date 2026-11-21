@@ -548,6 +548,15 @@ def sanity(v):
     if isinstance(im, (int, float)) and not 4 <= im <= 25: F.append(f"perpetuity method implies a {im:.1f}x exit multiple")
     ig = g("implied_exit")
     if isinstance(ig, (int, float)) and not -0.01 <= ig <= 0.05: F.append(f"exit multiple method implies {ig:.1%} perpetuity growth")
+    tm, q1, q3 = g("tgt_ev_ltm_ebitda_unaff"), g("comps_q1_ebitda"), g("comps_q3_ebitda")
+    if all(isinstance(x, (int, float)) for x in (tm, q1, q3)) and (tm > q3 * 1.15 or tm < q1 * 0.85):
+        F.append(f"the target trades at {tm:.1f}x LTM EBITDA, outside the peers' {q1:.1f}x-{q3:.1f}x interquartile range: the peer set may not be comparable (name peers with --peers)")
+    npeers = len([r for r in (g("comps_table") or []) if r and r[0]])
+    if npeers < 3: F.append(f"only {npeers} peer(s): too few for a selected public companies analysis; name peers with --peers")
+    px = g("px_unaff"); intrinsic = [((g(f"ff_{k}_lo") or 0) + (g(f"ff_{k}_hi") or 0)) / 2 for k in ("comps", "dcf_pgr", "dcf_exit")]
+    if isinstance(px, (int, float)) and px > 0:
+        far = [m for m in intrinsic if abs(m / px - 1) > 0.30]
+        if len(far) >= 2: F.append(f"the comps and DCF midpoints ({', '.join(f'${m:,.2f}' for m in intrinsic)}) sit more than 30% from the unaffected price of ${px:,.2f}: the projections or the peers likely do not reflect what the market prices in; review both before relying on a 'fair' result")
     for k in ("trading_range", "premiums", "comps", "dcf_pgr", "dcf_exit", "lbo"):
         lo, hi = g(f"ff_{k}_lo"), g(f"ff_{k}_hi")
         if not isinstance(lo, (int, float)) or not isinstance(hi, (int, float)): F.append(f"{k}: no numeric range"); continue

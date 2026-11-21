@@ -61,6 +61,7 @@ Other conventions the builder applies (not machine-checked):
 
 - Projections are derived from reported history, not management's; they are labeled illustrative on the model, the book and in the letter's review list.
 - No precedent transactions analysis or analyst price targets (no free public source). The book never mentions either, so the classifier does not report them.
-- Shares are basic shares from the latest 10-Q/10-K cover page, not fully diluted.
+- Shares are basic shares from the latest 10-Q/10-K cover page, not fully diluted; when the XBRL company facts carry no single cover count (more than one share class), the latest diluted weighted average.
+- Peers come from the target's SIC code (widened to the three-digit industry group when fewer than three qualify). SIC codes are coarse: the model flags a target that trades outside its peers' interquartile range, a set of fewer than three, and comps or DCF midpoints more than 30% from the market price.
 - The premiums paid range is a judgment input, not a premiums study.
 - The LBO charges interest on the opening debt throughout (no circularity); it is a screen of a sponsor's ability to pay, not a financing model.

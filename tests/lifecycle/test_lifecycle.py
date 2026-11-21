@@ -90,3 +90,14 @@ def test_xbrl_ltm_and_annual():
     assert sorted(F.annual(s)) == ["2024-12-31", "2025-12-31"]
     v, meta = F.ltm(s); assert abs(v - 135e6) < 1 and meta["basis"] == "LTM"      # 120 + 70 - 55
     assert F.shares_out(facts)[0] == 10.0
+
+def test_sanity_flags_peer_mismatch_and_thin_sets():
+    import build_model
+    def cells(**kw): return {k: {"value": v, "cell": "X!A1"} for k, v in kw.items()}
+    rng = {f"ff_{k}_{e}": v for k in ("trading_range", "premiums", "comps", "dcf_pgr", "dcf_exit", "lbo") for e, v in (("lo", 180.0), ("hi", 220.0))}
+    # a premium-multiple company valued off cheaper peers (the live WTS case): both warnings fire
+    F = build_model.sanity(cells(wacc=0.09, tgt_ev_ltm_ebitda_unaff=17.7, comps_q1_ebitda=10.3, comps_q3_ebitda=14.0, px_unaff=356.67, comps_table=[["A"], ["B"], ["C"], ["D"]], **rng))
+    assert any("interquartile" in f for f in F) and any("more than 30%" in f for f in F)
+    # two peers (the live DSGR case)
+    F = build_model.sanity(cells(wacc=0.09, tgt_ev_ltm_ebitda_unaff=12.0, comps_q1_ebitda=10.0, comps_q3_ebitda=13.0, px_unaff=200.0, comps_table=[["A"], ["B"]], **rng))
+    assert any("only 2 peer" in f for f in F) and not any("interquartile" in f for f in F)
