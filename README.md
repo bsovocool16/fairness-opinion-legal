@@ -22,6 +22,7 @@ the [claude-for-legal](https://github.com/anthropics/claude-for-legal) plugins s
 | 4 | `section-draft` | marks the shell up with the deal's facts, scores itself against the package, writes the log | |
 | 5 | `redline` | clean draft plus a redline against the shell (and against any prior draft) | reviewer sign-off |
 | – | `feedback` | saves a correction or preference the moment you give it, scoped to all deals, one advisor or one deal; every later stage reads the notes that apply | |
+| – | `ticker-to-proxy` | the lifecycle in front of the pipeline, for a demo: from a stock ticker, public SEC data → a banker-convention Excel model (checked cell by cell) → a board book → a fairness opinion letter → stages 2 to 5 for the proxy section. Every deal term is hypothetical; see `references/lifecycle.md` | model gate |
 | – | `demo` | replays a completed run on the bundled public deal stage by stage, through to a comparison with the section as filed; `--live` runs the chain for real on the same inputs | |
 
 `pipeline` runs 1 to 5 in sequence, stopping at every gate the profile turns on. A correction given at any gate is saved by `feedback` and applied to later deals. The drafter runs on Opus by default; `--model fable` on `pipeline`, `section-draft` or `demo --live`, or `Drafter model: fable` in the profile, switches it. `proxy-glossary` is the optional step
@@ -59,6 +60,7 @@ xcode-select --install                 # once; compiles the bundled Apple Vision
 brew install poppler pandoc node       # pdftotext for PDFs, Word inputs, the docx renderer
 brew install --cask libreoffice        # optional: PDF versions of the outputs
 pip3 install requests beautifulsoup4 lxml
+pip3 install openpyxl python-pptx python-docx   # ticker-to-proxy only: the model, the book and the letter
 ```
 
 On Linux or Windows install the same through the package manager, with `tesseract` in place of the Apple Vision step;
@@ -74,6 +76,14 @@ the book as text. Then run `/fairness-opinion-legal:cold-start-interview`.
 
 Nothing else ships with the plugin: no precedent bank, no training data. Every precedent is fetched live from EDGAR for
 the advisor on your deal.
+
+### From a ticker
+
+`/fairness-opinion-legal:ticker-to-proxy WTS` builds a hypothetical deal for a listed company from public data and runs it all
+the way through: `model.xlsx` (Assumptions, Historicals, DCF, WACC, Comps, LBO, Sensitivity, Summary; blue inputs, black
+formulas, green links), `board_book.pdf`, `opinion_letter.docx`, then the proxy section and its redline. LibreOffice
+recalculates the model headless so the book and the letter carry the model's own numbers. Without network,
+`--fixture examples/lifecycle-fixture/company.json` runs the model, book and letter on an invented company.
 
 ### Try it first
 
@@ -102,6 +112,7 @@ CLAUDE.md                    practice-profile template (the interview writes the
 skills/<name>/SKILL.md       one skill per stage
 scripts/                     precedent search, book classifier, shell builder, self-scorer, glossary, text extraction, OCR
 scripts/redline/             the Litera-style comparison tool (docx + pdf)
+scripts/lifecycle/           ticker-to-proxy: data fetch, model builder and checker, board book, opinion letter, orchestrator
 references/                  the drafting task texts, the scoring, and regime notes
 agents/                      the named end-to-end agent
 ```
