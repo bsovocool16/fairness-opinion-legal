@@ -1,0 +1,9 @@
+# What the test suite needs on top of the plugin's own Python packages (requests, beautifulsoup4, lxml).
+pytest>=8
+hypothesis>=6.100
+requests
+beautifulsoup4
+lxml
+python-docx
+openpyxl
+python-pptx

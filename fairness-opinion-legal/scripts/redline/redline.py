@@ -145,7 +145,7 @@ def looks_hard_wrapped(text):
     return len(long) >= 12 and sum(1 for l in long if not SENT_END.search(l)) / len(long) > 0.5
 def normalize(para):
     para = re.sub(r"\s+", " ", para).strip()
-    para = re.sub(r"^[•·\-—–•●]+\s*", "• ", para)                                  # one bullet glyph for every list marker
+    para = re.sub(r"^[•·\-—–•●]+\s*", "• ", para).rstrip()                         # one bullet glyph for every list marker (a lone marker stays one word)
     para = para.replace("’", "'").replace("‘", "'").replace("“", '"').replace("”", '"')      # straight quotes, so quote style is not a change
     if para.startswith("|"): para = re.sub(r"\s*\|\s*", " | ", para).strip()
     return para

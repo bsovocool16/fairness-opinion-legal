@@ -1,0 +1,64 @@
+{
+ "draft_words": 5038,
+ "advisor_language_share": 0.635,
+ "letter_carry_over": 0.403,
+ "composite_retention": 0.552,
+ "eligible_retention": 0.552,
+ "book_analyses": {
+  "comps": "core",
+  "dcf": "core",
+  "lbo": "core",
+  "precedents": "core",
+  "premiums": "core",
+  "targets": "reference",
+  "trading_range": "reference"
+ },
+ "precedents_present": [
+  "comps",
+  "dcf",
+  "lbo",
+  "precedents",
+  "premiums"
+ ],
+ "eligible": [
+  "comps",
+  "dcf",
+  "lbo",
+  "precedents",
+  "premiums"
+ ],
+ "outside_precedents": [
+  "targets",
+  "trading_range"
+ ],
+ "presented": [
+  "comps",
+  "dcf",
+  "lbo",
+  "precedents",
+  "premiums"
+ ],
+ "missing": [],
+ "outside_precedents_presented": [],
+ "coverage": 1.0,
+ "coverage_book": 0.71,
+ "coverage_core": 1.0,
+ "reference_items_as_tables": [],
+ "sensitivity_grids": 0,
+ "glossary_present": false,
+ "glossary_terms_used": 0,
+ "defined_term_inconsistencies": [],
+ "peer_names": 7,
+ "peer_names_with_legal_suffix": 7,
+ "peer_names_without_suffix": [],
+ "numbers_checked": 211,
+ "numbers_not_in_inputs": 0,
+ "numbers_not_in_inputs_examples": [],
+ "commentary_sentences": [],
+ "markers_left": false,
+ "reviewer_markers": [],
+ "tables_present": true,
+ "base": "0001140361-24-043469",
+ "length_ratio_vs_base": 1.05,
+ "length_ratio_vs_shell": 1.04
+}

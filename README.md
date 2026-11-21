@@ -101,6 +101,11 @@ training: the engagement letter (fee and expense terms) and the advisor's relati
 relationships with the parties). Intake asks for both as optional uploads; with them the fees-and-relationships paragraph is
 drafted from the source rather than left for the reviewer.
 
+## Tests
+
+`make deps` once, then `make test` from the repository root runs the unit tests, golden snapshots of every stage on the
+bundled deal, and property-based fuzzing of the parsers and the redline; CI runs the same. See `tests/README.md`.
+
 ## Layout
 
 ```
