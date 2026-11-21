@@ -10,6 +10,7 @@ from precedent_search import infer_regime, regime_of
 from verify_candidates import section_of
 import defined_terms as DT
 import classify_book as CB
+AMBIG_RX = re.compile(r"\(\d{1,2}\)")
 from strategies import edgar_fragments, financial_figure, label, text_soup
 
 pytestmark = pytest.mark.fuzz
@@ -17,9 +18,7 @@ pytestmark = pytest.mark.fuzz
 @given(st.lists(st.tuples(label, st.lists(financial_figure(), min_size=1, max_size=6)), min_size=1, max_size=6), st.booleans())
 def test_edgar_table_cells_reassemble(rows, spacers):
     """Every figure EDGAR split over several cells comes back as one cell, in order, after the row label."""
-    # "(3)" alone is ambiguous: a footnote marker or a negative 3. table_rows reads it as a footnote (see the xfail below), so the
-    # property excludes it.
-    assume(not any(re.fullmatch(r"\(\d{1,2}\)", f) for _, v in rows for f in v))
+    # "(3)" alone may be a footnote marker or a negative 3; every row here lines up with the header, so it must read as a number.
     width = max(len(v) for _, v in rows); rows = [(l, (v + ["NM"] * width)[:width]) for l, v in rows]
     def td(c): return f"<td>{H.escape(c)}</td>" + ("<td>&nbsp;</td>" if spacers else "")
     html = "<tr><td>Company</td>" + "".join(f"<td>Col {i}</td>" for i in range(width)) + "</tr>"
@@ -28,12 +27,29 @@ def test_edgar_table_cells_reassemble(rows, spacers):
     assert out[0] == ["Company"] + [f"Col {i}" for i in range(width)]
     assert out[1:] == [[l] + vals for l, vals in rows]
 
-@pytest.mark.xfail(strict=True, reason="FINDING: a small negative written as (3) in its own cell is read as a footnote marker and glued "
-                   "onto the cell before it. EDGAR uses the same form for both; a fix needs a rule (for example: a column whose other cells are "
-                   "figures holds a figure).")
-def test_small_parenthesized_negative_stays_a_value():
-    rows = EP.table_rows("<tr><td>Item</td><td>2025</td><td>2026</td></tr><tr><td>Net income</td><td>(3)</td><td>12</td></tr>")
-    assert rows[1] == ["Net income", "(3)", "12"]
+@given(st.lists(st.tuples(label, st.lists(financial_figure(), min_size=2, max_size=5), st.integers(0, 3), st.sampled_from(["sup", "font", "notes", "width"])), min_size=2, max_size=6))
+def test_footnote_markers_glue_and_negatives_stay(rows):
+    """Each row gets a footnote marker after one of its cells, signalled the way EDGAR does it (superscript, a small font, the
+    note text below the table, or only by the columns lining up), while (n) figures elsewhere stay numbers."""
+    width = min(len(v) for _, v, _, _ in rows); rows = [(l, v[:width], k % (width + 1), how) for l, v, k, how in rows]
+    def td(c, small=""): return f"<td{small}>{H.escape(c)}</td>"
+    html = "<tr><td>Company</td>" + "".join(f"<td>Col {i}</td>" for i in range(width)) + "</tr>"; notes = []; want = []
+    for n, (l, vals, k, how) in enumerate(rows, 1):
+        cells = [td(l)] + [td(f) for v in vals for f in edgar_fragments(v)]
+        idx = 1 + sum(len(edgar_fragments(v)) for v in vals[:k])                    # the marker follows the label or the k-th figure
+        mark = {"sup": f"<td><sup>({n})</sup></td>", "font": f'<td style="font-size:6pt">({n})</td>'}.get(how, f"<td>({n})</td>")
+        cells.insert(idx, mark)
+        if how == "notes": notes.append(n)
+        html += "<tr>" + "".join(cells) + "</tr>"
+        out = [l] + list(vals); out[k] = out[k] + (" " if True else "") + f"({n})"; want.append(out)
+    tail = "".join(f"<p>({n}) Note text for row {n}.</p>" for n in notes)
+    review = []; got = EP.table_rows(html, notes={str(n) for n in notes}, review=review)
+    flagged = {(r["row"], r["cell"]) for r in review}
+    for g, w, (l, vals, k, how) in zip(got[1:], want, rows):
+        if g != w:      # a row read differently from the truth must have been reported for review, never silently guessed
+            assert any(row == l for row, _ in flagged), (g, w, how, review)
+    if not any(AMBIG_RX.fullmatch(v) for _, vals, _, _ in rows for v in vals):
+        assert got[1:] == want      # with no (n) figure for a marker to be confused with, every signal decides on its own
 
 @given(st.lists(st.text(max_size=8), max_size=12))
 def test_glue_keeps_every_character_and_drops_empties(cells):

@@ -73,6 +73,19 @@ def find_precedents(bank, analyses, before=None, years=6, top=8, out_dir=None, g
         for r in verified[top:]:
             if r.get("section_path") and r["acc"] not in keep: Path(r["section_path"]).unlink(missing_ok=True)
     return verified[:top]
+REVIEW_FILE = "footnote_review.json"
+def write_footnote_review(pdir, index, collected=None):
+    """precedents/footnote_review.json: the (n) table cells in the saved precedent sections that could be a footnote marker or
+    a negative number and were kept as numbers, for the reviewer to check against the filing. Written on every search, with an
+    empty list when nothing is flagged; entries for filings searched before (an --add run) are kept."""
+    pdir = Path(pdir); fp = pdir / REVIEW_FILE; collected = EP.FOOTNOTE_REVIEW if collected is None else collected
+    old = json.load(open(fp)).get("cells", []) if fp.exists() else []
+    accs = {r["acc"] for r in index}; fresh = set(collected) & accs; cells = [c for c in old if c.get("acc") in accs - fresh]
+    for acc in sorted(fresh):
+        sp = pdir / f"{acc}.txt"; sec = sp.read_text(errors="ignore") if sp.exists() else ""
+        cells += [{"acc": acc, **e} for e in collected[acc] if sec and f"| {e['row']} |" in sec]   # only cells inside the saved section
+    json.dump({"note": "table cells written (n) that could be a footnote marker or a negative number; kept as numbers. Check each against the filing before relying on it.", "cells": cells}, open(fp, "w"), indent=1)
+    return cells
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); ap.add_argument("--bank", required=True); ap.add_argument("--analyses", required=True); ap.add_argument("--before", default=None); ap.add_argument("--years", type=int, default=6); ap.add_argument("--top", type=int, default=8); ap.add_argument("--out", default=None); ap.add_argument("--regime", choices=["13e-3", "conventional"], default=None, help="the deal's regime; same-regime precedents rank first"); a = ap.parse_args()
     res = find_precedents(a.bank, a.analyses.split(","), a.before, a.years, a.top, a.out, log=lambda m: print(m, file=sys.stderr), regime=a.regime)
