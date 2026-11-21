@@ -96,3 +96,31 @@ def test_marker_inside_a_cell_is_left_alone():
 
 def test_letter_markers_stay_footnotes():
     assert table_rows(HEAD + tr("Revenue", "10", "(a)", "11"))[1] == ["Revenue", "10 (a)", "11"]
+
+# ---- the review list, carried from the fetch to precedents/footnote_review.json
+import json
+import edgar_precedents as EP
+import precedent_search as PS
+
+def test_fetch_doc_records_undecided_cells(monkeypatch):
+    page = "<table><tr><td>Alpha</td><td>(1)</td><td>5</td></tr></table>"
+    class R: status_code = 200; text = page
+    monkeypatch.setattr(EP.requests, "get", lambda *a, **k: R()); monkeypatch.setattr(EP, "GAP", 0); monkeypatch.setattr(EP, "FOOTNOTE_REVIEW", {})
+    EP.fetch_doc(1, "0000000001-26-000001", "d.htm")
+    assert EP.FOOTNOTE_REVIEW["0000000001-26-000001"] == [{"doc": "d.htm", "row": "Alpha", "cell": "(1)", "read_as": "number", "why": EP.FOOTNOTE_REVIEW["0000000001-26-000001"][0]["why"]}]
+
+def test_write_footnote_review(tmp_path):
+    (tmp_path / "A.txt").write_text("Opinion\n| Alpha | (1) | 5 |\n"); (tmp_path / "B.txt").write_text("Opinion\n| Beta | 4 |\n")
+    collected = {"A": [{"doc": "a.htm", "row": "Alpha", "cell": "(1)"}, {"doc": "a.htm", "row": "Elsewhere", "cell": "(2)"}],
+                 "B": [], "DROPPED": [{"doc": "x", "row": "Alpha", "cell": "(1)"}]}
+    cells = PS.write_footnote_review(tmp_path, [{"acc": "A"}, {"acc": "B"}], collected)
+    assert cells == [{"acc": "A", "doc": "a.htm", "row": "Alpha", "cell": "(1)"}]            # only cells inside saved sections of kept filings
+    assert json.loads((tmp_path / "footnote_review.json").read_text())["cells"] == cells
+
+def test_write_footnote_review_empty_and_add_keeps_earlier(tmp_path):
+    (tmp_path / "A.txt").write_text("| Alpha | (1) | 5 |\n")
+    assert PS.write_footnote_review(tmp_path, [], {}) == [] and json.loads((tmp_path / "footnote_review.json").read_text())["cells"] == []
+    PS.write_footnote_review(tmp_path, [{"acc": "A"}], {"A": [{"doc": "a", "row": "Alpha", "cell": "(1)"}]})
+    (tmp_path / "C.txt").write_text("| Gamma | 1 |\n")
+    cells = PS.write_footnote_review(tmp_path, [{"acc": "A"}, {"acc": "C"}], {"C": []})             # a later --add run
+    assert [c["acc"] for c in cells] == ["A"]

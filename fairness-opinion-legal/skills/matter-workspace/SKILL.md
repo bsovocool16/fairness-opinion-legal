@@ -25,7 +25,7 @@ argument-hint: "<new | list | switch | close | none> [code]"
 ├── deck_analyses.json      the analyses the book presents, by page and status
 ├── feedback.md             optional: reviewer notes that apply to this deal only (the user's notes for all deals live in the config folder)
 ├── defined_terms.json/.md  optional glossary from the draft proxy
-├── precedents/             <accession>.txt sections, INDEX.json, and any firm shells the user added
+├── precedents/             <accession>.txt sections, INDEX.json, footnote_review.json, and any firm shells the user added
 ├── shell/                  shell_suggested.txt, shell_composite.txt, provenance.json, rationale.json
 ├── draft/                  section.txt, log.md, selfscore.json
 └── redline/                section.docx, redline_vs_shell.docx/.pdf, redline_vs_prior.docx/.pdf

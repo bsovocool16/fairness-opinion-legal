@@ -169,12 +169,16 @@ def html_to_text(h, review=None):
     t = re.sub(r"[ \t]+", " ", t); t = re.sub(r" ?\n ?", "\n", t); t = re.sub(r"\n{2,}", "\n", t)
     t = re.sub(r"(?m)^\|\s*(?:\|\s*)*$\n?", "", t)                       # empty table rows
     return t
+FOOTNOTE_REVIEW = {}   # accession -> table cells html_to_text could not tell apart, collected as filings are fetched
 def fetch_doc(cik, acc, doc):
     url = f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/{acc.replace('-', '')}/{doc}"
     for attempt in range(3):
         try:
             r = requests.get(url, headers=UA, timeout=120); time.sleep(GAP)
-            if r.status_code == 200: return html_to_text(r.text)
+            if r.status_code == 200:
+                review = []; text = html_to_text(r.text, review=review)
+                FOOTNOTE_REVIEW.setdefault(acc, []).extend({"doc": doc, **e} for e in review)
+                return text
             time.sleep(3)
         except Exception: time.sleep(3)
     return ""

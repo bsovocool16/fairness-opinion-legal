@@ -37,7 +37,9 @@ else:
     res = find_precedents(facts["advisor"], T, before=facts.get("opinion_date"), years=years, top=top, out_dir=str(pdir), regime=facts.get("regime"), log=lambda m: print(m, file=sys.stderr))
     index = [r for r in index if r.get("added_by_user")] + res
 json.dump(index, open(idx_p, "w"), indent=1)
+from precedent_search import write_footnote_review; flagged = write_footnote_review(pdir, index)
 print(f"{'#':>2} {'filed':10} {'target (form)':44} {'regime':12} {'presents':44} cov")
 for i, r in enumerate(sorted(index, key=lambda r: (r.get("regime") == facts.get("regime"), r.get("coverage") or 0, r.get("date") or ""), reverse=True), 1):
     print(f"{i:>2} {r.get('date') or '':10} {(r.get('name') or '')[:32] + ' (' + (r.get('form') or '') + ')':44} {r.get('regime') or '':12} {','.join(r.get('presented', []))[:44]:44} {r.get('coverage')}")
 firm = sorted(p.name for p in pdir.glob("firm_*.txt")); print("firm shells in precedents/:", ", ".join(firm) if firm else "none")
+print(f"table cells to check (footnote marker or negative number): {len(flagged)}" + (" -- see precedents/footnote_review.json" if flagged else ""))
