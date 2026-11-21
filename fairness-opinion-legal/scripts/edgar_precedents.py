@@ -3,7 +3,7 @@ heading; "broad" = "very truly yours" near the bank name, as a person would sear
 document fetch, HTML-to-text that keeps paragraphs and table rows, and the section test. Forms DEFM14A, DEFM14C, SC 14D9,
 SC 13E3. Used by precedent_search.py, verify_candidates.py and search_deal.py; not a command-line tool. The contact identity
 the SEC requires in every request comes from the practice profile through EDGAR_UA."""
-import time, re, os, html
+import time, re, os, html, itertools
 import requests
 from pathlib import Path
 def norm(t): return re.sub(r"[^a-z0-9]+", " ", t.lower()).strip()
@@ -48,41 +48,75 @@ BULLET = re.compile(r"^(?:[•·●▪■\-–—]|\(?[ivx]{1,4}\)|\(?[a-z]\)|\d
 def _cell_text(body):
     t = html.unescape(re.sub(r"<[^>]+>", " ", body)); t = re.sub("[\u200b\u200c\u200d\ufeff\u00ad]", "", t).replace("\xa0", " ")
     return re.sub(r"\s+", " ", t).strip()
-def _glue(cells):
-    """Currency and unit fragments back onto their values: $ | 273 -> $273; (0.7 | %) -> (0.7%); 9.1x | (3) -> 9.1x (3). Empty cells dropped."""
+AMBIG = re.compile(r"^\(\d{1,2}\)$")      # (3): a footnote marker or a small negative, EDGAR writes both the same way
+SMALL = re.compile(r"(?is)<sup\b|vertical-align\s*:\s*(?:super|top|text-top)|font-size\s*:\s*(?:[0-6](?:\.\d+)?pt|[0-9](?:\.\d+)?px|[1-7]\d(?:\.\d+)?%|x?x-small|smaller)")
+def _glue(cells, flags=None):
+    """Currency and unit fragments back onto their values: $ | 273 -> $273; (0.7 | %) -> (0.7%); 9.1x | (3) -> 9.1x (3). Empty cells dropped.
+    flags[i] "fn" glues cell i onto the cell before it as a footnote marker, "val" keeps it as its own value; None applies the rules."""
     out = []
-    for c in cells:
+    for c, f in zip(cells, flags or [None] * len(cells)):
         if not c: continue
-        if out and SUFFIX.match(c) and not (out[-1].lower() in PREFIX):
-            out[-1] = out[-1] + (" " if FOOTNOTE.match(c) or not re.search(r"[\d)]$", out[-1]) else "") + c; continue
         if out and out[-1].lower() in PREFIX: out[-1] = out[-1] + c; continue
+        if out and (f == "fn" or (f != "val" and SUFFIX.match(c))):
+            out[-1] = out[-1] + (" " if FOOTNOTE.match(c) or not re.search(r"[\d)]$", out[-1]) else "") + c; continue
         out.append(c)
     return out
-def table_rows(tbl):
+def _decide(cells, notes, ref_widths):
+    """Flags for _glue on one data row. A bare (n) cell is a number unless a signal says it is a footnote marker: it is set in
+    superscript or a small font; or the row lines up with the table's columns only when it is a marker; or the table carries
+    note text for (n). Every reading of the row's (n) cells is tried against the column count, the notes narrow what is left,
+    and when more than one reading remains the cells that differ are kept as numbers and returned for review."""
+    texts = [t for _, _, t, _ in cells]; flags = [None] * len(cells); amb = []
+    for i, (_, _, t, small) in enumerate(cells):
+        if not AMBIG.match(t) or i == 0: continue
+        if small: flags[i] = "fn"
+        else: amb.append(i)
+    if not amb: return flags, []
+    combos = [dict(zip(amb, c)) for c in itertools.product(("val", "fn"), repeat=len(amb))] if len(amb) <= 8 else [{i: "val" for i in amb}]
+    width = lambda c: len(_glue(texts, [c.get(i, f) for i, f in enumerate(flags)]))
+    cand = [c for c in combos if width(c) in ref_widths] or combos
+    noted = [i for i in amb if texts[i][1:-1] in notes]
+    cand = [c for c in cand if all(c[i] == "fn" for i in noted)] or cand
+    pick = max(cand, key=lambda c: (sum(v == "val" for v in c.values()), -combos.index(c)))   # default: numbers
+    unsure = [i for i in amb if len({c[i] for c in cand}) > 1]
+    for i in amb: flags[i] = pick[i]
+    return flags, [{"row": texts[0], "cell": texts[i], "read_as": "number" if pick[i] == "val" else "footnote", "why": "columns and notes do not tell a footnote marker from a negative number"} for i in unsure]
+def table_rows(tbl, notes=(), review=None):
     """An EDGAR table as clean rows: spans expanded, spacer cells dropped, currency and unit fragments and footnote markers glued
     to their values, stacked header rows folded into one (a group label joins the first sub-column under it). A row with one
-    cell, or a footnote marker and its text, is returned as a one-cell row (prose)."""
+    cell, or a footnote marker and its text, is returned as a one-cell row (prose). A bare (n) cell is read by _decide; notes are
+    the footnote numbers whose text follows the table; review, a list, collects the cells that stayed undecided."""
     grid = []
     for r in re.findall(r"(?is)<tr\b[^>]*>(.*?)</tr>", tbl):
         cells, pos = [], 0
         for attrs, body in re.findall(r"(?is)<t[dh]\b([^>]*)>(.*?)</t[dh]>", r):
             m = re.search(r'colspan\s*=\s*"?(\d+)', attrs, re.I); n = int(m.group(1)) if m else 1; t = _cell_text(body)
-            if t: cells.append((pos, pos + n, t))
+            if t: cells.append((pos, pos + n, t, bool(SMALL.search(attrs + body))))
             pos += n
         if cells: grid.append(cells)
     if not grid: return []
-    def is_header(cells): return not any(VALUE.match(t) for _, _, t in cells)
+    def is_header(cells): return not any(VALUE.match(t) for _, _, t, _ in cells)
     nh = 0
     while nh < min(3, len(grid)) and is_header(grid[nh]): nh += 1
     if nh == len(grid): nh = 0                                   # a table with no value cells: keep every row as is
-    data = [_glue([t for _, _, t in cells]) for cells in grid[nh:]]
+    notes = set(notes) | {m.group(1) for cells in grid for m in [re.match(r"\((\d{1,2})\)$", cells[0][2])] if m and len(cells) == 2}
+    plain = [_glue([t for _, _, t, _ in cells], [("fn" if i and sm and AMBIG.match(t) else None) for i, (_, _, t, sm) in enumerate(cells)])
+             for cells in grid[nh:] if not any(AMBIG.match(c[2]) and not c[3] for c in cells[1:])]   # rows with no undecided (n) cell
+    if plain: pw = [len(r) for r in plain]; ref = {max(set(pw), key=pw.count)}
+    elif nh: hw = len(grid[nh - 1]); ref = {hw} if grid[nh - 1][0][0] == 0 else {hw, hw + 1}   # header width; +1 when the label column has no header text
+    else: ref = set()
+    data = []
+    for cells in grid[nh:]:
+        flags, undecided = _decide(cells, notes, ref)
+        data.append(_glue([t for _, _, t, _ in cells], flags))
+        if review is not None: review.extend(undecided)
     widths = [len(r) for r in data]; W = max(set(widths), key=widths.count) if widths else 0
     rows = []
     if nh >= 2:
-        top, sub = grid[0], [t for _, _, t in grid[1]]
-        if nh == 3: sub = _fold(grid[1], [t for _, _, t in grid[2]], W)
+        top, sub = [c[:3] for c in grid[0]], [t for _, _, t, _ in grid[1]]
+        if nh == 3: sub = _fold([c[:3] for c in grid[1]], [t for _, _, t, _ in grid[2]], W)
         rows.append(_fold(top, sub, W))
-    elif nh == 1: rows.append([t for _, _, t in grid[0]])
+    elif nh == 1: rows.append([t for _, _, t, _ in grid[0]])
     rows += data
     out = []
     for r in rows:
@@ -121,10 +155,15 @@ def _fold(top, sub, W):
         if chunk: out.append((lab + " " + chunk[0]).strip()); out += chunk[1:]
         else: out.append(lab)
     return out
-def html_to_text(h):
-    """Filing HTML to text that keeps paragraphs (one per line) and table rows (| cell | cell |), tables cleaned by table_rows."""
+NOTE_AFTER = re.compile(r"(?:^|>)\s*\((\d{1,2})\)\s*(?:<[^>]*>\s*)*[A-Z\w]")
+def html_to_text(h, review=None):
+    """Filing HTML to text that keeps paragraphs (one per line) and table rows (| cell | cell |), tables cleaned by table_rows.
+    review, a list, collects the (n) cells table_rows could not tell apart (kept as numbers)."""
     h = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", h)
-    h = re.sub(r"(?is)<table\b[^>]*>(.*?)</table>", lambda m: "\n" + "\n".join("| " + " | ".join(r) + " |" for r in table_rows(m.group(1))) + "\n", h)
+    def table(m):
+        after = re.split(r"(?i)<table\b", m.string[m.end(): m.end() + 4000])[0]   # note text between this table and the next
+        return "\n" + "\n".join("| " + " | ".join(r) + " |" for r in table_rows(m.group(1), {n for n in NOTE_AFTER.findall(after)}, review)) + "\n"
+    h = re.sub(r"(?is)<table\b[^>]*>(.*?)</table>", table, h)
     h = re.sub(r"(?i)</(?:p|div|li|h\d|table|blockquote|ul|ol)>|<br\s*/?>|<hr[^>]*>", "\n", h)
     t = html.unescape(re.sub(r"<[^>]+>", " ", h)); t = re.sub("[\u200b\u200c\u200d\ufeff\u00ad]", "", t).replace("\xa0", " ")
     t = re.sub(r"[ \t]+", " ", t); t = re.sub(r" ?\n ?", "\n", t); t = re.sub(r"\n{2,}", "\n", t)
