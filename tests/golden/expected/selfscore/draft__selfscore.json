@@ -1,9 +1,9 @@
 {
  "draft_words": 5038,
- "advisor_language_share": 0.635,
- "letter_carry_over": 0.403,
- "composite_retention": 0.552,
- "eligible_retention": 0.552,
+ "advisor_language_share": 0.651,
+ "letter_carry_over": 0.399,
+ "composite_retention": 0.553,
+ "eligible_retention": 0.553,
  "book_analyses": {
   "comps": "core",
   "dcf": "core",
