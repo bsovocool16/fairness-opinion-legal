@@ -93,9 +93,9 @@ def test_number_forms_that_already_match(run_script, make_deal, book, draft):
     assert s["numbers_not_in_inputs"] == 0
 
 @pytest.mark.cli
-@pytest.mark.xfail(strict=True, reason="FINDING: numbers are compared as strings after dropping $ and commas, so a figure written "
-                   "with different trailing zeros ($35 in the book, $35.00 in the draft; 12.5% and 12.50%) is reported as not in the inputs.")
 @pytest.mark.parametrize("book,draft", [("$35", "$35.00"), ("12.5%", "12.50%")])
-def test_same_value_different_trailing_zeros(run_script, make_deal, book, draft):
+def test_same_value_different_trailing_zeros_is_flagged(run_script, make_deal, book, draft):
+    """Intended: a figure must appear in the draft as the inputs write it. $35 in the book and $35.00 in the draft is flagged
+    for the reviewer, because the drafter changed how the number is stated (decided by Ben, 2026-11-21)."""
     s = score(run_script, make_deal(facts={}, book=f"Offer {book}", draft=f"The price was {draft} in cash."))
-    assert s["numbers_not_in_inputs"] == 0
+    assert s["numbers_not_in_inputs"] == 1 and s["numbers_not_in_inputs_examples"] == [draft]
