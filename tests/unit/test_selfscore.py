@@ -10,11 +10,10 @@ def test_mask_given_names_and_numbers():
 def test_mask_lowercase_suffix_name():
     assert "Acme" not in SS.mask("Acme Widgets inc. paid", [])
 
-@pytest.mark.xfail(strict=True, reason="FINDING: mask()'s generic company-name pattern is case-sensitive and its suffix list is lowercase, so "
-                   "'Acme Holdings, Inc.' is never masked and unknown peer names count against advisor-language share. Fixing it changes "
-                   "the scores calibrated in references/scoring.md, so it is left for a decision.")
 def test_mask_names_with_capitalized_legal_suffix():
-    assert "Acme" not in SS.mask("Acme Holdings, Inc. paid", [])
+    for name in ("Acme Holdings, Inc.", "Beta Corp.", "Distribution Solutions Group, Inc.", "Gamma LLC"):
+        assert name.split()[0] not in SS.mask(f"{name} paid", []), name
+    assert "The Company" in SS.mask("The Company paid", []) and "the Company" in SS.mask("the Company paid", [])   # the defined term is not a name
 
 def test_m6_is_case_and_number_insensitive():
     a = SS.m6("The Company paid $35.00 per share in cash to the holders of record today", [])

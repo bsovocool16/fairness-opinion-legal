@@ -18,7 +18,7 @@ def mask(text, names):
     for n in sorted(set(names), key=len, reverse=True):
         t = re.sub(re.escape(n), " NAME ", t, flags=re.I); short = re.sub(r"[,.]", "", n).split()
         if short and len(short[0]) > 3 and short[0].lower() not in ("the", "company", "parent"): t = re.sub(r"\b" + re.escape(short[0]) + r"\b", " NAME ", t)
-    t = re.sub(r"\b(?:[A-Z][\w&'’.-]*\s+){0,3}[A-Z][\w&'’.-]*,?\s+" + SUFFIX + r"\b", " NAME ", t); return re.sub(r"\d[\d,\.]*", "#", t)
+    t = re.sub(r"\b(?!The\b)(?:[A-Z][\w&'’.-]*\s+){0,3}[A-Z][\w&'’.-]*,?\s+" + "(?i:" + SUFFIX + ")" + r"\b", " NAME ", t); return re.sub(r"\d[\d,\.]*", "#", t)
 def sh(text, n): toks = re.findall(r"[a-z#']+|NAME", text); return set(" ".join(toks[i:i + n]) for i in range(len(toks) - n + 1))
 def m6(text, names): return sh(re.sub(r"[A-Z]", lambda c: c.group(0).lower(), mask(text, names)).replace("name", "NAME"), 6)
 def cov(a, b): return round(len(a & b) / len(a), 3) if a else None

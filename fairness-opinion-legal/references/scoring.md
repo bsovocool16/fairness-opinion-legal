@@ -18,5 +18,12 @@ book, so the drafter can score itself before delivery.
 | reviewer grades | parsimony (retained precedent text kept verbatim apart from facts) and justification (every deletion reasoned against the book), 0 to 2 | 1.67 / 1.83 |
 | hygiene | commentary, placeholders or markers in the draft | 0 of 24 |
 
+Self-scorer change, November 2026 (0.3.3): the scorer's catch-all for company names now matches legal suffixes in any case
+("Acme Holdings, Inc." was left unmasked before, because the suffix list matched only lowercase). Measured on the bundled
+Distribution Solutions deal only, since the 24 deals above are not in this repository: advisor's own language 0.635 to 0.651
+for the draft and 0.624 to 0.636 for the section as filed; letter carry-over and shell retention moved by less than half a
+point. Expect the 0.63 median above to read about 0.64 to 0.65 under the current scorer, more for drafts with long peer tables;
+the table keeps the v6 figures as measured.
+
 Filed sections are noisy: the filing is edited by several hands after the first draft, so a draft that matches the advisor's
 precedents more closely than the filing does is not wrong. Parsimony with reasons is the objective, not string match.
