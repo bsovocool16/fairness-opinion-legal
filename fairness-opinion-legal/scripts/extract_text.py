@@ -7,7 +7,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent; sys.path.insert(0, str(HERE / "redline"))
 def _pdf_pages(p):
     if not shutil.which("pdftotext"): sys.exit("pdftotext (poppler) is not installed; supply the document as text")
-    return subprocess.run(["pdftotext", str(p), "-"], capture_output=True, text=True).stdout.split("\f")
+    pages = subprocess.run(["pdftotext", str(p), "-"], capture_output=True, text=True).stdout.split("\f")
+    return pages[:-1] if len(pages) > 1 and not pages[-1].strip() else pages     # pdftotext ends every page with a form feed, so the last split is empty
 def extract(src, ocr=False, log=print):
     src = Path(src); ext = src.suffix.lower()
     if ext == ".pdf":

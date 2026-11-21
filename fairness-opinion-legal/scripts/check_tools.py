@@ -10,7 +10,8 @@ except Exception as e: rows[-1] = ("python3 requests + beautifulsoup4", False, "
 rows.append(("pdftotext (poppler)", has("pdftotext"), "board books as PDF; without it supply text"))
 rows.append(("pandoc or python-docx", has("pandoc") or (__import__("importlib").util.find_spec("docx") is not None), "Word inputs"))
 rows.append(("node + docx package", has("node") and (HERE / "redline" / "node_modules" / "docx").exists(), "docx outputs; " + ("installs itself on first use (npm install in scripts/redline)" if has("node") and has("npm") else "needs node and npm")))
-so = has("soffice") or Path("/Applications/LibreOffice.app/Contents/MacOS/soffice").exists(); rows.append(("LibreOffice", so, "PDF outputs"))
+so = has("soffice") or Path("/Applications/LibreOffice.app/Contents/MacOS/soffice").exists(); rows.append(("LibreOffice", so, "PDF outputs; ticker-to-proxy needs it to recalculate the model"))
+fs = __import__("importlib").util.find_spec; rows.append(("openpyxl + python-pptx + python-docx", all(fs(m) is not None for m in ("openpyxl", "pptx", "docx")), "ticker-to-proxy: the model, the board book and the letter (pip install openpyxl python-pptx python-docx)"))
 import platform
 vision = platform.system() == "Darwin" and (has("swiftc") or (HERE / "ocr" / "ocr").exists()); rapid = __import__("importlib").util.find_spec("rapidocr_onnxruntime") is not None
 rows.append(("OCR: Apple Vision (macOS, swiftc)", vision, "image-only board books, best quality"))
