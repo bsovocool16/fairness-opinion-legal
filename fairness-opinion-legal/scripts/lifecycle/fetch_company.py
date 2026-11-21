@@ -200,11 +200,16 @@ def price_block(sym, mkt, as_of):
 
 def risk_free(as_of):
     try:
-        r = get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": "DGS10", "cosd": (datetime.date.fromisoformat(as_of) - datetime.timedelta(days=20)).isoformat(), "coed": as_of}, headers={"User-Agent": "Mozilla/5.0"}, gap=0.3)
+        r = get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": "DGS10", "cosd": (datetime.date.fromisoformat(as_of) - datetime.timedelta(days=20)).isoformat(), "coed": as_of}, headers={"User-Agent": "Mozilla/5.0"}, gap=0.3, tries=2, timeout=20)
         rows = [x for x in csv.reader(io.StringIO(r.text))][1:]; rows = [(d, float(v)) for d, v in rows if v not in (".", "")]
         d, v = rows[-1]; return {"rate": round(v / 100, 5), "date": d, "source": "FRED DGS10 (10-year U.S. Treasury, constant maturity)"}
     except Exception as e:
-        return {"rate": None, "date": None, "source": f"FRED unavailable ({e}); set the risk-free rate on the Assumptions tab"}
+        fred_err = e
+    try:  # fallback: Cboe 10-year Treasury yield index (^TNX quotes the yield in percent)
+        px = [p for p in yahoo_closes("^TNX", years=1) if p[0] <= as_of]
+        d, v, _ = px[-1]; return {"rate": round(v / 100, 5), "date": d, "source": "Cboe 10-year U.S. Treasury yield index (^TNX, via Yahoo); FRED DGS10 unavailable"}
+    except Exception as e:
+        return {"rate": None, "date": None, "source": f"FRED unavailable ({fred_err}); ^TNX unavailable ({e}); set the risk-free rate on the Assumptions tab"}
 
 # ---- companies -----------------------------------------------------------------------------------------------------
 def ticker_map():
