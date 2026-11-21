@@ -21,8 +21,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: System tools (pdftotext; LibreOffice Calc and Impress recalculate the ticker-to-proxy model and render its book)
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils libreoffice-calc libreoffice-impress
+      - name: System tools (pdftotext; LibreOffice: Writer renders the redline PDFs, Calc recalculates the ticker-to-proxy model, Impress renders its book)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils libreoffice-calc libreoffice-impress libreoffice-writer
       - name: Dependencies
         run: make deps
       - name: Tests
