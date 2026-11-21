@@ -1,0 +1,9 @@
+regime stated: 13e-3 | book text suggests: 13e-3
+  comps          core      pages [3, 16, 17, 18, 19, 20, 21, 22, 30] title
+  dcf            core      pages [3, 14, 16, 27, 28] title
+  lbo            core      pages [3, 16, 29, 30] title
+  precedents     core      pages [3, 16, 23, 24, 25, 26] title
+  premiums       core      pages [3, 16, 31, 32] title
+  sensitivity    grid      pages [28, 30] title
+  targets        reference pages [13] title
+  trading_range  reference pages [9, 11] title

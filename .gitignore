@@ -5,3 +5,6 @@ fairness-opinion-legal/scripts/ocr/ocr
 *.spec.json
 .DS_Store
 dist/
+.hypothesis/
+.pytest_cache/
+__pycache__/
