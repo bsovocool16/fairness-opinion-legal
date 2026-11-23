@@ -94,6 +94,8 @@ class Deck:
         if dash: ln.line.dash_style = MSO_LINE_DASH_STYLE.DASH
         sp = ln._element.spPr
         if sp.find(qn("a:effectLst")) is None: etree.SubElement(sp, qn("a:effectLst"))   # no theme shadow on rules
+        style = ln._element.find(qn("p:style"))
+        if style is not None: ln._element.remove(style)   # LibreOffice draws the theme effectRef shadow otherwise
         return ln
     def poly(self, s, pts, fill):
         fb = s.shapes.build_freeform(self.X(pts[0][0]), self.Y(pts[0][1]), scale=1.0)
@@ -219,11 +221,12 @@ class Deck:
         if o.get("pages", True): self.text(s, 10.6, y - 0.4, 1.4, 0.3, "Page", 10, True, self.st["text"]["muted"], PP_ALIGN.RIGHT)
         num = 0
         for (lab, p), name in zip(starts, names):
-            appendix = name == "Appendix"; mark = "" if appendix else (ROMAN[num] if o.get("numbering", "roman") == "roman" else str(num + 1))
+            appendix = name == "Appendix"; nb = o.get("numbering", "roman"); mark = "" if appendix or nb == "none" else (ROMAN[num] if nb == "roman" else str(num + 1))
             if not appendix: num += 1
             self.text(s, 1.3, y, 0.8, 0.4, mark, 14, False, col); self.text(s, 2.1, y, 8.4, 0.4, name, 14, False, self.st["text"]["body"])
             if o.get("pages", True): self.text(s, 10.6, y, 1.4, 0.4, str(p), 14, False, self.st["text"]["body"], PP_ALIGN.RIGHT)
-            self.line(s, 1.3, y + 0.48, 12.0, y + 0.48, rule, 0.5); y += 0.62
+            if rule: self.line(s, 1.3, y + 0.48, 12.0, y + 0.48, rule, 0.5)
+            y += 0.62
     def divider(self, label):
         dv = self.st["dividers"]; s = self.p.slides.add_slide(self.blank); self.n += 1; st = dv["style"]; col = dv.get("color", BLACK)
         if st == "rules":

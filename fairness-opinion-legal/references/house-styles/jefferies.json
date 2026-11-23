@@ -108,6 +108,6 @@
   "pages": true,
   "numbering": "none",
   "color": "000000",
-  "rule_color": "C0C0C0"
+  "rule_color": null
  }
 }

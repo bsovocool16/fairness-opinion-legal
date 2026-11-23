@@ -36,7 +36,7 @@
   "notes_italic": true
  },
  "table": {
-  "header": "fill",
+  "header": "text",
   "header_fill": "1F396C",
   "header_text": "FFFFFF",
   "stat_fill": "E2EBF4",
