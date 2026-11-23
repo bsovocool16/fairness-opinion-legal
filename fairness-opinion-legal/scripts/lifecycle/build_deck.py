@@ -103,7 +103,10 @@ class Deck:
     def poly(self, s, pts, fill):
         fb = s.shapes.build_freeform(self.X(pts[0][0]), self.Y(pts[0][1]), scale=1.0)
         fb.add_line_segments([(self.X(a), self.Y(b)) for a, b in pts[1:]], close=True); sh = fb.convert_to_shape()
-        sh.fill.solid(); sh.fill.fore_color.rgb = rgb(fill); sh.line.fill.background(); return sh
+        sh.fill.solid(); sh.fill.fore_color.rgb = rgb(fill); sh.line.fill.background()
+        style = sh._element.find(qn("p:style"))
+        if style is not None: sh._element.remove(style)   # no theme shadow
+        return sh
     # page furniture
     def furniture(self, s):
         st = self.st; f = st["footer"]
@@ -420,7 +423,7 @@ def build_pages(d, co, terms, val, date):
         if cs.get("style") == "bars":           # peers charted by EV / LTM EBITDA, with the median and the Company beside them
             pts = sorted([(r_[0], r_[14]) for r_ in peers if isinstance(r_[14], (int, float))], key=lambda x: -x[1])
             med = stats["Median"][14]; sv = tr[14] if isinstance(tr[14], (int, float)) else 0; first = cs.get("subject_first")
-            cats = ([t["name"]] if first else []) + [n for n, _ in pts] + ["Median"] + ([] if first else [t["name"]])
+            sl = f"{t['name']} (Unaffected)"; cats = ([sl] if first else []) + [n for n, _ in pts] + ["Median"] + ([] if first else [sl])
             vals = ([sv] if first else []) + [v for _, v in pts] + [med] + ([] if first else [sv])
             cd = CategoryChartData(); cd.categories = cats; cd.add_series("EV / LTM EBITDA", vals)
             gf = s.shapes.add_chart(XL_CHART_TYPE.COLUMN_CLUSTERED, d.X(0.5), d.Y(1.75), d.X(8.8), d.Y(3.9), cd); ch = gf.chart
