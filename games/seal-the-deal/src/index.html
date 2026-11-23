@@ -1,0 +1,72 @@
+<title>Seal the Deal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
+<style>/*STYLE*/</style>
+<!--BODY-->
+<canvas id="desk" aria-hidden="true"></canvas>
+
+<!-- TITLE SCREEN -->
+<section id="scr-title" class="screen">
+  <div class="title-card">
+    <div class="logo" aria-label="Seal the Deal">
+      <span class="logo-1">SEAL</span><span class="logo-2">THE</span><span class="logo-3">DEAL</span>
+    </div>
+    <p class="tagline">Every deal is fair. Eventually.</p>
+    <div class="title-boss"><canvas id="boss-title" width="48" height="52"></canvas>
+      <div class="bubble bubble-title">Kid, I don't care if it's a dog. By 7 AM it's FAIR.</div></div>
+    <div class="howto paper">
+      <h3>HOW TO PLAY</h3>
+      <ol>
+        <li>Each deal arrives with a bad price. Your job: get the <b>Fairness Committee</b> to sign off before the 7:00 AM board call.</li>
+        <li>Pull levers on the desk papers: WACC, terminal growth, SBC, management cases, EBITDA add-backs, peer and precedent selection, the equity bridge. Every move costs clock time.</li>
+        <li>The offer must clear the gold <b>committee line</b> on enough valuation bars of the <b>football field</b>, and your <b>Smell Test</b> score has to stay above the bar. Stuff the terminal value too hard and the committee notices.</li>
+        <li>Run out of time and the MD signs it himself. It's still fair. It's always fair.</li>
+      </ol>
+    </div>
+    <div class="diffs" id="diffs"></div>
+    <p class="fine">A work of satire. All companies, deals and people are made up. Nothing here is advice, financial or moral.</p>
+  </div>
+</section>
+
+<!-- GAME -->
+<section id="scr-game" class="screen" hidden>
+  <header class="hud">
+    <div class="hud-deal"><span id="hud-ticker" class="ticker">JRKY</span><span id="hud-name">Gristle &amp; Sons</span><span id="hud-side" class="side">SELL-SIDE</span></div>
+    <div class="hud-clock"><span class="lbl">TIME</span><span id="hud-time" class="clock">10:00 PM</span><div class="tbar"><div id="hud-tbar"></div></div><span class="lbl">BOARD CALL 7:00 AM</span></div>
+    <div class="hud-right"><span class="lbl">DEAL</span><span id="hud-dealno">1/5</span><button id="btn-mute" class="ghost" aria-label="Toggle sound">SND:ON</button></div>
+  </header>
+  <div class="layout">
+    <aside class="side-col">
+      <div class="boss-card">
+        <div class="boss-frame"><canvas id="boss" width="48" height="52"></canvas><div class="nameplate">MD: R. "CHIP" HOLLOWAY</div></div>
+        <div id="boss-say" class="bubble" aria-live="polite">Make it fair.</div>
+      </div>
+      <div class="panel smell">
+        <div class="panel-h">SMELL TEST <span id="smell-num">100</span></div>
+        <div class="meter"><div id="smell-bar"></div><div id="smell-min" class="notch"></div></div>
+        <ul id="smell-items" class="redpen"></ul>
+      </div>
+      <div class="panel checklist">
+        <div class="panel-h">COMMITTEE CHECKLIST</div>
+        <ul id="checklist"></ul>
+        <button id="btn-submit" class="stamp-btn">SEND TO FAIRNESS COMMITTEE</button>
+      </div>
+    </aside>
+    <main class="main-col">
+      <div class="paper ff">
+        <div class="paper-h"><span>FOOTBALL FIELD</span><span class="sub" id="ff-sub">Implied value per share ($)</span></div>
+        <div id="ff" class="ff-body"></div>
+      </div>
+      <nav class="tabs" id="tabs" role="tablist"></nav>
+      <div class="paper sheet" id="sheet" role="tabpanel"></div>
+    </main>
+  </div>
+  <div id="toast" class="sticky" hidden></div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal" hidden><div class="modal-inner paper" id="modal-inner"></div></div>
+<script>/*ENGINE*/</script>
+<script>/*GAME*/</script>
