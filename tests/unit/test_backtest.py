@@ -129,3 +129,26 @@ def test_bundled_price_cache_stops_at_cutoff():
     j = json.loads((SCRIPTS.parent / "examples" / "backtest" / "utz-prices" / "yahoo_UTZ.json").read_text())
     last = datetime.datetime.fromtimestamp(j["chart"]["result"][0]["timestamp"][-1], datetime.timezone.utc).date().isoformat()
     assert last <= "2026-07-20"
+
+# ---- EBITDA judgment cases and the earnings release ---------------------------------------------------------------------
+import earnings_release as ER, build_model as BM
+
+RELEASE = """Net debt of $780.3 million resulting in a Net Leverage Ratio of 3.6x based on trailing twelve months Adjusted EBITDA of $219.3 million.
+| Average Weighted Basic Shares Outstanding on an As-Converted Basis | 143.7 |
+| Fully Diluted Shares on an As-Converted Basis | 143.9 |
+"""
+def test_release_parse():
+    got = ER.parse(RELEASE)
+    assert got["ltm_adj_ebitda"]["value"] == 219.3 and got["as_converted_shares"]["value"] == 143.9
+    assert ER.parse("| Last 52-Weeks Adjusted EBITDA | $216.5 |")["ltm_adj_ebitda"]["value"] == 216.5
+    assert ER.parse("trailing twelve months Adjusted EBITDA of $1.2 billion")["ltm_adj_ebitda"]["value"] == 1200
+    assert ER.parse("Adjusted EBITDA increased 6.2% to $47.9 million") == {}          # a quarter is not the LTM
+
+def test_ebitda_cases():
+    v = {"ebit": 21.6, "da": 86.2, "sbc": 16.7}
+    assert round(BM.ebitda_of(v, "reported"), 1) == 107.8 and round(BM.ebitda_of(v, "ex_sbc"), 1) == 124.5 and BM.ebitda_of({"da": 1}, "reported") is None
+    co = {"target": {"ltm": {"values": v}}}
+    assert BM.available_cases(co) == ["reported", "ex_sbc"]
+    co["target"]["management"] = {"ltm_adj_ebitda": {"value": 219.3}}
+    assert BM.available_cases(co) == ["reported", "ex_sbc", "management"]
+    assert BM.available_cases({"target": {"ltm": {"values": {"ebit": 1, "da": 1}}}}) == ["reported"]

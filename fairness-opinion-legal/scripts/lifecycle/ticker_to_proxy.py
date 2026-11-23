@@ -72,6 +72,8 @@ def stage_revalue(deal, a):
 
 def stage_check(deal, a):
     import check_model; P = paths(deal); F = check_model.check(P["model"], P["values"])
+    for cdir in sorted((P["lc"] / "cases").glob("*/")) if (P["lc"] / "cases").exists() else []:      # every EBITDA case's workbook meets the same conventions
+        if (cdir / "model.xlsx").exists(): F += [(r, f"{cdir.name}: {c}", d) for r, c, d in check_model.check(cdir / "model.xlsx", cdir / "model_values.xlsx")]
     save([{"rule": r, "cell": c, "detail": d} for r, c, d in F], P["check"])
     if F:
         for r, c, d in F[:20]: print(f"  {r} {c} {d}")

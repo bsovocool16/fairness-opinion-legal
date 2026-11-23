@@ -268,7 +268,25 @@ def company(ticker, cik, mkt, as_of, light=False):
     try: rec["price"] = price_block(ticker.replace(".", "-"), mkt, as_of)
     except Exception as e: rec["price"] = None; rec.setdefault("notes", []).append(str(e))
     if light: rec.pop("annual")
+    else: management_figures(rec, cik, as_of)
     return rec
+
+def management_figures(rec, cik, as_of, log=print):
+    """Management's LTM Adjusted EBITDA and as-converted share count from the latest earnings release filed by as_of
+    (earnings_release.py). An as-converted count above the XBRL count, with noncontrolling interest on the balance sheet, is
+    an Up-C: the exchangeable units are counted as shares and their book NCI is no longer deducted (it was double counting)."""
+    import earnings_release
+    try: got = earnings_release.find(cik, as_of, log=log)
+    except Exception as e: got = None; rec.setdefault("notes", []).append(f"earnings release not read: {e}")
+    if not got: return
+    rec["management"] = got
+    ac = (got.get("as_converted_shares") or {}).get("value"); B = rec["balance"]
+    if ac and rec.get("shares_out_mm") and (B.get("nci") or 0) > 0 and ac > rec["shares_out_mm"] * 1.05:
+        rec["shares_source"] = {"basis": f"fully diluted shares on an as-converted basis (Class A plus units exchangeable 1:1), from the earnings release: \"{got['as_converted_shares']['quote']}\"; XBRL count was {rec['shares_out_mm']:.1f}",
+                                "form": got["source"]["form"], "accn": got["source"]["accn"], "filed": got["source"]["filed"], "as_of": got["source"]["filed"], "tag": "earnings release"}
+        rec["shares_out_mm"] = ac; B["nci_book"] = B.get("nci"); B["nci"] = 0
+        B.setdefault("notes", []).append(f"Up-C: book noncontrolling interest of {B['nci_book']:,.1f} is the exchangeable units already counted in the as-converted shares; not deducted")
+        log(f"  Up-C: {ac:.1f}mm as-converted shares; book NCI {B['nci_book']:,.1f} not deducted")
 
 def sic_candidates(sic, tmap, exclude_cik):
     r = get("https://www.sec.gov/cgi-bin/browse-edgar", params={"action": "getcompany", "SIC": sic, "type": "10-K", "owner": "include", "count": 100}, headers={"User-Agent": sec_ua()})

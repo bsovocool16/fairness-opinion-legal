@@ -113,6 +113,21 @@ def run(company_json, terms_json, valuation_json, out, log=print):
     d.text(s, xp(offer) - Inches(1.2), Y0 + rowh * len(items), Inches(2.4), Inches(0.35), f"Offer price: {money(offer)}", 11, True, RED, PP_ALIGN.CENTER)
     d.notes(s, ["The 52-week trading range is presented for reference only and is not a valuation methodology. Premiums paid range is illustrative.",
                 "Implied values per share are rounded to the nearest $0.01 and are based on the illustrative projections and the assumptions in the valuation model."], Inches(6.25))
+    # 3a the judgment calls: each EBITDA definition the data supports, each from its own recalculated workbook
+    cases = val.get("cases") or {}
+    if len(cases) > 1:
+        s = d.slide("EBITDA Definition: Judgment Calls", None, "Implied value per share under each EBITDA definition; the base case is the first column")
+        short = {"reported": "Reported (SBC as a cash cost)", "ex_sbc": "SBC added back", "management": "Management adjusted"}
+        ks = [k for k in ("reported", "ex_sbc", "management") if k in cases]; cv = lambda k, c: (cases[k]["cells"].get(c) or {}).get("value")
+        rng = lambda k, a: f"{money(cases[k]['ranges'][a]['low'])} – {money(cases[k]['ranges'][a]['high'])}"
+        rows = [[""] + [short[k] for k in ks], ["LTM EBITDA ($mm)"] + [mmf(cv(k, "h_ebitda_ltm")) for k in ks],
+                [f"{t['name']} EV / LTM EBITDA at the unaffected price"] + [mult(cv(k, "tgt_ev_ltm_ebitda_unaff")) for k in ks],
+                ["Selected EV / LTM EBITDA multiples"] + [f"{mult(cv(k, 'comps_lo'))}–{mult(cv(k, 'comps_hi'))}" for k in ks], ["WACC (midpoint)"] + [pct(cv(k, "wacc")) for k in ks],
+                ["Selected Public Companies Analysis"] + [rng(k, "comps") for k in ks], ["Discounted Cash Flow Analysis — perpetuity growth"] + [rng(k, "dcf_pgr") for k in ks],
+                ["Discounted Cash Flow Analysis — exit multiple"] + [rng(k, "dcf_exit") for k in ks], ["Leveraged Buyout Analysis"] + [rng(k, "lbo") for k in ks],
+                ["Offer price per share"] + [money(offer)] * len(ks)]
+        d.table(s, rows, Inches(0.5), Inches(1.6), Inches(12.3), [5] + [3] * len(ks), 11, bold_rows=(len(rows) - 1,), rowh=0.38)
+        d.notes(s, [cases[k]["label"] + "." for k in ks] + ["Trading range and premiums do not depend on the EBITDA definition. Each column is a separate model workbook (cases/<case>/model.xlsx)."], Inches(5.55))
     # 4 52-week trading range
     s = d.slide("52-Week Trading Range", "trading_range", f"{t['name']} daily closing share price, 52 weeks to {t['price']['date']} (for reference only)")
     hist = t["price"]["history_1y"]

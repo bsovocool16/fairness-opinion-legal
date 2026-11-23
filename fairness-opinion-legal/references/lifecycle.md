@@ -54,6 +54,16 @@ Other conventions the builder applies (not machine-checked):
 - **DCF:** unlevered free cash flow = EBIT less taxes on EBIT, plus D&A, less capex, less the increase in net working capital. Stock-based compensation is treated as a cash cost (not added back). A **stub period** prorates the first projection year from the valuation date, and the **mid-year convention** is an on/off input. Both terminal value methods are shown, each with the **implied** figure of the other (perpetuity → implied exit multiple; exit multiple → implied perpetuity growth) as a cross-check.
 - **Projection anchor:** year one starts from the latest **LTM** revenue (not the last fiscal year), with only the rest of the year grown at the year-2 rate, so results reported since the 10-K are not thrown away. The **EBITDA margin** defaults to the LTM margin, held flat, when margins have been rising (LTM at or above the last fiscal year, which is at or above the 3-year average); otherwise to the 3-year average. The basis column says which rule applied.
 - **Exit multiple reference:** beside the exit multiple input, the Assumptions tab shows the target's own EV / LTM EBITDA at the unaffected price and the peer median (green links to Comps), so a reviewer sees at once when the peers trade well below the target.
+- **EBITDA judgment calls:** the base case is reported EBITDA (EBIT + D&A, stock-based compensation a cash cost). Where the data
+  supports it, the model stage also builds each alternative as its own workbook under `lifecycle/cases/<case>/`: `ex_sbc` (SBC
+  added back, for the target and every peer, as a bank's "not burdened by stock-based compensation" EBITDA) and `management`
+  (the target's LTM Adjusted EBITDA as its latest earnings release states it, read by `earnings_release.py`; the add-backs beyond
+  SBC are LTM only, so the margin is the LTM margin held flat; peers stay on the SBC-added-back basis, since their adjusted figures
+  are not fetched). Each case is recalculated and checked like the base model; `valuation.json["cases"]` carries its ranges, and the
+  book adds an "EBITDA Definition: Judgment Calls" page. The letter and the proxy pipeline use the base case.
+- **Up-C share count:** when the earnings release gives fully diluted shares "on an as-converted basis" above the XBRL count and the
+  balance sheet carries noncontrolling interest, the exchangeable units are counted as shares and the book NCI is not deducted
+  (deducting it as well double counts the units). The Assumptions tab cites the release.
 - **Reverse DCF:** under the DCF value, the DCF tab solves for the perpetuity growth rate and exit multiple the unaffected price implies on the same projected cash flows and midpoint WACC (`rdcf_g`, `rdcf_x` in `valuation.json`). The book's DCF page and the far-from-market flag quote them.
 - **WACC:** CAPM cost of equity with the peer median **unlevered beta** (Hamada), relevered at a target debt-to-capitalization; risk-free rate is the 10-year Treasury.
 - **Sensitivity grids** are explicit formulas, not Excel data tables, so they compute in any spreadsheet program. The center cell equals the DCF tab's midpoint value; the tests assert it.

@@ -71,7 +71,24 @@ def clamp(x, lo, hi): return max(lo, min(hi, x))
 def pctile(xs, q):
     xs = sorted(xs); k = (len(xs) - 1) * q; f = math.floor(k); c = min(f + 1, len(xs) - 1); return xs[f] + (xs[c] - xs[f]) * (k - f)
 
-def defaults(co, terms):
+# EBITDA definitions a reviewer can disagree about. Each case is a full model (its own workbook, recalculated); the base case
+# is the first, and the others are shown beside it in valuation.json["cases"], the book and the backtest scorecard.
+CASES = {"reported": "Reported EBITDA (EBIT + D&A); stock-based compensation treated as a cash cost",
+         "ex_sbc": "EBITDA not burdened by stock-based compensation (SBC added back, target and peers)",
+         "management": "Management's Adjusted EBITDA (LTM, from the earnings release); peers with SBC added back"}
+
+def available_cases(co):
+    t = co["target"]; out = ["reported"]
+    if (t["ltm"]["values"].get("sbc") or 0) > 0: out.append("ex_sbc")
+    if ((t.get("management") or {}).get("ltm_adj_ebitda") or {}).get("value"): out.append("management")
+    return out
+
+def ebitda_of(v, case):
+    """EBITDA on a case's definition from reported values (ebit, da, sbc). Management add-backs beyond SBC exist for the LTM only."""
+    if v.get("ebit") is None: return None
+    return (v.get("ebit") or 0) + (v.get("da") or 0) + ((v.get("sbc") or 0) if case in ("ex_sbc", "management") else 0)
+
+def defaults(co, terms, case="reported"):
     """Starting assumptions, all judgment inputs entered in blue and editable; each one's basis is written next to it."""
     t = co["target"]; A = [r for r in t["annual"] if r.get("revenue")]; last3 = A[-3:]
     def avg(f, base="revenue"):
@@ -89,16 +106,18 @@ def defaults(co, terms):
         rest = clamp((fy1_end - datetime.date.fromisoformat(ltm_end)).days / 365, 0, 1)
         g1 = LV["revenue"] * (1 + growth[1] * rest) / A[-1]["revenue"] - 1
         anchor = (g1, ltm_end, rest); growth[0] = r2(clamp(g1, -0.5, 1.0), 0.0025)
-    ebitda_m = [((r.get("ebit") or 0) + (r.get("da") or 0)) / r["revenue"] for r in last3 if r.get("ebit") is not None]
+    ebitda_m = [ebitda_of(r, case) / r["revenue"] for r in last3 if r.get("ebit") is not None]
     avg_m = sum(ebitda_m) / len(ebitda_m) if ebitda_m else 0.15
-    ltm_m = ((LV.get("ebit") or 0) + (LV.get("da") or 0)) / LV["revenue"] if LV.get("revenue") and LV.get("ebit") is not None else None
-    rising = ltm_m is not None and len(ebitda_m) >= 2 and ltm_m >= ebitda_m[-1] >= avg_m
+    ltm_m = ebitda_of(LV, case) / LV["revenue"] if LV.get("revenue") and LV.get("ebit") is not None else None
+    if case == "management":
+        ltm_m = t["management"]["ltm_adj_ebitda"]["value"] / LV["revenue"]; rising = True   # history carries no add-backs beyond SBC; hold the LTM margin
+    else: rising = ltm_m is not None and len(ebitda_m) >= 2 and ltm_m >= ebitda_m[-1] >= avg_m
     margin = r2(ltm_m if rising else avg_m, 0.0025)
     da = r2(avg("da") or 0.03, 0.0025); capex = r2(avg("capex") or da, 0.0025)
     nwc = r2((A[-1]["nwc"] / A[-1]["revenue"]) if A[-1].get("nwc") is not None else 0.10, 0.0025)
     peers = co["peers"]; mults, dcaps, betas = [], [], []
     for p in peers:
-        v = p["ltm"]["values"]; eb = (v.get("ebit") or 0) + (v.get("da") or 0); mcap = p["price"]["last"] * p["shares_out_mm"]
+        v = p["ltm"]["values"]; eb = ebitda_of(v, case) or 0; mcap = p["price"]["last"] * p["shares_out_mm"]
         ev = mcap + p["balance"]["debt"] - p["balance"]["cash"] + (p["balance"].get("nci") or 0) + (p["balance"].get("preferred") or 0)
         if eb > 0 and 0 < ev / eb < 50: mults.append(ev / eb)
         dcaps.append(p["balance"]["debt"] / (p["balance"]["debt"] + mcap))
@@ -115,14 +134,16 @@ def defaults(co, terms):
             "lbo_lev": 5.0, "lbo_rate": r2(rf + 0.04, 0.0025), "lbo_exit": r2(med, 0.5), "irr_lo": 0.20, "irr_hi": 0.25, "lbo_fees": 0.02, "hold": N_PROJ,
             "basis": {"growth": (f"year 1: LTM revenue to {anchor[1]} plus the remaining {anchor[2]:.2f} of the year at the year-2 rate; then " if anchor else "")
                                 + f"3-year revenue CAGR {cagr:.1%} (capped -5% to 15%), fading to terminal growth + 1.0% by year {N_PROJ}",
-                      "margin": (f"LTM EBITDA margin {ltm_m:.1%}, held flat: margins have risen (3-year average {avg_m:.1%})" if rising else f"3-year average EBITDA margin {avg_m:.1%} (EBIT + D&A over revenue)"), "da": "3-year average D&A / revenue", "capex": "3-year average capex / revenue",
+                      "margin": (f"management LTM Adjusted EBITDA margin {ltm_m:.1%}, held flat (earnings release; the history carries no add-backs beyond SBC)" if case == "management" else
+                                 f"LTM EBITDA margin {ltm_m:.1%}, held flat: margins have risen (3-year average {avg_m:.1%})" if rising else f"3-year average EBITDA margin {avg_m:.1%} ({'EBIT + D&A + SBC' if case == 'ex_sbc' else 'EBIT + D&A'} over revenue)"),
+                      "case": CASES[case], "da": "3-year average D&A / revenue", "capex": "3-year average capex / revenue",
                       "nwc": "latest fiscal year NWC (current assets less cash, less current liabilities excluding debt) / revenue",
                       "tax": "U.S. federal 21% plus a blended state rate", "exit": "peer median EV / LTM EBITDA, rounded to 0.5x", "comps": "peer 25th-75th percentile EV / LTM EBITDA, rounded to 0.5x",
                       "erp": "long-horizon equity risk premium, judgment input", "kd": "LTM interest expense / total debt (bounded rf + 0.5% to 12%)", "dcap": "peer median debt / total capitalization, rounded to 5%",
                       "prem": "illustrative control-premium range, judgment input; replace with a premiums-paid study for the sector", "lbo": "judgment inputs typical of a sponsor financing"}}
 
-def build(co, terms, out):
-    t = co["target"]; D = defaults(co, terms); peers = co["peers"]; reg = {}
+def build(co, terms, out, case="reported", fname="model.xlsx"):
+    t = co["target"]; D = defaults(co, terms, case); peers = co["peers"]; reg = {}
     A = [r for r in t["annual"] if r.get("revenue")][-5:]; nA = len(A)
     wb = Workbook(); wb.remove(wb.active)
     tabs = {}
@@ -240,7 +261,18 @@ def build(co, terms, out):
     raw("Revenue", "revenue")
     calc("% growth", "rev_g", lambda c: f"=IFERROR({L(c)}{hrows['revenue']}/{L(c - 1)}{hrows['revenue']}-1,\"\")", cols=range(4, 3 + nA))
     raw("Operating income (EBIT)", "ebit"); raw("Depreciation and amortization", "da")
-    calc("EBITDA", "ebitda", lambda c: f"={L(c)}{hrows['ebit']}+{L(c)}{hrows['da']}", fmt="mm", italic=False, bold=True); hs.total(hrows["ebitda"], 3, C_LTM)
+    parts = ["ebit", "da"]
+    if case in ("ex_sbc", "management"): raw("Add: stock-based compensation", "sbc"); parts.append("sbc")
+    if case == "management":
+        M = t["management"]; src = M["source"]
+        hs.label(r, "Management Adjusted EBITDA, as reported", indent=1, italic=True); hs.put(r, C_LTM, round(M["ltm_adj_ebitda"]["value"], 3), "mm", italic=True)
+        hs.ws.cell(row=r, column=C_LTM + 1, value=f"earnings release · {src['form']} filed {src['filed']} · \"{M['ltm_adj_ebitda']['quote']}\"").font = Font(size=8, color=GREY)
+        hrows["mgmt_adj"] = r; r += 1
+        calc("Add: other management adjustments", "other_adj", lambda c: f"={L(c)}{hrows['mgmt_adj']}-" + "-".join(f"{L(c)}{hrows[k]}" for k in parts), fmt="mm", cols=[C_LTM], italic=False)
+        hs.ws.cell(row=hrows["other_adj"], column=C_LTM + 1, value="transformation, M&A, non-cash and other items management adds back; LTM only (not in XBRL)").font = Font(size=8, color=GREY)
+        parts.append("other_adj")
+    label = {"reported": "EBITDA", "ex_sbc": "EBITDA (not burdened by SBC)", "management": "Adjusted EBITDA (management basis)"}[case]
+    calc(label, "ebitda", lambda c: "=" + "+".join(f"{L(c)}{hrows[k]}" for k in parts), fmt="mm", italic=False, bold=True); hs.total(hrows["ebitda"], 3, C_LTM)
     calc("% margin", "ebitda_m", lambda c: f"=IFERROR({L(c)}{hrows['ebitda']}/{L(c)}{hrows['revenue']},\"\")")
     calc("D&A % of revenue", "da_pct", lambda c: f"=IFERROR({L(c)}{hrows['da']}/{L(c)}{hrows['revenue']},\"\")")
     raw("Capital expenditures", "capex")
@@ -249,7 +281,8 @@ def build(co, terms, out):
     calc("% of revenue", "nwc_pct", lambda c: f"=IFERROR({L(c)}{hrows['nwc']}/{L(c)}{hrows['revenue']},\"\")", cols=range(3, 3 + nA))
     raw("Interest expense", "interest"); raw("Pre-tax income", "pretax"); raw("Income tax expense", "tax")
     calc("Effective tax rate", "eff_tax", lambda c: f"=IFERROR({L(c)}{hrows['tax']}/{L(c)}{hrows['pretax']},\"\")")
-    raw("Net income", "net_income"); raw("Stock-based compensation", "sbc")
+    raw("Net income", "net_income")
+    if "sbc" not in hrows: raw("Stock-based compensation", "sbc")
     hs.ws.cell(row=r + 1, column=2, value="LTM = latest fiscal year + current year-to-date - prior year-to-date, from the 10-Q; NWC is a fiscal-year-end balance.").font = Font(italic=True, size=9, color=GREY)
     hs.ws.freeze_panes = "C6"
     reg.update({"h_rev_ltm": hs.a(hrows["revenue"], C_LTM), "h_ebitda_ltm": hs.a(hrows["ebitda"], C_LTM), "h_ebit_ltm": hs.a(hrows["ebit"], C_LTM)})
@@ -276,10 +309,13 @@ def build(co, terms, out):
         cp.put(r, 4, p["price"]["last"], "ps"); cp.put(r, 5, p["shares_out_mm"], "shares"); cp.put(r, 6, f"=D{r}*E{r}", "mm")
         cp.put(r, 7, round(b["debt"], 3), "mm"); cp.put(r, 8, round(b["cash"], 3), "mm"); cp.put(r, 9, round((b.get("nci") or 0) + (b.get("preferred") or 0), 3), "mm")
         cp.put(r, 10, f"=F{r}+G{r}-H{r}+I{r}", "mm"); cp.put(r, 11, round(v.get("revenue") or 0, 3), "mm"); cp.put(r, 12, round(v.get("ebit") or 0, 3), "mm"); cp.put(r, 13, round(v.get("da") or 0, 3), "mm")
-        cp.put(r, 14, f"=L{r}+M{r}", "mm")
+        if case == "reported": cp.put(r, 14, f"=L{r}+M{r}", "mm")
+        else: cp.put(r, 20, round(v.get("sbc") or 0, 3), "mm"); cp.put(r, 14, f"=L{r}+M{r}+T{r}", "mm")
         for c, den in ((15, "K"), (16, "N"), (17, "L")): cp.put(r, c, f"=IF(OR({den}{r}<=0,J{r}/{den}{r}>Assumptions!{reg['nm_cap'].split('!')[1]}),\"NM\",J{r}/{den}{r})", "x", align="right")
         cp.put(r, 18, f"=IFERROR(N{r}/K{r},\"\")", "pct")
     rN = r0 + len(peers) - 1; r = rN + 1; cp.total(r, 2, 18)
+    if case != "reported":
+        cp.header(4, 20, 20); c = cp.ws.cell(row=4, column=20, value="LTM SBC (added back)"); c.alignment = Alignment(horizontal="center", wrap_text=True); cp.ws.column_dimensions["T"].width = 11
     stats = [("Maximum", "MAX({})"), ("75th percentile", "QUARTILE({},3)"), ("Median", "MEDIAN({})"), ("Mean", "AVERAGE({})"), ("25th percentile", "QUARTILE({},1)"), ("Minimum", "MIN({})")]
     srow = {}
     for name, f in stats:
@@ -290,7 +326,7 @@ def build(co, terms, out):
     cp.ws.cell(row=r, column=3, value=t["ticker"]).alignment = Alignment(horizontal="center")
     cp.put(r, 4, f"={reg['px_unaff']}", "ps"); cp.put(r, 5, f"={reg['shares']}", "shares"); cp.put(r, 6, f"=D{r}*E{r}", "mm"); cp.put(r, 7, f"={reg['debt']}", "mm"); cp.put(r, 8, f"={reg['cash']}", "mm")
     cp.put(r, 9, f"={reg['nci']}+{reg['pref']}", "mm"); cp.put(r, 10, f"=F{r}+G{r}-H{r}+I{r}", "mm"); cp.put(r, 11, f"={reg['h_rev_ltm']}", "mm"); cp.put(r, 12, f"={reg['h_ebit_ltm']}", "mm")
-    cp.put(r, 13, f"=Historicals!{L(C_LTM)}{hrows['da']}", "mm"); cp.put(r, 14, f"=L{r}+M{r}", "mm")
+    cp.put(r, 13, f"=Historicals!{L(C_LTM)}{hrows['da']}", "mm"); cp.put(r, 14, f"={reg['h_ebitda_ltm']}", "mm")
     for c, den in ((15, "K"), (16, "N"), (17, "L")): cp.put(r, c, f"=IFERROR(J{r}/{den}{r},\"NM\")", "x")
     cp.put(r, 18, f"=IFERROR(N{r}/K{r},\"\")", "pct")
     r += 3; cp.header(r, 2, 6, "Implied value per share"); r += 1
@@ -535,7 +571,7 @@ def build(co, terms, out):
     sm.ws.add_chart(ch, f"B{r + 3}")
     wb.calculation = CalcProperties(fullCalcOnLoad=True)
     wb._sheets = [wb[n] for n in SHEETS]
-    out = Path(out); out.mkdir(parents=True, exist_ok=True); p = out / "model.xlsx"; wb.save(p)
+    out = Path(out); out.mkdir(parents=True, exist_ok=True); p = out / fname; wb.save(p)
     return p, reg, D
 
 def recalc(xlsx):
@@ -610,10 +646,26 @@ def evaluate(model, reg, co, D, out, log=print):
     for f in flags: log(f"flag: {f}")
     return doc
 
-def run(company_json, terms_json, out, log=print):
+CASE_CELLS = ("dcf_years", "row_rev", "h_ebitda_ltm", "wacc", "comps_lo", "comps_hi", "exit_mid", "tgt_ev_ltm_ebitda_unaff", "comps_median_ebitda", "row_ebitda", "row_ufcf", "offer_ev_ebitda")
+def case_summary(doc, case):
+    return {"label": CASES[case], "ranges": doc["ranges"], "flags": doc["flags"], "errors": doc["errors"], "model": doc["model"], "model_values": doc["model_values"],
+            "cells": {k: doc["cells"][k] for k in CASE_CELLS if k in doc["cells"]}}
+
+def run(company_json, terms_json, out, log=print, cases=True):
+    """The base case (reported EBITDA) as model.xlsx and valuation.json; with cases, each other EBITDA definition the data
+    supports as its own workbook under cases/<case>/, summarized in valuation.json["cases"]."""
     co = need(load(company_json), "company", company_json); terms = need(load(terms_json), "deal_terms", terms_json)
     p, reg, D = build(co, terms, out); log(f"wrote {p}")
-    return evaluate(p, reg, co, D, out, log)
+    doc = evaluate(p, reg, co, D, out, log)
+    if not cases: return doc
+    doc["cases"] = {"reported": case_summary(doc, "reported")}
+    for case in available_cases(co)[1:]:
+        cdir = Path(out) / "cases" / case; log(f"case {case}: {CASES[case]}")
+        cp_, creg, cD = build(co, terms, cdir, case=case)
+        cdoc = evaluate(cp_, creg, co, cD, cdir, log=lambda m: log(f"  {m}"))
+        doc["cases"][case] = case_summary(cdoc, case)
+    save(doc, Path(out) / "valuation.json")
+    return doc
 
 def revalue(company_json, valuation_json, log=print):
     """After the user edits model.xlsx by hand (an assumption, a peer's data): recalculate it and refresh valuation.json, keeping the edits."""

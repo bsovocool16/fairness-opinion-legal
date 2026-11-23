@@ -181,6 +181,14 @@ def score(spec, bt):
             "letter": letter_stage(read(S / "opinion_letter.txt"), read(lc / "opinion_letter.txt"), names, spec.get("regime")),
             "section": section_stage(read(S / "section.txt"), read(B / "draft" / "section.txt"), names, truth),
             "bottom_line": {"blind_supported": (letter or {}).get("supported"), "actual_supported": spec.get("actual_fair", True)}}
+    if len((val or {}).get("cases") or {}) > 1:      # the EBITDA judgment calls, each its own workbook, each scored the same way
+        card["cases"] = {}
+        for k, c in val["cases"].items():
+            cv = {"ranges": c["ranges"], "cells": c["cells"], "peers": val.get("peers")}
+            vs = valuation_stage(truth, cv, spec["offer_price"]); pj = projections_stage(truth, cv)
+            card["cases"][k] = {"label": c["label"], "ltm_ebitda": cell(cv, "h_ebitda_ltm"), "wacc": cell(cv, "wacc"), "summary": vs["summary"],
+                                "analyses": {a: {x: v.get(x) for x in ("blind", "actual", "iou", "midpoint_error", "offer_side_agrees")} for a, v in vs["analyses"].items() if v.get("built_by_pipeline")},
+                                "ebitda_mape": pj.get("ebitda_mape"), "revenue_mape": pj.get("revenue_mape")}
     card["bottom_line"]["agrees"] = card["bottom_line"]["blind_supported"] == card["bottom_line"]["actual_supported"]
     audit = load(bt / "audit.json"); card["audit"] = {"passed": audit.get("passed"), "failures": len(audit.get("failures", [])), "warnings": len(audit.get("warnings", []))} if audit else {"passed": None, "note": "run `backtest.py audit` first"}
     (bt / "scorecard.json").write_text(json.dumps(card, indent=1)); (bt / "scorecard.md").write_text(markdown(card))
@@ -219,6 +227,17 @@ def markdown(c):
     L += ["", f"Pipeline covers {len(s['pipeline_covers'])} of the advisor's {len(s['advisor_core_analyses'])} core analyses ({f(s['recall'])}); mean IoU {f(s['mean_iou'])}; mean |midpoint error| {f(s['mean_abs_midpoint_error'], True)}; offer-side agreement {f(s['offer_side_agreement'])}.", ""]
     for k, p in v["params"].items(): L.append(f"- {k}: blind {f(p.get('blind'))}, filed {f(p.get('actual'))}" + (f" ({p['gap_bp']:+d} bp)" if p.get("gap_bp") is not None else "") + (f"; filed basis: {p['actual_basis']}" if p.get("actual_basis") else ""))
     pe = v["peers"]; L += [f"- peers: Jaccard {f(pe['jaccard'])}; shared {', '.join(pe['shared']) or 'none'}", f"  - blind: {', '.join(pe['blind'])}", f"  - filed: {', '.join(pe['actual'])}"]
+    if c.get("cases"):
+        C = c["cases"]; ks = list(C)
+        L += ["", "## EBITDA judgment calls (one model per definition)", "", "| | " + " | ".join(ks) + " |", "|---" * (len(ks) + 1) + "|",
+              "| LTM EBITDA | " + " | ".join(f(C[k]["ltm_ebitda"]) for k in ks) + " |", "| WACC | " + " | ".join(f"{C[k]['wacc']:.1%}" if isinstance(C[k]["wacc"], (int, float)) else "–" for k in ks) + " |",
+              "| projected EBITDA vs management, mean abs error | " + " | ".join(f(C[k]["ebitda_mape"], True) for k in ks) + " |"]
+        for a in [a for a in C[ks[0]]["analyses"] if a not in ("trading_range", "premiums")]:
+            cellf = lambda x: (f"{f(x.get('blind'))} (IoU {f(x.get('iou'))})" if x.get("blind") else "–")
+            L.append(f"| {a} (filed {f(C[ks[0]]['analyses'][a].get('actual'))}) | " + " | ".join(cellf(C[k]["analyses"].get(a, {})) for k in ks) + " |")
+        L.append("| mean IoU, core analyses | " + " | ".join(f(C[k]["summary"]["mean_iou"]) for k in ks) + " |")
+        L.append("| mean abs midpoint error | " + " | ".join(f(C[k]["summary"]["mean_abs_midpoint_error"], True) for k in ks) + " |")
+        L += ["", "; ".join(f"{k}: {C[k]['label']}" for k in ks) + "."]
     d = c["deck"]; L += ["", "## Deck", ""]
     L += [f"Analyses: precision {f(d.get('precision'))}, recall {f(d.get('recall'))}; missing {', '.join(d.get('missing', [])) or 'none'}; extra {', '.join(d.get('extra', [])) or 'none'}." if "recall" in d else d.get("status", "")]
     lt = c["letter"]; L += ["", "## Opinion letter", ""]

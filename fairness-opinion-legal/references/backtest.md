@@ -102,6 +102,22 @@ What the backtest found, in order of effect:
    lifecycle builds none of them (stated in `lifecycle.md`), so valuation recall is 0.67 at best.
 6. **The 13e-3 letter** does not address fairness to the "unaffiliated" stockholders, which a 13e-3 opinion does.
 
+## Second run: Up-C fix and EBITDA judgment calls (2026-11-23)
+
+After the first run, the fetch reads management's LTM Adjusted EBITDA ($219.3 million) and the as-converted share count (143.9 million)
+from Utz's Q1 2026 earnings release (8-K filed 2026-05-06, before the cutoff), counts the Up-C units as shares, and builds one model per
+EBITDA definition. Assisted mode, audit passed:
+
+| | reported (base) | SBC added back | management adjusted | Citi |
+|---|---|---|---|---|
+| LTM EBITDA ($mm) | 107.8 | 124.5 | 219.3 | 219 (adjusted) |
+| comps $/share | 1.03 – 2.15 | 1.58 – 2.88 | **6.85 – 9.14** (IoU 0.63) | 5.70 – 9.00 |
+| DCF $/share (perpetuity) | (1.55) – 3.36 | 0.72 – 8.57 | 15.49 – 42.39 | 10.60 – 14.80 |
+| projected EBITDA vs management, mean abs error | 56% | 51% | **14%** | |
+
+The EBITDA definition explains the comps gap almost entirely: on management's basis our comps range lands on Citi's. The DCF on the
+same basis overshoots, because our WACC is 5.0% against Citi's 7.9%-8.5% (the model flags it); WACC is the next driver to examine.
+
 ## Running it
 
 ```
