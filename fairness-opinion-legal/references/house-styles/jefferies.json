@@ -40,7 +40,7 @@
   "header_text": "FFFFFF",
   "stat_fill": "EBF5FF",
   "rule_color": "C0C0C0",
-  "density": 0.58,
+  "density": 0.52,
   "font_scale": 0.82
  },
  "numbers": {
@@ -117,11 +117,13 @@
   "color": "000000",
   "rule_color": null,
   "size": 11,
-  "row_pitch": 0.35,
+  "row_pitch": 0.32,
   "indent": 0
  },
  "comps": {
   "style": "bars",
-  "bar_color": "4D73A0"
+  "bar_color": "8FB08C",
+  "subject_first": true,
+  "subject_color": "4D73A0"
  }
 }

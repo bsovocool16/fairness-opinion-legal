@@ -88,7 +88,10 @@ class Deck:
         else: r.fill.background()
         if line: r.line.color.rgb = rgb(line); r.line.width = Pt(width); r.line.dash_style = MSO_LINE_DASH_STYLE.DASH if dash else None
         else: r.line.fill.background()
-        r.shadow.inherit = False; return r
+        r.shadow.inherit = False
+        style = r._element.find(qn("p:style"))
+        if style is not None: r._element.remove(style)   # LibreOffice draws the theme shadow otherwise
+        return r
     def line(self, s, x1, y1, x2, y2, color, width=1.0, dash=False):
         ln = s.shapes.add_connector(MSO_CONNECTOR.STRAIGHT, self.X(x1), self.Y(y1), self.X(x2), self.Y(y2)); ln.line.color.rgb = rgb(color); ln.line.width = Pt(width)
         if dash: ln.line.dash_style = MSO_LINE_DASH_STYLE.DASH
@@ -149,22 +152,25 @@ class Deck:
         for i, row in enumerate(rows):
             tb.rows[i].height = self.Y(rowh)
             for j, v in enumerate(row):
-                c = tb.cell(i, j); c.text = " " if v is None or str(v) == "" else str(v);   # a run in every cell, so an empty cell takes the table's type size c.margin_left = c.margin_right = Inches(0.05); c.margin_top = c.margin_bottom = Inches(0.02); c.vertical_anchor = MSO_ANCHOR.MIDDLE
+                c = tb.cell(i, j); c.text = " " if v is None or str(v) == "" else str(v)   # a run in every cell, so an empty cell takes the table's type size
+                c.margin_left = c.margin_right = Inches(0.05); c.margin_top = c.margin_bottom = Inches(0.02); c.vertical_anchor = MSO_ANCHOR.MIDDLE
                 para = c.text_frame.paragraphs[0]; para.alignment = align_first if j == 0 else PP_ALIGN.CENTER
                 for run in para.runs:
                     run.font.size = Pt(size * self.fs); run.font.name = self.st["font"]["body"]; run.font.bold = i < head or i in bold_rows
                     run.font.color.rgb = rgb((hcol if txt_head else st["header_text"]) if i < head else self.st["text"]["table"])
                     if i < head and txt_head and st.get("header_underline") and run.text.strip(): run.font.underline = True
                 c.fill.solid(); c.fill.fore_color.rgb = rgb((WHITE if txt_head else st["header_fill"]) if i < head else (st["stat_fill"] if i in shade_rows else WHITE))
+                top = hrule if (txt_head and i == head and hrule) else None   # the header rule also as the first body row's top edge, which LibreOffice draws
                 if i < head and txt_head:
                     if hrule: self.border(c, hrule, 12700)
-                elif st.get("rule_color") and i >= head: self.border(c, st["rule_color"])
+                elif i >= head and (st.get("rule_color") or top): self.border(c, st.get("rule_color"), top=top)
         return tb
-    def border(self, cell, color, w=6350):
+    def border(self, cell, color, w=6350, top=None):
         tcPr = cell._tc.get_or_add_tcPr()
         for side in ("a:lnL", "a:lnR", "a:lnT", "a:lnB"):
-            ln = etree.SubElement(tcPr, qn(side), w=str(w if side == "a:lnB" else 0))
-            if side == "a:lnB": sf = etree.SubElement(ln, qn("a:solidFill")); etree.SubElement(sf, qn("a:srgbClr"), val=color)
+            col = color if side == "a:lnB" else (top if side == "a:lnT" else None)
+            ln = etree.SubElement(tcPr, qn(side), w=str((12700 if side == "a:lnT" else w) if col else 0))
+            if col: sf = etree.SubElement(ln, qn("a:solidFill")); etree.SubElement(sf, qn("a:srgbClr"), val=col)
             else: etree.SubElement(ln, qn("a:noFill"))
             tcPr.remove(ln); tcPr.insert(["a:lnL", "a:lnR", "a:lnT", "a:lnB"].index(side), ln)
     def notes(self, s, lines, y=5.9, size=9):
@@ -205,14 +211,15 @@ class Deck:
             self.text(s, 0.8, 1.9, 11.5, 1.1, [f"Presentation to {self.terms['addressee']}" if self.terms['addressee'].lower().startswith('the ') else f"Presentation to the {self.terms['addressee']}"], 30, False, BLACK, scale=False)
             self.text(s, 0.8, 3.0, 11.5, 0.6, code, 24, False, cv["title_color"], scale=False)
             if co_line: self.text(s, 0.8, 3.6, 11.5, 0.5, t["name"], 16, False, BLACK, scale=False)
-            self.text(s, 0.8, 4.3, 11.5, 0.5, self.terms["advisor"], 15, True, BLACK, scale=False); self.text(s, 0.8, 4.75, 11.5, 0.5, date, 14, False, BLACK, scale=False)
+            ay = 4.3 if co_line else 3.75
+            self.text(s, 0.8, ay, 11.5, 0.5, self.terms["advisor"], 15, True, BLACK, scale=False); self.text(s, 0.8, ay + 0.45, 11.5, 0.5, date, 14, False, BLACK, scale=False)
             self.line(s, 0.5, 5.85, DW - 0.5, 5.85, cv["accent"], 0.75)
         else:   # plain
             ts = cv.get("title_size", 34); self.text(s, 0.8, 2.2, 11.5, 0.9, code, ts, cv.get("title_bold", False), cv["title_color"], scale=False)
             ry = 2.2 + 0.15 + ts / 72 * 1.25 if cv.get("rule_under_title") else 3.15
             self.line(s, 0.8, ry, (DW - 0.5) if cv.get("rule_under_title") else 9.0, ry, cv["accent"], 1.0)
             self.text(s, 0.8, ry + 0.1, 11.5, 1.0, sub, cv.get("sub_size", 20), cv.get("title_bold", False), BLACK if cv["title_color"] in ("7399C6",) else cv["title_color"], scale=False)
-            self.text(s, 0.8, ry + 1.15, 11.5, 0.5, date, 15, cv.get("title_bold", False), cv["title_color"] if cv["title_color"] not in ("7399C6",) else BLACK, scale=False)
+            self.text(s, 0.8, ry + 0.1 + len(sub) * cv.get("sub_size", 20) / 72 * 1.3 + 0.3, 11.5, 0.5, date, 15, cv.get("title_bold", False), cv["title_color"] if cv["title_color"] not in ("7399C6",) else BLACK, scale=False)
         cw = 8.3 if style == "wedge" else 11.5
         self.text(s, 0.8, 6.05 if style not in ("band",) else 5.2, cw, 0.4, f"Illustrative materials in the form a financial advisor ({self.terms['advisor']}) would present", 11, False, "808080", italic=True, scale=False)
         self.text(s, 0.8, 6.45, cw, 0.8, self.foot, 9, True, RED, scale=False)
@@ -236,7 +243,7 @@ class Deck:
         if flip: self.text(s, 10.6, y - 0.4, 1.4, 0.3, "Section", 10, True, hc, PP_ALIGN.RIGHT)
         num = 0
         for (lab, p), name in zip(starts, names):
-            appendix = name == "Appendix"; mark = "" if appendix or nb == "none" else (ROMAN[num] if nb == "roman" else str(num + 1))
+            appendix = name == "Appendix"; mark = "" if appendix or nb == "none" else (ROMAN[num] if nb == "roman" else str(num + 1)) + o.get("numeral_suffix", "")
             if appendix and o.get("appendix_label"): name = o["appendix_label"]
             if not appendix: num += 1
             if mw: self.text(s, x0, y, mw, pitch, mark, sz, nbold, col)
@@ -322,7 +329,7 @@ def build_pages(d, co, terms, val, date):
             if mh: d.text(s, MX, hy - 0.12, MW, 0.42, mh, 8, True, hc, PP_ALIGN.CENTER)
             d.line(s, GX, hy + 0.3, RE, hy + 0.3, hc, 0.75)
         elif right: d.text(s, DX, Y0 - 0.32, DWD, 0.3, "Methodology / assumptions", 9, True, st["text"]["muted"])
-        y = Y0; prev_ref = None; ybot = y; spans = {}; refspan = []
+        y = Y0; prev_ref = None; ybot = y; spans = {}; refspan = []; vlabels = []
         for n_, ((label, k, basis), isref) in enumerate(items):
             if prev_ref is not None and isref != prev_ref and gap and ff.get("separator", True):
                 d.line(s, 0.5, y + gap / 2, DW - 0.5, y + gap / 2, "A0A0A0", 0.75, dash=True); y += gap
@@ -347,8 +354,7 @@ def build_pages(d, co, terms, val, date):
             if right: d.text(s, DX, y, DWD, rowh, ("" if mid else "■ ") + basis, 8, False, st["text"]["body"], anchor=MSO_ANCHOR.MIDDLE)
             bh = min(rowh - 0.12, 0.3); by = y + (rowh - bh) / 2
             d.rect(s, xp(lo), by, max(xp(hi) - xp(lo), 0.02), bh, color)
-            d.text(s, xp(lo) - 0.95, y, 0.9, rowh, wd(lo), 10, ff["value_bold"], vcol, PP_ALIGN.RIGHT, anchor=MSO_ANCHOR.MIDDLE)
-            d.text(s, xp(hi) + 0.05, y, 0.9, rowh, wd(hi), 10, ff["value_bold"], vcol, anchor=MSO_ANCHOR.MIDDLE)
+            vlabels += [(xp(lo), y, wd(lo), True), (xp(hi), y, wd(hi), False)]
             if mh: d.text(s, MX, y, MW, rowh, f"{mult(imult(lo))} – {mult(imult(hi))}", 9, False, st["text"]["body"], PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
             if ff.get("row_rules"): d.line(s, GX, y + rowh, RE, y + rowh, ff["row_rules"], 0.5)
             y += rowh; ybot = y
@@ -373,6 +379,10 @@ def build_pages(d, co, terms, val, date):
             elif ff["offer_label"] == "box_top":
                 bx = d.rect(s, xp(v) - 1.3, Y0 - 0.48 - 0.36 * i, 2.6, 0.32, WHITE, BLACK, width=0.75); d.text(s, xp(v) - 1.3, Y0 - 0.48 - 0.36 * i, 2.6, 0.32, txt, 9, True, BLACK, PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
             else: d.text(s, xp(v) - 1.6, Y0 - 0.62 + 0.24 * i, 3.2, 0.28, txt, 10, True, colr, PP_ALIGN.CENTER, pit)
+        for x_, y_, txt, left in vlabels:      # value labels last, on white, so a price line passes behind them
+            w_ = 0.075 * len(txt) + 0.1; bh_ = min(rowh, 0.24)
+            tb = d.text(s, x_ - w_ - 0.04 if left else x_ + 0.04, y_ + (rowh - bh_) / 2, w_, bh_, txt, 10, ff["value_bold"], vcol, PP_ALIGN.RIGHT if left else PP_ALIGN.LEFT, anchor=MSO_ANCHOR.MIDDLE)
+            tf = tb.text_frame; tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0; tf.word_wrap = False; tb.fill.solid(); tb.fill.fore_color.rgb = rgb(WHITE)
         d.notes(s, ["The 52-week trading range is presented for reference only and is not a valuation methodology. Premiums paid range is illustrative.",
                     "Implied values per share are rounded to the nearest $0.01 and are based on the illustrative projections and the assumptions in the valuation model."], 6.25)
 
@@ -409,18 +419,20 @@ def build_pages(d, co, terms, val, date):
         want = [names[x] for x in cs.get("stats", ["75th", "median", "25th"])]
         if cs.get("style") == "bars":           # peers charted by EV / LTM EBITDA, with the median and the Company beside them
             pts = sorted([(r_[0], r_[14]) for r_ in peers if isinstance(r_[14], (int, float))], key=lambda x: -x[1])
-            med = stats["Median"][14]; cats = [n for n, _ in pts] + ["Median", f"{t['name']} (unaffected)"]
-            vals = [v for _, v in pts] + [med, tr[14] if isinstance(tr[14], (int, float)) else 0]
+            med = stats["Median"][14]; sv = tr[14] if isinstance(tr[14], (int, float)) else 0; first = cs.get("subject_first")
+            cats = ([t["name"]] if first else []) + [n for n, _ in pts] + ["Median"] + ([] if first else [t["name"]])
+            vals = ([sv] if first else []) + [v for _, v in pts] + [med] + ([] if first else [sv])
             cd = CategoryChartData(); cd.categories = cats; cd.add_series("EV / LTM EBITDA", vals)
             gf = s.shapes.add_chart(XL_CHART_TYPE.COLUMN_CLUSTERED, d.X(0.5), d.Y(1.75), d.X(8.8), d.Y(3.9), cd); ch = gf.chart
             d.text(s, 0.5, 1.45, 8.8, 0.3, "EV / LTM EBITDA", 11, True, st["title"]["color"])
             ch.has_title = False; ch.has_legend = False; ch.value_axis.visible = False; ch.value_axis.has_major_gridlines = False
-            ch.category_axis.tick_labels.font.size = Pt(8 * d.fs); ch.category_axis.format.line.color.rgb = rgb("BFBFBF")
+            ch.category_axis.tick_labels.font.size = Pt(7 * d.fs); ch.category_axis.format.line.color.rgb = rgb("BFBFBF")
             pl = ch.plots[0]; pl.gap_width = 60; pl.has_data_labels = True; dl = pl.data_labels; dl.number_format = '0.0"x"'; dl.number_format_is_linked = False
             dl.font.size = Pt(9 * d.fs); dl.position = XL_LABEL_POSITION.OUTSIDE_END
             ser = pl.series[0]; prim = cs.get("bar_color") or st["chart"]["primary"]
             for i_ in range(len(cats)):
-                pt = ser.points[i_]; pt.format.fill.solid(); pt.format.fill.fore_color.rgb = rgb(prim if i_ < len(pts) else ("7F7F7F" if i_ == len(pts) else st["chart"]["offer"]))
+                kind = "subject" if (i_ == 0 if first else i_ == len(cats) - 1) else ("median" if cats[i_] == "Median" else "peer")
+                pt = ser.points[i_]; pt.format.fill.solid(); pt.format.fill.fore_color.rgb = rgb({"peer": prim, "median": "A6A6A6", "subject": cs.get("subject_color") or st["chart"]["offer"]}[kind])
         else:
             hdr = ["Company", "Enterprise value ($mm)", "EV / LTM revenue", "EV / LTM EBITDA", "EV / LTM EBIT", "LTM EBITDA margin"]
             subj = [f"{t['name']} (at unaffected price)", mmf(tr[8], 0), mult(tr[13]), mult(tr[14]), mult(tr[15]), pct(tr[16])]
@@ -458,7 +470,7 @@ def build_pages(d, co, terms, val, date):
         for key, lab, fx, x in [("sens_pgr", "Perpetuity growth rate", pct, 0.5), ("sens_exit", "Exit multiple (EV / EBITDA)", mult, 6.9)]:
             gr_ = g(key); rows = [["WACC \\ " + lab] + [fx(v) for v in gr_[0][1:]]] + [[pct(r_[0])] + [money(v) for v in r_[1:]] for r_ in gr_[1:]]
             d.table(s, rows, x, 1.6, 5.9, [1.6] + [1] * 5, 10, shade_rows=(3,) if st["table"].get("grid_mid_fill", True) else (), rowh=0.4, align_first=PP_ALIGN.CENTER)
-        d.notes(s, ["Shaded row is the midpoint WACC; the center cell equals the midpoint value on the prior page. Selected ranges use the midpoint WACC ± one step and the terminal assumption ± one step."], 4.4, 10)
+        d.notes(s, [("Shaded row is the midpoint WACC; t" if st["table"].get("grid_mid_fill", True) else "The middle row is the midpoint WACC; t") + "he center cell equals the midpoint value on the prior page. Selected ranges use the midpoint WACC ± one step and the terminal assumption ± one step."], 4.4, 10)
 
     def p_lbo():
         s = d.slide("Leveraged Buyout Analysis", "lbo", "Illustrative ability of a financial sponsor to pay, based on the illustrative projections")

@@ -41,7 +41,7 @@
   "header_text": "FFFFFF",
   "stat_fill": "FFEED0",
   "rule_color": null,
-  "density": 0.58,
+  "density": 0.52,
   "font_scale": 0.82
  },
  "numbers": {
@@ -74,8 +74,7 @@
   "company_line": false,
   "title_size": 20,
   "subtitle_italic": true,
-  "block_y": 2.0,
-  "second_wedge": false
+  "block_y": 2.0
  },
  "chart": {
   "primary": "513C65",
@@ -113,6 +112,8 @@
  "research": "research/perella.json",
  "comps": {
   "style": "bars",
-  "bar_color": "513C65"
+  "bar_color": "977CB1",
+  "subject_first": true,
+  "subject_color": "513C65"
  }
 }

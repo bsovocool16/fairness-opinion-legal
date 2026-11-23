@@ -41,7 +41,7 @@
   "header_text": "FFFFFF",
   "stat_fill": "F0F0F0",
   "rule_color": null,
-  "density": 0.58,
+  "density": 0.52,
   "font_scale": 0.82,
   "header_underline": true,
   "header_rule": null
@@ -72,7 +72,7 @@
   "color": "0069AA",
   "size": 24,
   "rule": true,
-  "rule_color": "0069AA",
+  "rule_color": "254D81",
   "rule_full": true,
   "x": 0.6
  },
@@ -129,7 +129,7 @@
   "rule_color": null,
   "layout": "name_then_numeral",
   "size": 12,
-  "row_pitch": 0.4,
+  "row_pitch": 0.32,
   "indent": 0
  },
  "comps": {

@@ -41,7 +41,7 @@
   "header_text": "FFFFFF",
   "stat_fill": "F2F2F2",
   "rule_color": null,
-  "density": 0.58,
+  "density": 0.52,
   "font_scale": 0.82,
   "header_text_color": "000000",
   "header_rule": "000000"
@@ -115,6 +115,8 @@
  "research": "research/citi.json",
  "comps": {
   "style": "bars",
-  "bar_color": "255BE2"
+  "bar_color": "255BE2",
+  "subject_first": true,
+  "subject_color": "0F1632"
  }
 }

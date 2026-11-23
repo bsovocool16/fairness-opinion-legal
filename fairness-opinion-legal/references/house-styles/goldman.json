@@ -41,7 +41,7 @@
   "header_text": "FFFFFF",
   "stat_fill": "E2EBF4",
   "rule_color": "D9D9D9",
-  "density": 0.58,
+  "density": 0.52,
   "font_scale": 0.82,
   "header_rule": "1F396C",
   "grid_mid_fill": null
@@ -98,18 +98,20 @@
   ],
   "label_size": 9,
   "reference_label_rotated": true,
-  "multiples": "Implied EV / LTM EBITDA"
+  "multiples": "Implied EV / LTM EBITDA",
+  "separator": false
  },
  "research": "research/goldman.json",
  "toc_opts": {
   "pages": false,
   "numbering": "roman",
-  "color": "0A3259",
+  "color": "000000",
   "size": 12,
-  "row_pitch": 0.4,
+  "row_pitch": 0.32,
   "indent": 0,
   "rule_color": null,
-  "appendix_label": "Appendix A: Supplementary Material"
+  "appendix_label": "Appendix A: Supplementary Material",
+  "numeral_suffix": "."
  },
  "comps": {
   "stats": [
