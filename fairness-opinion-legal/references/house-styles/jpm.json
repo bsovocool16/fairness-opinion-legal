@@ -43,8 +43,8 @@
   "header_text": "FFFFFF",
   "stat_fill": "C8EAF4",
   "rule_color": null,
-  "density": 0.72,
-  "font_scale": 0.85
+  "density": 0.58,
+  "font_scale": 0.82
  },
  "numbers": {
   "spaced": false
@@ -75,7 +75,9 @@
   "color": "946946",
   "title_color": "222428",
   "accent": "946946",
-  "title_bold": false
+  "title_bold": false,
+  "company_line": false,
+  "full_bleed": true
  },
  "chart": {
   "primary": "1E7C98",
@@ -99,13 +101,19 @@
   "offer_dash": true,
   "offer_label": "below",
   "value_bold": false,
-  "unaffected_color": "C4A890",
-  "row_height": 0.5,
+  "unaffected_color": "A6192E",
+  "row_height": 0.4,
   "headers": [
    "Methodology",
    "Illustrative equity value per share",
    "Commentary"
-  ]
+  ],
+  "label_size": 9,
+  "label_tiers": 2,
+  "numbered": true,
+  "multiples": "Implied FV / LTM EBITDA",
+  "unaffected_label": "Current price",
+  "price_label_italic": true
  },
  "research": "research/jpm.json",
  "toc_opts": {
@@ -113,6 +121,14 @@
   "pages": true,
   "numbering": "arabic",
   "color": "946946",
-  "rule_color": "BFBFBF"
+  "rule_color": "BFBFBF",
+  "name_color": "946946",
+  "bold": true,
+  "size": 12,
+  "row_pitch": 0.45,
+  "indent": 0
+ },
+ "comps": {
+  "subject_position": "top"
  }
 }

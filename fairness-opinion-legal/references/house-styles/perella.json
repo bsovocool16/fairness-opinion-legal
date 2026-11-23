@@ -41,21 +41,13 @@
   "header_text": "FFFFFF",
   "stat_fill": "FFEED0",
   "rule_color": null,
-  "density": 0.72,
-  "font_scale": 0.85
+  "density": 0.58,
+  "font_scale": 0.82
  },
  "numbers": {
   "spaced": false
  },
- "legend": {
-  "text": "Confidential",
-  "pos": "top_right",
-  "color": "737373",
-  "box": null,
-  "size": 11,
-  "bold": false,
-  "italic": false
- },
+ "legend": null,
  "stamp": "top_center",
  "footer": {
   "page_number": "right",
@@ -68,7 +60,9 @@
   "style": "appendix_only",
   "color": "513C65",
   "size": 20,
-  "rule": false
+  "rule": false,
+  "x": 0.5,
+  "y": 2.6
  },
  "disclaimer_page": "back",
  "cover": {
@@ -76,7 +70,12 @@
   "color": "70688F",
   "title_color": "513C65",
   "accent": "E3E2EA",
-  "title_bold": false
+  "title_bold": false,
+  "company_line": false,
+  "title_size": 20,
+  "subtitle_italic": true,
+  "block_y": 2.0,
+  "second_wedge": false
  },
  "chart": {
   "primary": "513C65",
@@ -101,12 +100,19 @@
   "offer_label": "above",
   "value_bold": false,
   "unaffected_color": "F79661",
-  "row_height": 0.5,
+  "row_height": 0.38,
   "headers": [
    "Methodology",
    "Implied Value Per Share",
    "Description / Assumptions"
-  ]
+  ],
+  "label_size": 9,
+  "label_tiers": 2,
+  "description_position": "middle"
  },
- "research": "research/perella.json"
+ "research": "research/perella.json",
+ "comps": {
+  "style": "bars",
+  "bar_color": "513C65"
+ }
 }

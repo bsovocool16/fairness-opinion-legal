@@ -41,8 +41,10 @@
   "header_text": "FFFFFF",
   "stat_fill": "F0F0F0",
   "rule_color": null,
-  "density": 0.72,
-  "font_scale": 0.85
+  "density": 0.58,
+  "font_scale": 0.82,
+  "header_underline": true,
+  "header_rule": null
  },
  "numbers": {
   "spaced": false
@@ -70,7 +72,9 @@
   "color": "0069AA",
   "size": 24,
   "rule": true,
-  "rule_color": "0069AA"
+  "rule_color": "0069AA",
+  "rule_full": true,
+  "x": 0.6
  },
  "disclaimer_page": "front",
  "cover": {
@@ -79,8 +83,10 @@
   "title_color": "254D81",
   "accent": "254D81",
   "title_bold": true,
-  "title_size": 24,
-  "sub_size": 14
+  "title_size": 20,
+  "sub_size": 14,
+  "company_line": false,
+  "rule_under_title": true
  },
  "chart": {
   "primary": "254D81",
@@ -105,18 +111,31 @@
   "offer_label": "above",
   "value_bold": false,
   "unaffected_color": "C00000",
-  "row_height": 0.5,
+  "row_height": 0.36,
   "headers": [
    "Methodology",
    "Implied Value Per Share",
    "Key Metrics and Methodologies"
-  ]
+  ],
+  "label_size": 9,
+  "description_position": "middle",
+  "multiples": "Implied TEV / LTM EBITDA"
  },
  "research": "research/evercore.json",
  "toc_opts": {
-  "pages": true,
+  "pages": false,
   "numbering": "roman",
   "color": "000000",
-  "rule_color": "BFBFBF"
+  "rule_color": null,
+  "layout": "name_then_numeral",
+  "size": 12,
+  "row_pitch": 0.4,
+  "indent": 0
+ },
+ "comps": {
+  "stats": [
+   "mean",
+   "median"
+  ]
  }
 }

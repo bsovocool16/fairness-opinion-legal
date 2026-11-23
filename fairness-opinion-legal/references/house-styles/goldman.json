@@ -41,8 +41,10 @@
   "header_text": "FFFFFF",
   "stat_fill": "E2EBF4",
   "rule_color": "D9D9D9",
-  "density": 0.72,
-  "font_scale": 0.85
+  "density": 0.58,
+  "font_scale": 0.82,
+  "header_rule": "1F396C",
+  "grid_mid_fill": null
  },
  "numbers": {
   "spaced": true
@@ -68,7 +70,8 @@
   "color": "7399C6",
   "title_color": "7399C6",
   "accent": "666666",
-  "title_bold": false
+  "title_bold": false,
+  "company_line": false
  },
  "chart": {
   "primary": "00355F",
@@ -87,17 +90,32 @@
   "offer_label": "below",
   "value_bold": true,
   "unaffected_color": "3C8A68",
-  "row_height": 0.5,
+  "row_height": 0.38,
   "headers": [
    "Methodology",
    "Implied Equity Value Per Share",
    "Commentary"
-  ]
+  ],
+  "label_size": 9,
+  "reference_label_rotated": true,
+  "multiples": "Implied EV / LTM EBITDA"
  },
  "research": "research/goldman.json",
  "toc_opts": {
   "pages": false,
   "numbering": "roman",
-  "color": "0A3259"
+  "color": "0A3259",
+  "size": 12,
+  "row_pitch": 0.4,
+  "indent": 0,
+  "rule_color": null,
+  "appendix_label": "Appendix A: Supplementary Material"
+ },
+ "comps": {
+  "stats": [
+   "mean",
+   "median"
+  ],
+  "subject_position": "top"
  }
 }

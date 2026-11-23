@@ -74,7 +74,10 @@ confidentiality legend, footer and page-number position, table header and median
 (bar colors by method, where the reference-only rows sit and how they are labeled, label blocks, a commentary column, and
 the color, dash and label position of the offer and unaffected-price lines). Where a bank uses several templates, the profile
 follows the one its `template` field names.
-Table density and type scale, a list-style contents page and the football-field column headers are profile settings too.
+Table density and type scale, header rules and underlines, a list-style contents page (size, pitch, indent, colors, numeral
+column), cover and divider placement, and the football field's column headers, two-tier labels, numbered circles, description
+column position, implied EV / LTM EBITDA column, value axis and rotated reference label are profile settings too. `comps`
+chooses the peer statistics shown, where the Company's row sits, or a bar chart of peers by EV / LTM EBITDA.
 `stage deck --advisor "<name>"` sets the advisor in `deal_terms.json` before the book is built (re-run `letter` and `handoff`
 afterwards). `research/DIFFERENCES.md` lists what still differs from each bank's filed books, page by page.
 

@@ -41,8 +41,10 @@
   "header_text": "FFFFFF",
   "stat_fill": "F2F2F2",
   "rule_color": null,
-  "density": 0.72,
-  "font_scale": 0.85
+  "density": 0.58,
+  "font_scale": 0.82,
+  "header_text_color": "000000",
+  "header_rule": "000000"
  },
  "numbers": {
   "spaced": false
@@ -69,7 +71,9 @@
   "title_color": "255BE2",
   "accent": "255BE2",
   "title_bold": false,
-  "title_size": 30
+  "title_size": 30,
+  "company_line": false,
+  "frame_full": true
  },
  "chart": {
   "primary": "255BE2",
@@ -88,7 +92,7 @@
    "trading_range": "A4ACAF"
   },
   "reference_position": "bottom",
-  "reference_label": "(For Reference Only)",
+  "reference_label": null,
   "label_blocks": true,
   "basis": "right",
   "offer_color": "388A42",
@@ -97,13 +101,20 @@
   "value_bold": false,
   "whole_dollars": true,
   "unaffected_color": null,
-  "row_height": 0.5,
+  "row_height": 0.4,
   "separator": false,
   "headers": [
    "Methodology",
    "Implied Per Share Value",
    "Assumptions"
-  ]
+  ],
+  "label_size": 9,
+  "description_position": "middle",
+  "multiples": "Implied Multiples (EV / LTM EBITDA)"
  },
- "research": "research/citi.json"
+ "research": "research/citi.json",
+ "comps": {
+  "style": "bars",
+  "bar_color": "255BE2"
+ }
 }
