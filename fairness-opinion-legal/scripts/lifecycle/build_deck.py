@@ -160,11 +160,13 @@ def run(company_json, terms_json, valuation_json, out, log=print):
     rows = [["", "Perpetuity growth", "Exit multiple"], ["WACC (midpoint)", pct(g("wacc_dcf_perp")), pct(g("wacc_dcf_exit"))], ["Terminal assumption", pct(g("g_mid")), mult(g("exit_mid"))],
             ["Enterprise value ($mm)", mmf(g("ev_perp")), mmf(g("ev_exit"))], ["Terminal value % of EV", pct(g("tv_share_perp")), pct(g("tv_share_exit"))],
             ["Implied exit multiple / perpetuity growth", mult(g("implied_perp")), pct(g("implied_exit"))], ["Implied value per share (midpoint)", money(g("dcf_ps_mid_perp")), money(g("dcf_ps_mid_exit"))],
-            ["Selected range per share", f"{money(R['dcf_pgr']['low'])} – {money(R['dcf_pgr']['high'])}", f"{money(R['dcf_exit']['low'])} – {money(R['dcf_exit']['high'])}"]]
-    d.table(s, rows, Inches(0.5), Inches(3.45), Inches(8.0), [3, 1.6, 1.6], 10, bold_rows=(6, 7), shade_rows=(7,), rowh=0.32)
+            ["Selected range per share", f"{money(R['dcf_pgr']['low'])} – {money(R['dcf_pgr']['high'])}", f"{money(R['dcf_exit']['low'])} – {money(R['dcf_exit']['high'])}"],
+            [f"Reverse DCF: implied by the unaffected price ({money(g('px_unaff'))})", pct(g("rdcf_g")), mult(g("rdcf_x"))]]
+    d.table(s, rows, Inches(0.5), Inches(3.3), Inches(8.0), [3, 1.6, 1.6], 10, bold_rows=(6, 7), shade_rows=(7,), rowh=0.3)
     d.text(s, Inches(8.9), Inches(1.5), Inches(4.0), Inches(4.2), ["Methodology", f"Unlevered free cash flows for the fiscal years {ylab[1]} through {ylab[-1]} discounted to {date} using a mid-year convention, with the first year prorated for the stub period.",
             f"Discount rates of {pct(g('wacc') - g('wacc_step'))} to {pct(g('wacc') + g('wacc_step'))}, based on a weighted average cost of capital of {pct(g('wacc'))} (see appendix).",
-            f"Terminal value by perpetuity growth rates of {pct(g('g_mid') - g('g_step'))} to {pct(g('g_mid') + g('g_step'))}, and by exit multiples of {mult(g('exit_mid') - g('exit_step'))} to {mult(g('exit_mid') + g('exit_step'))} terminal-year EBITDA.",
+            f"Terminal value by perpetuity growth rates of {pct(g('g_mid') - g('g_step'))} to {pct(g('g_mid') + g('g_step'))}, and by exit multiples of {mult(g('exit_mid') - g('exit_step'))} to {mult(g('exit_mid') + g('exit_step'))} terminal-year EBITDA (selected public companies median {mult(g('comps_median_ebitda'))}; {t['ticker']} at the unaffected price {mult(g('tgt_ev_ltm_ebitda_unaff'))} LTM EBITDA).",
+            f"Reverse DCF: at the midpoint WACC, the unaffected price implies {pct(g('rdcf_g'))} perpetuity growth or a {mult(g('rdcf_x'))} exit multiple on the same cash flows.",
             f"Enterprise value less net debt, noncontrolling interests and preferred stock ({mmf(-g('net_adj'))} $mm), divided by {g('shares'):,.1f} million shares."], 10)
     # 8 DCF sensitivity
     s = d.slide("Discounted Cash Flow Analysis — Sensitivity", "sensitivity", "Implied value per share at various WACC and terminal value assumptions")

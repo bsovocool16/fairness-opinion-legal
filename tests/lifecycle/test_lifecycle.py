@@ -101,3 +101,13 @@ def test_sanity_flags_peer_mismatch_and_thin_sets():
     # two peers (the live DSGR case)
     F = build_model.sanity(cells(wacc=0.09, tgt_ev_ltm_ebitda_unaff=12.0, comps_q1_ebitda=10.0, comps_q3_ebitda=13.0, px_unaff=200.0, comps_table=[["A"], ["B"]], **rng))
     assert any("only 2 peer" in f for f in F) and not any("interquartile" in f for f in F)
+
+@needs_lo
+def test_reverse_dcf_and_ltm_anchor(deal):
+    v = json.load(open(deal / "lifecycle" / "valuation.json")); c = {k: x["value"] for k, x in v["cells"].items()}
+    g, w = c["rdcf_g"], c["wacc_dcf_perp"]
+    # the implied growth rate reproduces the terminal value the unaffected price requires, on the same final-year cash flow
+    assert abs(c["rdcf_tv"] * (w - g) - c["ufcf_N"] * (1 + g)) < 1e-6 * c["rdcf_tv"]
+    assert abs(c["rdcf_x"] * c["ebitda_N"] - c["rdcf_tv"]) < 1e-6 * c["rdcf_tv"]
+    # the fixture carries LTM figures to 2026-09-30, so year one is anchored on them
+    assert v["assumption_basis"]["growth"].startswith("year 1: LTM revenue to 2026-09-30")
