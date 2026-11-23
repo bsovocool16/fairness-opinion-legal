@@ -1,0 +1,89 @@
+{
+ "schema": "house_style/1",
+ "key": "goldman",
+ "name": "Goldman Sachs (classic template)",
+ "match": [
+  "goldman"
+ ],
+ "template": "Classic Letter-landscape Arial template (Myovant 2022, Focus 2023, PowerSchool 2024, Janus 2026). Not the 2025 widescreen or 2026 serif variants.",
+ "page": {
+  "w": 11,
+  "h": 8.5
+ },
+ "font": {
+  "title": "Arial",
+  "body": "Arial"
+ },
+ "title": {
+  "size": 24,
+  "bold": true,
+  "color": "0A3259",
+  "case": "title",
+  "rule": "under",
+  "rule_color": "666666",
+  "two_tier": false
+ },
+ "subtitle": {
+  "color": "0A3259",
+  "italic": false,
+  "bold": true
+ },
+ "text": {
+  "body": "000000",
+  "table": "000000",
+  "muted": "595959",
+  "notes_italic": true
+ },
+ "table": {
+  "header": "fill",
+  "header_fill": "1F396C",
+  "header_text": "FFFFFF",
+  "stat_fill": "FFFF99",
+  "rule_color": "BFBFBF"
+ },
+ "numbers": {
+  "spaced": true
+ },
+ "legend": null,
+ "stamp": "top_right",
+ "footer": {
+  "page_number": "right_bar",
+  "rule": "666666",
+  "band": null,
+  "left_text": "{section}"
+ },
+ "toc": true,
+ "dividers": {
+  "style": "plain",
+  "color": "000000",
+  "size": 24,
+  "rule": false
+ },
+ "disclaimer_page": "front",
+ "cover": {
+  "style": "plain",
+  "color": "7399C6",
+  "title_color": "7399C6",
+  "accent": "666666",
+  "title_bold": false
+ },
+ "chart": {
+  "primary": "00355F",
+  "offer": "3C8A68"
+ },
+ "ff": {
+  "core": "1F396C",
+  "reference": "7399C6",
+  "method_colors": null,
+  "reference_position": "bottom",
+  "reference_label": "For Reference Only",
+  "label_blocks": true,
+  "basis": "right",
+  "offer_color": "5C3B8A",
+  "offer_dash": true,
+  "offer_label": "below",
+  "value_bold": true,
+  "unaffected_color": "3C8A68"
+ },
+ "research": "research/goldman.json"
+}

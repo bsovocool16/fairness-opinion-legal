@@ -1,0 +1,226 @@
+{
+ "bank": "Jefferies LLC",
+ "decks_studied": [
+  {
+   "folder": "jefferies/focus-financial-partners-inc_c-10",
+   "company": "Focus Financial Partners Inc. (\"Project Ferdinand\")",
+   "date_on_cover": "February 2023 / Confidential (filing describes it as dated February 26, 2023)",
+   "pages": 29,
+   "image_px": "850x638"
+  },
+  {
+   "folder": "jefferies/franchise-group-inc_c-6",
+   "company": "Franchise Group, Inc. (\"Project FREEDOM\")",
+   "date_on_cover": "May 9, 2023 / Confidential",
+   "pages": 32,
+   "image_px": "999x750"
+  },
+  {
+   "folder": "jefferies/carrols-restaurant-group-inc_c-iii",
+   "company": "Carrols Restaurant Group, Inc. (\"Project FLAME\")",
+   "date_on_cover": "January 15, 2024 / Confidential",
+   "pages": 26,
+   "image_px": "1500x843"
+  },
+  {
+   "folder": "jefferies/whole-earth-brands-inc_c-xi",
+   "company": "Whole Earth Brands, Inc. (\"Project WORLD\")",
+   "date_on_cover": "February 12, 2024 / Confidential",
+   "pages": 29,
+   "image_px": "2000x1500"
+  }
+ ],
+ "page": {
+  "size": "10 x 7.5 in (4:3 on-screen) for Focus, Franchise Group and Whole Earth; 13.33 x 7.5 in (16:9) for Carrols",
+  "orientation": "landscape",
+  "aspect_ratio": 1.333,
+  "margins_note": "Tight margins: title and content start ~0.18 in (about 1.8% of width) from the left edge; footnotes run nearly to the bottom with the footer line about 0.1 in from the bottom edge. Content is often enclosed in thin light-gray (#C0C0C0) box frames that run almost edge to edge. Carrols (16:9) has aspect 1.779; the other three are 1.332-1.333."
+ },
+ "typography": {
+  "title": {
+   "face": "Trade Gothic / News Gothic-style grotesque, bold (Jefferies' corporate face; likely Trade Gothic Bold or Bold No. 2)",
+   "weight": "bold",
+   "approx_pt": 16,
+   "case": "Title Case, can include a project code name in caps (e.g. 'WORLD Trading Update \u2013 Public Market Perspective')",
+   "color": "#000000"
+  },
+  "subtitle": {
+   "face": "same grotesque, regular (units line) or italic (descriptive subtitle e.g. 'For Reference Only', 'At the direction of the FLAME Special Committee...')",
+   "weight": "regular / italic",
+   "approx_pt": 9,
+   "case": "Sentence/Title case in parentheses for units, e.g. '($Millions)', '($Millions, except per share data)', '($ in millions, except per share amounts)'",
+   "color": "#000000 (units); italic subtitles black; in Focus the units line is dark gray"
+  },
+  "body": {
+   "face": "same grotesque, light/regular, slightly letter-spaced",
+   "weight": "regular",
+   "approx_pt": 9,
+   "case": "sentence case; gray square bullets with en-dash sub-bullets",
+   "color": "#000000"
+  },
+  "table": {
+   "face": "same grotesque (Carrols WACC/comps pages switch to a humanist sans like Lato/Calibri)",
+   "weight": "regular for rows; bold for section labels, totals, mean/median rows and subject rows; italics for % growth / % margin rows",
+   "approx_pt": 7,
+   "case": "Title case row labels",
+   "color": "#000000"
+  },
+  "footnote_source": {
+   "face": "same grotesque",
+   "weight": "regular",
+   "approx_pt": 6,
+   "case": "'Source:' then 'Note:' then numbered '(1)' hanging-indent footnotes",
+   "color": "#000000"
+  },
+  "confidence": "Medium. The narrow, slightly squarish grotesque (single-storey-like 'g', tight bold title) reads as Trade Gothic/News Gothic, consistent across all four decks for titles. Point sizes are computed from cap heights on the 2000x1500 Whole Earth images (title cap ~31 px => ~16 pt; table cap ~14 px => ~7 pt; footnote cap ~12 px => ~6 pt; cover project name ~20 pt; cover subtitle ~13 pt) and are approximate."
+ },
+ "palette": {
+  "title_text": "#000000",
+  "title_bar_or_band": null,
+  "table_header_fill": "#4D73A0",
+  "table_header_text": "#FFFFFF",
+  "alternating_row_shading": null,
+  "chart_series": [
+   "#4D73A0",
+   "#94B6D2",
+   "#8CB08C",
+   "#E5CC78",
+   "#9C84C0",
+   "#A6A6A6"
+  ],
+  "accent": [
+   "#FF0000 (Confidential legend, bright red; Carrols uses darker #C00000-ish)",
+   "#EBF5FF (very light blue fill for mean/median and section bands)",
+   "#EBEBEB (light gray fill for headers / PV / implied price rows)",
+   "#FF9900 (orange subject-company column header and marker, Carrols only)"
+  ],
+  "rule_lines": "#000000 for subtotal rules in tables; #B0B0B0-#C0C0C0 light gray for box frames and the cover/divider horizontal rules",
+  "football_field_bars": {
+   "core": "#4D73A0 (mid steel blue)",
+   "reference_only": "#94B6D2 light blue (Whole Earth) or #A6A6A6-#C0C0C0 gray (Franchise Group, Carrols)",
+   "other": "Focus (Feb 2023) uses vertical bars colored by methodology group: market observations #94B6D2, public trading #8CB08C green, precedent transactions #E5CC78 gold, DCF #9C84C0 purple; analyst targets shown as #94B6D2 bar with white diamonds; Focus precedent 13.7x point shown as a gold diamond."
+  },
+  "offer_price_line": {
+   "color": "#000000 / near-black (Franchise), #4D73A0-ish dark blue-gray (Carrols), #A0A0A0 gray (Whole Earth); Focus: orange (approx #F0A860)",
+   "style": "solid vertical (Franchise, Carrols); dashed gray vertical (Whole Earth); solid horizontal (Focus)",
+   "label_style": "Boxed callout at top of the line, bold black text, e.g. 'Proposed Purchase Price: $9.55' in a thin dark-blue/black outlined box (Carrols/Franchise) or a dashed gray box 'ROSWELL Proposed Purchase Price (1/19/24): $4.875' (Whole Earth). Focus: orange italic bold text at right edge 'At Deal $53.00'."
+  },
+  "current_or_unaffected_price_line": {
+   "color": "dark blue (approx #2F5597) in Focus only",
+   "style": "solid horizontal",
+   "label_style": "Blue bold italic text at right edge: 'As of 02/01/23 closing, the day prior to press release announcing non-binding proposal and exclusivity agreement: $46.27'. The 2023-24 decks show no unaffected-price line on the football field."
+  },
+  "notes": "Core Jefferies blue #4D73A0 is consistent to within JPEG noise across all four decks (table headers, section band fills, FF core bars, bar-chart series). Secondary light blue #94B6D2. Section/table title bands are either full #4D73A0 with white bold text, or light (#EBF5FF light blue / #EBEBEB gray) with a gray outline and black bold text. Franchise Group marks an MIP adjustment on the FF with a dashed dark-red box (#9E0D0E-ish). Colors from the logo are not recorded."
+ },
+ "title_treatment": {
+  "placement": "Top-left, flush with left margin, single line, bold black, no title bar.",
+  "title_bar": "None; title sits on white.",
+  "rule": "No rule under the title.",
+  "subtitle_or_units_line": "Directly under title, left-aligned, regular weight in parentheses: '($Millions)', '($Millions, except per share data)'. Descriptive qualifiers sometimes appear as italic subtitle lines ('For Reference Only', 'U.S. M&A All-Cash Transactions, Closed Since January 1, 2010') or are folded into the title in parentheses ('(For Reference Only)').",
+  "tracker_or_breadcrumb": "None."
+ },
+ "page_furniture": {
+  "draft_or_confidential_legends": [
+   {
+    "text": "Confidential",
+    "position": "top-right corner, every page incl. cover and dividers",
+    "style": "red; bold grotesque in Franchise Group and Whole Earth (~13 pt, #FF0000-ish); regular-weight humanist sans and darker red in Carrols; absent from interior pages of Focus"
+   },
+   {
+    "text": "<Date> / Confidential",
+    "position": "cover, under the lower cover rule, left",
+    "style": "gray regular, e.g. 'February 12, 2024  /  Confidential'"
+   },
+   {
+    "text": "For Informational Purposes Only",
+    "position": "rotated 90 degrees along left edge of the football field's reference-only rows",
+    "style": "black, underlined, regular"
+   }
+  ],
+  "page_number": "Bottom center, small (~7 pt) black numerals. Cover unnumbered; numbering conventions vary (Focus/WE number TOC as 2; Carrols restarts at 1 on the first content page).",
+  "footer": "Bottom-left 'Jefferies LLC / <Month Year>' (e.g. 'Jefferies LLC / February 2024'), small regular; Jefferies wordmark logo bottom-right on every page. Carrols interior pages omit the 'Jefferies LLC / date' line.",
+  "source_footnote_style": "Bottom-left block above the footer: 'Source: ...' line, then 'Note: ...', then numbered footnotes '(1)' (Carrols uses '1)') with hanging indent; ~6 pt black. Superscript '(1)' callouts in body/table text.",
+  "section_dividers": "White page with two thin light-gray full-width horizontal rules (at ~34% and ~53% of page height); section name in bold black (~14-16 pt) left-aligned between them; Confidential top-right; footer and logo as usual. Same geometry as the cover.",
+  "cover_page": "White. Two thin gray full-width rules; between them 'Project <CODENAME>' bold black (~20 pt) with subtitle beneath in regular (~13 pt): 'Discussion Materials', 'Presentation to the Special Committee', or (Focus) the title alone 'Project Ferdinand Fairness Opinion'. Below lower rule: '<date> / Confidential' in gray. Bottom-left: 'Jefferies LLC', 'Member SIPC', then a two-line very light gray disclaimer about views of Jefferies Investment Banking vs Jefferies Research. Logo bottom-right (absent on Carrols cover).",
+  "disclaimer_page": "Page titled 'Disclaimer' (Franchise Group p3, Carrols p2, Whole Earth p3; none in Focus): several justified paragraphs, ~8 pt, stating materials were provided to the Special Committee/Board, prepared on a confidential basis with an oral presentation, based on public info and management info without independent verification, and that Jefferies is not a legal/tax/accounting/regulatory advisor. Carrols adds non-offer language and 'Member SIPC \u2022 \u00a9 2024 Jefferies LLC.'"
+ },
+ "structure": {
+  "usual_section_order": [
+   "Cover",
+   "Table of Contents",
+   "Disclaimer",
+   "Background / Situation Overview / Transaction Overview (premiums, implied equity & enterprise value, key terms of the merger agreement)",
+   "Company Overview / Public Market Benchmarks (trading update, stock performance, multiples over time, research perspectives)",
+   "Financial Analyses / Valuation Considerations (methodologies, projections, summary football field, comps, precedents, DCF and sensitivities, premiums paid)",
+   "Appendix (WACC, reference-only analyses, changes since prior presentation)"
+  ],
+  "example_page_titles_in_order": [
+   "Whole Earth Brands (c)(xi):",
+   "Table of Contents",
+   "Disclaimer",
+   "Situation Overview",
+   "Executive Summary",
+   "Transaction Overview",
+   "Proposed Transaction Terms",
+   "WORLD Trading Update \u2013 Public Market Perspective",
+   "Public Market Views: WORLD \u2014 LTM Trading Activity",
+   "Selected Valuation Methodologies",
+   "Historical and Projected WORLD Financial Summary",
+   "Summary of Financial Analyses",
+   "Analysis of Selected Public Companies \u2013 Trading Multiples",
+   "Benchmarking WORLD EV / NTM EBITDA Multiple Over Time",
+   "Analysis of Selected Packaged Foods and Ingredients & Sweeteners M&A Transactions",
+   "Discounted Cash Flow Analysis",
+   "Discounted Cash Flow Sensitivity Analysis",
+   "Illustrative Financial Buyer Analysis (For Reference Only)",
+   "Weighted Average Cost of Capital",
+   "Selected Changes Since Board of Directors Presentation on January 21, 2024"
+  ],
+  "appendix_contents": [
+   "Weighted Average Cost of Capital (selected companies, WACC assumptions, WACC calculation)",
+   "Reference-only analyses: illustrative financial buyer / LBO, premiums paid, liquidation analysis, extended DCF of a subsidiary",
+   "Selected Changes Since <prior> Presentation (two-column Topic / Summary Changes table)",
+   "Supplemental management commentary, benchmarking and peer-set pages",
+   "DCF tax-attribute schedules and precedent transaction footnotes (Focus)"
+  ]
+ },
+ "football_field": {
+  "orientation": "Horizontal bars in the 2023-24 template (Franchise Group, Carrols, Whole Earth); vertical floating bars in Focus (Feb 2023).",
+  "row_labels": "Left 'Methodology' box: underlined bold-ish analysis name (e.g. 'Selected Public Companies Analysis') followed by indented regular metric line (e.g. '2023E Adj. EBITDA Multiple(1)').",
+  "methodology_detail_text": "Right 'Metrics' box with gray square bullets per row: multiple range and metric (e.g. '7.3x \u2013 9.1x 2023E Adj. EBITDA', en-dash sub-bullet '2023E Adj. EBITDA of $78.3M'), discount rate / growth ranges, premium percentiles. Focus instead puts methodology detail as centered text under each vertical bar.",
+  "reference_only_treatment": "Separated from core rows by a dashed gray horizontal line across all three boxes; rows below drawn in lighter fill (light blue or gray) and labelled by a rotated, underlined 'For Informational Purposes Only' down the left edge; 'Historical Premium Analysis' always sits here. Focus labels individual bars 'For reference only' in italics above the x-axis labels.",
+  "value_labels": "Low and high per-share values at the bar ends, outside the bar, regular-weight gray/black ($ with two decimals, rounded to $0.05 or $0.25).",
+  "price_lines": "One vertical line for the proposed purchase price, labelled in a box at the top. No current-price line in the 2023-24 decks. Focus: horizontal orange 'At Deal' line and dark blue unaffected-price line labelled at right.",
+  "axis": "Per-share $ axis along the bottom ($2.00 steps), then 'Implied Enterprise Value / EBITDA' strip below with implied multiples at each tick for one or two EBITDA bases (e.g. '2023E EBITDA of $78.3M' 6.4x 7.6x ...).",
+  "other": "Three-panel layout (Methodology | chart | Metrics) each in thin gray frames. Carrols shows the selected-transactions point estimate as an orange triangle on the bar; Franchise Group shows a dashed dark-red box extending a bar to $37.75."
+ },
+ "tables": {
+  "number_formats": "$ on first row and on totals/mean/median, one decimal for $ millions ($562.2), whole numbers for comps market data ($7,849), per-share two decimals ($4.875 allowed for offer price). Thousands comma.",
+  "multiples": "One decimal with lower-case x: 8.3x, 12.5x.",
+  "percentages": "One decimal: 15.7%; % margin / % growth rows set in italics.",
+  "negatives": "Parentheses: (6.6), (1.4%).",
+  "nm_na": "'NA' and 'NM' in caps; '-' (hyphen) for zero/blank.",
+  "mean_median_rows": "Bold, with light blue (#EBF5FF) or light gray (#EFEFEF) fill and thin outline; Focus uses dark blue #4D73A0 'Mean'/'Median' label cells with white text and per-group colored section bands.",
+  "borders_and_rules": "Minimal: no vertical gridlines inside data; thin black rules above subtotal lines spanning numeric columns (separately per column group); key output rows (PV, Implied Price Per Share) boxed with gray outline and #EBEBEB fill.",
+  "header_style": "Two-tier: spanning group header ('Year Ending December 31,', '2022A Size and Scale') over column headers; either solid #4D73A0 with white text (DCF, projections) or light gray #EBEBEB/ white with black bold text (comps/WACC). Column headers centered, row-label header left.",
+  "target_or_subject_highlight": "Subject company and 'Proposed Transaction' rows set apart at the bottom inside a dashed dark outline box (Franchise Group) or a gray-outlined row (Whole Earth); in WACC tables the subject's column header is filled #4D73A0 (Whole Earth 'WORLD (Normalized)') or orange #FF9900 (Carrols); dashed boxes highlight the selected range rows."
+ },
+ "distinctive_features": [
+  "Very plain white template: no title bar, no colored band, black bold title top-left, red 'Confidential' top-right, 'Jefferies LLC / Month Year' bottom-left, page number bottom-center, wordmark bottom-right.",
+  "Cover and section dividers share the same two-gray-rule layout.",
+  "Single steel blue #4D73A0 plus light blue #94B6D2 carries almost all color.",
+  "Football field framed as three boxes (Methodology / chart / Metrics) with rotated 'For Informational Purposes Only' label and an implied EV/EBITDA multiple strip below the axis.",
+  "Heavy use of dashed outline boxes to call out key numbers or rows (selected ranges, subject company, offer price label).",
+  "Each deck ends with a 'Selected Changes Since <prior> Presentation' Topic/Summary Changes table, with blue #4D73A0 topic cells.",
+  "Project code names in all caps throughout titles (FREEDOM, FLAME, WORLD); Focus uses 'Ferdinand'."
+ ],
+ "disagreements_between_decks": [
+  "Focus (Feb 2023) football field is vertical, multi-colored by method (blue/green/gold/purple) with horizontal deal and unaffected price lines; the later three use the horizontal three-panel layout.",
+  "Focus has no red 'Confidential' legend on interior pages and no Disclaimer page; others do.",
+  "Reference-only FF bars are light blue in Whole Earth but gray in Franchise Group and Carrols.",
+  "Offer price line: solid black (Franchise Group), solid dark blue (Carrols), dashed gray (Whole Earth).",
+  "Carrols is 16:9 and mixes in a humanist sans (Lato/Calibri-like) for 'Confidential', table section bands and WACC tables, uses orange #FF9900 for the subject column, uses '1)' rather than '(1)' footnote markers, and omits the 'Jefferies LLC / date' footer line and the cover logo.",
+  "Focus uses colored group bands (green, gold, rose) and dark-blue mean/median cells in comps tables; later decks use light blue/gray mean/median fills."
+ ],
+ "confidence_notes": "All four decks are clearly Jefferies board/special-committee decks. Colors were measured on solid fills with palette.py; #4D73A0 and #94B6D2 are high-confidence, thin-line colors (offer/unaffected lines) are approximate because of anti-aliasing at 850 px (Focus). Typeface identification is visual only (medium confidence). Point sizes are approximate, derived from the 2000x1500 Whole Earth images."
+}

@@ -1,0 +1,104 @@
+{
+ "schema": "house_style/1",
+ "key": "perella",
+ "name": "Perella Weinberg Partners",
+ "match": [
+  "perella",
+  "pwp"
+ ],
+ "template": "Letter-landscape committee template (AgroFresh 2022, Baldwin 2026).",
+ "page": {
+  "w": 11,
+  "h": 8.5
+ },
+ "font": {
+  "title": "Arial",
+  "body": "Arial"
+ },
+ "title": {
+  "size": 22,
+  "bold": true,
+  "color": "513C65",
+  "case": "title",
+  "rule": "none",
+  "rule_color": null,
+  "two_tier": false
+ },
+ "subtitle": {
+  "color": "7F7F7F",
+  "italic": true,
+  "bold": false
+ },
+ "text": {
+  "body": "7F7F7F",
+  "table": "7F7F7F",
+  "muted": "7F7F7F",
+  "notes_italic": false
+ },
+ "table": {
+  "header": "fill",
+  "header_fill": "00639A",
+  "header_text": "FFFFFF",
+  "stat_fill": "FFEED0",
+  "rule_color": "E4E4E4"
+ },
+ "numbers": {
+  "spaced": false
+ },
+ "legend": {
+  "text": "Confidential",
+  "pos": "top_right",
+  "color": "737373",
+  "box": null,
+  "size": 11,
+  "bold": false,
+  "italic": false
+ },
+ "stamp": "top_center",
+ "footer": {
+  "page_number": "right",
+  "rule": null,
+  "band": null,
+  "left_text": null
+ },
+ "toc": false,
+ "dividers": {
+  "style": "appendix_only",
+  "color": "404040",
+  "size": 20,
+  "rule": false
+ },
+ "disclaimer_page": "back",
+ "cover": {
+  "style": "wedge",
+  "color": "70688F",
+  "title_color": "513C65",
+  "accent": "E3E2EA",
+  "title_bold": false
+ },
+ "chart": {
+  "primary": "513C65",
+  "offer": "F72A94"
+ },
+ "ff": {
+  "core": "513C65",
+  "reference": "7F7F7F",
+  "method_colors": {
+   "dcf_pgr": "736890",
+   "dcf_exit": "977CB1",
+   "comps": "00639A",
+   "lbo": "9BB4D2",
+   "premiums": "B9A8CA"
+  },
+  "reference_position": "top",
+  "reference_label": "For Reference Only",
+  "label_blocks": true,
+  "basis": "right",
+  "offer_color": "F72A94",
+  "offer_dash": true,
+  "offer_label": "above",
+  "value_bold": false,
+  "unaffected_color": "F79661"
+ },
+ "research": "research/perella.json"
+}

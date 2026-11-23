@@ -1,0 +1,103 @@
+{
+ "schema": "house_style/1",
+ "key": "jpm",
+ "name": "J.P. Morgan (2025-26 template)",
+ "match": [
+  "j.p. morgan",
+  "jp morgan",
+  "jpmorgan",
+  "j.p.morgan"
+ ],
+ "template": "2025-26 Letter-landscape template with the short brown accent rule (Clearwater 2025, DSG 2026).",
+ "page": {
+  "w": 11,
+  "h": 8.5
+ },
+ "font": {
+  "title": "Arial",
+  "body": "Arial"
+ },
+ "title": {
+  "size": 26,
+  "bold": false,
+  "color": "222428",
+  "case": "sentence",
+  "rule": "above_short",
+  "rule_color": "946946",
+  "two_tier": false
+ },
+ "subtitle": {
+  "color": "8C6A4A",
+  "italic": true,
+  "bold": false
+ },
+ "text": {
+  "body": "4C4D4F",
+  "table": "333333",
+  "muted": "4C4D4F",
+  "notes_italic": false
+ },
+ "table": {
+  "header": "fill",
+  "header_fill": "1E7C98",
+  "header_text": "FFFFFF",
+  "stat_fill": "C8EAF4",
+  "rule_color": "D0D0D0"
+ },
+ "numbers": {
+  "spaced": false
+ },
+ "legend": {
+  "text": "C O N F I D E N T I A L",
+  "pos": "top_right",
+  "color": "5D5F62",
+  "box": null,
+  "size": 8,
+  "bold": false,
+  "italic": false
+ },
+ "stamp": "top_center",
+ "footer": {
+  "page_number": "right",
+  "rule": null,
+  "band": "F6F7F9",
+  "left_text": null
+ },
+ "toc": false,
+ "dividers": {
+  "style": "none"
+ },
+ "disclaimer_page": "back",
+ "cover": {
+  "style": "plain_bottom_rule",
+  "color": "946946",
+  "title_color": "222428",
+  "accent": "946946",
+  "title_bold": false
+ },
+ "chart": {
+  "primary": "1E7C98",
+  "offer": "9B57A4"
+ },
+ "ff": {
+  "core": "041E41",
+  "reference": "92D4EA",
+  "method_colors": {
+   "dcf_pgr": "041E41",
+   "dcf_exit": "041E41",
+   "comps": "1E7C98",
+   "lbo": "DF6F27",
+   "premiums": "DF6F27"
+  },
+  "reference_position": "bottom",
+  "reference_label": "For reference only",
+  "label_blocks": true,
+  "basis": "right",
+  "offer_color": "9B57A4",
+  "offer_dash": true,
+  "offer_label": "below",
+  "value_bold": false,
+  "unaffected_color": "C4A890"
+ },
+ "research": "research/jpm.json"
+}

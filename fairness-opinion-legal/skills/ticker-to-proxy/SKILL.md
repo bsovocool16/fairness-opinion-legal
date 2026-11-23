@@ -26,7 +26,7 @@ Everything this produces is illustrative. Each document carries the line "ILLUST
 
 ## Run
 
-`python3 ${CLAUDE_PLUGIN_ROOT}/scripts/lifecycle/ticker_to_proxy.py run <TICKER> <deal dir> --advisor "<name>" [--buyer ...] [--buyer-type ...] [--premium ...] [--peers ...]`
+`python3 ${CLAUDE_PLUGIN_ROOT}/scripts/lifecycle/ticker_to_proxy.py run <TICKER> <deal dir> --advisor "<name>" [--buyer ...] [--buyer-type ...] [--premium ...] [--peers ...] [--house-style auto|default|goldman|perella|jpm|jefferies|citi|evercore]`
 
 It runs seven stages and stops at the first that fails (`manifest.json` records each). Narrate each one in a line:
 
@@ -36,7 +36,7 @@ It runs seven stages and stops at the first that fails (`manifest.json` records 
 | terms | the hypothetical deal: unaffected price and date, offer price | unaffected price, offer price, premium, regime |
 | model | `model.xlsx`, recalculated in LibreOffice; `valuation.json` read back from the cells | the six ranges; any reviewer flags |
 | check | drafting-convention audit (`references/lifecycle.md`) | pass, or the findings by cell |
-| deck | `board_book.pptx` and `.pdf`, every number from `valuation.json` | page list |
+| deck | `board_book.pptx` and `.pdf`, every number from `valuation.json`, in the advisor's house style (`--house-style`, default `auto`) | page list and the style used |
 | letter | `opinion_letter.txt` and `.docx` | how the offer sits against each range |
 | handoff | `facts.json`, `inputs/`, `deal.md`, `deck_analyses.json` | the classifier's analysis table |
 

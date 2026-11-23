@@ -1,0 +1,283 @@
+{
+ "bank": "Citigroup Global Markets Inc. (Citi)",
+ "decks_studied": [
+  {
+   "folder": "citi/aircastle-ltd_c-5",
+   "company": "Aircastle Limited (\"Project Europa\")",
+   "date_on_cover": "November 4, 2019",
+   "pages": 5,
+   "image_px": "960x720",
+   "note": "LIMITED: process update only (disclaimer, proposals comparison, implied transaction multiples, LTM share price chart); no valuation analyses. Superseded as the Aircastle reference by (c)(2). Legacy template.",
+   "limited": true
+  },
+  {
+   "folder": "citi/aircastle-ltd_c-2",
+   "company": "Aircastle Limited (\"Project Europa\")",
+   "date_on_cover": "October 28, 2019",
+   "pages": 25,
+   "image_px": "780x563",
+   "note": "Materials for the Board of Directors. Full legacy-template analysis set: 'Summary Preliminary Financial Analysis' football field, discounted dividends analysis (base + 2 sensitivities) with sensitivity grids, selected companies analysis, VWAP ranges, analyst targets, premiums paid, NAV, trading multiples. Image aspect 1.385 (slightly off 4:3, probably re-rendered by the filer; the same deal's (c)(5) is exact 4:3)."
+  },
+  {
+   "folder": "citi/liberty-tripadvisor-holdings-inc_c-2",
+   "company": "Liberty TripAdvisor Holdings, Inc. (\"Project Telluride\")",
+   "date_on_cover": "December 18, 2024",
+   "pages": 24,
+   "image_px": "999x750",
+   "note": "Presentation to the Board of Directors. NAV-based analysis (NAV scenarios, precedent NAV discount/premium transactions); no classic football field, no DCF. New (2024+) template with draft legend."
+  },
+  {
+   "folder": "citi/aspen-technology-inc_c-10",
+   "company": "Aspen Technology, Inc. (\"Project Alpha\")",
+   "date_on_cover": "January 26, 2025",
+   "pages": 13,
+   "image_px": "3000x2250",
+   "note": "Discussion Materials for the Special Committee (update). Full fairness-style set: valuation summary football field, DCF, precedent transactions, public comps, analyst targets, minority squeeze-out bumps, WACC. New template, no draft legend. Best reference deck."
+  },
+  {
+   "folder": "citi/whole-earth-brands-inc_c-xiii",
+   "company": "Whole Earth Brands, Inc. (\"Project Domino\"; materials prepared for the buyer Sababa)",
+   "date_on_cover": "October 2023",
+   "pages": 8,
+   "image_px": "2200x1650 (cover), 2000x1500 (others)",
+   "note": "LIMITED: buy-side LBO/returns analysis for the acquiror Sababa, heavily redacted; no fairness analyses or football field. Legacy template.",
+   "limited": true
+  },
+  {
+   "folder": "citi/utz-brands-inc_c-xxvi",
+   "company": "Utz Brands, Inc. (\"Project Stellar\")",
+   "date_on_cover": "May 5, 2026",
+   "pages": 10,
+   "image_px": "1200x675",
+   "note": "Special Committee Discussion Materials. New template, 16:9. Content is a diligence-request tracker and alternative-counterparty screening (Harvey-ball matrices), heavily redacted; no football field, DCF or comps tables. Useful for page furniture and legends, not for analysis pages."
+  }
+ ],
+ "page": {
+  "size": "4:3 (10 x 7.5 in) in five of six decks (2019-Jan 2025); 16:9 widescreen (13.33 x 7.5 in) in Utz (May 2026)",
+  "orientation": "landscape",
+  "aspect_ratio": "1.333 (Aircastle c-5, Liberty, Aspen, Whole Earth; Aircastle c-2 images 1.385, treated as 4:3), 1.778 (Utz 2026)",
+  "margins_note": "New template (2024-25): ~0.3in side margins; content runs nearly edge-to-edge; Aspen titles sit ~1.1in from the top with large empty band above (title baseline ~11% down), Liberty titles ~0.6in from top under the red draft legend. Footer band ~0.5in: source/notes at left from ~0.3in, logo + vertical bar + page number at bottom right. Old template (2019/2023): title starts at very top (~0.1in), thin grey rule under title at ~6-7% down, footnotes bottom-left above a page number at the far bottom-left. Utz 16:9: ~0.3in side margins, title ~0.9in from top under the boxed draft legend; logo | page number bottom-right as in other new-template decks."
+ },
+ "typography": {
+  "title": {
+   "face": "New template: proprietary-looking geometric/grotesque sans (Citi brand face, wide rounded bowls, straight-legged y; not Arial). Old template: Arial/Helvetica.",
+   "weight": "regular (not bold)",
+   "approx_pt": "new: ~24 (Liberty, Utz) to ~28-30 (Aspen); legacy: ~20-24 (Aircastle c-2/c-5) to ~28 (Whole Earth)",
+   "case": "Title Case",
+   "color": "#255BE2 (new); #002D72 (old)"
+  },
+  "subtitle": {
+   "face": "same as body",
+   "weight": "bold for chart/section labels; italic for units lines",
+   "approx_pt": 10,
+   "case": "Title Case; units line sentence case in parentheses, e.g. '($ in millions, except per share data)'",
+   "color": "units line italic black/dark grey (Liberty), italic #255BE2 under chart titles; old template units line italic #00BDF2 cyan"
+  },
+  "body": {
+   "face": "new: same Citi brand sans (slightly condensed in tables/footnotes); old: Arial",
+   "weight": "regular; bullets with bold lead-ins for key facts",
+   "approx_pt": "9-11",
+   "case": "sentence case",
+   "color": "#000000 / near-black #0F1632"
+  },
+  "table": {
+   "face": "new: Citi brand sans; old: Arial",
+   "weight": "regular; subtotal/total rows bold; column headers bold or semibold",
+   "approx_pt": "8-10 (dense pages down to ~6-7)",
+   "case": "Title Case headers",
+   "color": "data black; headers #255BE2 (new) or #002D72/#00BDF2 (old)"
+  },
+  "footnote_source": {
+   "face": "same sans, condensed",
+   "weight": "regular",
+   "approx_pt": "6-7",
+   "case": "sentence case",
+   "color": "#000000",
+   "layout": "hanging labels 'Source:' / 'Note:' / '(1)' in a left column, text indented; often split into two columns on dense pages"
+  },
+  "confidence": "Arial for the 2019/2023 decks: high. New-template face: medium-low on the exact name (looks like Citi's post-2023 proprietary brand sans; nearest common substitutes would be a geometric grotesque such as S\u00f6hne/Graphik-like); certain it is not Arial/Calibri/serif. Point sizes approx from pixel heights. Utz 2026 uses the same new face as Liberty/Aspen, so the 2024-26 face is consistent across three decks."
+ },
+ "palette": {
+  "title_text": "#255BE2 (new template 2024-25); #002D72 navy (old template 2019/2023)",
+  "title_bar_or_band": null,
+  "table_header_fill": "new: section-header bars solid #255BE2 with white text (e.g. 'Unlevered Free Cash Flow Profile', 'Overview'); column headers have no fill, blue #255BE2 text with blue underline rules. old: rounded grey-blue bars #9AABC8 with white bold text (Whole Earth), or solid navy #002D72 / grey-blue #9BAAC8 / cyan #00BDF2 label bars (Aircastle)",
+  "table_header_text": "#255BE2 on white (new); #FFFFFF on bars; #002D72 or #00BDF2 column headers (old)",
+  "alternating_row_shading": "new: #F2F2F2 light grey on key rows/banded rows (also #D2DADD grey bands in Aspen precedents); highlighted subtotal rows #E2F2FF pale blue. old: #CCF2FC pale cyan on total rows, #F2F2F2 grey strips",
+  "chart_series": [
+   "#255BE2 (primary blue)",
+   "#0F1632 (near-black navy)",
+   "#73C2FB (light blue)",
+   "#A4ACAF (grey)",
+   "#388A42 / #01B068 (green, consensus/peer lines)",
+   "#E8322A-ish red (secondary series, e.g. LTRIP Series B)",
+   "old: #002D72 navy, #00BDF2 cyan, #CCF2FC pale cyan, #9AABC8 grey-blue"
+  ],
+  "accent": [
+   "#00BDF4 cyan (thin bottom rule under tables in new template; primary accent in old)",
+   "#C00000 / #E8322A red (draft legend, red dashed callout boxes, 'Merger Consideration' highlight text)",
+   "#FFFFCC pale yellow highlight cells (old)",
+   "#CB5F16 orange callout bar (Aircastle)",
+   "#881255 dark magenta (legacy offer-range lines and VWAP labels, Aircastle)",
+   "#D7F3FE pale cyan (legacy subject-row highlight in comps)"
+  ],
+  "rule_lines": "new: heavy navy #0F1632 rule under football-field header and above/below summary rows; thin #255BE2 underlines on column headers; dotted blue rules for spanning headers; #00BDF4 cyan closing rule. old: thin grey #9F9F9F rule under title, navy/cyan rules in tables, dashed grey dividers between quadrants",
+  "football_field_bars": {
+   "core": "new (Aspen): #255BE2 bright blue. legacy (Aircastle c-2): #002D72 navy",
+   "reference_only": "new: same #255BE2 bar, reference status shown by grey #A4ACAF label boxes and '(For Reference Only)' in the label. legacy: bars themselves turn grey (#989A9D) and the rows sit inside a grey 'Reference Metrics' label box with a rotated 'For Reference Only' bracket at the left",
+   "other": "new: label boxes graded #0F1632 (DCF) / #255BE2 (precedents) / #73C2FB (comps) / #A4ACAF (reference), assumption cells in matching pale tints. legacy: navy label boxes #002D72 grouped under a rotated 'Selected Companies Analysis' bracket; Net Asset Value shown as a single grey diamond marker, not a bar; a dashed-outline bar extends a premiums range."
+  },
+  "offer_price_line": {
+   "color": "new: #388A42 green; legacy: dark magenta #881255",
+   "style": "new: single dashed vertical line (point consideration); legacy: two dashed vertical lines bounding the offer range",
+   "label_style": "new: bold green 'Merger Consideration: $265.00' above the plot. legacy: bold 'Offer Range: $28.00 - $30.00' top-right of the plot in black/maroon, beside reference prices 'Share Price as of 8/6/2019: $19.73 / as of 10/23/2019: $23.86' in a header block"
+  },
+  "current_or_unaffected_price_line": {
+   "color": null,
+   "style": null,
+   "note": "Neither football field draws a current/unaffected-price line; legacy Aircastle states current and unaffected prices as text in the chart header. Share-price charts (Aircastle) use dashed navy/cyan horizontal VWAP lines and a magenta-shaded band with dashed borders for the offer range."
+  },
+  "notes": "Two color systems. New Citi brand (Liberty 2024, Aspen 2025, Utz 2026): bright blue #255BE2, near-black navy #0F1632, light blue #73C2FB, pale blue #E2F2FF, grey #A4ACAF, cyan #00BDF4 accent. Legacy (Aircastle 2019 x2, Whole Earth 2023): navy #002D72, cyan #00BDF2, grey-blue #9AABC8, grey #989A9D, magenta #881255, pale yellow #FFFFCC output cells. Measured with palette.py on solid fills."
+ },
+ "title_treatment": {
+  "placement": "top-left, single line (wraps to two in Aspen p4/p5)",
+  "title_bar": "none; title is colored text on white",
+  "rule": "new template: no rule under the title. old template: thin grey full-width rule under the title",
+  "subtitle_or_units_line": "Units in italic parentheses at top-left of each table, e.g. '($ in millions, except per share data)', '(US$ in billions)', '($ mm)'. Occasional bold sub-headline under title (Liberty p15: 'The below analysis reflects selected precedent transactions...').",
+  "tracker_or_breadcrumb": "none observed"
+ },
+ "page_furniture": {
+  "draft_or_confidential_legends": [
+   {
+    "text": "Preliminary | Confidential \u2013 Draft for discussion purposes; subject to further review and revision",
+    "position": "top-right, above title, every content page (Liberty 2024 only)",
+    "style": "small (~7pt) italic, red/coral (~#E04A40)"
+   },
+   {
+    "text": "Preliminary Draft | Subject to Review and Revision by Citi's Fairness Opinion Committee",
+    "position": "top-right corner of every page including cover (Utz 2026)",
+    "style": "small regular red text (~#D03A30) inside a red dashed rectangle"
+   },
+   {
+    "text": "Strictly Private and Confidential",
+    "position": "cover: bottom-left (old template) or after the date, top-right under hero image (new)",
+    "style": "small grey (old) / black regular (new), e.g. 'December 18, 2024 | Strictly Private and Confidential'"
+   },
+   {
+    "text": "ILLUSTRATIVE DRAFT \u2013 Subject to Further Diligence and Revision",
+    "position": "cover bottom-right (Whole Earth 2023)",
+    "style": "small italic red #C51518"
+   },
+   {
+    "text": "For Illustrative Purposes and Reference Only",
+    "position": "directly under the title, left (Aircastle c-2 reference pages: VWAP, analyst targets, premiums paid, NAV, DDA, capitalization)",
+    "style": "small bold italic red (#E8101A-ish)"
+   }
+  ],
+  "page_number": "new (Liberty, Aspen, Utz): bottom-right, small grey number right of the logo after a thin vertical grey bar. legacy (Aircastle c-2/c-5, Whole Earth): bottom-left corner, small grey number",
+  "footer": "new: logo + bar + page number at bottom-right on every content page; old: logo bottom-right (Aircastle) or absent on content pages (Whole Earth)",
+  "source_footnote_style": "'Source:' then 'Note:' then numbered '(1)', '(2)' with hanging-indent labels; small condensed sans; two-column footnotes on dense pages (Aspen p8, p9); superscript (1) markers in tables",
+  "section_dividers": "New template (Liberty, Utz): plain white page, large blue #255BE2 numbered heading mid-left ('1.    Transaction Overview', '2.  Additional Alternative Counterparty Analysis'), logo bottom-left (Liberty) or none. Legacy (Aircastle c-2): white page, navy '1. Trading Overview' / '2. Preliminary Financial Analysis' / '3. Reference Materials' mid-left, logo bottom-right. Aspen and Whole Earth have no dividers.",
+  "cover_page": "Liberty 2024: full-width rounded-corner blue abstract-wave hero image (top 55%), then 'Citi Investment Banking | Global Communications Group' left and 'date | Strictly Private and Confidential' right, project name large black regular, subtitle bold blue, logo bottom-left. Aspen 2025: white page framed by thin rounded blue border, group name top-left ('Technology Investment Banking'), 'Project Alpha' large blue, subtitle black, date + 'Strictly Private and Confidential' bottom-right, logo bottom-left. Old template: blue gradient band (Aircastle) or skyline photo with blue gradient strip (Whole Earth) at top carrying 'Citi Banking, Capital Markets & Advisory | <group>' in white; date small at left; project name navy, subtitle cyan. Utz 2026 (16:9): white page with a blue dotted-wave graphic, 'Citi | Investment Banking' top-left, project name large blue, subtitle italic black, date below, logo bottom-left, 'Strictly Private and Confidential' bottom-right, red dashed draft-legend box top-right. Aircastle c-2 matches c-5 (blue gradient banner 'Citi Banking, Capital Markets & Advisory | Transportation', subtitle cyan 'Materials for the Board of Directors').",
+  "disclaimer_page": "Page 2 (or 1) full-text disclaimer: 'The following pages contain material provided to the [Board/Special Committee] ... by Citigroup Global Markets Inc. (\"Citi\")...'; titled 'Disclaimer' (Aspen) or 'Citi Confidential Disclaimer' (Aircastle) or untitled (Liberty); justified body text. Whole Earth instead ends with a dense IRS Circular 230 / legal disclosure page. Utz titles it 'Confidential Material Disclaimer'; Aircastle c-2 'Citi Confidential Disclaimer'."
+ },
+ "structure": {
+  "usual_section_order": [
+   "Cover",
+   "Disclaimer",
+   "(Liberty) Agenda",
+   "Transaction / trading overview (implied transaction metrics, share price performance, peer benchmarking)",
+   "Financial analysis (summary football field first, then the analyses behind it: DCF or DDA, selected companies, precedents)",
+   "Reference materials / Appendix (VWAP ranges, analyst targets, premiums paid, NAV, capitalization, WACC, trading multiples)"
+  ],
+  "example_page_titles_in_order": [
+   "From Aspen (c)(10): Disclaimer",
+   "Implied Transaction Metrics",
+   "Alpha Share Price Performance Since Consummation of 2021 Echo Transaction",
+   "Certain Updates Since December 7, 2024 Special Committee Discussion Materials",
+   "Illustrative Financial Forecast Overview",
+   "Alpha Valuation Summary",
+   "Illustrative Discounted Cash Flow Analysis \u2013 Alpha Mgmt. LRP",
+   "Selected Precedent Transaction Analysis",
+   "Selected Public Companies Analysis",
+   "Selected Analyst Research Summary",
+   "Selected All-Cash US Minority Squeeze-Outs",
+   "Illustrative Alpha WACC Analysis"
+  ],
+  "appendix_contents": [
+   "Reference Materials (Aircastle c-2): VWAP trading ranges, Wall Street analyst target prices, selected premiums paid, NAV, DDA by case (base, higher growth, lower growth), capitalization, historical P/EPS",
+   "Deconstructing NAV (Market View) Over Time; Equity Capitalization Detail (Liberty)",
+   "WACC analysis (Aspen, not under a formal appendix divider)"
+  ],
+  "example_page_titles_in_order_alt": [
+   "From Aircastle (c)(2), legacy template: Citi Confidential Disclaimer",
+   "1. Trading Overview",
+   "Total Shareholder Return Performance vs. Select Aircraft Lessors",
+   "Benchmarking Select Publicly-Listed Aircraft Lessors",
+   "Historical Trading Multiples for Europa and Select Aircraft Lessors",
+   "2. Preliminary Financial Analysis",
+   "Overview of Base Case and Sensitivities",
+   "Europa Comparison (Base Case and Sensitivities)",
+   "Summary Preliminary Financial Analysis",
+   "Discounted Dividends Analysis",
+   "Implied Multiples at Various Prices",
+   "Selected Companies Analysis",
+   "3. Reference Materials",
+   "Volume Weighted Average Trading Ranges",
+   "Wall Street Analyst Target Prices",
+   "Selected Premiums Paid Analysis",
+   "Europa Net Asset Value",
+   "Discounted Dividends Analysis \u2013 Europa Base Case"
+  ]
+ },
+ "football_field": {
+  "orientation": "horizontal floating bars in both templates (Aspen 2025 'Alpha Valuation Summary'; Aircastle 2019 'Summary Preliminary Financial Analysis')",
+  "row_labels": "Left column of filled label boxes with white centered text naming the methodology. Legacy groups rows under rotated side brackets ('Selected Companies Analysis', 'For Reference Only'); new grades box color by methodology.",
+  "methodology_detail_text": "Assumption text beside each row. New: separate tinted 'Assumptions' column with hyphen-led lines ('- Discount rate range of 11.7% to 12.9%'). Legacy: bold blue sub-heading (case name, e.g. 'Europa - Base Case') then italic grey lines ('Price / 2020E Pre-Tax Income Range: 5.3x - 6.9x') inside the plot area, left of the bar.",
+  "reference_only_treatment": "New: grey label boxes with '(For Reference Only)', bars unchanged. Legacy: grey bars plus grey 'Reference Metrics' box plus rotated 'For Reference Only' bracket; reference rows placed last in both.",
+  "value_labels": "Low left of the bar, high right, plain black. New: whole dollars ('$153'). Legacy: to cents ('$23.60', '$28.90').",
+  "price_lines": "New: one green dashed line at merger consideration. Legacy: two magenta dashed lines bounding the offer range.",
+  "axis": "no axis, ticks or gridlines in either",
+  "other": "New adds a right-hand 'Implied Multiples' panel per row; legacy adds an 'Implied Per Share Value(1)' header block with the reference share prices. Footnote in both: valuation date and rounding rule."
+ },
+ "tables": {
+  "number_formats": "$ on first row and totals only, bare below ('$16.8' then '5.7'); thousands comma. Per-share outputs to cents in both templates; football-field labels whole dollars (new) vs cents (legacy).",
+  "multiples": "one decimal with 'x' ('13.5x'); x on first row and mean/median, bare between (Aspen, Aircastle comps).",
+  "percentages": "'10%' on first row then bare numbers ('20', '14'); one decimal in DCF ('11.6%')",
+  "negatives": "parentheses: '(26)', '($33)', '(1.5%)'",
+  "nm_na": "'NM', 'NA', and '--' for nil/not applicable",
+  "mean_median_rows": "New (Aspen precedents): 'Mean'/'Median' bold in a bordered grey #F2F2F2 block under the data. Legacy (Aircastle analyst targets): 'Median'/'Maximum'/'Minimum' bold in a pale cyan block; legacy comps list subject rows rather than mean/median.",
+  "borders_and_rules": "minimal verticals; header underlines in blue per column group; thick navy horizontal rules framing summary 'Implied Share Price' strips; dotted rules for spanning headers; banded grey rows (#D2DADD/#F2F2F2) Legacy (Aircastle c-2): thin grey horizontal rules between row groups, cyan rule closing the table, no verticals. Utz tracker: dotted grey row separators, thin vertical column rules.",
+  "header_style": "New: bold blue #255BE2 centered column headers with blue underlines, spanning headers above; full-width #255BE2 bars with white text for table sections (Aspen DCF, Utz diligence tracker). Legacy: bold blue/navy headers; spanning headers ('Price / Pre-Tax Income') centred over year sub-columns; cyan bold section labels ('Considered But Excluded:').",
+  "target_or_subject_highlight": "New: subject row pale blue #E2F2FF inside a red dashed box headed bold italic red 'Merger Consideration of $265.00 / Share' (Aspen); red dashed ellipses around key numbers (Liberty, Aspen). Legacy: subject rows bold on pale cyan #D7F3FE (Aircastle comps 'Europa (Consensus)/(Base Case)'); implied per-share outputs and offer-implied multiples on pale yellow #FFFFCC; excluded peers listed under 'Considered But Excluded:' with a rationale block."
+ },
+ "distinctive_features": [
+  "Red dashed circles/ellipses around key figures and red dashed callout boxes (e.g. '~$191mm Reduction')",
+  "Implied-share-price summary strip under precedents/comps: heading centered in a heavy navy rule ('Implied Share Price'), Metric / Selected Range / Implied Equity Value / Implied Share Price columns",
+  "Football field with color-coded methodology boxes plus an implied-multiples panel to the right",
+  "Share price charts with pink/salmon annotation boxes and dashed vertical event lines (13D filings) in Liberty",
+  "Agenda with numbered blue circles, pale-blue rounded pills and a 'Page Reference' column",
+  "Logo + thin vertical bar + page number footer in the new template",
+  "Section-header bars solid bright blue spanning the table width with white text (new); rounded grey-blue bars (old)",
+  "Legacy 'Implied Reference Ranges' table under comps: Methodology / Reference / Reference Range Low-High / Per Share Low-High with yellow output cells (Aircastle c-2)",
+  "Red bold italic 'For Illustrative Purposes and Reference Only' tag under titles of reference pages (Aircastle c-2)",
+  "Harvey-ball scoring matrices with blue label boxes for counterparty screening (Utz 2026)",
+  "Fairness-opinion-committee draft legend in a red dashed box (Utz 2026)"
+ ],
+ "disagreements_between_decks": [
+  "Template by era: legacy (Aircastle c-2 and c-5 2019, Whole Earth Oct 2023) = Arial, navy #002D72 titles over a grey rule, cyan #00BDF2 accents, page number bottom-left. New (Liberty Dec 2024, Aspen Jan 2025, Utz May 2026) = Citi brand sans, bright blue #255BE2 titles with no rule, logo | page number bottom-right.",
+  "Page shape: all 4:3 except Utz 2026 at 16:9; the newest deck has moved to widescreen.",
+  "Football field (one per template): legacy uses navy core bars, grey reference bars, cents labels, two magenta dashed offer-range lines and assumptions written inside the plot; new uses uniform blue bars, grey label boxes for reference rows, whole-dollar labels, one green dashed consideration line, a separate assumptions column and an implied-multiples panel.",
+  "Draft legends vary: Liberty has a red italic 'Preliminary | Confidential \u2013 Draft...' line on every page; Utz a red dashed box 'Preliminary Draft | Subject to Review and Revision by Citi's Fairness Opinion Committee'; Aspen has none; Whole Earth only a red 'ILLUSTRATIVE DRAFT' on the cover; Aircastle c-2 uses page-level 'For Illustrative Purposes and Reference Only' tags instead.",
+  "Covers differ even within the new template: Liberty blue-wave hero image; Aspen thin rounded blue frame; Utz dotted-wave graphic on white.",
+  "Aspen's title block sits lower with more top whitespace and a larger title size than Liberty or Utz.",
+  "Logo on content pages: present bottom-right in Aircastle, Liberty, Aspen, Utz; absent in Whole Earth.",
+  "Subject highlighting: legacy uses pale cyan rows and yellow output cells; new uses pale blue rows inside red dashed boxes and red dashed ellipses."
+ ],
+ "confidence_notes": "Six Citi decks. Analysis conventions now rest on two decks, one per template: Aspen 2025 (new) and Aircastle (c)(2) 2019 (legacy), each with a football field, a DCF/DDM with sensitivity grids and comps tables. Precedent-transactions table style still rests on Aspen alone (Aircastle has premiums paid, not precedent multiples). Utz 2026 confirms the new template's furniture and introduces 16:9 but has no valuation pages. Aircastle (c)(5) and Whole Earth are limited (process update; buy-side LBO). Liberty is NAV-driven. Aircastle (c)(2) images are low resolution (780x563), so its small-text colors are approximate. Hex codes measured on solid fills; the face name for the new template remains the least certain item.",
+ "dcf": {
+  "examples": "Aspen 'Illustrative Discounted Cash Flow Analysis \u2013 Alpha Mgmt. LRP' (new); Aircastle c-2 'Discounted Dividends Analysis' (legacy, a DDM because the target is a lessor)",
+  "layout": "New: full-width blue section bar 'Unlevered Free Cash Flow Profile' over the projection table (years as columns, separate 'Terminal Year' column), then 'Illustrative Sensitivity Analysis' bar over three side-by-side 3x3 grids (equity value per share, implied terminal multiple, TV as % of EV) and a tornado-style sensitivity of value per share. Legacy: left column with 'Assumptions' bullets and 'Sensitivity Analysis' grids (3x3, discount rate x terminal multiple and x target leverage), right column with the projection table.",
+  "sensitivity_grids": "Column variable in a header band ('Illustrative Discount Rate' cyan in legacy; 'Perpetuity Growth Rate' blue underline in new); row variable label rotated vertically at left in legacy, plain left column in new; first row carries $ and the rest bare; base case at centre.",
+  "line_items": "metric rows bold blue (new) / bold black (legacy) with italic '% Growth', '% Margin' rows beneath; deductions labelled '(\u2013) SBC', '(+) Interest Income'."
+ }
+}
