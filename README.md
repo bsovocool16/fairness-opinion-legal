@@ -23,6 +23,7 @@ the [claude-for-legal](https://github.com/anthropics/claude-for-legal) plugins s
 | 5 | `redline` | clean draft plus a redline against the shell (and against any prior draft) | reviewer sign-off |
 | – | `feedback` | saves a correction or preference the moment you give it, scoped to all deals, one advisor or one deal; every later stage reads the notes that apply | |
 | – | `ticker-to-proxy` | the lifecycle in front of the pipeline, for a demo: from a stock ticker, public SEC data → a banker-convention Excel model (checked cell by cell) → a board book → a fairness opinion letter → stages 2 to 5 for the proxy section. Every deal term is hypothetical; see `references/lifecycle.md` | model gate |
+| – | backtest | `scripts/backtest/backtest.py`: runs the ticker-to-proxy lifecycle blind on a completed 13e-3 deal as of the day before it was public, then scores every stage against the filed record (financials, projections, the advisor's book, letter and section), with a leakage audit; see `references/backtest.md` | |
 | – | `demo` | replays a completed run on the bundled public deal stage by stage, through to a comparison with the section as filed; `--live` runs the chain for real on the same inputs | |
 
 `pipeline` runs 1 to 5 in sequence, stopping at every gate the profile turns on. A correction given at any gate is saved by `feedback` and applied to later deals. The drafter runs on Opus by default; `--model fable` on `pipeline`, `section-draft` or `demo --live`, or `Drafter model: fable` in the profile, switches it. `proxy-glossary` is the optional step

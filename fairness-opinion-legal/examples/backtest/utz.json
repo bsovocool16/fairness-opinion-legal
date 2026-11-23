@@ -1,0 +1,61 @@
+{
+ "id": "utz-2026",
+ "note": "Held-out deal for the ticker-to-proxy backtest. Only what was known at signing, plus where the filed record is. Announced after the drafter's training cutoff.",
+ "ticker": "UTZ",
+ "cik": 1739566,
+ "target_name": "Utz Brands, Inc.",
+ "advisor": "Citigroup Global Markets Inc.",
+ "bank": "citi",
+ "addressee": "the Special Committee of the Board of Directors",
+ "buyer": "Intersnack Group GmbH & Co. KG",
+ "buyer_type": "strategic",
+ "regime": "13e-3",
+ "offer_price": 14.25,
+ "unaffected_price": 7.45,
+ "unaffected_date": "2026-07-20",
+ "opinion_date": "2026-07-20",
+ "cutoff": "2026-07-20",
+ "announced": "2026-07-21",
+ "closed": "2026-11-20",
+ "drafter_training_cutoff": "2026-06-30",
+ "actual_fair": true,
+ "price_cache": "utz-prices",
+ "record": {
+  "proxy": {
+   "acc": "0001193125-26-411198",
+   "doc": "utz_defm14a.htm",
+   "form": "DEFM14A",
+   "filed": "2026-10-02"
+  },
+  "schedule_13e3": {
+   "acc": "0001193125-26-362085",
+   "doc": "d75151dsc13e3.htm",
+   "form": "SC 13E3",
+   "filed": "2026-08-24"
+  },
+  "book": {
+   "acc": "0001193125-26-362085",
+   "doc": "d75151dex9916cxxv.htm",
+   "exhibit": "16(c)(xxv)",
+   "title": "Citigroup Global Markets Inc. Discussion Materials to the Special Committee, July 19, 2026"
+  }
+ },
+ "truth": {},
+ "assisted": {
+  "peers": {
+   "tickers": [
+    "BGS",
+    "MZTI",
+    "BRBR",
+    "CVGW",
+    "HAIN",
+    "FLO",
+    "SMPL",
+    "JJSF",
+    "JBSS"
+   ],
+   "source": "Utz Brands 2026 proxy statement (DEF 14A, 0001193125-26-103020), compensation peer group for fiscal 2025; TreeHouse (THS) and WK Kellogg (KLG) left out because they were acquired and Yahoo no longer serves their prices",
+   "source_filed": "2026-03-12"
+  }
+ }
+}
