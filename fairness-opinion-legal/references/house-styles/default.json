@@ -37,7 +37,9 @@
   "header_fill": "1F3864",
   "header_text": "FFFFFF",
   "stat_fill": "DDEBF7",
-  "rule_color": null
+  "rule_color": null,
+  "density": 1.0,
+  "font_scale": 1.0
  },
  "numbers": {
   "spaced": false
@@ -77,6 +79,7 @@
   "offer_dash": true,
   "offer_label": "below",
   "value_bold": false,
-  "unaffected_color": null
+  "unaffected_color": null,
+  "row_height": null
  }
 }

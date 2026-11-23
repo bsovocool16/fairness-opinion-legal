@@ -36,11 +36,13 @@
   "notes_italic": false
  },
  "table": {
-  "header": "fill",
+  "header": "text",
   "header_fill": "254D81",
   "header_text": "FFFFFF",
   "stat_fill": "F0F0F0",
-  "rule_color": null
+  "rule_color": null,
+  "density": 0.72,
+  "font_scale": 0.85
  },
  "numbers": {
   "spaced": false
@@ -76,7 +78,9 @@
   "color": "254D81",
   "title_color": "254D81",
   "accent": "254D81",
-  "title_bold": true
+  "title_bold": true,
+  "title_size": 24,
+  "sub_size": 14
  },
  "chart": {
   "primary": "254D81",
@@ -88,19 +92,31 @@
   "method_colors": {
    "dcf_pgr": "254D81",
    "dcf_exit": "254D81",
-   "comps": "6B97D4",
-   "lbo": "9EC6C5",
-   "premiums": "9EC6C5"
+   "comps": "0069AA",
+   "lbo": "3E8486",
+   "premiums": "3E8486"
   },
   "reference_position": "bottom",
   "reference_label": "For reference only",
-  "label_blocks": false,
-  "basis": "under",
+  "label_blocks": true,
+  "basis": "right",
   "offer_color": "E4780C",
   "offer_dash": true,
   "offer_label": "above",
   "value_bold": false,
-  "unaffected_color": "C00000"
+  "unaffected_color": "C00000",
+  "row_height": 0.5,
+  "headers": [
+   "Methodology",
+   "Implied Value Per Share",
+   "Key Metrics and Methodologies"
+  ]
  },
- "research": "research/evercore.json"
+ "research": "research/evercore.json",
+ "toc_opts": {
+  "pages": true,
+  "numbering": "roman",
+  "color": "000000",
+  "rule_color": "BFBFBF"
+ }
 }

@@ -92,6 +92,8 @@ class Deck:
     def line(self, s, x1, y1, x2, y2, color, width=1.0, dash=False):
         ln = s.shapes.add_connector(MSO_CONNECTOR.STRAIGHT, self.X(x1), self.Y(y1), self.X(x2), self.Y(y2)); ln.line.color.rgb = rgb(color); ln.line.width = Pt(width)
         if dash: ln.line.dash_style = MSO_LINE_DASH_STYLE.DASH
+        sp = ln._element.spPr
+        if sp.find(qn("a:effectLst")) is None: etree.SubElement(sp, qn("a:effectLst"))   # no theme shadow on rules
         return ln
     def poly(self, s, pts, fill):
         fb = s.shapes.build_freeform(self.X(pts[0][0]), self.Y(pts[0][1]), scale=1.0)
@@ -103,13 +105,13 @@ class Deck:
         if f.get("band"): self.rect(s, 0, 6.82, DW, DH - 6.82, f["band"])
         if f.get("rule"): self.line(s, 0.5, 6.84, DW - 0.5, 6.84, f["rule"], 1.5)
         self.text(s, 0.5, 6.86, 11.2, 0.32, self.foot, 7, False, st["text"]["muted"], italic=True)
-        num = {"right": str(self.n), "right_bar": f"{self.n} |", "center": str(self.n), "left": str(self.n)}[f["page_number"]]
-        al = {"right": PP_ALIGN.RIGHT, "right_bar": PP_ALIGN.RIGHT, "center": PP_ALIGN.CENTER, "left": PP_ALIGN.LEFT}[f["page_number"]]
-        px = {"right": 11.8, "right_bar": 11.8, "center": 5.9, "left": 0.5}[f["page_number"]]
+        num = {"right": str(self.n), "right_bar": f"{self.n} |", "bar_right": f"| {self.n}", "center": str(self.n), "left": str(self.n)}[f["page_number"]]
+        al = {"right": PP_ALIGN.RIGHT, "right_bar": PP_ALIGN.RIGHT, "bar_right": PP_ALIGN.RIGHT, "center": PP_ALIGN.CENTER, "left": PP_ALIGN.LEFT}[f["page_number"]]
+        px = {"right": 11.8, "right_bar": 11.8, "bar_right": 11.8, "center": 5.9, "left": 0.5}[f["page_number"]]
         self.text(s, px, 7.12, 1.0 if f["page_number"] != "center" else 1.5, 0.3, num, 9, False, st["text"]["muted"], al)
         sub = {"advisor": self.terms["advisor"], "month_year": self.month_year, "section": self.section or "", "codename": self.terms.get("codename") or ""}
         if f.get("left_text") and f["page_number"] != "left": self.text(s, 0.5, 7.12, 5.0, 0.3, f["left_text"].format(**sub), 8, False, st["text"]["muted"])
-        if f.get("right_text") and f["page_number"] not in ("right", "right_bar"): self.text(s, 8.8, 7.12, 4.0, 0.3, f["right_text"].format(**sub), 8, True, st["title"]["color"], PP_ALIGN.RIGHT)
+        if f.get("right_text") and f["page_number"] not in ("right", "right_bar", "bar_right"): self.text(s, 8.8, 7.12, 4.0, 0.3, f["right_text"].format(**sub), 8, True, st["title"]["color"], PP_ALIGN.RIGHT)
         lg = st.get("legend")
         if lg:
             if lg["pos"] == "top_right": self.text(s, 6.3, 0.04, 6.53, 0.3, lg["text"], lg["size"], lg["bold"], lg["color"], PP_ALIGN.RIGHT, lg["italic"])
@@ -122,7 +124,7 @@ class Deck:
         st = self.st; T = st["title"]; s = self.p.slides.add_slide(self.blank); self.n += 1
         shown = sentence(title) if T["case"] == "sentence" else title
         tw = 10.8 if st["stamp"] == "top_right" else 12.3
-        if T.get("two_tier") and self.section:                 # the section name as the title, the page name under the rule
+        if T.get("two_tier") and self.section and self.section != title:                 # the section name as the title, the page name under the rule
             self.text(s, 0.5, 0.3, tw, 0.5, self.section or shown, T["size"], T["bold"], T["color"], font=st["font"]["title"], scale=False)
             self.line(s, 0.5, 0.82, DW - 0.5, 0.82, T["rule_color"], 1.5)
             self.text(s, 0.5, 0.88, 7.0, 0.4, shown, T["size"] * 0.78, True, T.get("subtitle_color", T["color"]), font=st["font"]["title"], scale=False)
@@ -130,12 +132,12 @@ class Deck:
         else:
             self.text(s, 0.5, 0.3, tw, 0.6, shown, T["size"], T["bold"], T["color"], font=st["font"]["title"], scale=False)   # the title is the page's first text line
             if subtitle: self.text(s, 0.5, 0.85, 12.3, 0.4, subtitle, 12, st["subtitle"]["bold"], st["subtitle"]["color"], italic=st["subtitle"]["italic"])
-            if T["rule"] == "under": self.line(s, 0.5, 1.27, DW - 0.5, 1.27, T["rule_color"], 1.75)
+            if T["rule"] == "under": self.line(s, 0.5, 1.27, DW - 0.5, 1.27, T["rule_color"], T.get("rule_width", 1.75))
             elif T["rule"] == "above_short": self.rect(s, 0.5, 0.2, 1.4, 0.07, T["rule_color"])
         self.furniture(s)
         self.index.append({"page": self.n, "title": title, "analysis": analysis}); return s
     def table(self, s, rows, x, y, w, colw=None, size=10, head=1, bold_rows=(), shade_rows=(), rowh=0.28, align_first=PP_ALIGN.LEFT):
-        st = self.st["table"]; nr, nc = len(rows), len(rows[0])
+        st = self.st["table"]; nr, nc = len(rows), len(rows[0]); rowh *= st.get("density", 1.0); size *= st.get("font_scale", 1.0); txt_head = st["header"] == "text"
         gf = s.shapes.add_table(nr, nc, self.X(x), self.Y(y), self.X(w), self.Y(rowh * nr)); tb = gf.table; tb.horz_banding = False; tb.first_row = False
         W_ = self.X(w)
         if colw:
@@ -148,9 +150,10 @@ class Deck:
                 para = c.text_frame.paragraphs[0]; para.alignment = align_first if j == 0 else PP_ALIGN.CENTER
                 for run in para.runs:
                     run.font.size = Pt(size * self.fs); run.font.name = self.st["font"]["body"]; run.font.bold = i < head or i in bold_rows
-                    run.font.color.rgb = rgb(st["header_text"] if i < head else self.st["text"]["table"])
-                c.fill.solid(); c.fill.fore_color.rgb = rgb(st["header_fill"] if i < head else (st["stat_fill"] if i in shade_rows else WHITE))
-                if st.get("rule_color") and i >= head: self.border(c, st["rule_color"])
+                    run.font.color.rgb = rgb((st["header_fill"] if txt_head else st["header_text"]) if i < head else self.st["text"]["table"])
+                c.fill.solid(); c.fill.fore_color.rgb = rgb((WHITE if txt_head else st["header_fill"]) if i < head else (st["stat_fill"] if i in shade_rows else WHITE))
+                if i < head and txt_head: self.border(c, st["header_fill"], 12700)
+                elif st.get("rule_color") and i >= head: self.border(c, st["rule_color"])
         return tb
     def border(self, cell, color, w=6350):
         tcPr = cell._tc.get_or_add_tcPr()
@@ -187,10 +190,15 @@ class Deck:
             self.text(s, 0.8, 3.0, 11.5, 1.2, [f"Presentation to {self.terms['addressee']}" if self.terms['addressee'].lower().startswith('the ') else f"Presentation to the {self.terms['addressee']}", t["name"]], 24, False, cv["title_color"], scale=False)
             self.text(s, 0.8, 4.3, 11.5, 0.5, date, 16, False, cv["title_color"], scale=False)
             self.rect(s, 0.5, 5.55, DW - 1.0, 0.06, cv["accent"]); self.text(s, 0.5, 5.65, 8, 0.3, "S T R I C T L Y   P R I V A T E   A N D   C O N F I D E N T I A L", 8, False, "5D5F62", scale=False)
+        elif style == "plain_sub_first":      # "Presentation to ..." large first, the project name under it in the accent color
+            self.text(s, 0.8, 1.9, 11.5, 1.1, [f"Presentation to {self.terms['addressee']}" if self.terms['addressee'].lower().startswith('the ') else f"Presentation to the {self.terms['addressee']}"], 30, False, BLACK, scale=False)
+            self.text(s, 0.8, 3.0, 11.5, 0.6, code, 24, False, cv["title_color"], scale=False); self.text(s, 0.8, 3.6, 11.5, 0.5, t["name"], 16, False, BLACK, scale=False)
+            self.text(s, 0.8, 4.3, 11.5, 0.5, self.terms["advisor"], 15, True, BLACK, scale=False); self.text(s, 0.8, 4.75, 11.5, 0.5, date, 14, False, BLACK, scale=False)
+            self.line(s, 0.5, 5.85, DW - 0.5, 5.85, cv["accent"], 0.75)
         else:   # plain
-            self.text(s, 0.8, 2.2, 11.5, 0.9, code, 34, cv.get("title_bold", False), cv["title_color"], scale=False)
+            self.text(s, 0.8, 2.2, 11.5, 0.9, code, cv.get("title_size", 34), cv.get("title_bold", False), cv["title_color"], scale=False)
             self.line(s, 0.8, 3.15, 9.0, 3.15, cv["accent"], 1.0)
-            self.text(s, 0.8, 3.25, 11.5, 1.0, sub, 20, cv.get("title_bold", False), BLACK if cv["title_color"] in ("7399C6",) else cv["title_color"], scale=False)
+            self.text(s, 0.8, 3.25, 11.5, 1.0, sub, cv.get("sub_size", 20), cv.get("title_bold", False), BLACK if cv["title_color"] in ("7399C6",) else cv["title_color"], scale=False)
             self.text(s, 0.8, 4.3, 11.5, 0.5, date, 15, cv.get("title_bold", False), cv["title_color"] if cv["title_color"] not in ("7399C6",) else BLACK, scale=False)
         cw = 8.3 if style == "wedge" else 11.5
         self.text(s, 0.8, 6.05 if style not in ("band",) else 5.2, cw, 0.4, f"Illustrative materials in the form a financial advisor ({self.terms['advisor']}) would present", 11, False, "808080", italic=True, scale=False)
@@ -205,6 +213,17 @@ class Deck:
                          f"These materials were not prepared, reviewed or approved by {adv}, and no affiliation with or endorsement by {adv} is implied. No logo, trademark or proprietary typeface of {adv} is reproduced.")
         self.text(s, 0.5, 1.6, 12.3, 4.8, [x for p_ in paras for x in (p_, "")][:-1], 11, False, self.st["text"]["body"])
         return s
+    def toc_list(self, s, starts, names):
+        """A plain contents list, as filed decks set it: numeral, section name, page number (optional), a hairline under each row."""
+        o = self.st.get("toc_opts") or {}; col = o.get("color", self.st["title"]["color"]); y = 1.9; rule = o.get("rule_color", "BFBFBF")
+        if o.get("pages", True): self.text(s, 10.6, y - 0.4, 1.4, 0.3, "Page", 10, True, self.st["text"]["muted"], PP_ALIGN.RIGHT)
+        num = 0
+        for (lab, p), name in zip(starts, names):
+            appendix = name == "Appendix"; mark = "" if appendix else (ROMAN[num] if o.get("numbering", "roman") == "roman" else str(num + 1))
+            if not appendix: num += 1
+            self.text(s, 1.3, y, 0.8, 0.4, mark, 14, False, col); self.text(s, 2.1, y, 8.4, 0.4, name, 14, False, self.st["text"]["body"])
+            if o.get("pages", True): self.text(s, 10.6, y, 1.4, 0.4, str(p), 14, False, self.st["text"]["body"], PP_ALIGN.RIGHT)
+            self.line(s, 1.3, y + 0.48, 12.0, y + 0.48, rule, 0.5); y += 0.62
     def divider(self, label):
         dv = self.st["dividers"]; s = self.p.slides.add_slide(self.blank); self.n += 1; st = dv["style"]; col = dv.get("color", BLACK)
         if st == "rules":
@@ -250,15 +269,21 @@ def build_pages(d, co, terms, val, date):
         lines = [offer] + ([g("px_unaff")] if ff.get("unaffected_color") else [])
         lo_all = min(min(R[k]["low"], R[k]["high"]) for (_, k, _), _r in items); hi_all = max(max(R[k]["low"], R[k]["high"]) for (_, k, _), _r in items)
         lo_ax = max(0, (min([lo_all] + lines) * 0.85) // 5 * 5); hi_ax = (max([hi_all] + lines) * 1.1 // 5 + 1) * 5
-        right = ff["basis"] == "right"
+        right = ff["basis"] == "right" or ff["label_blocks"]          # label blocks leave no room for basis text beside them
         LX, LW = 0.5, (3.3 if right else 4.7); X0, X1 = (LX + LW + 0.9, 9.4) if right else (5.3, 12.6)
-        top_lab = ff["offer_label"] in ("above", "box_top"); Y0 = 2.05 if top_lab else 1.6; rowh = 0.6 if top_lab else 0.56; gap = 0.28 if ff.get("reference_label") else 0
+        top_lab = ff["offer_label"] in ("above", "box_top"); hdrs = ff.get("headers")
+        Y0 = (2.05 if top_lab else 1.6) + (0.3 if hdrs else 0); rowh = ff.get("row_height") or (0.6 if top_lab else 0.56); gap = 0.28 if (ff.get("reference_label") and ff.get("separator", True)) else 0
         xp = lambda v: X0 + (X1 - X0) * (v - lo_ax) / (hi_ax - lo_ax)
         wd = (lambda v: money(v, 0)) if ff.get("whole_dollars") else money
-        if right: d.text(s, 9.7, Y0 - 0.32, 3.1, 0.3, "Methodology / assumptions", 9, True, st["text"]["muted"])
+        if hdrs:                                # column headers over the label, chart and commentary areas, with a rule under them
+            hy = Y0 - (0.95 if top_lab else 0.4); hc = st["title"]["color"]
+            d.text(s, LX, hy, LW, 0.3, hdrs[0], 9, True, hc); d.text(s, X0, hy, X1 - X0, 0.3, hdrs[1], 9, True, hc, PP_ALIGN.CENTER)
+            if right and len(hdrs) > 2: d.text(s, 9.7, hy, 3.1, 0.3, hdrs[2], 9, True, hc)
+            d.line(s, LX, hy + 0.3, DW - 0.5, hy + 0.3, hc, 0.75)
+        elif right: d.text(s, 9.7, Y0 - 0.32, 3.1, 0.3, "Methodology / assumptions", 9, True, st["text"]["muted"])
         y = Y0; prev_ref = None; ybot = y
         for (label, k, basis), isref in items:
-            if prev_ref is not None and isref != prev_ref and gap:
+            if prev_ref is not None and isref != prev_ref and gap and ff.get("separator", True):
                 d.line(s, 0.5, y + gap / 2, DW - 0.5, y + gap / 2, "A0A0A0", 0.75, dash=True); y += gap
             if isref and ff.get("reference_label") and prev_ref is not True:
                 d.text(s, LX, y - (0.02 if prev_ref is None else 0.04), 4.0, 0.25, ff["reference_label"], 8, True, st["text"]["muted"], italic=True); y += 0.22
@@ -391,11 +416,11 @@ def run(company_json, terms_json, valuation_json, out, log=print, house_style="a
         d.cover(date, t)
         if st["disclaimer_page"] == "front": d.disclaimer_page()
         sections = build_pages(d, co, terms, val, date)
-        toc = d.slide("Table of Contents") if st.get("toc") else None
+        toc = d.slide((st.get("toc_opts") or {}).get("title", "Table of Contents")) if st.get("toc") else None
         starts = []; dv = st["dividers"]["style"]; num = 0
         for name, pages in sections:
             appendix = name == "Appendix"
-            label = name if appendix else (f"{ROMAN[num]}.  {name}" if dv in ("roman", "plain", "rules", "none", "appendix_only") else f"{num + 1}.  {name}")
+            label = name if (appendix or not st["dividers"].get("numerals", True)) else (f"{ROMAN[num]}.  {name}" if dv in ("roman", "plain", "rules", "none", "appendix_only") else f"{num + 1}.  {name}")
             if not appendix: num += 1
             d.section = name
             if dv != "none" and (dv != "appendix_only" or appendix): d.divider(label)
@@ -404,8 +429,7 @@ def run(company_json, terms_json, valuation_json, out, log=print, house_style="a
         d.section = None
         if st["disclaimer_page"] == "back": d.disclaimer_page()
         if toc is not None:
-            rows = [["", "Section", "Page"]] + [[lab.split(".")[0] if "." in lab else "", lab.split(".  ")[-1], str(p)] for lab, p in starts]
-            d.table(toc, rows, 2.0, 1.9, 9.3, [0.8, 6, 1], 14, rowh=0.5)
+            d.toc_list(toc, starts, [n for n, _ in sections])
     finally:
         FMT["spaced"] = False
     out = Path(out); out.mkdir(parents=True, exist_ok=True); pp = out / "board_book.pptx"; d.p.save(pp); log(f"wrote {pp} ({d.n} slides, house style {st['key']})")
@@ -418,7 +442,7 @@ def to_pdf(pptx, out, log=print):
     soffice = shutil.which("soffice") or shutil.which("libreoffice") or ("/Applications/LibreOffice.app/Contents/MacOS/soffice" if Path("/Applications/LibreOffice.app").exists() else None)
     if not soffice: log("LibreOffice not found: board_book.pdf not written; intake can read the .pptx directly"); return None
     prof = Path(tempfile.mkdtemp(prefix="lo_profile_"))
-    subprocess.run([soffice, f"-env:UserInstallation=file://{prof}", "--headless", "--convert-to", "pdf", "--outdir", str(out), str(pptx)], capture_output=True, text=True, timeout=240)
+    subprocess.run([soffice, f"-env:UserInstallation={Path(prof).resolve().as_uri()}", "--headless", "--convert-to", "pdf", "--outdir", str(out), str(pptx)], capture_output=True, text=True, timeout=240)
     pdf = Path(out) / (Path(pptx).stem + ".pdf"); log(f"wrote {pdf}" if pdf.exists() else "PDF conversion failed"); return pdf if pdf.exists() else None
 
 if __name__ == "__main__":

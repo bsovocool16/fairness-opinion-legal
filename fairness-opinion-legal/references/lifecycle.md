@@ -74,6 +74,9 @@ confidentiality legend, footer and page-number position, table header and median
 (bar colors by method, where the reference-only rows sit and how they are labeled, label blocks, a commentary column, and
 the color, dash and label position of the offer and unaffected-price lines). Where a bank uses several templates, the profile
 follows the one its `template` field names.
+Table density and type scale, a list-style contents page and the football-field column headers are profile settings too.
+`stage deck --advisor "<name>"` sets the advisor in `deal_terms.json` before the book is built (re-run `letter` and `handoff`
+afterwards). `research/DIFFERENCES.md` lists what still differs from each bank's filed books, page by page.
 
 Fixed in every style: no logo, wordmark or proprietary typeface (a standard face stands in); the ILLUSTRATIVE stamp and the
 hypothetical-transaction disclaimer on every page; and a Disclaimer page stating the materials were not prepared, reviewed

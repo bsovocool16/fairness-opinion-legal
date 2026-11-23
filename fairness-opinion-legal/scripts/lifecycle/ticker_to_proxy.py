@@ -78,7 +78,11 @@ def stage_check(deal, a):
     print("check: C1-C6 pass (colors, no hardcodes in formulas, input placement, units, no errors, no orphan inputs)")
 
 def stage_deck(deal, a):
-    import build_deck; P = paths(deal); build_deck.run(P["company"], P["terms"], P["valuation"], P["lc"], house_style=getattr(a, "house_style", "auto"))
+    import build_deck; P = paths(deal)
+    if getattr(a, "advisor", None):                                     # a new advisor on a re-run: record it, so the deck, letter and handoff agree
+        terms = load(P["terms"])
+        if terms["advisor"] != a.advisor: terms["advisor"] = a.advisor; save(terms, P["terms"]); print(f"deal_terms.json: advisor set to {a.advisor}; re-run letter and handoff")
+    build_deck.run(P["company"], P["terms"], P["valuation"], P["lc"], house_style=getattr(a, "house_style", "auto"))
 
 def stage_letter(deal, a):
     import build_letter; P = paths(deal); build_letter.run(P["company"], P["terms"], P["valuation"], P["deck"], P["lc"], force=a.force)

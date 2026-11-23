@@ -36,27 +36,21 @@
   "notes_italic": false
  },
  "table": {
-  "header": "fill",
+  "header": "text",
   "header_fill": "255BE2",
   "header_text": "FFFFFF",
   "stat_fill": "F2F2F2",
-  "rule_color": "D2DADD"
+  "rule_color": null,
+  "density": 0.72,
+  "font_scale": 0.85
  },
  "numbers": {
   "spaced": false
  },
- "legend": {
-  "text": "Preliminary | Confidential – Draft for discussion purposes; subject to further review and revision",
-  "pos": "top_right",
-  "color": "E04A40",
-  "box": null,
-  "size": 7,
-  "bold": false,
-  "italic": true
- },
- "stamp": "top_center",
+ "legend": null,
+ "stamp": "top_right",
  "footer": {
-  "page_number": "right_bar",
+  "page_number": "bar_right",
   "rule": null,
   "band": null,
   "left_text": null
@@ -74,7 +68,8 @@
   "color": "255BE2",
   "title_color": "255BE2",
   "accent": "255BE2",
-  "title_bold": false
+  "title_bold": false,
+  "title_size": 30
  },
  "chart": {
   "primary": "255BE2",
@@ -101,7 +96,14 @@
   "offer_label": "above",
   "value_bold": false,
   "whole_dollars": true,
-  "unaffected_color": null
+  "unaffected_color": null,
+  "row_height": 0.5,
+  "separator": false,
+  "headers": [
+   "Methodology",
+   "Implied Per Share Value",
+   "Assumptions"
+  ]
  },
  "research": "research/citi.json"
 }

@@ -11,8 +11,8 @@
   "h": 7.5
  },
  "font": {
-  "title": "Arial Narrow",
-  "body": "Arial Narrow"
+  "title": "Arial",
+  "body": "Arial"
  },
  "title": {
   "size": 16,
@@ -39,7 +39,9 @@
   "header_fill": "4D73A0",
   "header_text": "FFFFFF",
   "stat_fill": "EBF5FF",
-  "rule_color": "C0C0C0"
+  "rule_color": "C0C0C0",
+  "density": 0.72,
+  "font_scale": 0.85
  },
  "numbers": {
   "spaced": false
@@ -66,7 +68,8 @@
   "color": "000000",
   "size": 16,
   "rule": true,
-  "rule_color": "B0B0B0"
+  "rule_color": "B0B0B0",
+  "numerals": false
  },
  "disclaimer_page": "front",
  "cover": {
@@ -92,7 +95,19 @@
   "offer_dash": false,
   "offer_label": "box_top",
   "value_bold": false,
-  "unaffected_color": null
+  "unaffected_color": null,
+  "row_height": 0.5,
+  "headers": [
+   "Methodology",
+   "Implied Value Per Share",
+   "Metrics"
+  ]
  },
- "research": "research/jefferies.json"
+ "research": "research/jefferies.json",
+ "toc_opts": {
+  "pages": true,
+  "numbering": "none",
+  "color": "000000",
+  "rule_color": "C0C0C0"
+ }
 }
