@@ -1,0 +1,245 @@
+{
+ "bank": "J.P. Morgan Securities LLC",
+ "decks_studied": [
+  {
+   "folder": "jpm/inovalon-holdings-inc_c-v",
+   "company": "Inovalon Holdings, Inc. (\"Project Ocala\")",
+   "date_on_cover": "August 17, 2021",
+   "pages": 13,
+   "image_px": "1088x612",
+   "audience": "Company Board",
+   "template": "2021 16:9 'blue photographic band' template"
+  },
+  {
+   "folder": "jpm/myovant-sciences-ltd_c-3",
+   "company": "Myovant Sciences Ltd. (\"Project Zeus\"; prepared for buyer's parent Sumitovant, codename Sparrow)",
+   "date_on_cover": "October 23rd, 2022",
+   "pages": 6,
+   "image_px": "2200x1700",
+   "audience": "Board of Directors of Sumitovant (buyer side)",
+   "template": "2022 Letter-landscape 'gray title + steel-blue rule' template"
+  },
+  {
+   "folder": "jpm/clearwater-analytics-holdings-inc_c-vi",
+   "company": "Clearwater Analytics Holdings, Inc. (\"Project Cascade\")",
+   "date_on_cover": "December 20, 2025",
+   "pages": 12,
+   "image_px": "1056x816",
+   "audience": "Board of Directors",
+   "template": "2025-26 Letter-landscape 'brown accent rule' template"
+  },
+  {
+   "folder": "jpm/distribution-solutions-group-inc_c-ix",
+   "company": "Distribution Solutions Group, Inc. (\"Project Eclipse\")",
+   "date_on_cover": "May 2026",
+   "pages": 16,
+   "image_px": "820x634",
+   "audience": "Special Committee",
+   "template": "Same 2025-26 brown-accent template as Clearwater, but with no J.P. Morgan wordmark on any page (cover or footers), no gray footer band and no disclaimer page; a diligence/performance-critique deck with no valuation pages"
+  }
+ ],
+ "page": {
+  "size": "US Letter landscape (11 x 8.5 in) for 2022+ decks (Myovant 1.294, Clearwater 1.294, DSG 1.293); 16:9 widescreen (13.33 x 7.5 in) for the 2021 Inovalon deck (1.778)",
+  "orientation": "landscape",
+  "aspect_ratio": 1.294,
+  "margins_note": "Letter decks (2025-26): left/right content margin approx 0.5 in (~4.7% of width); short brown accent rule starts at the left margin ~6% down; title baseline ~11-12% down; content runs nearly to the footer at ~94%. Myovant (2022): ~0.47 in side margins, full-width steel-blue rule under the title at ~15% down. Inovalon (16:9): title band occupies top ~16% full-bleed; content margins ~0.5 in."
+ },
+ "typography": {
+  "title": {
+   "face": "Arial/Helvetica-like grotesque",
+   "weight": "regular (not bold)",
+   "approx_pt": 26,
+   "case": "Sentence case",
+   "color": "#222428 (near-black charcoal) in 2025-26 template; #606060 mid-gray in 2022 Myovant; white on blue band in 2021 Inovalon",
+   "notes": "Long titles wrap to two lines as full-sentence 'headline' titles in DSG (e.g. 'Eclipse's historical growth has been muted while margins have deteriorated'). Qualifier appended after an en dash in italic: '\u2013 for reference only' (Clearwater: same size, italic; Myovant: smaller, light italic, very wide letter-spacing)."
+  },
+  "subtitle": {
+   "face": "Arial/Helvetica-like, italic",
+   "weight": "regular",
+   "approx_pt": 13,
+   "case": "Sentence case",
+   "color": "#8C6A4A brown (2025-26); #13305A dark navy italic (Inovalon 'Implied equity value per share'); gray light italic, wide-tracked (Myovant)",
+   "notes": "Units/basis line sits directly under title: e.g. 'Cascade Management Projections; $mm except for equity value per share; ...'. Clearwater p9 uses a bold brown non-italic subtitle ('Cascade Management Projections')."
+  },
+  "body": {
+   "face": "Arial/Helvetica-like",
+   "weight": "regular with bold run-in emphasis on key phrases",
+   "approx_pt": 10,
+   "case": "Sentence case",
+   "color": "#4C4D4F dark gray",
+   "notes": "Square bullets (small filled squares) in Inovalon/Clearwater commentary; round bullets in DSG text pages. Sub-bullets indented with smaller round/square markers."
+  },
+  "table": {
+   "face": "Arial/Helvetica-like",
+   "weight": "regular; bold for totals, subject-company rows, medians and column headers",
+   "approx_pt": 9,
+   "case": "Header case/title-ish; row labels sentence case",
+   "color": "#333333-ish dark gray text; white on colored header bands",
+   "notes": "Myovant (2022) uses a light/thin grotesque weight (Helvetica Light-like) with italic light gray for percentages - visually distinct from the regular-weight Arial of 2021 and 2025-26."
+  },
+  "footnote_source": {
+   "face": "Arial/Helvetica-like",
+   "weight": "regular",
+   "approx_pt": 6.5,
+   "case": "Sentence case",
+   "color": "#333333 dark gray (black-ish)",
+   "notes": "'Source: ...' line then 'Note: ...' line, then superscript-numbered footnotes run together on the same lines separated by semicolons (e.g. '\u00b9 Unlevered free cash flow ...; \u00b2 As of 12/19/25; \u00b3 ...')."
+  },
+  "confidence": "Medium-high that the face is Arial (or Helvetica) throughout 2021 and 2025-26 decks (from glyph shapes: R, G, a, t terminals). Myovant's light weight and letterspaced italics look like a different/light grotesque or a rendering substitution - medium-low confidence on the exact face. Point sizes are approximate from pixel heights."
+ },
+ "palette": {
+  "title_text": "#222428 (2025-26); #606060 (2022 Myovant); #FFFFFF on band (2021 Inovalon)",
+  "title_bar_or_band": "null in 2022 and 2025-26 templates. 2021 Inovalon: full-bleed photographic blue band, dominant #013D79",
+  "table_header_fill": "#1E7C98 teal (Clearwater comps section bands and price-grid header); #9B57A4 purple for projection-table headers labelled with the management case; #0069A3 blue (Myovant price-grid header); #041E41 navy / #946946 brown header cells in DSG",
+  "table_header_text": "#FFFFFF bold on fills; otherwise dark gray bold, underlined column heads (Clearwater comps, Inovalon offer summary)",
+  "alternating_row_shading": "#F2F2F2 very light gray alternating rows in Clearwater comps; none in most other tables (white rows with hairline rules)",
+  "chart_series": [
+   "#1E7C98 teal",
+   "#DF6F27 orange",
+   "#041E41 navy",
+   "#92D4EA light sky blue",
+   "#9B57A4 purple (management case)",
+   "#97C0F8 periwinkle (M&A multiples bars)",
+   "#33383E dark charcoal"
+  ],
+  "accent": [
+   "#946946 brown (top-left accent rule, agenda text, subtitle)",
+   "#F6F7F9 pale gray footer band",
+   "#C8EAF4 pale cyan highlight (median/implied value rows)",
+   "#D6E6FD pale blue (subject-company block)",
+   "#EBDDEE pale lilac (projection subtotal rows)",
+   "#FFC8CE pink / #C6EFCD mint (DSG under/outperformance heat-map)"
+  ],
+  "rule_lines": "Thin dark gray (#333-#555) hairlines under headers and above totals; pale gray (#D0D0D0) separators. Myovant: steel-blue #4A90C2 title rule (heavy, ~8px of 1700)",
+  "football_field_bars": {
+   "core": "Colored by methodology group: Trading multiples #1E7C98 teal; Transaction multiples #DF6F27 orange; DCF #041E41 navy (Clearwater 2025)",
+   "reference_only": "#92D4EA light blue bar for 52-week range; analyst price targets shown as diamonds with numbered markers inside a dashed box, not as a bar; group label cell in #33383E dark charcoal 'For reference only'",
+   "other": "Inovalon 2021 used vertical floating bars each in a different color (#0069A3 blue 52-week, #818A37 olive analyst PV, #7EBAC4 pale teal trading, #478FBF mid-blue transaction, #AD680D bronze DCF), with dashed red 'For reference only' boxes over the reference-only columns"
+  },
+  "offer_price_line": {
+   "color": "#9B57A4 purple (Clearwater consortium offer); pale blue-gray dashed (Inovalon 'Nordic offer: $41.00' label in #829EB9)",
+   "style": "dashed vertical line",
+   "label_style": "Italic, underlined label at the foot of the line in the line's color, with value below, e.g. 'Consortium Offer Price\u2074 $24.55'"
+  },
+  "current_or_unaffected_price_line": {
+   "current": "dark red ~#A0282B dashed, label 'Current Price (12/19) $22.25' bold italic underlined red",
+   "unaffected": "tan ~#C4A890 dashed, label 'Unaffected Price (11/10)\u00b3 $16.69' italic underlined tan",
+   "inovalon": "Current share price gray dashed (label #666); Unaffected share price red dashed (label #8B3838)"
+  },
+  "notes": "Two distinct color systems: (a) 2021 Inovalon corporate blues (#013D79 band, #0069A3, #5A9BD5, #97C65C green for sponsor buyers) and (b) 2025-26 teal/orange/navy/brown system shared exactly (same hex values) by Clearwater and DSG. Myovant 2022 sits between: #0069A3 header blue, #4A90C2 rule, olive-green #D6DAA7 'Healthcare deals' row highlight, #B5D1E6 summary-stat block. Red dashed boxes (#C00000-ish) used for draft/illustrative legends and 'for reference only' tags across all eras."
+ },
+ "title_treatment": {
+  "placement": "Top-left, left-aligned at the content margin",
+  "title_bar": "2025-26: none - instead a short (~1.4 in) thick brown #946946 accent rule sits above the title at top-left. 2022: none; full-width steel-blue rule below the title. 2021: full-bleed photographic blue band with white title.",
+  "rule": "2025-26 short brown rule above title; 2022 full-width blue rule beneath title; 2021 none (band edge)",
+  "subtitle_or_units_line": "Italic units/basis line directly below title (brown in 2025-26, navy in 2021, gray wide-tracked light italic in 2022). Section sub-headers inside the page in bold ALL CAPS small dark text (e.g. 'UNLEVERED FREE CASH FLOW SUMMARY', 'REVENUE ($MM)').",
+  "tracker_or_breadcrumb": "None observed in any deck."
+ },
+ "page_furniture": {
+  "draft_or_confidential_legends": [
+   {
+    "text": "CONFIDENTIAL",
+    "position": "top-right",
+    "style": "small caps-size, widely letterspaced, gray #5D5F62 (2022, 2025-26 decks; absent in 2021 Inovalon)"
+   },
+   {
+    "text": "STRICTLY PRIVATE AND CONFIDENTIAL",
+    "position": "cover only: bottom-left under a full-width brown gradient rule (2025-26); top-right above a gray rule (2022)",
+    "style": "letterspaced caps, small, gray"
+   },
+   {
+    "text": "Preliminary Working Draft \u2013 For Discussion Purposes Only",
+    "position": "top-center",
+    "style": "Myovant 2022: dark red italic, wide-tracked, inside a red dashed rectangle"
+   },
+   {
+    "text": "Illustrative analysis - for discussion purposes only",
+    "position": "top-center on every page including cover",
+    "style": "DSG 2026: bold italic dark gray text inside a red dashed rectangle"
+   },
+   {
+    "text": "For reference only",
+    "position": "above specific chart columns/rows",
+    "style": "red italic inside red dashed box (Inovalon); italic suffix '\u2013 for reference only' on titles (Clearwater, Myovant)"
+   }
+  ],
+  "page_number": "2025-26: bottom-right inside the footer band; 2022: bottom-center above the 'PROJECT ZEUS' footer; 2021: bottom-right inside a circular graphic device. Cover unnumbered; first content page = 1.",
+  "footer": "2025-26 Clearwater: pale gray (#F6F7F9) full-width footer band with J.P. Morgan wordmark bottom-left, source/notes in the middle, page number right. DSG: same layout but white, no wordmark. 2022: letterspaced 'PROJECT ZEUS' bottom-left, wordmark bottom-right, notes below. 2021: wordmark bottom-left, page device bottom-right, notes beside/below the wordmark.",
+  "source_footnote_style": "Begins 'Source:' then 'Note:' then superscript-numbered notes inline separated by semicolons; ~6-7pt; often 2-4 lines, sometimes crowding the page bottom.",
+  "section_dividers": "2021: full-bleed white page with faint gray geometric pattern and a slanted blue gradient band carrying the white section name ('Appendix'). 2025-26: no divider page - an 'Agenda' page with a single numbered entry ('1  Appendix ... 7', brown bold text between thin gray rules) serves as the appendix divider. 2022: none (6 pages).",
+  "cover_page": "2025-26: white; wordmark top-left (Clearwater; absent in DSG); 'Exhibit (c)(vi)' filing stamp top-right; large charcoal 'Project <Codename>' (~40pt) left-aligned mid-page, then 'Presentation to the Board of Directors' (~26pt) and date (~16pt); full-width dark-to-light brown gradient rule near bottom with 'STRICTLY PRIVATE AND CONFIDENTIAL' below. DSG puts the title on one line: 'Project Eclipse \u2013 Discussion materials'. 2022: gray 'Project Zeus / Presentation to the Board of Directors', blue date 'October 23rd, 2022', blue rule near bottom, wordmark bottom-right. 2021: full-bleed blue photographic cover, white 'Project Ocala Board Materials' and date right-aligned, wordmark bottom-left.",
+  "disclaimer_page": "Final page: dense full-page legal disclaimer in ~6pt dark gray ('This presentation was prepared exclusively for the benefit and internal use of the J.P. Morgan client...'), including SEC research settlement, IBOR, tax and entity paragraphs and 'Copyright <year> JPMorgan Chase & Co.' Present in Inovalon, Myovant, Clearwater; absent in DSG."
+ },
+ "structure": {
+  "usual_section_order": [
+   "Cover",
+   "Offer / proposal summary (premiums, implied equity & firm value, implied multiples)",
+   "Projections summary: management case vs. street consensus",
+   "Valuation summary (football field)",
+   "Trading comparables",
+   "Precedent transactions",
+   "DCF",
+   "Implied transaction metrics at various prices",
+   "Appendix: forecast assumptions, tax attributes / discount rate, broker perspectives, prior presentation versions",
+   "Disclaimer"
+  ],
+  "example_page_titles_in_order": [
+   "Clearwater (Dec 20, 2025): Projections summary \u2013 Cascade Management vs. Street Consensus",
+   "Cascade valuation summary",
+   "Trading multiples and operating benchmarks",
+   "Select M&A transactions",
+   "Cascade discounted cash flow analysis",
+   "Implied transaction metrics at various offer prices \u2013 for reference only",
+   "Agenda",
+   "Key assumptions and inputs for Cascade valuation analysis",
+   "Illustrative tax attributes discounted cash flow analysis",
+   "Summary of broker perspectives \u2013 for reference only"
+  ],
+  "appendix_contents": [
+   "Management forecast assumptions (box-labelled table: Source / Revenue / Profitability / Cash Flow / Cash Taxes)",
+   "Tax-attribute DCF",
+   "Discount rate (WACC) analysis with capital structure benchmarks (Inovalon)",
+   "Key updates vs. prior board presentation and the prior summary valuation page (Inovalon)",
+   "Broker ratings / price targets with bull and bear case (Clearwater)"
+  ]
+ },
+ "football_field": {
+  "orientation": "horizontal bars (2025-26 Clearwater); vertical floating bars (2021 Inovalon)",
+  "row_labels": "Clearwater: left column of tall colored group cells with numbered circles (1 Trading multiples teal, 2 Transaction multiples orange, 3 DCF navy, 4 For reference only charcoal) and a second gray cell with the specific metric (e.g. 'FV / 2026E Revenue', 'FV / NTM uFCF\u00b9'). Inovalon: colored-outline label boxes above each bar ('52-week range\u00b9', 'PV of analyst price targets\u00b2', 'Trading multiples', 'Transaction multiples', 'Discounted cash flow').",
+  "methodology_detail_text": "Clearwater: separate 'Commentary' column to the right with square bullets (metric value, multiple range, discount rate, TGR), plus far-right column 'Implied FV / 2026E Adj. EBITDA (pre-SBC) multiple' (e.g. '16.7x \u2013 26.4x'). Inovalon: a 'Metrics' and 'Multiples (x)' table below the chart.",
+  "reference_only_treatment": "Grouped at the bottom under a dark charcoal 'For reference only\u00b2' cell, lighter bar color (#92D4EA); analyst targets as diamonds in a dashed box with Low / Median (orange) / High markers. Inovalon: red dashed 'For reference only' boxes above the reference columns.",
+  "value_labels": "Low value left of bar, high value right of bar, '$xx.xx' to nearest $0.25, regular weight dark gray (Clearwater); above/below bar ends, bold (Inovalon).",
+  "price_lines": "Vertical dashed lines through the chart: unaffected (tan), current (dark red), offer (purple), each with italic underlined colored label + value under the axis. Inovalon: horizontal dashed lines with right-side labels 'Nordic offer: $41.00', 'Current share price: $37.77', 'Unaffected share price: $32.71\u2076'.",
+  "axis": "No numeric axis shown; header 'Illustrative Cascade equity value per share' above.",
+  "other": "Title 'Cascade valuation summary' / 'Summary valuation perspectives of Ocala'; italic brown basis line notes rounding ('per share values rounded to nearest $0.25 except for 52-week trading range')."
+ },
+ "tables": {
+  "number_formats": "$ on first column/total rows and per-share values ('$730', '$1,100'), plain numbers in intermediate rows; $mm with comma thousands; per-share to cents.",
+  "multiples": "One decimal with lowercase x: '8.9x', '25.3x'; ranges with en dash and spaces '16.7x \u2013 26.4x' or closed '18.5\u201324.0x' (2021).",
+  "percentages": "Whole % for premiums/margins in summaries ('47%'), one decimal in DCF builds ('28.7%'); growth/margin sub-rows in italics.",
+  "negatives": "Parentheses: '(127)', '(25%)', '(2.0%)'.",
+  "nm_na": "'NM' (defined as negative or >100x / <0x or >50x), 'N/A'; '\u2013' or '-' dashes for zero/not applicable.",
+  "mean_median_rows": "'Median' bold in a pale cyan (#C8EAF4) shaded row per peer group (gray #7F7F7F band for reference-only group median); Myovant uses a pale blue block for '25th percentile / Average / Median / 75th percentile'.",
+  "borders_and_rules": "Minimal: thin dark rule under header row and above totals; hairline gray row separators; no vertical gridlines except dashed vertical boxes marking the offer column (red/orange dashed in Inovalon, Clearwater, dotted in Myovant). DCF sensitivity grids use colored header tabs and bold center cell.",
+  "header_style": "Either bold dark-gray underlined column heads on white (comps, offer summary) or full-width colored bands with white bold text (teal peer-group bands, purple 'Cascade Management Projections', blue price grids).",
+  "target_or_subject_highlight": "Subject company rows grouped at top in a pale blue (#D6E6FD) block, bold; selected offer column outlined with a dashed box; healthcare/relevant precedents shaded olive (#D6DAA7) with legend (Myovant)."
+ },
+ "distinctive_features": [
+  "2025-26 template signature: short thick brown accent rule above a regular-weight charcoal title at top-left, letterspaced 'CONFIDENTIAL' top-right, and a pale-gray footer band with wordmark, notes and page number.",
+  "Numbered colored group cells (1-4 in circles) on the football field, with a dedicated commentary column and implied-multiple column.",
+  "Red dashed rectangles used as a recurring device for draft/illustrative legends and 'For reference only' tags.",
+  "Italic '\u2013 for reference only' suffix appended to page titles.",
+  "Full-sentence 'headline' titles in the Special Committee critique deck (DSG), with KEY TAKEAWAYS sidebar in a pale gray panel.",
+  "Projections-vs-consensus page as an early section, with management case in purple and broker consensus in teal (Clearwater).",
+  "Price-grid page ('analysis at various prices') with columns from unaffected through final proposal, offer column boxed by dashed lines."
+ ],
+ "disagreements_between_decks": [
+  "Three distinct templates: 2021 Inovalon 16:9 with photographic blue title band, white titles, circular page-number device and no CONFIDENTIAL legend; 2022 Myovant Letter with gray titles, full-width steel-blue rule, light-weight letterspaced italics and 'PROJECT ZEUS' footer; 2025-26 Clearwater/DSG Letter with brown accent rule and charcoal titles.",
+  "Color systems differ by era: 2021 blues/green/olive/bronze; 2022 #0069A3 blue with olive highlight; 2025-26 teal/orange/navy/purple/brown.",
+  "DSG (2026) carries no J.P. Morgan wordmark anywhere, no gray footer band and no disclaimer page, and adds an 'Illustrative analysis - for discussion purposes only' dashed legend on every page; Clearwater (same template, 4 months earlier) has wordmark, footer band and disclaimer.",
+  "Football field orientation: vertical floating bars (2021) vs horizontal bars with commentary column (2025).",
+  "Section divider: designed blue-band divider page (2021) vs a one-line 'Agenda' page (2025).",
+  "Page number position: bottom-right (2021, 2025-26) vs bottom-center (2022)."
+ ],
+ "confidence_notes": "Hex codes measured with palette sampling on solid fills; the 2025-26 values (#1E7C98, #DF6F27, #041E41, #946946, #9B57A4) are identical across Clearwater and DSG, which strongly suggests a shared template. Thin dashed price lines and small text colors are anti-aliased, so those hexes (current-price red, unaffected tan, subtitle brown) are approximate. DSG is attributed to J.P. Morgan by the EDGAR exhibit index; the slides themselves carry no bank name, but the template matches Clearwater exactly. DSG has no valuation pages (no football field, comps or DCF), so table/FF conventions come from Inovalon, Clearwater and Myovant. Myovant is only 6 pages and buyer-side (for Sumitovant), so it shows price-grid and precedent tables but no football field or DCF. Point sizes are rough estimates from pixel heights."
+}

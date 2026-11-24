@@ -1,0 +1,141 @@
+{
+ "schema": "house_style/1",
+ "key": "evercore",
+ "name": "Evercore (U.S. template)",
+ "match": [
+  "evercore"
+ ],
+ "template": "U.S. Letter-landscape template (Green Plains 2023, EngageSmart 2023, CoolCo 2025), with the horizontal football field used in EngageSmart. Not the London (Diversey) variant.",
+ "page": {
+  "w": 11,
+  "h": 8.5
+ },
+ "font": {
+  "title": "Arial",
+  "body": "Arial"
+ },
+ "title": {
+  "size": 18,
+  "bold": true,
+  "color": "254D81",
+  "case": "title",
+  "rule": "under",
+  "rule_color": "254D81",
+  "two_tier": true,
+  "subtitle_color": "0063A6"
+ },
+ "subtitle": {
+  "color": "0069AA",
+  "italic": true,
+  "bold": true
+ },
+ "text": {
+  "body": "000000",
+  "table": "000000",
+  "muted": "000000",
+  "notes_italic": false
+ },
+ "table": {
+  "header": "text",
+  "header_fill": "254D81",
+  "header_text": "FFFFFF",
+  "stat_fill": "F0F0F0",
+  "rule_color": null,
+  "density": 0.52,
+  "font_scale": 0.82,
+  "header_underline": true,
+  "header_rule": null
+ },
+ "numbers": {
+  "spaced": false
+ },
+ "legend": {
+  "text": "Confidential",
+  "pos": "top_right",
+  "color": "7F7F7F",
+  "box": null,
+  "size": 8,
+  "bold": false,
+  "italic": false
+ },
+ "stamp": "top_center",
+ "footer": {
+  "page_number": "center",
+  "rule": "254D81",
+  "band": null,
+  "left_text": null,
+  "right_text": "{codename}"
+ },
+ "toc": true,
+ "dividers": {
+  "style": "roman",
+  "color": "0069AA",
+  "size": 24,
+  "rule": true,
+  "rule_color": "254D81",
+  "rule_full": true,
+  "x": 0.6
+ },
+ "disclaimer_page": "front",
+ "cover": {
+  "style": "plain",
+  "color": "254D81",
+  "title_color": "254D81",
+  "accent": "254D81",
+  "title_bold": true,
+  "title_size": 20,
+  "sub_size": 14,
+  "company_line": false,
+  "rule_under_title": true
+ },
+ "chart": {
+  "primary": "254D81",
+  "offer": "E4780C"
+ },
+ "ff": {
+  "core": "254D81",
+  "reference": "CCCCCC",
+  "method_colors": {
+   "dcf_pgr": "254D81",
+   "dcf_exit": "254D81",
+   "comps": "0069AA",
+   "lbo": "3E8486",
+   "premiums": "3E8486"
+  },
+  "reference_position": "bottom",
+  "reference_label": "For reference only",
+  "label_blocks": true,
+  "basis": "right",
+  "offer_color": "E4780C",
+  "offer_dash": true,
+  "offer_label": "above",
+  "value_bold": false,
+  "unaffected_color": "C00000",
+  "row_height": 0.36,
+  "headers": [
+   "Methodology",
+   "Implied Value Per Share",
+   "Key Metrics and Methodologies"
+  ],
+  "label_size": 9,
+  "description_position": "middle",
+  "multiples": "Implied TEV / LTM EBITDA"
+ },
+ "research": "research/evercore.json",
+ "toc_opts": {
+  "pages": false,
+  "numbering": "roman",
+  "color": "000000",
+  "rule_color": null,
+  "layout": "name_then_numeral",
+  "size": 12,
+  "row_pitch": 0.32,
+  "indent": 0
+ },
+ "comps": {
+  "stats": [
+   "mean",
+   "median"
+  ]
+ }
+}

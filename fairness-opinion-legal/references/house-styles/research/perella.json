@@ -1,0 +1,281 @@
+{
+ "bank": "Perella Weinberg Partners LP (PWP)",
+ "decks_studied": [
+  {
+   "folder": "perella/agrofresh-solutions-inc_c-7",
+   "company": "AgroFresh Solutions, Inc. (code name 'Optimus Prime')",
+   "date_on_cover": "November 21, 2022",
+   "pages": 14,
+   "image_px": "3300x2550",
+   "audience": "Special Committee",
+   "cover_title": "Project Optimus Prime / Presentation to the Special Committee"
+  },
+  {
+   "folder": "perella/eargo-inc_c-iii",
+   "company": "Eargo, Inc. (code name 'Puma')",
+   "date_on_cover": "October 28, 2023",
+   "pages": 16,
+   "image_px": "2267x1275",
+   "audience": "Special Committee",
+   "cover_title": "Project Puma: Discussion Materials"
+  },
+  {
+   "folder": "perella/baldwin-insurance-group-inc_c-6",
+   "company": "Baldwin Insurance Group, Inc. (code name 'Spark')",
+   "date_on_cover": "September 13, 2026",
+   "pages": 24,
+   "image_px": "1650x1275",
+   "audience": "Special Committee",
+   "cover_title": "Project Spark | Special Committee Discussion Materials"
+  },
+  {
+   "folder": "perella/manitex-international-inc_c-2",
+   "company": "Manitex International, Inc. (code name 'Elevate'; buyer Tadano = 'Lift')",
+   "date_on_cover": "September 5, 2024",
+   "pages": 16,
+   "image_px": "1056x816",
+   "audience": "Buyer side: Board of Directors and certain senior management of Tadano (not the target's committee)",
+   "cover_title": "Project Lift / Preliminary Valuation Considerations"
+  }
+ ],
+ "page": {
+  "size": "US Letter landscape 11 x 8.5 in (AgroFresh, Baldwin, Manitex); 16:9 widescreen 13.33 x 7.5 in (Eargo only)",
+  "orientation": "landscape",
+  "aspect_ratio": 1.294,
+  "aspect_ratio_note": "AgroFresh 3300x2550 = 1.294; Baldwin 1650x1275 = 1.294; Manitex 1056x816 = 1.294; Eargo 2267x1275 = 1.778 (16:9)",
+  "margins_note": "Left margin approx 0.45-0.5 in (title, tables and logo all left-aligned to same x, ~4.5% of width); right margin approx 0.45 in (page number and right edge of tables/rules ~95% of width). Title baseline approx 0.9-1.1 in from top (Letter) with generous white space above; no header band. Footer zone ~1 in tall at bottom: logo bottom-left, Source/Notes block starts to the right of the logo (~22% of width), page number bottom-right."
+ },
+ "typography": {
+  "title": {
+   "face": "Arial / Helvetica-like grotesque",
+   "weight": "bold",
+   "approx_pt": 22,
+   "case": "Title Case",
+   "color": "#513C65",
+   "note": "Long titles wrap to two lines (AgroFresh p2). Baldwin uses 'Main Title | Qualifier' with the part after the pipe in regular (non-bold) weight, same purple."
+  },
+  "subtitle": {
+   "face": "Arial / Helvetica-like",
+   "weight": "regular italic (Eargo, purple, ~20pt, e.g. 'Equity Value per Share') or bold italic (Baldwin, blue #008BD2, ~12pt, e.g. 'Financial projections per Spark management and approved for use by PWP')",
+   "approx_pt": 14,
+   "case": "Sentence/Title case",
+   "color": "#513C65 (Eargo) or #008BD2 (Baldwin)"
+  },
+  "units_line": {
+   "face": "Arial-like",
+   "weight": "regular italic",
+   "approx_pt": 11,
+   "case": "sentence case in parentheses, e.g. '($ in millions, except share price)'",
+   "color": "#7F7F7F"
+  },
+  "section_header_in_page": {
+   "face": "Arial-like",
+   "weight": "bold",
+   "approx_pt": 13,
+   "case": "ALL CAPS",
+   "color": "#008BD2",
+   "note": "e.g. 'ENTERPRISE VALUE SENSITIVITY \u2013 CORE PRODUCTS(1)', 'EV / CY2022E EBITDA'; full-width blue rule beneath. Baldwin variant: 'DISCOUNTED CASH FLOW ANALYSIS | VALUATION & BALANCE SHEET AS OF 6/30/26' (bold before pipe, regular after)."
+  },
+  "body": {
+   "face": "Arial / Helvetica-like",
+   "weight": "regular",
+   "approx_pt": 11,
+   "case": "sentence case; square or round bullets with en-dash sub-bullets",
+   "color": "#7F7F7F"
+  },
+  "table": {
+   "face": "Arial / Helvetica-like",
+   "weight": "regular for data; bold for totals/key rows and column headers",
+   "approx_pt": 9,
+   "case": "Title case headers",
+   "color": "#7F7F7F (mid grey; noticeably light) ",
+   "note": "Dense tables drop to ~7pt (Baldwin comps/DCF, AgroFresh DCF); sensitivity grids up to ~10-11pt."
+  },
+  "footnote_source": {
+   "face": "Arial-like",
+   "weight": "regular; labels 'Source:'/'Sources:' and 'Note:'/'Notes:' in bold",
+   "approx_pt": 7,
+   "case": "sentence case",
+   "color": "#7F7F7F",
+   "note": "Eargo footnotes ~6pt and run as one continuous paragraph with inline (1), (2) markers; AgroFresh/Manitex list each (n) on its own hanging-indent line."
+  },
+  "cover_title": {
+   "face": "Arial-like",
+   "weight": "regular (not bold)",
+   "approx_pt": 26,
+   "color": "#513C65",
+   "note": "Eargo cover title smaller (~16pt) single line."
+  },
+  "page_number": {
+   "face": "Arial-like",
+   "weight": "regular",
+   "approx_pt": 12,
+   "color": "#7F7F7F"
+  },
+  "confidence": "Medium-high that the face is Arial (Windows-rendered Helvetica metrics: 'R' leg, 't' cut, '1' flag all match Arial). Point sizes approximate (+/-2pt) from cap-height measurement."
+ },
+ "palette": {
+  "title_text": "#513C65",
+  "title_bar_or_band": null,
+  "table_header_fill": "#00639A (blue banner over DCF/sensitivity tables: 'Standalone Unlevered Free Cash Flows', 'Enterprise Value - Core Products'); #513C65 purple header for historical financial table (AgroFresh p2); Baldwin sensitivities use #9BB4D2 light steel blue banner",
+  "table_header_text": "#FFFFFF on filled banners; otherwise column headers are bold grey #7F7F7F (Manitex, Baldwin) or bold blue #008BD2 (Eargo precedent tables) over an underline per column",
+  "alternating_row_shading": "#EBF0F4 on alternate/key rows in AgroFresh DCF; most other tables have no banding, only thin light rules between rows",
+  "chart_series": [
+   "#513C65",
+   "#00639A",
+   "#736890",
+   "#9BB4D2",
+   "#977CB1",
+   "#B9A8CA",
+   "#C6C2D3",
+   "#DCD3E6",
+   "#72CEFF",
+   "#BCA8CD"
+  ],
+  "accent": [
+   "#008BD2 (bright blue: section headers, rules)",
+   "#FFEED0 / #FFE7B9 (cream highlight for mean/median and key rows)",
+   "#FBD2C0 / #FDE9E0 (salmon/pink highlight for EBITDA row, Manitex mean/median)",
+   "#F79661 (orange)",
+   "#F72A94 (magenta offer line, AgroFresh)",
+   "#07A253 (green current price line, Eargo)",
+   "#E3E2EA (pale lavender: cover wedge, For Reference box)",
+   "#70688F (cover wedge dark)"
+  ],
+  "rule_lines": "#008BD2 under in-page section headers (approx 1.5pt); #7F7F7F thin rules under table column headers; very light grey (#D6E0EA-ish / #E4E4E4) hairlines between table rows; Baldwin column-header rule dark navy approx #0B2D45",
+  "football_field_bars": {
+   "core": "#513C65 (deep purple) for primary methodologies",
+   "reference_only": "#7F7F7F grey (AgroFresh), #BFBFBF grey on #F2F2F2 row (Baldwin), #F2F2F2 very light grey (Manitex), same purple with dashed 'For Reference Only' box (Eargo)",
+   "other": "Bars colored by method family: DCF in lighter purples #977CB1 / #DCD3E6 (AgroFresh), or #00639A blue (Baldwin); comps #9BB4D2 steel blue (Eargo) or pale #EBF0F6 (Manitex); precedents #DCD3E4 lavender (Manitex) or #9BB4D2 (Baldwin); DCF purples #736890 (Eargo)."
+  },
+  "offer_price_line": {
+   "color": "#F72A94 (AgroFresh magenta); #008ECB blue (Eargo 'Patient Square Revised Offer'); approx #5A7BA6 blue-grey (Baldwin 'Transaction Price'); Manitex (buyer deck) shows offer range as two orange dashed lines approx #F4A170",
+   "style": "dashed vertical",
+   "label_style": "bold, same color as line, stacked 2-3 lines above the plot ('Offer / Price: $3.00'); Baldwin uses italic light label below the chart ('Transaction Price: $32.50')"
+  },
+  "current_or_unaffected_price_line": {
+   "color": "#F79661 orange (AgroFresh 'Unaffected (10/26) Price: $1.57'); #07A253 green (Eargo 'Current Price $1.68'); light salmon and light orange (Baldwin unaffected and current); black/dark grey (Manitex 'Current $3.82')",
+   "style": "dashed vertical",
+   "label_style": "bold colored label above line (AgroFresh/Eargo); italic regular light label above (Baldwin, Manitex)"
+  },
+  "notes": "Core identity is a deep aubergine purple #513C65 plus a mid-dark blue #00639A, softened by lavenders and steel blue, with grey #7F7F7F text. Highlight fills are warm (cream/salmon), not grey. Colors measured with palette.py on solid fills in the high-res AgroFresh and Eargo JPEGs; Baldwin and Manitex values are lower-resolution and line/label colors there are approximate."
+ },
+ "title_treatment": {
+  "placement": "Top-left, left-aligned to the body margin, roughly 0.9-1.1 in below the top edge; no box or band.",
+  "title_bar": "None; title sits on white.",
+  "rule": "No rule under the page title. Blue (#008BD2) rules sit under in-page ALL-CAPS section headers instead.",
+  "subtitle_or_units_line": "Directly under title: grey italic units line '($ in millions, except per share data)'. Eargo adds a purple italic subtitle line (e.g. 'Management Cases \u2013 With and Without Insurance'); Baldwin adds a blue bold-italic sourcing subtitle.",
+  "tracker_or_breadcrumb": "None. No section tracker, no table of contents in any deck."
+ },
+ "page_furniture": {
+  "draft_or_confidential_legends": [
+   {
+    "text": "Confidential",
+    "position": "top-right corner",
+    "style": "Arial regular ~11pt grey #737373 (Baldwin only, every page)"
+   },
+   {
+    "text": "Preliminary Draft \u2013 Subject to Change",
+    "position": "top center",
+    "style": "Arial regular ~8pt red (approx #D00000) (Manitex only, every page incl. cover)"
+   },
+   {
+    "text": "For Reference Only",
+    "position": "top-right box beside title (Eargo pp9-11) or inline on football field",
+    "style": "grey text in a box with pale lavender #E3E2EA fill and dashed purple border"
+   }
+  ],
+  "page_number": "Bottom-right, plain Arabic numeral, grey, ~12pt, no 'Page' prefix; cover unnumbered; numbers continue through Appendix divider (divider itself unnumbered).",
+  "footer": "Bank logo block bottom-left on every page (logo position: bottom-left). No footer text line, no rule.",
+  "source_footnote_style": "Bottom block starting right of the logo: bold 'Source:'/'Sources:' then 'Note:'/'Notes:' as hanging labels in a left column, text in a second column; numbered notes '(1)', '(2)' with hanging indent; grey ~7pt. Footnote markers in body are superscript '(1)'.",
+  "section_dividers": "Only an 'Appendix' divider: plain grey/black regular ~18pt word at left-middle of a white page, with the cover's diagonal wedge (pale lavender #E2E1E9 large wedge and dark purple-grey #70688F narrower wedge) at the right edge; logo bottom-left. No numbered section dividers.",
+  "cover_page": "White page; diagonal wedges along right edge (pale lavender #E2E1E9 behind, dark #70688F slice bottom-right); title left-middle in regular-weight purple #513C65 ('Project <Codename>' then deck name on a second line, or 'Project X | ...' / 'Project X: Discussion Materials' on one line), thin purple rule under the title spanning ~2/3 width, date beneath in black ~14pt; logo bottom-left. No client name, no audience line other than in title.",
+  "disclaimer_page": "Last page, titled 'Legal Disclaimer' (AgroFresh, Eargo) or 'Legal Disclosures' (Baldwin, Manitex); justified/ragged grey body text ~10-11pt with key sentences in bold; Baldwin/Manitex end with a FINRA/SIPC membership line (Manitex also names Tudor, Pickering, Holt & Co. Securities, LLC)."
+ },
+ "structure": {
+  "usual_section_order": [
+   "Cover",
+   "Situation / offer overview (offer terms, bid progression, what has changed) or company financial overview",
+   "Market perspective: share price performance, analyst views, trading multiples over time",
+   "Valuation summary (football field)",
+   "Selected public companies",
+   "Precedent transactions",
+   "Discounted cash flow + sensitivities",
+   "Premia analysis / analysis at various prices",
+   "Appendix divider",
+   "WACC analysis and supporting detail",
+   "Legal disclaimer/disclosures (last page)"
+  ],
+  "example_page_titles_in_order": [
+   "AgroFresh deck:",
+   "Project Optimus Prime / Presentation to the Special Committee",
+   "Optimus Prime Historical and Forecasted Financial Overview (Management Case)",
+   "Equity Analyst View of Optimus Prime Stock",
+   "Optimus Prime Stock Price Performance",
+   "Optimus Prime Public Market Trading Multiple Over Time",
+   "Valuation Summary",
+   "Current Public Market Valuations of Selected Peers",
+   "Select Precedent Transactions",
+   "Discounted Cash Flow Analysis \u2013 Management Case",
+   "Discounted Cash Flow Sensitivities \u2013 Management Case",
+   "Precedent Premia Analysis",
+   "Appendix",
+   "Illustrative WACC Analysis \u2013 CAPM vs. Yield of Preferred Equity",
+   "Legal Disclaimer"
+  ],
+  "appendix_contents": [
+   "WACC analysis (CAPM, peer betas, cost of debt)",
+   "Historical levered/unlevered Barra beta over time (Baldwin)",
+   "DCF detail and projected tax attributes (Baldwin)",
+   "Selected precedent transactions and public comparables tables (Baldwin, Manitex)",
+   "Research analyst estimates/price targets (Baldwin)",
+   "Summary of changes vs. prior meeting (Baldwin)",
+   "Detailed forecast case comparison (Manitex)",
+   "DCF analyses and WACC (Eargo)"
+  ]
+ },
+ "football_field": {
+  "orientation": "horizontal bars",
+  "row_labels": "Left-hand stacked colored category blocks with white bold text (e.g. 'Market Reference (Informational)', 'Comparable Companies', 'Precedent Transactions', 'Intrinsic Valuation'), and a second column of sub-method blocks in lighter tints ('EV / CY2023E EBITDA', 'Core Products DCF'). Manitex uses narrow rotated (vertical) grey side-rail labels instead.",
+  "methodology_detail_text": "Separate centered grey column 'Description / Assumptions' (AgroFresh) or 'Metric' + 'Multiple' columns (Manitex, Baldwin) giving metric, multiple range, WACC / perpetuity growth; Baldwin adds a right-hand 'Commentary' column with square bullets; Manitex adds right-hand 'IMPLIED EV / '24E EBITDA' and ''25E EBITDA' columns.",
+  "reference_only_treatment": "Grouped at top (AgroFresh, Eargo, Manitex) or bottom (Baldwin); grey bars and/or a 'For Reference Only' / '(For Reference)' / 'Market Reference (Informational)' label; analyst targets sometimes shown as grey diamond markers rather than bars (AgroFresh).",
+  "value_labels": "Low and high values at the bar ends outside the bar, grey regular, '$1.47' with two decimals; Baldwin rounds to $0.10 ('$9.90').",
+  "price_lines": "Dashed vertical lines spanning all rows with colored bold labels stacked above the plot (Unaffected price, Current price, Offer). See palette for colors per deck.",
+  "axis": "Usually no x-axis (AgroFresh, Baldwin, Manitex); Eargo shows an x-axis with $5.00 gridlines and '$-' for zero.",
+  "other": "Rows separated by thin grey rules; header row underlined with a grey (AgroFresh) or navy (Baldwin) rule. Inline peach callout boxes with dashed orange border explain anomalies (Eargo). Manitex inset box with DCF assumptions inside the DCF rows."
+ },
+ "tables": {
+  "number_formats": "$ on first row and on bold total rows only ('$164.0', then '163.9' below); thousands comma ('$2,339'); one decimal in $mm for smaller companies, whole numbers for larger; share prices two decimals.",
+  "multiples": "One decimal with lowercase 'x' ('9.5x', '0.0x'); 'NM' where not meaningful.",
+  "percentages": "One decimal ('14.1%') or whole ('60%') in premia tables; growth/margin rows in italic.",
+  "negatives": "Parentheses: '(5%)', '($15)', '(54.3%)'; no red for negatives (except variance columns in Manitex forecast comparison which use red/green).",
+  "nm_na": "'NM' (AgroFresh/Eargo), 'n.m.' italic lowercase (Manitex), 'NA' / 'N/A' (Baldwin); zero shown as '-' or '$\u2013'.",
+  "mean_median_rows": "Bold 'Mean' / 'Median' rows at the bottom on a filled band: cream #FFEED0/#FFE7B9 (AgroFresh, Eargo), salmon #FDE9E0 boxed (Manitex), light grey #F2F2F2 (Baldwin).",
+  "borders_and_rules": "No vertical grid except a single vertical rule after the row-label column in sensitivity grids; grey underline under each column header (per-column, with gaps); light hairlines between rows; dashed box around terminal-year column (Eargo) and around a 'PV of Tax Attributes' row (Baldwin).",
+  "header_style": "Column headers bold grey (or bold blue in Eargo) centered with individual underlines; grouping headers ('Premium to', 'Fiscal Year Ended', 'Perp. Growth') spanning with their own rule; full-width blue #00639A banner with white bold centered caption above DCF and sensitivity tables.",
+  "target_or_subject_highlight": "Subject company shown in a separate row band at top with its own colored fill (Baldwin sky blue #72CEFF band 'Spark (Current)'; retail brokers lavender #BCA8CD band) or a boxed row at the bottom (Manitex 'Elevate' row outlined). In bar charts the subject company bars are deep purple #513C65 while peers take group colors."
+ },
+ "distinctive_features": [
+  "Deep aubergine purple #513C65 bold Arial page titles on plain white, no title band or rule.",
+  "Bright blue (#008BD2) ALL-CAPS in-page section headers with full-width blue rules.",
+  "Light grey (#7F7F7F) body and table text throughout, which gives the decks a low-contrast look.",
+  "Cover and Appendix divider built around diagonal lavender/purple wedges at the right edge.",
+  "Logo bottom-left on every page; 'Source:' / 'Notes:' bold hanging labels beside it.",
+  "Football field with colored, stacked category blocks on the left (purple for core methods, grey for reference).",
+  "Warm cream/salmon highlight fills for mean/median and key P&L rows (not grey).",
+  "Dashed-border callout boxes ('For Reference Only' lavender; peach explanatory notes).",
+  "No table of contents or section tracker; short decks (14-24 pp) with Appendix and a last-page legal disclaimer."
+ ],
+ "disagreements_between_decks": [
+  "Page size: Eargo is 16:9 widescreen; the other three are US Letter landscape.",
+  "Legends: Baldwin carries 'Confidential' top-right; Manitex carries red 'Preliminary Draft \u2013 Subject to Change' top-center; AgroFresh and Eargo carry no legend.",
+  "Manitex (buyer-side deck for Tadano) uses code names from the buyer's point of view ('Project Lift' for the buyer, 'Elevate' for the target), opens with an 'Executive Summary' and talks about 'Lift Forecast', synergies and 'Potential Offer Price' ranges rather than fairness of an offer received; the football field shows the buyer's letter offer range ('Letter to Elevate (07/24/24): $6.25 \u2013 $6.50') instead of an offer line, includes synergy-burdened rows, and the deck adds DCF of cost savings/synergies. It also uses an orange/gold chart palette for peer groups (approx #F49565, #E55E1B, #A23E0C, #CF8523, cream #FEE8C0) not seen in the committee decks, and rotated grey side-rail labels on the football field.",
+  "Price-line colors vary by deck: AgroFresh orange unaffected + magenta offer; Eargo green current + blue offer; Baldwin faint salmon/orange + blue-grey transaction price; Manitex dark current + orange offer range.",
+  "Baldwin (2026) adds 'Title | Qualifier' title pattern, blue bold-italic subtitles, a navy header rule on tables, sky-blue #72CEFF subject-company color and a Commentary column on the football field; it is the newest template variant.",
+  "Eargo uses purple italic subtitles under the title and a smaller one-line cover title ('Project Puma: Discussion Materials').",
+  "Mean/median highlight: cream (AgroFresh, Eargo), salmon (Manitex), light grey (Baldwin).",
+  "Disclaimer page title: 'Legal Disclaimer' (AgroFresh, Eargo) vs 'Legal Disclosures' with FINRA/SIPC line (Baldwin, Manitex).",
+  "N/M style: 'NM' vs 'n.m.' vs 'NA'."
+ ],
+ "confidence_notes": "All four decks are genuine Perella Weinberg decks (PWP logo bottom-left, PWP-named disclaimer) and all were usable. Colors from high-res AgroFresh (3300px) and Eargo (2267px) slides are reliable; Baldwin (1650px) and especially Manitex (1056px) line/label colors are approximate due to JPEG softness on thin dashed lines and small text. The Manitex red legend measured around #B54545-#D17171 because of antialiasing; true value is probably a pure red. Typeface identified visually as Arial with medium-high confidence. Point sizes are estimates from cap heights. The Baldwin deck is dated 2026 per its cover and sources.csv."
+}

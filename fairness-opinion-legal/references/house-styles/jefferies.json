@@ -1,0 +1,129 @@
+{
+ "schema": "house_style/1",
+ "key": "jefferies",
+ "name": "Jefferies",
+ "match": [
+  "jefferies"
+ ],
+ "template": "4:3 committee template (Franchise Group 2023, Whole Earth 2024).",
+ "page": {
+  "w": 10,
+  "h": 7.5
+ },
+ "font": {
+  "title": "Arial",
+  "body": "Arial"
+ },
+ "title": {
+  "size": 16,
+  "bold": true,
+  "color": "000000",
+  "case": "title",
+  "rule": "none",
+  "rule_color": null,
+  "two_tier": false
+ },
+ "subtitle": {
+  "color": "000000",
+  "italic": false,
+  "bold": false
+ },
+ "text": {
+  "body": "000000",
+  "table": "000000",
+  "muted": "000000",
+  "notes_italic": false
+ },
+ "table": {
+  "header": "fill",
+  "header_fill": "4D73A0",
+  "header_text": "FFFFFF",
+  "stat_fill": "EBF5FF",
+  "rule_color": "C0C0C0",
+  "density": 0.52,
+  "font_scale": 0.82
+ },
+ "numbers": {
+  "spaced": false
+ },
+ "legend": {
+  "text": "Confidential",
+  "pos": "top_right",
+  "color": "FF0000",
+  "box": null,
+  "size": 13,
+  "bold": true,
+  "italic": false
+ },
+ "stamp": "top_center",
+ "footer": {
+  "page_number": "center",
+  "rule": null,
+  "band": null,
+  "left_text": "{advisor} / {month_year}"
+ },
+ "toc": true,
+ "dividers": {
+  "style": "rules",
+  "color": "000000",
+  "size": 16,
+  "rule": true,
+  "rule_color": "B0B0B0",
+  "numerals": false,
+  "full_bleed": true
+ },
+ "disclaimer_page": "front",
+ "cover": {
+  "style": "rules",
+  "color": "B0B0B0",
+  "title_color": "000000",
+  "accent": "B0B0B0",
+  "title_bold": true,
+  "company_line": false,
+  "full_bleed": true
+ },
+ "chart": {
+  "primary": "4D73A0",
+  "offer": "000000"
+ },
+ "ff": {
+  "core": "4D73A0",
+  "reference": "94B6D2",
+  "method_colors": null,
+  "reference_position": "bottom",
+  "reference_label": "For Informational Purposes Only",
+  "label_blocks": false,
+  "basis": "right",
+  "offer_color": "000000",
+  "offer_dash": false,
+  "offer_label": "box_top",
+  "value_bold": false,
+  "unaffected_color": null,
+  "row_height": 0.38,
+  "headers": [
+   "Methodology",
+   "Implied Value Per Share",
+   "Metrics"
+  ],
+  "label_size": 9,
+  "axis": true,
+  "reference_label_rotated": true,
+  "value_color": "7F7F7F"
+ },
+ "research": "research/jefferies.json",
+ "toc_opts": {
+  "pages": true,
+  "numbering": "none",
+  "color": "000000",
+  "rule_color": null,
+  "size": 11,
+  "row_pitch": 0.32,
+  "indent": 0
+ },
+ "comps": {
+  "style": "bars",
+  "bar_color": "8FB08C",
+  "subject_first": true,
+  "subject_color": "4D73A0"
+ }
+}

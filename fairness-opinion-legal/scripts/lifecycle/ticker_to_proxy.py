@@ -78,7 +78,11 @@ def stage_check(deal, a):
     print("check: C1-C6 pass (colors, no hardcodes in formulas, input placement, units, no errors, no orphan inputs)")
 
 def stage_deck(deal, a):
-    import build_deck; P = paths(deal); build_deck.run(P["company"], P["terms"], P["valuation"], P["lc"])
+    import build_deck; P = paths(deal)
+    if getattr(a, "advisor", None):                                     # a new advisor on a re-run: record it, so the deck, letter and handoff agree
+        terms = load(P["terms"])
+        if terms["advisor"] != a.advisor: terms["advisor"] = a.advisor; save(terms, P["terms"]); print(f"deal_terms.json: advisor set to {a.advisor}; re-run letter and handoff")
+    build_deck.run(P["company"], P["terms"], P["valuation"], P["lc"], house_style=getattr(a, "house_style", "auto"))
 
 def stage_letter(deal, a):
     import build_letter; P = paths(deal); build_letter.run(P["company"], P["terms"], P["valuation"], P["deck"], P["lc"], force=a.force)
@@ -129,6 +133,7 @@ if __name__ == "__main__":
         g = p.add_mutually_exclusive_group(); g.add_argument("--premium", type=float, default=0.30); g.add_argument("--offer-price", type=float)
         p.add_argument("--regime", choices=["conventional", "13e-3"]); p.add_argument("--addressee"); p.add_argument("--opinion-date"); p.add_argument("--as-of"); p.add_argument("--codename")
         p.add_argument("--peers"); p.add_argument("--max-peers", type=int, default=6); p.add_argument("--fixture"); p.add_argument("--force", action="store_true")
+        p.add_argument("--house-style", default="auto", help="board-book look: auto (match the advisor), default, goldman, perella, jpm, jefferies, citi, evercore")
     r = sub.add_parser("run"); r.add_argument("ticker"); r.add_argument("deal"); common(r)
     s = sub.add_parser("stage"); s.add_argument("stage", choices=STAGES + EXTRA); s.add_argument("deal"); s.add_argument("--ticker"); common(s)
     st = sub.add_parser("status"); st.add_argument("deal")

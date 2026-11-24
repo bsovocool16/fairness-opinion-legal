@@ -24,7 +24,7 @@ ticker ─ fetch ─► company.json ─ terms ─► deal_terms.json ─ model 
 | `deal_terms.json` | `deal_terms/1` | terms | `target`, `ticker`, `advisor`, `addressee`, `buyer`, `buyer_type`, `consideration`, `unaffected_price`, `unaffected_date`, `offer_price`, `premium`, `opinion_date`, `regime`, `codename`, `hypothetical: true` |
 | `valuation.json` | `valuation/1` | model | `ranges` (`trading_range`, `premiums`, `comps`, `dcf_pgr`, `dcf_exit`, `lbo`, each `low`/`high` per share); `cells` (every output as `{value, cell}`, the cell being the workbook address it was read from); `errors`; `flags`; `assumption_basis` |
 | `model_check.json` | list | check | `{rule, cell, detail}` per finding; empty when the model passes |
-| `deck.json` | `deck/1` | deck | `pptx`, `pdf`, `pages[]` (`page`, `title`, `analysis`), `analyses` |
+| `deck.json` | `deck/1` | deck | `pptx`, `pdf`, `house_style`, `pages[]` (`page`, `title`, `analysis`), `analyses` |
 | `letter.json` | `letter/1` | letter | `offer_vs_ranges[]`, `supported`, `written`, `forced`, `markers` (the `[bracketed]` items left for the reviewer) |
 | `manifest.json` | – | every stage | `stages.<name>.status` ok, stopped or failed, with time and detail |
 
@@ -59,6 +59,34 @@ Other conventions the builder applies (not machine-checked):
 - **Sensitivity grids** are explicit formulas, not Excel data tables, so they compute in any spreadsheet program. The center cell equals the DCF tab's midpoint value; the tests assert it.
 - **Signs:** costs and uses of cash are negative in the cash flow build ("Less: ..."), so every subtotal is a plain sum.
 - **Summary** (football field) carries each analysis's low and high per share and the offer price; the chart is driven by those cells.
+
+## Board-book house styles
+
+`stage deck --house-style <key>` (also on `run`) picks the book's look from `references/house-styles/<key>.json`. The default,
+`auto`, uses the profile whose `match` list names the advisor in `deal_terms.json`, and otherwise `default` (the lifecycle's own
+generic look). Profiles: `goldman`, `perella`, `jpm`, `jefferies`, `citi`, `evercore` and `default`.
+
+Each bank profile is read from that bank's board presentations filed as SC 13E-3 (c) exhibits (four to seven decks per bank,
+2019–2026; `references/house-styles/research/` holds the readings, the comparison and the list of filings). A profile sets the
+page size, typefaces, palette, title treatment (rule, accent bar, or Evercore's section-name title over a page subtitle), the
+confidentiality legend, footer and page-number position, table header and median-row fills, number spacing (Goldman's
+`$ 45.14` / `7.9 x`), whether there is a contents page and how section dividers look, the cover, and the football field
+(bar colors by method, where the reference-only rows sit and how they are labeled, label blocks, a commentary column, and
+the color, dash and label position of the offer and unaffected-price lines). Where a bank uses several templates, the profile
+follows the one its `template` field names.
+Table density and type scale, header rules and underlines, a list-style contents page (size, pitch, indent, colors, numeral
+column), cover and divider placement, and the football field's column headers, two-tier labels, numbered circles, description
+column position, implied EV / LTM EBITDA column, value axis and rotated reference label are profile settings too. `comps`
+chooses the peer statistics shown, where the Company's row sits, or a bar chart of peers by EV / LTM EBITDA.
+`stage deck --advisor "<name>"` sets the advisor in `deal_terms.json` before the book is built (re-run `letter` and `handoff`
+afterwards). `research/DIFFERENCES.md` lists what still differs from each bank's filed books, page by page.
+
+Fixed in every style: no logo, wordmark or proprietary typeface (a standard face stands in); the ILLUSTRATIVE stamp and the
+hypothetical-transaction disclaimer on every page; and a Disclaimer page stating the materials were not prepared, reviewed
+or approved by the advisor, and that only the layout conventions follow its public filings. Page titles keep the names the
+book classifier recognizes, so every style hands off the same analyses (the tests run each style through `handoff`).
+
+To add a bank: copy a profile, set `match` to words from the advisor's legal name, and fill the fields from its filed decks.
 
 ## Limits, stated in the outputs
 
