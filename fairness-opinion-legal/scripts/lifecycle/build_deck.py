@@ -493,15 +493,51 @@ def build_pages(d, co, terms, val, date):
 
     def p_wacc():
         s = d.slide("Appendix: Weighted Average Cost of Capital Analysis", "wacc", "Capital asset pricing model with peer betas unlevered and relevered at the target capital structure")
-        rows = [["Component", "Value"], ["Risk-free rate", pct(g("rf"), 2)], ["Equity risk premium", pct(g("erp"))], ["Size premium", pct(g("size"))], ["Unlevered beta (peer median)", f"{g('beta_u'):.2f}"],
+        rows = [["Component", "Value"], ["Risk-free rate", pct(g("rf"), 2)], ["Equity risk premium", pct(g("erp"))], ["Size premium", pct(g("size"))],
+                ["Unlevered beta, peer median", beta(C.get("beta_u_peers", {}).get("value"))], [f"Unlevered beta, {t['name']}", beta(C.get("beta_u_own", {}).get("value"))], ["Unlevered beta (selected)", f"{g('beta_u'):.2f}"],
                 ["Target debt / total capitalization", pct(g("dcap"), 0)], ["Relevered beta", f"{g('beta_l'):.2f}"], ["Cost of equity", pct(g("ke"))], ["Pre-tax cost of debt", pct(g("kd"))],
                 ["After-tax cost of debt", pct(g("kd_at"))], ["Weighted average cost of capital", pct(g("wacc"))]]
-        d.table(s, rows, 0.5, 1.5, 6.0, [3, 1.5], 11, bold_rows=(10,), shade_rows=(10,), rowh=0.36)
-        d.text(s, 7.0, 1.5, 5.8, 4, [f"Risk-free rate: {co['market']['risk_free'].get('source', '')}.", f"Betas: {t['price'].get('beta_basis', '')}, unlevered with the Hamada formula at a {pct(g('tax_m'), 0)} marginal tax rate.",
+        d.table(s, rows, 0.5, 1.5, 6.0, [3, 1.5], 11, bold_rows=(12,), shade_rows=(12,), rowh=0.33)
+        d.text(s, 7.0, 1.5, 5.8, 4, [f"Risk-free rate: {co['market']['risk_free'].get('source', '')}.", f"Betas: {t['price'].get('beta_basis', '')}, unlevered with the Hamada formula at a {pct(g('tax_m'), 0)} marginal tax rate"
+                + (f", with a debt beta of {g('debt_beta'):.2f} for issuers above {g('hy_lev'):.1f}x debt / LTM EBITDA (treated as high yield)." if "debt_beta" in C else "."),
                 f"Equity risk premium: {b['erp']}.", f"Cost of debt: {b['kd']}."], 10, False, st["text"]["muted"])
 
+    # the judgment calls: each EBITDA definition the data supports, and each discount-rate input, each its own recalculated workbook
+    allc = val.get("cases") or {}; ecases = {k: v for k, v in allc.items() if "+" not in k}; wks = [k for k in allc if "+" in k]
+    def crng(CC, k, a): return f"{money(CC[k]['ranges'][a]['low'])} – {money(CC[k]['ranges'][a]['high'])}"
+    def ccell(CC, k, c): return (CC[k]["cells"].get(c) or {}).get("value")
+    def beta(x): return f"{x:.2f}" if isinstance(x, (int, float)) else "–"
+
+    def p_ebitda_cases():
+        s = d.slide("EBITDA Definition: Judgment Calls", None, "Implied value per share under each EBITDA definition; the base case is the first column")
+        short = {"reported": "Reported (SBC as a cash cost)", "ex_sbc": "SBC added back", "management": "Management adjusted"}
+        ks = [k for k in ("reported", "ex_sbc", "management") if k in ecases]; cv = lambda k, c: ccell(ecases, k, c)
+        rows = [[""] + [short[k] for k in ks], ["LTM EBITDA ($mm)"] + [mmf(cv(k, "h_ebitda_ltm")) for k in ks],
+                [f"{t['name']} EV / LTM EBITDA at the unaffected price"] + [mult(cv(k, "tgt_ev_ltm_ebitda_unaff")) for k in ks],
+                ["Selected EV / LTM EBITDA multiples"] + [f"{mult(cv(k, 'comps_lo'))}–{mult(cv(k, 'comps_hi'))}" for k in ks], ["WACC (midpoint)"] + [pct(cv(k, "wacc")) for k in ks],
+                ["Selected Public Companies Analysis"] + [crng(ecases, k, "comps") for k in ks], ["Discounted Cash Flow Analysis — perpetuity growth"] + [crng(ecases, k, "dcf_pgr") for k in ks],
+                ["Discounted Cash Flow Analysis — exit multiple"] + [crng(ecases, k, "dcf_exit") for k in ks], ["Leveraged Buyout Analysis"] + [crng(ecases, k, "lbo") for k in ks],
+                ["Offer price per share"] + [money(offer)] * len(ks)]
+        d.table(s, rows, 0.5, 1.6, 12.3, [5] + [3] * len(ks), 11, bold_rows=(len(rows) - 1,), rowh=0.38)
+        d.notes(s, [ecases[k]["label"] + "." for k in ks] + ["Trading range and premiums do not depend on the EBITDA definition. Each column is a separate model workbook (cases/<case>/model.xlsx)."], 5.55)
+
+    def p_wacc_cases():
+        base = wks[0].split("+")[0]; ks = [base] + wks
+        s = d.slide("Discount Rate: Judgment Calls", None, f"Implied value per share as each WACC input changes; EBITDA on the {base.replace('_', ' ')} basis throughout")
+        short = {"own_beta": "Target's own beta", "long_rf": "Long-bond risk-free", "erp_high": "ERP 6.5%", "combined": "All three"}
+        cv = lambda k, c: ccell(allc, k, c)
+        rows = [[""] + ["Base WACC"] + [short[k.split("+")[1]] for k in wks], ["Risk-free rate"] + [pct(cv(k, "rf"), 2) for k in ks], ["Equity risk premium"] + [pct(cv(k, "erp")) for k in ks],
+                ["Unlevered beta"] + [beta(cv(k, "beta_u")) for k in ks], ["Relevered beta"] + [beta(cv(k, "beta_l")) for k in ks],
+                ["Cost of equity"] + [pct(cv(k, "ke")) for k in ks], ["WACC (midpoint)"] + [pct(cv(k, "wacc")) for k in ks],
+                ["Discounted Cash Flow Analysis — perpetuity growth"] + [crng(allc, k, "dcf_pgr") for k in ks], ["Discounted Cash Flow Analysis — exit multiple"] + [crng(allc, k, "dcf_exit") for k in ks],
+                ["Offer price per share"] + [money(offer)] * len(ks)]
+        d.table(s, rows, 0.5, 1.6, 12.3, [4.2] + [1.6] * len(ks), 10, bold_rows=(6, len(rows) - 1), rowh=0.36)
+        d.notes(s, [f"{short[k.split('+')[1]]}: " + allc[k]["label"].split("; WACC with ")[-1] + "." for k in wks]
+                + ["Each column is a separate model workbook (cases/<case>/model.xlsx). None of the alternative inputs is taken from the advisor."], 5.4, 9)
+
+    judgment = ([p_ebitda_cases] if len(ecases) > 1 else []) + ([p_wacc_cases] if wks else [])
     return [("Transaction Overview", [p_overview, p_trading, p_projections]),
-            ("Financial Analysis", [p_summary, p_comps, p_dcf, p_sens, p_lbo, p_prem]),
+            ("Financial Analysis", [p_summary] + judgment + [p_comps, p_dcf, p_sens, p_lbo, p_prem]),
             ("Appendix", [p_wacc])]
 
 def run(company_json, terms_json, valuation_json, out, log=print, house_style="auto"):

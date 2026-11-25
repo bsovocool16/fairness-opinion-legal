@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
 """Stage 1 of the ticker-to-proxy lifecycle: public data for a ticker and its peers, written as company.json (schema company/1).
 
-  python3 fetch_company.py <TICKER> <out dir> [--peers A,B,C] [--max-peers 6] [--as-of YYYY-MM-DD]
+  python3 fetch_company.py <TICKER> <out dir> [--peers A,B,C] [--max-peers 6] [--as-of YYYY-MM-DD] [--cik N]
+
+--as-of makes the fetch point-in-time: only XBRL facts filed on or before that date, the company's name as it stood then,
+prices up to that close, and the Treasury yield on that date. A backtest relies on it (scripts/backtest). --cik names a
+target no longer in the SEC ticker list (a company taken private is dropped from it). PRICE_CACHE=<dir> reads
+yahoo_<SYMBOL>*.json chart files from that directory before the network, for a delisted ticker Yahoo no longer serves.
 
 Sources, all public and keyless:
   SEC company_tickers.json            ticker -> CIK
   SEC submissions/CIK##########.json  legal name, SIC code, exchange, fiscal year end
   SEC XBRL companyfacts               annual and LTM revenue, EBIT, D&A, capex, interest, taxes, NWC; latest cash, debt, NCI, shares
   SEC EDGAR company browse by SIC     peer candidates (same SIC, has a ticker, revenue within 0.2x-5x), unless --peers is given
-  Yahoo Finance chart API, Stooq CSV  daily closes, two years, for the price, the 52-week range and 2-year weekly beta vs the S&P 500
+  Yahoo Finance chart API, Stooq CSV  daily closes, five years, for the price, the 52-week range and the 5-year weekly adjusted beta vs the S&P 500
   FRED DGS10                          10-year Treasury yield, the risk-free rate
 
 Every number carries its source (tag, form, period, filed date) so the model's Historicals tab can show it. A field that cannot
 be found is null with a note; later stages flag it rather than guess. EDGAR requests send the profile's SEC contact identity."""
-import sys, re, math, argparse, datetime, statistics, io, csv
+import sys, os, re, json, math, argparse, datetime, statistics, io, csv
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import sec_json, get, save, SCHEMAS, mm, sec_ua
@@ -154,7 +159,18 @@ def shares_out(facts):
     return None, {"basis": "not found"}
 
 # ---- market data ---------------------------------------------------------------------------------------------------
+def _cached_chart(symbol):
+    d = os.environ.get("PRICE_CACHE")
+    if not d: return None
+    hits = sorted(Path(d).glob(f"yahoo_{symbol}_*.json")) + sorted(Path(d).glob(f"yahoo_{symbol}.json"))
+    return json.loads(hits[0].read_text()) if hits else None
+
 def yahoo_closes(symbol, years=2):
+    j = _cached_chart(symbol)
+    if j is not None:
+        res = j["chart"]["result"][0]; ts = res["timestamp"]; cl = res["indicators"]["quote"][0]["close"]
+        adj = (res["indicators"].get("adjclose") or [{}])[0].get("adjclose") or cl
+        return [(datetime.datetime.utcfromtimestamp(t).date().isoformat(), c, a) for t, c, a in zip(ts, cl, adj) if c is not None]
     r = get(f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}", params={"range": f"{years}y", "interval": "1d"}, headers={"User-Agent": "Mozilla/5.0"}, gap=0.3)
     res = r.json()["chart"]["result"][0]; ts = res["timestamp"]; cl = res["indicators"]["quote"][0]["close"]
     adj = (res["indicators"].get("adjclose") or [{}])[0].get("adjclose") or cl
@@ -165,6 +181,11 @@ def stooq_closes(symbol, years=2):
     r = get("https://stooq.com/q/d/l/", params={"s": s, "i": "d"}, gap=0.3)
     rows = list(csv.DictReader(io.StringIO(r.text))); cut = (datetime.date.today() - datetime.timedelta(days=365 * years)).isoformat()
     return [(x["Date"], float(x["Close"]), float(x["Close"])) for x in rows if x.get("Close") and x["Date"] >= cut]
+
+def years_back(as_of, years=2):
+    """Years of history to request so that `years` of it precede as_of."""
+    lag = (datetime.date.today() - datetime.date.fromisoformat(as_of)).days if as_of else 0
+    return years + max(0, math.ceil(lag / 365))
 
 def closes(symbol, years=2):
     errs = []
@@ -188,15 +209,42 @@ def weekly_beta(px, mkt):
     cov = sum((x - ma) * (y - mb) for x, y in zip(ra, rb)); var = sum((y - mb) ** 2 for y in rb)
     return (cov / var if var else None), len(ra)
 
+BETA_YEARS = 5           # a 5-year weekly window, the convention for the published (Bloomberg-style) adjusted beta
+
+def adjusted_beta(raw):
+    """Blume / Bloomberg adjustment toward the market: 0.67 x raw + 0.33 x 1.0."""
+    return None if raw is None else 0.67 * raw + 0.33
+
 def price_block(sym, mkt, as_of):
-    px, src = closes(sym)
-    px = [p for p in px if p[0] <= as_of]
+    px_all, src = closes(sym, years_back(as_of, BETA_YEARS))
+    d0 = datetime.date.fromisoformat(as_of)
+    start2, start5 = ((d0 - datetime.timedelta(days=d)).isoformat() for d in (730, 365 * BETA_YEARS + 1))
+    px5 = [p for p in px_all if start5 < p[0] <= as_of]; px = [p for p in px5 if p[0] > start2]
+    if not px: raise RuntimeError(f"no {sym} closes on or before {as_of}")
+    mkt5 = [p for p in mkt if start5 < p[0] <= as_of] if mkt else mkt
     last_d, last, _ = px[-1]; yr = [p for p in px if p[0] > (datetime.date.fromisoformat(last_d) - datetime.timedelta(days=365)).isoformat()]
-    beta, n = weekly_beta(px, mkt) if mkt else (None, 0)
+    beta, n = weekly_beta(px5, mkt5) if mkt else (None, 0)
+    beta2, n2 = weekly_beta(px, [p for p in mkt5 if p[0] > start2]) if mkt else (None, 0)
     vw = [p[1] for p in px[-30:]]
+    yrs = f"{n / 52:.1f}-year" if n < 52 * BETA_YEARS - 4 else f"{BETA_YEARS}-year"
     return {"last": round(last, 4), "date": last_d, "high_52w": round(max(p[1] for p in yr), 4), "low_52w": round(min(p[1] for p in yr), 4),
             "avg_30d": round(sum(vw) / len(vw), 4), "history_1y": [[d, round(c, 4)] for d, c, _ in yr], "source": src,
-            "beta_raw": None if beta is None else round(beta, 3), "beta_basis": f"2-year weekly vs S&P 500 ({n} weeks)" if beta is not None else "not enough history"}
+            "beta_raw": None if beta is None else round(beta, 3), "beta_adj": None if beta is None else round(adjusted_beta(beta), 3),
+            "beta_raw_2y": None if beta2 is None else round(beta2, 3), "beta_window_start": px5[0][0],
+            "beta_basis": (f"{yrs} weekly vs S&P 500 ({n} weeks), adjusted 0.67 x raw + 0.33" + (f"; 2-year raw {beta2:.2f}" if beta2 is not None else "")) if beta is not None else "not enough history"}
+
+def long_rate(as_of):
+    """30-year Treasury yield (Cboe ^TYX): the long-bond risk-free rate for the WACC judgment case. FRED DGS20 is preferred when reachable."""
+    try:
+        r = get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": "DGS20", "cosd": (datetime.date.fromisoformat(as_of) - datetime.timedelta(days=20)).isoformat(), "coed": as_of}, headers={"User-Agent": "Mozilla/5.0"}, gap=0.3, tries=1, timeout=15)
+        rows = [(d, float(v)) for d, v in list(csv.reader(io.StringIO(r.text)))[1:] if v not in (".", "")]
+        d, v = rows[-1]; return {"rate": round(v / 100, 5), "date": d, "tenor": 20, "source": "FRED DGS20 (20-year U.S. Treasury, constant maturity)"}
+    except Exception: pass
+    try:
+        px = [p for p in yahoo_closes("^TYX", years=years_back(as_of, 1)) if p[0] <= as_of]
+        d, v, _ = px[-1]; return {"rate": round(v / 100, 5), "date": d, "tenor": 30, "source": "Cboe 30-year U.S. Treasury yield index (^TYX, via Yahoo); FRED DGS20 unavailable"}
+    except Exception as e:
+        return {"rate": None, "date": None, "source": f"no long-bond yield ({e})"}
 
 def risk_free(as_of):
     try:
@@ -206,7 +254,7 @@ def risk_free(as_of):
     except Exception as e:
         fred_err = e
     try:  # fallback: Cboe 10-year Treasury yield index (^TNX quotes the yield in percent)
-        px = [p for p in yahoo_closes("^TNX", years=1) if p[0] <= as_of]
+        px = [p for p in yahoo_closes("^TNX", years=years_back(as_of, 1)) if p[0] <= as_of]
         d, v, _ = px[-1]; return {"rate": round(v / 100, 5), "date": d, "source": "Cboe 10-year U.S. Treasury yield index (^TNX, via Yahoo); FRED DGS10 unavailable"}
     except Exception as e:
         return {"rate": None, "date": None, "source": f"FRED unavailable ({fred_err}); ^TNX unavailable ({e}); set the risk-free rate on the Assumptions tab"}
@@ -216,18 +264,53 @@ def ticker_map():
     j = sec_json("https://www.sec.gov/files/company_tickers.json")
     return {v["ticker"].upper(): (int(v["cik_str"]), v["title"]) for v in j.values()}
 
+def point_in_time(facts, as_of):
+    """The company facts as they stood on as_of: every fact filed after it is dropped (a later 10-K's restatement included)."""
+    if not as_of: return facts
+    out = {k: v for k, v in facts.items() if k != "facts"}; out["facts"] = {}
+    for ns, tags in facts.get("facts", {}).items():
+        for tag, node in tags.items():
+            units = {u: [e for e in rows if (e.get("filed") or "9999") <= as_of] for u, rows in node.get("units", {}).items()}
+            units = {u: rows for u, rows in units.items() if rows}
+            if units: out["facts"].setdefault(ns, {})[tag] = {**node, "units": units}
+    return out
+
+def name_as_of(sub, as_of):
+    """The registrant's name on as_of (a company taken private is often renamed afterwards)."""
+    for f in sorted(sub.get("formerNames") or [], key=lambda f: f.get("to") or ""):
+        if as_of and (f.get("from") or "")[:10] <= as_of <= (f.get("to") or "")[:10]: return f["name"]
+    return sub.get("name")
+
 def company(ticker, cik, mkt, as_of, light=False):
     sub = sec_json(f"https://data.sec.gov/submissions/CIK{cik:010d}.json")
-    facts = sec_json(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json")
+    facts = point_in_time(sec_json(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"), as_of)
     hist, L, bal = financials(facts, years=2 if light else 5)
     sh, shs = shares_out(facts)
-    rec = {"ticker": ticker, "cik": cik, "name": sub.get("name"), "sic": sub.get("sic"), "sic_description": sub.get("sicDescription"),
+    rec = {"ticker": ticker, "cik": cik, "name": name_as_of(sub, as_of), "sic": sub.get("sic"), "sic_description": sub.get("sicDescription"),
            "exchange": (sub.get("exchanges") or [None])[0], "fiscal_year_end": sub.get("fiscalYearEnd"), "state_of_incorporation": sub.get("stateOfIncorporation"),
            "annual": hist, "ltm": L, "balance": bal, "shares_out_mm": sh, "shares_source": shs}
     try: rec["price"] = price_block(ticker.replace(".", "-"), mkt, as_of)
     except Exception as e: rec["price"] = None; rec.setdefault("notes", []).append(str(e))
     if light: rec.pop("annual")
+    else: management_figures(rec, cik, as_of)
     return rec
+
+def management_figures(rec, cik, as_of, log=print):
+    """Management's LTM Adjusted EBITDA and as-converted share count from the latest earnings release filed by as_of
+    (earnings_release.py). An as-converted count above the XBRL count, with noncontrolling interest on the balance sheet, is
+    an Up-C: the exchangeable units are counted as shares and their book NCI is no longer deducted (it was double counting)."""
+    import earnings_release
+    try: got = earnings_release.find(cik, as_of, log=log)
+    except Exception as e: got = None; rec.setdefault("notes", []).append(f"earnings release not read: {e}")
+    if not got: return
+    rec["management"] = got
+    ac = (got.get("as_converted_shares") or {}).get("value"); B = rec["balance"]
+    if ac and rec.get("shares_out_mm") and (B.get("nci") or 0) > 0 and ac > rec["shares_out_mm"] * 1.05:
+        rec["shares_source"] = {"basis": f"fully diluted shares on an as-converted basis (Class A plus units exchangeable 1:1), from the earnings release: \"{got['as_converted_shares']['quote']}\"; XBRL count was {rec['shares_out_mm']:.1f}",
+                                "form": got["source"]["form"], "accn": got["source"]["accn"], "filed": got["source"]["filed"], "as_of": got["source"]["filed"], "tag": "earnings release"}
+        rec["shares_out_mm"] = ac; B["nci_book"] = B.get("nci"); B["nci"] = 0
+        B.setdefault("notes", []).append(f"Up-C: book noncontrolling interest of {B['nci_book']:,.1f} is the exchangeable units already counted in the as-converted shares; not deducted")
+        log(f"  Up-C: {ac:.1f}mm as-converted shares; book NCI {B['nci_book']:,.1f} not deducted")
 
 def sic_candidates(sic, tmap, exclude_cik):
     r = get("https://www.sec.gov/cgi-bin/browse-edgar", params={"action": "getcompany", "SIC": sic, "type": "10-K", "owner": "include", "count": 100}, headers={"User-Agent": sec_ua()})
@@ -249,12 +332,13 @@ def pick_peers(target, cands, mkt, as_of, max_peers, log):
         scored.append((abs(math.log(ratio)), t, p)); log(f"  candidate {t} {p['name'][:40]} revenue {ratio:.2f}x")
     scored.sort(key=lambda x: x[0]); return [p for _, _, p in scored[:max_peers]]
 
-def run(ticker, out, peers=None, max_peers=6, as_of=None, log=print):
+def run(ticker, out, peers=None, max_peers=6, as_of=None, log=print, cik=None):
     as_of = as_of or datetime.date.today().isoformat(); ticker = ticker.upper()
     tmap = ticker_map()
-    if ticker not in tmap: raise SystemExit(f"{ticker} is not in the SEC ticker list (company_tickers.json)")
-    cik, _ = tmap[ticker]
-    mkt, msrc = closes("^GSPC"); log(f"S&P 500 history: {len(mkt)} days ({msrc})")
+    if cik: cik = int(cik)
+    elif ticker in tmap: cik, _ = tmap[ticker]
+    else: raise SystemExit(f"{ticker} is not in the SEC ticker list (company_tickers.json); give --cik for a delisted company")
+    mkt, msrc = closes("^GSPC", years_back(as_of, BETA_YEARS)); log(f"S&P 500 history: {len(mkt)} days ({msrc})")
     tgt = company(ticker, cik, mkt, as_of); log(f"{ticker} CIK {cik} {tgt['name']} SIC {tgt['sic']} {tgt['sic_description']}")
     if peers:
         chosen = []
@@ -277,9 +361,9 @@ def run(ticker, out, peers=None, max_peers=6, as_of=None, log=print):
             chosen = sorted(chosen + pick_peers(tgt, more, mkt, as_of, max_peers - len(chosen), log), key=lambda p: abs(math.log(p["ltm"]["values"]["revenue"] / tgt["ltm"]["values"]["revenue"])))
             basis = f"SIC industry group {str(tgt['sic'])[:3]}x (own code {tgt['sic']} {tgt['sic_description']} had fewer than three), revenue within 0.2x-5x of the target's, closest {max_peers} by revenue"
     doc = {"schema": SCHEMAS["company"], "as_of": as_of, "units": "$ in millions, shares in millions, per-share in $", "target": tgt,
-           "peers": chosen, "peer_basis": basis, "market": {"risk_free": risk_free(as_of), "index": "S&P 500 (^GSPC)"}}
+           "peers": chosen, "peer_basis": basis, "market": {"risk_free": risk_free(as_of), "long_rate": long_rate(as_of), "index": "S&P 500 (^GSPC)"}}
     p = save(doc, Path(out) / "company.json"); log(f"wrote {p} ({len(chosen)} peers)"); return doc
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("ticker"); ap.add_argument("out"); ap.add_argument("--peers", default=None); ap.add_argument("--max-peers", type=int, default=6); ap.add_argument("--as-of", default=None)
-    a = ap.parse_args(); run(a.ticker, a.out, a.peers.split(",") if a.peers else None, a.max_peers, a.as_of)
+    ap = argparse.ArgumentParser(); ap.add_argument("ticker"); ap.add_argument("out"); ap.add_argument("--peers", default=None); ap.add_argument("--max-peers", type=int, default=6); ap.add_argument("--as-of", default=None); ap.add_argument("--cik", default=None)
+    a = ap.parse_args(); run(a.ticker, a.out, a.peers.split(",") if a.peers else None, a.max_peers, a.as_of, cik=a.cik)

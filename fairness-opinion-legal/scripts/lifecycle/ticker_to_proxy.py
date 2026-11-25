@@ -7,7 +7,8 @@
   python3 ticker_to_proxy.py status <deal dir>
 
 Options: --buyer NAME  --buyer-type strategic|sponsor|controlling holder|management  --premium 0.30 | --offer-price 51.00
-         --regime conventional|13e-3  --addressee "the Board of Directors"  --opinion-date YYYY-MM-DD  --codename "Project X"
+         --regime conventional|13e-3  --addressee "the Board of Directors"  --opinion-date YYYY-MM-DD  --unaffected-date YYYY-MM-DD  --codename "Project X"
+         --as-of YYYY-MM-DD (point-in-time fetch)  --cik N (a delisted target)
          --peers A,B,C  --max-peers 6  --fixture <company.json> (offline: skip fetch and use this file)  --force (letter)
 
 Stages and their files (all under <deal dir>/lifecycle/ unless noted; each reads only the files named before it):
@@ -43,12 +44,12 @@ def stage_fetch(deal, a):
     if a.fixture:
         shutil.copy(a.fixture, P["company"]); print(f"fixture: copied {a.fixture}"); return
     import fetch_company
-    fetch_company.run(a.ticker, P["lc"], a.peers.split(",") if a.peers else None, a.max_peers, a.as_of)
+    fetch_company.run(a.ticker, P["lc"], a.peers.split(",") if a.peers else None, a.max_peers, a.as_of, cik=a.cik)
 
 def stage_terms(deal, a):
     P = paths(deal); co = load(P["company"]); t = co["target"]; hist = t["price"]["history_1y"]
     od = a.opinion_date or co["as_of"]
-    before = [h for h in hist if h[0] < od] or hist
+    before = ([h for h in hist if h[0] <= a.unaffected_date] if a.unaffected_date else [h for h in hist if h[0] < od]) or hist
     ud, up = before[-1]
     if a.offer_price: offer = float(a.offer_price)
     else: offer = round(round(up * (1 + a.premium) * 4) / 4, 2)          # to the nearest $0.25, as offers are announced
@@ -71,6 +72,8 @@ def stage_revalue(deal, a):
 
 def stage_check(deal, a):
     import check_model; P = paths(deal); F = check_model.check(P["model"], P["values"])
+    for cdir in sorted((P["lc"] / "cases").glob("*/")) if (P["lc"] / "cases").exists() else []:      # every EBITDA case's workbook meets the same conventions
+        if (cdir / "model.xlsx").exists(): F += [(r, f"{cdir.name}: {c}", d) for r, c, d in check_model.check(cdir / "model.xlsx", cdir / "model_values.xlsx")]
     save([{"rule": r, "cell": c, "detail": d} for r, c, d in F], P["check"])
     if F:
         for r, c, d in F[:20]: print(f"  {r} {c} {d}")
@@ -131,7 +134,7 @@ if __name__ == "__main__":
     def common(p):
         p.add_argument("--advisor"); p.add_argument("--buyer", default="Hypothetical Parent, LLC"); p.add_argument("--buyer-type", default="sponsor", choices=["strategic", "sponsor", "controlling holder", "management"])
         g = p.add_mutually_exclusive_group(); g.add_argument("--premium", type=float, default=0.30); g.add_argument("--offer-price", type=float)
-        p.add_argument("--regime", choices=["conventional", "13e-3"]); p.add_argument("--addressee"); p.add_argument("--opinion-date"); p.add_argument("--as-of"); p.add_argument("--codename")
+        p.add_argument("--regime", choices=["conventional", "13e-3"]); p.add_argument("--addressee"); p.add_argument("--opinion-date"); p.add_argument("--unaffected-date", help="last close before the deal was public (default: the last close before the opinion date)"); p.add_argument("--as-of"); p.add_argument("--cik", help="target CIK, for a company no longer in the SEC ticker list"); p.add_argument("--codename")
         p.add_argument("--peers"); p.add_argument("--max-peers", type=int, default=6); p.add_argument("--fixture"); p.add_argument("--force", action="store_true")
         p.add_argument("--house-style", default="auto", help="board-book look: auto (match the advisor), default, goldman, perella, jpm, jefferies, citi, evercore")
     r = sub.add_parser("run"); r.add_argument("ticker"); r.add_argument("deal"); common(r)
