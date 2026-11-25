@@ -77,6 +77,27 @@ CASES = {"reported": "Reported EBITDA (EBIT + D&A); stock-based compensation tre
          "ex_sbc": "EBITDA not burdened by stock-based compensation (SBC added back, target and peers)",
          "management": "Management's Adjusted EBITDA (LTM, from the earnings release); peers with SBC added back"}
 
+# Discount-rate judgment calls, each one change from the base WACC, layered on the richest EBITDA case the data supports
+# (management's, when the earnings release gives it), so a reviewer sees how far each choice moves the DCF.
+# None of the alternative values is read from the advisor's book: each has a public, pre-cutoff basis written beside it.
+WACC_CASES = {"own_beta": "the target's own adjusted unlevered beta instead of the peer median",
+              "long_rf": "a long-bond risk-free rate (20-year, or 30-year where the 20-year is not available) instead of the 10-year",
+              "erp_high": "a 6.5% equity risk premium (the upper end of commonly used long-horizon estimates) instead of 5.5%",
+              "combined": "all three discount-rate changes together"}
+WACC_KEYS = ("own_beta", "long_rf", "erp_high")
+
+def case_label(case):
+    e, _, w = case.partition("+")
+    return CASES[e] + (f"; WACC with {WACC_CASES[w]}" if w else "")
+
+def available_wacc_cases(co):
+    out = []
+    if (co["target"].get("price") or {}).get("beta_raw") is not None: out.append("own_beta")
+    if ((co["market"].get("long_rate") or {}).get("rate")): out.append("long_rf")
+    out.append("erp_high")
+    if len(out) > 1: out.append("combined")
+    return out
+
 def available_cases(co):
     t = co["target"]; out = ["reported"]
     if (t["ltm"]["values"].get("sbc") or 0) > 0: out.append("ex_sbc")
@@ -89,6 +110,7 @@ def ebitda_of(v, case):
     return (v.get("ebit") or 0) + (v.get("da") or 0) + ((v.get("sbc") or 0) if case in ("ex_sbc", "management") else 0)
 
 def defaults(co, terms, case="reported"):
+    case, _, wacc = case.partition("+"); w = set(WACC_KEYS) if wacc == "combined" else {wacc} if wacc else set()
     """Starting assumptions, all judgment inputs entered in blue and editable; each one's basis is written next to it."""
     t = co["target"]; A = [r for r in t["annual"] if r.get("revenue")]; last3 = A[-3:]
     def avg(f, base="revenue"):
@@ -121,14 +143,17 @@ def defaults(co, terms, case="reported"):
         ev = mcap + p["balance"]["debt"] - p["balance"]["cash"] + (p["balance"].get("nci") or 0) + (p["balance"].get("preferred") or 0)
         if eb > 0 and 0 < ev / eb < 50: mults.append(ev / eb)
         dcaps.append(p["balance"]["debt"] / (p["balance"]["debt"] + mcap))
-        if p["price"].get("beta_raw"): betas.append(p["price"]["beta_raw"])
+        if p["price"].get("beta_adj"): betas.append(p["price"]["beta_adj"])
     med = statistics.median(mults) if mults else 10.0
     lo, hi = (pctile(mults, 0.25), pctile(mults, 0.75)) if len(mults) >= 3 else (med * 0.85, med * 1.15)
-    rf = co["market"]["risk_free"].get("rate") or 0.0425
+    rf = co["market"]["risk_free"].get("rate") or 0.0425; rf_src = co["market"]["risk_free"]
+    lr = co["market"].get("long_rate") or {}
+    if "long_rf" in w and lr.get("rate"): rf, rf_src = lr["rate"], lr
     ltm = t["ltm"]["values"]; debt = t["balance"]["debt"] or 0
     kd = clamp((ltm.get("interest") or 0) / debt, rf + 0.005, 0.12) if debt > 0 and ltm.get("interest") else rf + 0.0175
     return {"growth": growth, "margin": [margin] * N_PROJ, "da": [da] * N_PROJ, "capex": [capex] * N_PROJ, "nwc": [nwc] * N_PROJ, "tax": [0.25] * N_PROJ,
-            "rf": rf, "erp": 0.055, "size": 0.0, "kd": r2(kd, 0.0025), "tax_marginal": 0.25, "dcap": r2(statistics.median(dcaps), 0.05) if dcaps else 0.2,
+            "rf": rf, "rf_source": rf_src.get("source", "") + (f", {rf_src.get('date')}" if rf_src.get("date") else ""), "erp": 0.065 if "erp_high" in w else 0.055, "size": 0.0,
+            "beta_src": 2 if "own_beta" in w else 1, "debt_beta": 0.30, "hy_lev": 3.0, "wacc_case": wacc, "kd": r2(kd, 0.0025), "tax_marginal": 0.25, "dcap": r2(statistics.median(dcaps), 0.05) if dcaps else 0.2,
             "wacc_step": 0.005, "g_mid": g_term, "g_step": 0.005, "exit_mid": r2(med, 0.5), "exit_step": 1.0, "midyear": 1,
             "comps_lo": r2(lo, 0.5), "comps_hi": max(r2(hi, 0.5), r2(lo, 0.5) + 0.5), "nm_cap": 50.0, "prem_lo": 0.25, "prem_hi": 0.45,
             "lbo_lev": 5.0, "lbo_rate": r2(rf + 0.04, 0.0025), "lbo_exit": r2(med, 0.5), "irr_lo": 0.20, "irr_hi": 0.25, "lbo_fees": 0.02, "hold": N_PROJ,
@@ -139,11 +164,15 @@ def defaults(co, terms, case="reported"):
                       "case": CASES[case], "da": "3-year average D&A / revenue", "capex": "3-year average capex / revenue",
                       "nwc": "latest fiscal year NWC (current assets less cash, less current liabilities excluding debt) / revenue",
                       "tax": "U.S. federal 21% plus a blended state rate", "exit": "peer median EV / LTM EBITDA, rounded to 0.5x", "comps": "peer 25th-75th percentile EV / LTM EBITDA, rounded to 0.5x",
-                      "erp": "long-horizon equity risk premium, judgment input", "kd": "LTM interest expense / total debt (bounded rf + 0.5% to 12%)", "dcap": "peer median debt / total capitalization, rounded to 5%",
+                      "erp": ("upper end of commonly used long-horizon estimates (about 5% to 6.5%), judgment input" if "erp_high" in w else "long-horizon equity risk premium, judgment input"),
+                      "beta_src": "1 = peer median adjusted unlevered beta; 2 = the target's own (both on the WACC tab)",
+                      "debt_beta": "debt beta for a high-yield issuer, used when unlevering and relevering; judgment input",
+                      "hy_lev": "debt / LTM EBITDA above which a company is treated as a high-yield issuer (no ratings data); judgment input", "kd": "LTM interest expense / total debt (bounded rf + 0.5% to 12%)", "dcap": "peer median debt / total capitalization, rounded to 5%",
                       "prem": "illustrative control-premium range, judgment input; replace with a premiums-paid study for the sector", "lbo": "judgment inputs typical of a sponsor financing"}}
 
 def build(co, terms, out, case="reported", fname="model.xlsx"):
     t = co["target"]; D = defaults(co, terms, case); peers = co["peers"]; reg = {}
+    case = case.partition("+")[0]           # the EBITDA definition; a WACC judgment call lives only in D
     A = [r for r in t["annual"] if r.get("revenue")][-5:]; nA = len(A)
     wb = Workbook(); wb.remove(wb.active)
     tabs = {}
@@ -202,11 +231,15 @@ def build(co, terms, out, case="reported", fname="model.xlsx"):
         asm.put(r, 8, None, "pct")   # the 3-year reference average is written once the Historicals rows are known
         asm.ws.cell(row=r, column=9, value=D["basis"].get(k, "")).font = Font(italic=True, size=9, color=GREY); r += 1
     r += 1; asm.header(r, 2, 9, "Discount rate"); r += 1
-    scalar("Risk-free rate", D["rf"], "pct", "rf", co["market"]["risk_free"].get("source", "") + (f", {co['market']['risk_free'].get('date')}" if co["market"]["risk_free"].get("date") else ""))
+    scalar("Risk-free rate", D["rf"], "pct", "rf", D["rf_source"])
     scalar("Equity risk premium", D["erp"], "pct", "erp", D["basis"]["erp"])
     scalar("Size premium", D["size"], "pct", "size", "judgment input; 0% unless the target is small relative to peers")
     scalar("Pre-tax cost of debt", D["kd"], "pct", "kd", D["basis"]["kd"])
     scalar("Marginal tax rate", D["tax_marginal"], "pct", "tax_m", "for unlevering and relevering beta and the debt tax shield")
+    scalar("Adjusted beta: weight on raw beta", 0.67, "factor", "beta_w", "Blume / Bloomberg adjustment: adjusted = weight x raw + (1 - weight) x 1.0")
+    scalar("Beta source", D["beta_src"], "int", "beta_src", D["basis"]["beta_src"])
+    scalar("Debt beta, high-yield issuer", D["debt_beta"], "beta", "debt_beta", D["basis"]["debt_beta"])
+    scalar("High-yield threshold, debt / LTM EBITDA", D["hy_lev"], "x", "hy_lev", D["basis"]["hy_lev"])
     scalar("Target debt / total capitalization", D["dcap"], "pct", "dcap", D["basis"]["dcap"] + "; peer median shown on the WACC tab")
     scalar("WACC sensitivity step", D["wacc_step"], "pct", "wacc_step", "rows of the sensitivity grids; the selected range is midpoint ± one step")
     r += 1; asm.header(r, 2, 9, "Terminal value"); r += 1
@@ -293,7 +326,7 @@ def build(co, terms, out, case="reported", fname="model.xlsx"):
         asm.ws.cell(row=rr, column=8).value = f"=IFERROR(AVERAGE(Historicals!{L(first)}{hrows[key]}:{L(last)}{hrows[key]}),\"\")"; asm.ws.cell(row=rr, column=8).font = Font(color=GREEN, size=10)
 
     # ---------------- WACC ----------------
-    wc = Tab(wb, "WACC", "Weighted Average Cost of Capital", {"A": 2, "B": 40, "C": 10, "D": 12, "E": 12, "F": 12, "G": 12, "H": 12, "I": 12, "J": 40}); tabs["WACC"] = wc
+    wc = Tab(wb, "WACC", "Weighted Average Cost of Capital", {"A": 2, "B": 40, "C": 10, **{L(c): 11 for c in range(4, 13)}, "M": 48}); tabs["WACC"] = wc
     # filled after Comps so it can link market cap and debt
     # ---------------- Comps ----------------
     cp = Tab(wb, "Comps", "Selected Public Companies Analysis", {"A": 2, "B": 36, "C": 9, **{L(c): 11 for c in range(4, 19)}}); tabs["Comps"] = cp
@@ -348,21 +381,30 @@ def build(co, terms, out, case="reported", fname="model.xlsx"):
     reg["comps_table"] = f"Comps!B{r0}:R{rN}"; reg["comps_stats"] = f"Comps!B{srow['Maximum']}:R{srow['Minimum']}"; reg["comps_target_row"] = f"Comps!B{rt}:R{rt}"
 
     # ---------------- WACC (now that Comps exists) ----------------
-    wc.header(4, 2, 10, "Peer betas"); heads = ["Company", "Ticker", "Raw beta", "Equity value", "Debt", "Debt / equity", "Debt / total cap.", "Unlevered beta", "Beta basis"]
+    wc.header(4, 2, 13, "Peer betas"); heads = ["Company", "Ticker", "Raw beta", "Adjusted beta", "Equity value", "Debt", "Debt / equity", "Debt / total cap.", "High yield (1 = yes)", "Debt beta", "Unlevered beta", "Beta basis"]
     for i, h in enumerate(heads): c = wc.ws.cell(row=4, column=2 + i, value=h); c.alignment = Alignment(horizontal="center" if i else "left", wrap_text=True)
     wc.ws.row_dimensions[4].height = 30
+    tm = reg["tax_m"]
+    def beta_row(r, cr, pr):
+        """Raw and adjusted beta typed; capital structure linked from Comps; debt beta for a high-yield issuer; unlevered with it."""
+        if pr.get("beta_raw") is not None: wc.put(r, 4, pr["beta_raw"], "beta")
+        if pr.get("beta_raw") is not None: wc.put(r, 5, f"={reg['beta_w']}*D{r}+(1-{reg['beta_w']})", "beta")      # Blume / Bloomberg adjustment toward 1.0
+        wc.put(r, 6, f"=Comps!F{cr}", "mm"); wc.put(r, 7, f"=Comps!G{cr}", "mm"); wc.put(r, 8, f"=IFERROR(G{r}/F{r},\"\")", "pct"); wc.put(r, 9, f"=IFERROR(G{r}/(F{r}+G{r}),\"\")", "pct")
+        wc.put(r, 10, f"=IF(G{r}<=0,0,IF(Comps!N{cr}<=0,1,IF(G{r}/Comps!N{cr}>{reg['hy_lev']},1,0)))", "int", align="center")
+        wc.put(r, 11, f"=J{r}*{reg['debt_beta']}", "beta")
+        wc.put(r, 12, f"=IFERROR((E{r}+K{r}*(1-{tm})*H{r})/(1+(1-{tm})*H{r}),\"\")", "beta")
+        wc.ws.cell(row=r, column=13, value=pr.get("beta_basis", "")).font = Font(size=8, color=GREY)
     for j, p in enumerate(peers):
         r = 5 + j; cr = r0 + j
-        wc.put(r, 2, f"=Comps!B{cr}"); wc.put(r, 3, f"=Comps!C{cr}", align="center")
-        wc.put(r, 4, p["price"].get("beta_raw"), "beta") if p["price"].get("beta_raw") is not None else None
-        wc.put(r, 5, f"=Comps!F{cr}", "mm"); wc.put(r, 6, f"=Comps!G{cr}", "mm"); wc.put(r, 7, f"=IFERROR(F{r}/E{r},\"\")", "pct"); wc.put(r, 8, f"=IFERROR(F{r}/(E{r}+F{r}),\"\")", "pct")
-        wc.put(r, 9, f"=IFERROR(D{r}/(1+(1-{reg['tax_m']})*G{r}),\"\")", "beta"); wc.ws.cell(row=r, column=10, value=p["price"].get("beta_basis", "")).font = Font(size=8, color=GREY)
-    wN = 5 + len(peers) - 1; r = wN + 1; wc.total(r, 2, 9)
-    wc.label(r, "Median", bold=True); wc.put(r, 4, f"=MEDIAN(D5:D{wN})", "beta", bold=True); wc.put(r, 8, f"=MEDIAN(H5:H{wN})", "pct", bold=True); wc.put(r, 9, f"=MEDIAN(I5:I{wN})", "beta", bold=True); wmed = r; r += 1
-    wc.label(r, "Mean", bold=True); wc.put(r, 4, f"=AVERAGE(D5:D{wN})", "beta"); wc.put(r, 8, f"=AVERAGE(H5:H{wN})", "pct"); wc.put(r, 9, f"=AVERAGE(I5:I{wN})", "beta"); r += 1
-    wc.label(r, f"{t['name']} (reference)", italic=True); wc.put(r, 3, t["ticker"], align="center")
-    if t["price"].get("beta_raw") is not None: wc.put(r, 4, t["price"]["beta_raw"], "beta")
-    wc.ws.cell(row=r, column=10, value=t["price"].get("beta_basis", "")).font = Font(size=8, color=GREY); r += 2
+        wc.put(r, 2, f"=Comps!B{cr}"); wc.put(r, 3, f"=Comps!C{cr}", align="center"); beta_row(r, cr, p["price"])
+    wN = 5 + len(peers) - 1; r = wN + 1; wc.total(r, 2, 12)
+    wc.label(r, "Median", bold=True)
+    for c in (4, 5, 9, 12): wc.put(r, c, f"=IFERROR(MEDIAN({L(c)}5:{L(c)}{wN}),\"\")", "pct" if c == 9 else "beta", bold=True)
+    wmed = r; r += 1
+    wc.label(r, "Mean", bold=True)
+    for c in (4, 5, 9, 12): wc.put(r, c, f"=IFERROR(AVERAGE({L(c)}5:{L(c)}{wN}),\"\")", "pct" if c == 9 else "beta")
+    r += 1
+    wc.label(r, f"{t['name']} (own beta, at the unaffected price)", italic=True); wc.put(r, 3, t["ticker"], align="center"); beta_row(r, rt, t["price"]); wt = r; r += 2
     wc.header(r, 2, 4, "Cost of capital"); r += 1
     def wl(label, f, fmt, key=None, bold=False, note=""):
         nonlocal r
@@ -370,10 +412,13 @@ def build(co, terms, out, case="reported", fname="model.xlsx"):
         if note: wc.ws.cell(row=r, column=5, value=note).font = Font(italic=True, size=9, color=GREY)
         if key: reg[key] = addr
         r += 1; return wc.loc(r - 1, 4)
-    a_bu = wl("Unlevered beta (peer median)", f"=I{wmed}", "beta", "beta_u")
+    a_med = wl("Unlevered beta, peer median", f"=L{wmed}", "beta", "beta_u_peers")
+    a_own = wl(f"Unlevered beta, {t['name']}", f"=L{wt}", "beta", "beta_u_own", note="for reference unless the beta source on Assumptions is 2")
+    a_bu = wl("Unlevered beta (selected)", f"=CHOOSE({reg['beta_src']},{a_med},{a_own})", "beta", "beta_u", note="beta source on Assumptions: 1 = peer median, 2 = the target's own")
     a_dc = wl("Target debt / total capitalization", f"={reg['dcap']}", "pct", None, note="Assumptions tab; peer median shown above")
     a_de = wl("Implied debt / equity", f"={a_dc}/(1-{a_dc})", "pct")
-    a_bl = wl("Relevered beta", f"={a_bu}*(1+(1-{reg['tax_m']})*{a_de})", "beta", "beta_l", note="Hamada: βL = βU × (1 + (1 - t) × D/E)")
+    a_bd = wl("Target debt beta", f"=K{wt}", "beta", None, note="the target's own high-yield test above")
+    a_bl = wl("Relevered beta", f"={a_bu}*(1+(1-{reg['tax_m']})*{a_de})-{a_bd}*(1-{reg['tax_m']})*{a_de}", "beta", "beta_l", note="Hamada with debt beta: βL = βU × (1 + (1 - t) × D/E) - βD × (1 - t) × D/E")
     a_rf = wl("Risk-free rate", f"={reg['rf']}", "pct"); a_erp = wl("Equity risk premium", f"={reg['erp']}", "pct"); a_sz = wl("Size premium", f"={reg['size']}", "pct")
     a_ke = wl("Cost of equity", f"={a_rf}+{a_bl}*{a_erp}+{a_sz}", "pct", "ke", bold=True, note="CAPM: rf + β × ERP + size premium")
     a_kd = wl("Pre-tax cost of debt", f"={reg['kd']}", "pct"); a_kdat = wl("After-tax cost of debt", f"={a_kd}*(1-{reg['tax_m']})", "pct", "kd_at")
@@ -646,9 +691,9 @@ def evaluate(model, reg, co, D, out, log=print):
     for f in flags: log(f"flag: {f}")
     return doc
 
-CASE_CELLS = ("dcf_years", "row_rev", "h_ebitda_ltm", "wacc", "comps_lo", "comps_hi", "exit_mid", "tgt_ev_ltm_ebitda_unaff", "comps_median_ebitda", "row_ebitda", "row_ufcf", "offer_ev_ebitda")
+CASE_CELLS = ("beta_u", "beta_l", "ke", "rf", "erp", "kd", "dcf_years", "row_rev", "h_ebitda_ltm", "wacc", "comps_lo", "comps_hi", "exit_mid", "tgt_ev_ltm_ebitda_unaff", "comps_median_ebitda", "row_ebitda", "row_ufcf", "offer_ev_ebitda")
 def case_summary(doc, case):
-    return {"label": CASES[case], "ranges": doc["ranges"], "flags": doc["flags"], "errors": doc["errors"], "model": doc["model"], "model_values": doc["model_values"],
+    return {"label": case_label(case), "ranges": doc["ranges"], "flags": doc["flags"], "errors": doc["errors"], "model": doc["model"], "model_values": doc["model_values"],
             "cells": {k: doc["cells"][k] for k in CASE_CELLS if k in doc["cells"]}}
 
 def run(company_json, terms_json, out, log=print, cases=True):
@@ -661,6 +706,12 @@ def run(company_json, terms_json, out, log=print, cases=True):
     doc["cases"] = {"reported": case_summary(doc, "reported")}
     for case in available_cases(co)[1:]:
         cdir = Path(out) / "cases" / case; log(f"case {case}: {CASES[case]}")
+        cp_, creg, cD = build(co, terms, cdir, case=case)
+        cdoc = evaluate(cp_, creg, co, cD, cdir, log=lambda m: log(f"  {m}"))
+        doc["cases"][case] = case_summary(cdoc, case)
+    top = available_cases(co)[-1]
+    for wcase in available_wacc_cases(co):
+        case = f"{top}+{wcase}"; cdir = Path(out) / "cases" / case; log(f"case {case}: {case_label(case)}")
         cp_, creg, cD = build(co, terms, cdir, case=case)
         cdoc = evaluate(cp_, creg, co, cD, cdir, log=lambda m: log(f"  {m}"))
         doc["cases"][case] = case_summary(cdoc, case)

@@ -118,6 +118,30 @@ EBITDA definition. Assisted mode, audit passed:
 The EBITDA definition explains the comps gap almost entirely: on management's basis our comps range lands on Citi's. The DCF on the
 same basis overshoots, because our WACC is 5.0% against Citi's 7.9%-8.5% (the model flags it); WACC is the next driver to examine.
 
+## Third run: beta method and discount-rate judgment calls (2026-11-25)
+
+The base WACC was 5.0% against Citi's 7.9%-8.5%. Most of the gap was the beta method, which is a fix rather than a judgment
+call: we used raw two-year weekly betas, where banks use adjusted (Bloomberg/Blume, 0.67 x raw + 0.33) five-year weekly betas and
+unlever high-yield issuers with a debt beta. The model now does all three: adjusted 5-year betas (computed on the WACC tab from the
+typed raw beta), a 0.30 debt beta for companies above 3.0x debt / LTM EBITDA (a stand-in for ratings, which are not public data),
+and the target's own unlevered beta beside the peer median. Peer median unlevered beta moved from 0.13 to **0.47** (Citi: 0.45);
+Utz's own from 0.19 raw to 0.53 (Citi: 0.61).
+
+The remaining inputs are judgment calls, so each is its own workbook on the management EBITDA case (`cases/management+<call>/`),
+shown on the book page "Discount Rate: Judgment Calls". No alternative value is taken from Citi's book; each has a public,
+pre-cutoff basis.
+
+| | base | own beta | long-bond rf (30-year ^TYX) | ERP 6.5% | all three | Citi |
+|---|---|---|---|---|---|---|
+| WACC | 6.2% | 6.5% | 6.7% | 6.6% | 7.4% | 7.9% - 8.5% |
+| DCF $/share (perpetuity) | 9.87 - 20.09 | 9.03 - 17.76 | 8.51 - 16.39 | 8.82 - 17.20 | 6.92 - 12.61 | 10.60 - 14.80 |
+| DCF IoU | 0.41 | 0.48 | 0.53 | 0.50 | 0.26 | |
+
+The base DCF moved from $15.49-$42.39 to $9.87-$20.09. The remaining ~80 bp at "all three" is the cost of debt (ours 5.0%, LTM
+interest over debt; Citi 7.8%, an expected market yield) and leverage (35% vs about 40%). With all three calls the range undershoots
+Citi's, so the projections and terminal assumptions, not the discount rate, are now the larger difference. FRED and treasury.gov were
+unreachable from the cloud session, so the long-bond case used the 30-year yield; a 20-year (FRED DGS20) is used when reachable.
+
 ## Running it
 
 ```

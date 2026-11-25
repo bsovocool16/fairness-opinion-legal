@@ -152,3 +152,10 @@ def test_ebitda_cases():
     co["target"]["management"] = {"ltm_adj_ebitda": {"value": 219.3}}
     assert BM.available_cases(co) == ["reported", "ex_sbc", "management"]
     assert BM.available_cases({"target": {"ltm": {"values": {"ebit": 1, "da": 1}}}}) == ["reported"]
+
+def test_adjusted_beta_and_wacc_cases():
+    assert round(FC.adjusted_beta(0.19), 4) == 0.4573 and FC.adjusted_beta(None) is None
+    co = {"target": {"price": {"beta_raw": 0.19}}, "market": {"long_rate": {"rate": 0.052}}}
+    assert BM.available_wacc_cases(co) == ["own_beta", "long_rf", "erp_high", "combined"]
+    assert BM.available_wacc_cases({"target": {"price": {}}, "market": {}}) == ["erp_high"]
+    assert BM.case_label("management+erp_high").startswith(BM.CASES["management"]) and "6.5%" in BM.case_label("management+erp_high")

@@ -114,7 +114,7 @@ def run(company_json, terms_json, valuation_json, out, log=print):
     d.notes(s, ["The 52-week trading range is presented for reference only and is not a valuation methodology. Premiums paid range is illustrative.",
                 "Implied values per share are rounded to the nearest $0.01 and are based on the illustrative projections and the assumptions in the valuation model."], Inches(6.25))
     # 3a the judgment calls: each EBITDA definition the data supports, each from its own recalculated workbook
-    cases = val.get("cases") or {}
+    allc = val.get("cases") or {}; cases = {k: v for k, v in allc.items() if "+" not in k}
     if len(cases) > 1:
         s = d.slide("EBITDA Definition: Judgment Calls", None, "Implied value per share under each EBITDA definition; the base case is the first column")
         short = {"reported": "Reported (SBC as a cash cost)", "ex_sbc": "SBC added back", "management": "Management adjusted"}
@@ -128,6 +128,20 @@ def run(company_json, terms_json, valuation_json, out, log=print):
                 ["Offer price per share"] + [money(offer)] * len(ks)]
         d.table(s, rows, Inches(0.5), Inches(1.6), Inches(12.3), [5] + [3] * len(ks), 11, bold_rows=(len(rows) - 1,), rowh=0.38)
         d.notes(s, [cases[k]["label"] + "." for k in ks] + ["Trading range and premiums do not depend on the EBITDA definition. Each column is a separate model workbook (cases/<case>/model.xlsx)."], Inches(5.55))
+    wks = [k for k in allc if "+" in k]
+    if wks:      # 3b the discount-rate judgment calls, each one change from the base WACC on the richest EBITDA case
+        base = wks[0].split("+")[0]; ks = [base] + wks; CC = allc
+        s = d.slide("Discount Rate: Judgment Calls", None, f"Implied value per share as each WACC input changes; EBITDA on the {base.replace('_', ' ')} basis throughout")
+        short = {"own_beta": "Target's own beta", "long_rf": "Long-bond risk-free", "erp_high": "ERP 6.5%", "combined": "All three"}
+        cv = lambda k, c: (CC[k]["cells"].get(c) or {}).get("value")
+        rng = lambda k, a: f"{money(CC[k]['ranges'][a]['low'])} – {money(CC[k]['ranges'][a]['high'])}"
+        rows = [[""] + ["Base WACC"] + [short[k.split("+")[1]] for k in wks], ["Risk-free rate"] + [pct(cv(k, "rf"), 2) for k in ks], ["Equity risk premium"] + [pct(cv(k, "erp")) for k in ks],
+                ["Unlevered beta"] + [f"{cv(k, 'beta_u'):.2f}" if cv(k, "beta_u") is not None else "–" for k in ks], ["Relevered beta"] + [f"{cv(k, 'beta_l'):.2f}" if cv(k, "beta_l") is not None else "–" for k in ks],
+                ["Cost of equity"] + [pct(cv(k, "ke")) for k in ks], ["WACC (midpoint)"] + [pct(cv(k, "wacc")) for k in ks],
+                ["Discounted Cash Flow Analysis — perpetuity growth"] + [rng(k, "dcf_pgr") for k in ks], ["Discounted Cash Flow Analysis — exit multiple"] + [rng(k, "dcf_exit") for k in ks],
+                ["Offer price per share"] + [money(offer)] * len(ks)]
+        d.table(s, rows, Inches(0.5), Inches(1.6), Inches(12.3), [4.2] + [1.6] * len(ks), 10, bold_rows=(6, len(rows) - 1), rowh=0.36)
+        d.notes(s, [f"{short[k.split('+')[1]]}: " + CC[k]["label"].split("; WACC with ")[-1] + "." for k in wks] + ["Each column is a separate model workbook (cases/<case>/model.xlsx). None of the alternative inputs is taken from the advisor."], Inches(5.4), 9)
     # 4 52-week trading range
     s = d.slide("52-Week Trading Range", "trading_range", f"{t['name']} daily closing share price, 52 weeks to {t['price']['date']} (for reference only)")
     hist = t["price"]["history_1y"]
@@ -205,11 +219,12 @@ def run(company_json, terms_json, valuation_json, out, log=print):
     d.notes(s, [f"The premium range is an illustrative judgment input ({b['prem']}). A full analysis would apply premiums observed in comparable acquisitions of U.S. public companies."], Inches(4.3), 10)
     # 11 appendix WACC
     s = d.slide("Appendix: Weighted Average Cost of Capital Analysis", "wacc", "Capital asset pricing model with peer betas unlevered and relevered at the target capital structure")
-    rows = [["Component", "Value"], ["Risk-free rate", pct(g("rf"), 2)], ["Equity risk premium", pct(g("erp"))], ["Size premium", pct(g("size"))], ["Unlevered beta (peer median)", f"{g('beta_u'):.2f}"],
+    rows = [["Component", "Value"], ["Risk-free rate", pct(g("rf"), 2)], ["Equity risk premium", pct(g("erp"))], ["Size premium", pct(g("size"))],
+            ["Unlevered beta, peer median", f"{g('beta_u_peers'):.2f}"], [f"Unlevered beta, {t['name']}", f"{g('beta_u_own'):.2f}" if isinstance(g("beta_u_own"), (int, float)) else "–"], ["Unlevered beta (selected)", f"{g('beta_u'):.2f}"],
             ["Target debt / total capitalization", pct(g("dcap"), 0)], ["Relevered beta", f"{g('beta_l'):.2f}"], ["Cost of equity", pct(g("ke"))], ["Pre-tax cost of debt", pct(g("kd"))],
             ["After-tax cost of debt", pct(g("kd_at"))], ["Weighted average cost of capital", pct(g("wacc"))]]
-    d.table(s, rows, Inches(0.5), Inches(1.5), Inches(6.0), [3, 1.5], 11, bold_rows=(10,), shade_rows=(10,), rowh=0.36)
-    d.text(s, Inches(7.0), Inches(1.5), Inches(5.8), Inches(4), [f"Risk-free rate: {co['market']['risk_free'].get('source', '')}.", f"Betas: {t['price'].get('beta_basis', '')}, unlevered with the Hamada formula at a {pct(g('tax_m'), 0)} marginal tax rate.",
+    d.table(s, rows, Inches(0.5), Inches(1.5), Inches(6.0), [3, 1.5], 11, bold_rows=(12,), shade_rows=(12,), rowh=0.33)
+    d.text(s, Inches(7.0), Inches(1.5), Inches(5.8), Inches(4), [f"Risk-free rate: {co['market']['risk_free'].get('source', '')}.", f"Betas: {t['price'].get('beta_basis', '')}, unlevered with the Hamada formula at a {pct(g('tax_m'), 0)} marginal tax rate, with a debt beta of {g('debt_beta'):.2f} for issuers above {g('hy_lev'):.1f}x debt / LTM EBITDA (treated as high yield).",
             f"Equity risk premium: {b['erp']}.", f"Cost of debt: {b['kd']}."], 10, False, GREY)
     out = Path(out); out.mkdir(parents=True, exist_ok=True); pp = out / "board_book.pptx"; d.p.save(pp); log(f"wrote {pp} ({d.n} slides)")
     pdf = to_pdf(pp, out, log)

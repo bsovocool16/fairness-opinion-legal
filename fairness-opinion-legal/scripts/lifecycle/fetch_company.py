@@ -13,7 +13,7 @@ Sources, all public and keyless:
   SEC submissions/CIK##########.json  legal name, SIC code, exchange, fiscal year end
   SEC XBRL companyfacts               annual and LTM revenue, EBIT, D&A, capex, interest, taxes, NWC; latest cash, debt, NCI, shares
   SEC EDGAR company browse by SIC     peer candidates (same SIC, has a ticker, revenue within 0.2x-5x), unless --peers is given
-  Yahoo Finance chart API, Stooq CSV  daily closes, two years, for the price, the 52-week range and 2-year weekly beta vs the S&P 500
+  Yahoo Finance chart API, Stooq CSV  daily closes, five years, for the price, the 52-week range and the 5-year weekly adjusted beta vs the S&P 500
   FRED DGS10                          10-year Treasury yield, the risk-free rate
 
 Every number carries its source (tag, form, period, filed date) so the model's Historicals tab can show it. A field that cannot
@@ -209,18 +209,42 @@ def weekly_beta(px, mkt):
     cov = sum((x - ma) * (y - mb) for x, y in zip(ra, rb)); var = sum((y - mb) ** 2 for y in rb)
     return (cov / var if var else None), len(ra)
 
+BETA_YEARS = 5           # a 5-year weekly window, the convention for the published (Bloomberg-style) adjusted beta
+
+def adjusted_beta(raw):
+    """Blume / Bloomberg adjustment toward the market: 0.67 x raw + 0.33 x 1.0."""
+    return None if raw is None else 0.67 * raw + 0.33
+
 def price_block(sym, mkt, as_of):
-    px, src = closes(sym, years_back(as_of))
-    start = (datetime.date.fromisoformat(as_of) - datetime.timedelta(days=730)).isoformat()
-    px = [p for p in px if start < p[0] <= as_of]
+    px_all, src = closes(sym, years_back(as_of, BETA_YEARS))
+    d0 = datetime.date.fromisoformat(as_of)
+    start2, start5 = ((d0 - datetime.timedelta(days=d)).isoformat() for d in (730, 365 * BETA_YEARS + 1))
+    px5 = [p for p in px_all if start5 < p[0] <= as_of]; px = [p for p in px5 if p[0] > start2]
     if not px: raise RuntimeError(f"no {sym} closes on or before {as_of}")
-    mkt = [p for p in mkt if start < p[0] <= as_of] if mkt else mkt
+    mkt5 = [p for p in mkt if start5 < p[0] <= as_of] if mkt else mkt
     last_d, last, _ = px[-1]; yr = [p for p in px if p[0] > (datetime.date.fromisoformat(last_d) - datetime.timedelta(days=365)).isoformat()]
-    beta, n = weekly_beta(px, mkt) if mkt else (None, 0)
+    beta, n = weekly_beta(px5, mkt5) if mkt else (None, 0)
+    beta2, n2 = weekly_beta(px, [p for p in mkt5 if p[0] > start2]) if mkt else (None, 0)
     vw = [p[1] for p in px[-30:]]
+    yrs = f"{n / 52:.1f}-year" if n < 52 * BETA_YEARS - 4 else f"{BETA_YEARS}-year"
     return {"last": round(last, 4), "date": last_d, "high_52w": round(max(p[1] for p in yr), 4), "low_52w": round(min(p[1] for p in yr), 4),
             "avg_30d": round(sum(vw) / len(vw), 4), "history_1y": [[d, round(c, 4)] for d, c, _ in yr], "source": src,
-            "beta_raw": None if beta is None else round(beta, 3), "beta_basis": f"2-year weekly vs S&P 500 ({n} weeks)" if beta is not None else "not enough history"}
+            "beta_raw": None if beta is None else round(beta, 3), "beta_adj": None if beta is None else round(adjusted_beta(beta), 3),
+            "beta_raw_2y": None if beta2 is None else round(beta2, 3), "beta_window_start": px5[0][0],
+            "beta_basis": (f"{yrs} weekly vs S&P 500 ({n} weeks), adjusted 0.67 x raw + 0.33" + (f"; 2-year raw {beta2:.2f}" if beta2 is not None else "")) if beta is not None else "not enough history"}
+
+def long_rate(as_of):
+    """30-year Treasury yield (Cboe ^TYX): the long-bond risk-free rate for the WACC judgment case. FRED DGS20 is preferred when reachable."""
+    try:
+        r = get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": "DGS20", "cosd": (datetime.date.fromisoformat(as_of) - datetime.timedelta(days=20)).isoformat(), "coed": as_of}, headers={"User-Agent": "Mozilla/5.0"}, gap=0.3, tries=1, timeout=15)
+        rows = [(d, float(v)) for d, v in list(csv.reader(io.StringIO(r.text)))[1:] if v not in (".", "")]
+        d, v = rows[-1]; return {"rate": round(v / 100, 5), "date": d, "tenor": 20, "source": "FRED DGS20 (20-year U.S. Treasury, constant maturity)"}
+    except Exception: pass
+    try:
+        px = [p for p in yahoo_closes("^TYX", years=years_back(as_of, 1)) if p[0] <= as_of]
+        d, v, _ = px[-1]; return {"rate": round(v / 100, 5), "date": d, "tenor": 30, "source": "Cboe 30-year U.S. Treasury yield index (^TYX, via Yahoo); FRED DGS20 unavailable"}
+    except Exception as e:
+        return {"rate": None, "date": None, "source": f"no long-bond yield ({e})"}
 
 def risk_free(as_of):
     try:
@@ -314,7 +338,7 @@ def run(ticker, out, peers=None, max_peers=6, as_of=None, log=print, cik=None):
     if cik: cik = int(cik)
     elif ticker in tmap: cik, _ = tmap[ticker]
     else: raise SystemExit(f"{ticker} is not in the SEC ticker list (company_tickers.json); give --cik for a delisted company")
-    mkt, msrc = closes("^GSPC", years_back(as_of)); log(f"S&P 500 history: {len(mkt)} days ({msrc})")
+    mkt, msrc = closes("^GSPC", years_back(as_of, BETA_YEARS)); log(f"S&P 500 history: {len(mkt)} days ({msrc})")
     tgt = company(ticker, cik, mkt, as_of); log(f"{ticker} CIK {cik} {tgt['name']} SIC {tgt['sic']} {tgt['sic_description']}")
     if peers:
         chosen = []
@@ -337,7 +361,7 @@ def run(ticker, out, peers=None, max_peers=6, as_of=None, log=print, cik=None):
             chosen = sorted(chosen + pick_peers(tgt, more, mkt, as_of, max_peers - len(chosen), log), key=lambda p: abs(math.log(p["ltm"]["values"]["revenue"] / tgt["ltm"]["values"]["revenue"])))
             basis = f"SIC industry group {str(tgt['sic'])[:3]}x (own code {tgt['sic']} {tgt['sic_description']} had fewer than three), revenue within 0.2x-5x of the target's, closest {max_peers} by revenue"
     doc = {"schema": SCHEMAS["company"], "as_of": as_of, "units": "$ in millions, shares in millions, per-share in $", "target": tgt,
-           "peers": chosen, "peer_basis": basis, "market": {"risk_free": risk_free(as_of), "index": "S&P 500 (^GSPC)"}}
+           "peers": chosen, "peer_basis": basis, "market": {"risk_free": risk_free(as_of), "long_rate": long_rate(as_of), "index": "S&P 500 (^GSPC)"}}
     p = save(doc, Path(out) / "company.json"); log(f"wrote {p} ({len(chosen)} peers)"); return doc
 
 if __name__ == "__main__":

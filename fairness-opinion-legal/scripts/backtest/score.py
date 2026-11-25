@@ -187,6 +187,7 @@ def score(spec, bt):
             cv = {"ranges": c["ranges"], "cells": c["cells"], "peers": val.get("peers")}
             vs = valuation_stage(truth, cv, spec["offer_price"]); pj = projections_stage(truth, cv)
             card["cases"][k] = {"label": c["label"], "ltm_ebitda": cell(cv, "h_ebitda_ltm"), "wacc": cell(cv, "wacc"), "summary": vs["summary"],
+                                **{x: cell(cv, x) for x in ("rf", "erp", "beta_u", "beta_l", "ke")}, "wacc_gap_bp": (vs["params"].get("wacc") or {}).get("gap_bp"),
                                 "analyses": {a: {x: v.get(x) for x in ("blind", "actual", "iou", "midpoint_error", "offer_side_agrees")} for a, v in vs["analyses"].items() if v.get("built_by_pipeline")},
                                 "ebitda_mape": pj.get("ebitda_mape"), "revenue_mape": pj.get("revenue_mape")}
     card["bottom_line"]["agrees"] = card["bottom_line"]["blind_supported"] == card["bottom_line"]["actual_supported"]
@@ -228,16 +229,26 @@ def markdown(c):
     for k, p in v["params"].items(): L.append(f"- {k}: blind {f(p.get('blind'))}, filed {f(p.get('actual'))}" + (f" ({p['gap_bp']:+d} bp)" if p.get("gap_bp") is not None else "") + (f"; filed basis: {p['actual_basis']}" if p.get("actual_basis") else ""))
     pe = v["peers"]; L += [f"- peers: Jaccard {f(pe['jaccard'])}; shared {', '.join(pe['shared']) or 'none'}", f"  - blind: {', '.join(pe['blind'])}", f"  - filed: {', '.join(pe['actual'])}"]
     if c.get("cases"):
-        C = c["cases"]; ks = list(C)
-        L += ["", "## EBITDA judgment calls (one model per definition)", "", "| | " + " | ".join(ks) + " |", "|---" * (len(ks) + 1) + "|",
-              "| LTM EBITDA | " + " | ".join(f(C[k]["ltm_ebitda"]) for k in ks) + " |", "| WACC | " + " | ".join(f"{C[k]['wacc']:.1%}" if isinstance(C[k]["wacc"], (int, float)) else "–" for k in ks) + " |",
-              "| projected EBITDA vs management, mean abs error | " + " | ".join(f(C[k]["ebitda_mape"], True) for k in ks) + " |"]
-        for a in [a for a in C[ks[0]]["analyses"] if a not in ("trading_range", "premiums")]:
-            cellf = lambda x: (f"{f(x.get('blind'))} (IoU {f(x.get('iou'))})" if x.get("blind") else "–")
-            L.append(f"| {a} (filed {f(C[ks[0]]['analyses'][a].get('actual'))}) | " + " | ".join(cellf(C[k]["analyses"].get(a, {})) for k in ks) + " |")
-        L.append("| mean IoU, core analyses | " + " | ".join(f(C[k]["summary"]["mean_iou"]) for k in ks) + " |")
-        L.append("| mean abs midpoint error | " + " | ".join(f(C[k]["summary"]["mean_abs_midpoint_error"], True) for k in ks) + " |")
-        L += ["", "; ".join(f"{k}: {C[k]['label']}" for k in ks) + "."]
+        C = c["cases"]; pc = lambda x, n=1: f"{x:.{n}%}" if isinstance(x, (int, float)) else "–"
+        def table(title, ks, heads, rows):
+            nonlocal L
+            L += ["", title, "", "| | " + " | ".join(heads) + " |", "|---" * (len(ks) + 1) + "|"] + ["| " + lab + " | " + " | ".join(fn(C[k]) for k in ks) + " |" for lab, fn in rows]
+            for a in [a for a in C[ks[0]]["analyses"] if a not in ("trading_range", "premiums")]:
+                cellf = lambda x: (f"{f(x.get('blind'))} (IoU {f(x.get('iou'))})" if x.get("blind") else "–")
+                L.append(f"| {a} (filed {f(C[ks[0]]['analyses'][a].get('actual'))}) | " + " | ".join(cellf(C[k]["analyses"].get(a, {})) for k in ks) + " |")
+            L.append("| mean IoU, core analyses | " + " | ".join(f(C[k]["summary"]["mean_iou"]) for k in ks) + " |")
+            L.append("| mean abs midpoint error | " + " | ".join(f(C[k]["summary"]["mean_abs_midpoint_error"], True) for k in ks) + " |")
+            L += ["", "; ".join(f"{k}: {C[k]['label']}" for k in ks) + "."]
+        ks = [k for k in C if "+" not in k]
+        table("## EBITDA judgment calls (one model per definition)", ks, ks,
+              [("LTM EBITDA", lambda x: f(x["ltm_ebitda"])), ("WACC", lambda x: pc(x["wacc"])), ("projected EBITDA vs management, mean abs error", lambda x: f(x["ebitda_mape"], True))])
+        wk = [k for k in C if "+" in k]
+        if wk:
+            ks = [wk[0].split("+")[0]] + wk
+            table(f"## Discount-rate judgment calls (on the {ks[0]} EBITDA case)", ks, ["base WACC"] + [k.split("+")[1] for k in wk],
+                  [("risk-free rate", lambda x: pc(x.get("rf"), 2)), ("equity risk premium", lambda x: pc(x.get("erp"))), ("unlevered beta", lambda x: f(x.get("beta_u"))),
+                   ("relevered beta", lambda x: f(x.get("beta_l"))), ("cost of equity", lambda x: pc(x.get("ke"))), ("WACC", lambda x: pc(x["wacc"])),
+                   ("WACC gap to the advisor's midpoint (bp)", lambda x: f"{x['wacc_gap_bp']:+d}" if isinstance(x.get("wacc_gap_bp"), int) else "–")])
     d = c["deck"]; L += ["", "## Deck", ""]
     L += [f"Analyses: precision {f(d.get('precision'))}, recall {f(d.get('recall'))}; missing {', '.join(d.get('missing', [])) or 'none'}; extra {', '.join(d.get('extra', [])) or 'none'}." if "recall" in d else d.get("status", "")]
     lt = c["letter"]; L += ["", "## Opinion letter", ""]
