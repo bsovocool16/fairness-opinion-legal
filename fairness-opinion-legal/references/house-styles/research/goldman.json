@@ -1,0 +1,367 @@
+{
+ "bank": "Goldman Sachs & Co. LLC",
+ "decks_studied": [
+  {
+   "folder": "goldman/focus-financial-partners-inc_c-6",
+   "company": "Focus Financial Partners Inc. (\"Project Ferdinand\")",
+   "date_on_cover": "February 26, 2023",
+   "pages": 25,
+   "image_px": "850x656",
+   "audience": "Special Committee Discussion Materials"
+  },
+  {
+   "folder": "goldman/enstar-group-ltd_c-vi",
+   "company": "Enstar Group Ltd (\"Project Elk\")",
+   "date_on_cover": "July 28, 2024",
+   "pages": 30,
+   "image_px": "re-typeset HTML, not slide images (filing agent rebuilt the deck as HTML text/tables; its 25 images are embedded charts, icons, numbered circles and a repeated 81x79 logo crop)",
+   "audience": "Presentation to the Board of Directors",
+   "note": "re-typeset HTML, not slide images; used for titles/structure and CSS colors only"
+  },
+  {
+   "folder": "goldman/powerschool-holdings-inc_c-xii",
+   "company": "PowerSchool Holdings, Inc. (\"Project Picasso\")",
+   "date_on_cover": "June 6th, 2024",
+   "pages": 26,
+   "image_px": "1056x816",
+   "audience": "Presentation to the Board of Directors"
+  },
+  {
+   "folder": "goldman/select-medical-holdings-corp_c-xiv",
+   "company": "Select Medical Holdings Corp",
+   "date_on_cover": "March 2026",
+   "pages": 9,
+   "image_px": "1100x849",
+   "audience": "Materials for the Special Committee (market update only; no valuation analyses; new 2026 Goldman brand template)"
+  },
+  {
+   "folder": "goldman/myovant-sciences-ltd_c-10",
+   "company": "Myovant Sciences Ltd. (\"Project Wildcat\")",
+   "date_on_cover": "October 23, 2022",
+   "pages": 22,
+   "image_px": "3300x2550 (high-res print-and-scan look, slightly grainy)",
+   "audience": "Discussion Materials for (Special Committee)",
+   "template": "classic, 2022 variant"
+  },
+  {
+   "folder": "goldman/janus-henderson-group-plc_c-xii",
+   "company": "Janus Henderson Group plc (\"Project Jewel\")",
+   "date_on_cover": "March 23, 2026",
+   "pages": 21,
+   "image_px": "1100x849",
+   "audience": "Project Jewel Discussion Materials (Special Committee)",
+   "template": "classic (same as 2023-24), with section tabs added"
+  },
+  {
+   "folder": "goldman/5-2-studios-inc_c-v",
+   "company": "5&2 Studios, Inc. (\"Project Sequel\")",
+   "date_on_cover": "December 30, 2025",
+   "pages": 14,
+   "image_px": "1400x849 (aspect 1.649, widescreen; exact page size unclear)",
+   "audience": "Discussion Materials for the Special Committee of 5&2 Studios",
+   "template": "widescreen Calibri-style variant"
+  }
+ ],
+ "page": {
+  "size": "US Letter, 11 x 8.5 in for 6 of 7 image decks (Focus, PowerSchool, Myovant, Janus, Select Medical, all 1.294); 5&2 Studios is widescreen at 1.649 (1400x849, between 16:10 and 16:9, possibly cropped 16:9 - uncertain)",
+  "orientation": "landscape",
+  "aspect_ratio": 1.294,
+  "margins_note": "All three image decks are 1.294 (850x656, 1056x816, 1100x849). Classic template: content spans ~4.5% to ~95.5% of width (~0.5in side margins); logo block sits in top-left corner at ~2-4% inset; a thin gray horizontal rule at ~19-20% of page height separates the title zone from the body; bottom rule at ~93% above footer. 2026 template: ~0.4in margins, thin steel-blue rule at very top (~3%) and another under the title (~17%)."
+ },
+ "typography": {
+  "title": {
+   "face": "Arial/Helvetica-like grotesque (classic template); 2026 template uses a narrow transitional serif (GS brand serif, Tiempos/Goldman-Serif-like)",
+   "weight": "bold (classic); regular (2026 serif)",
+   "approx_pt": 24,
+   "case": "Title Case",
+   "color": "#0A3259 (deep navy; Enstar HTML encodes titles as rgb(19,54,94) #13365E); 2026 template: black #000000"
+  },
+  "subtitle": {
+   "face": "Arial-like (classic); 2026: humanist sans (Goldman Sans-like)",
+   "weight": "bold (classic); regular gray (2026)",
+   "approx_pt": 14,
+   "case": "Sentence/Title case; units line in parentheses, e.g. \"($ in millions, except per share data)\"; or descriptor with pipes \"U.S. Based Targets | $3-$8bn Transaction Value | Cash-Only Deals\"",
+   "color": "same navy as title (classic); #787878 gray (2026, e.g. \"$ in millions\" without parentheses)"
+  },
+  "body": {
+   "face": "Arial/Helvetica-like grotesque",
+   "weight": "regular; bullets are small navy filled squares",
+   "approx_pt": 10,
+   "case": "Sentence case",
+   "color": "#000000 / near-black"
+  },
+  "table": {
+   "face": "Arial-like (classic); humanist sans (2026)",
+   "weight": "regular body, bold column headers / mean-median rows / subject rows",
+   "approx_pt": 8,
+   "case": "column headers Title Case; underlined group headers",
+   "color": "black body; column headers navy (#1F396C-ish) in classic"
+  },
+  "footnote_source": {
+   "face": "Arial-like",
+   "weight": "regular, ITALIC in classic template (\"Source: ...\", \"Note: ...\", numbered superscript footnotes run on); upright gray in 2026",
+   "approx_pt": 6.5,
+   "case": "Sentence",
+   "color": "black (classic); gray #595959-ish (2026)"
+  },
+  "confidence": "Medium-high for Arial-like grotesque in 2023-24 decks (Enstar HTML literally specifies Arial, Helvetica, sans-serif; filing-agent CSS, so only corroborative). Medium for the 2026 serif/humanist pairing (looks like Goldman's proprietary brand faces; exact face unknown). Point sizes approx from pixel height vs 612pt page height; Enstar HTML sizes (14pt titles, 7-8pt tables, 5.5pt footnotes) are scaled by the agent and not reliable. Myovant and Janus confirm the Arial-like bold navy title in the classic template (2022 and 2026). 5&2 Studios uses a Calibri-like humanist sans for everything (medium-high confidence: rounded terminals, Calibri 'g' and 'y')."
+ },
+ "palette": {
+  "title_text": "#0A3259",
+  "title_bar_or_band": null,
+  "table_header_fill": "#1F396C (navy bars with white bold text over sensitivity/grid tables, e.g. DCF 'Implied Enterprise Value' header bar); secondary header bar #7399C6 (light steel blue); comps tables have no header fill, just bold navy headers with underline rules",
+  "table_header_text": "#FFFFFF on filled bars; navy #1F396C on unfilled comps headers",
+  "alternating_row_shading": null,
+  "chart_series": [
+   "#00355F",
+   "#7399C6",
+   "#9E000B",
+   "#4D4D4D",
+   "#E8A33D (orange, secondary series in line charts)",
+   "#FFD700-ish yellow (Hold in analyst bars)"
+  ],
+  "accent": [
+   "#9E000B (deep red: confidential box, red circles, reference/offer dashed boxes)",
+   "#FFFF99 (pale yellow highlight for median rows and key totals)",
+   "#E2EBF4 (pale blue fill for subject-company row / mean-median rows / callout boxes)",
+   "#2E8B57-ish green for offer/undisturbed labels"
+  ],
+  "rule_lines": "#666666 thin gray rules (title separator, footer rule); thin navy/black rules under table headers",
+  "football_field_bars": {
+   "core": "#1F396C (navy)",
+   "reference_only": "#7399C6 (light steel blue); PowerSchool uses #4D4D4D dark gray blocks for 'For Reference' rows",
+   "other": "PowerSchool also tints row backgrounds: #C5D3EE behind DCF/PV rows, #E3ECF5 behind precedent rows, #DBDBDB behind reference rows; row-label blocks filled with the same bar color with white bold text Myovant: core #0A3F75-ish navy, reference #6298C0 light blue. Janus: same #1F396C/#7399C6 as Focus. 5&2: core #1F396C, reference-only rows #7F7F7F mid gray with gray label blocks; a single-point analysis drawn as a gray diamond."
+  },
+  "offer_price_line": {
+   "color": "varies by deck: green ~#3C8A68 (Focus 'CD&R Offer'); purple ~#5C3B8A (PowerSchool 'Deal Price'); orange #EF8C38 (Myovant 'Sparrow Offer'); red #9E000B (Janus 'Trian / GC Proposal', 5&2 'Proposal'); red dashed box (Enstar)",
+   "style": "dashed vertical, always",
+   "label_style": "bold label centered below the chart: in the line's color (Focus, PowerSchool, Myovant, 5&2) or black bold italic (Janus 'Trian / GC Proposal: $ 52.00')"
+  },
+  "current_or_unaffected_price_line": {
+   "color": "green: ~#3C8A68 (PowerSchool), #1B8253 (Myovant)",
+   "style": "dashed vertical",
+   "label_style": "bold green text below chart, before the offer label: 'Undisturbed Share Price: $17.96'"
+  },
+  "notes": "Classic palette is navy #1F396C / #00355F + light steel blue #7399C6 + pale blue #E2EBF4 + deep red #9E000B + yellow #FFFF99 highlight; Enstar HTML CSS corroborates (rgb(30,57,109), rgb(0,53,95), rgb(113,153,199), rgb(227,236,245), #9E000B, rgb(249,244,155)). 2026 Select Medical template: black serif titles, steel-blue rules #7A97BA, gray header fill #F2F2F2, navy #092D61, light blue #7297C4, magenta #A6428B, yellow #FDF3AD, green #279E5E / red #A01C1E for positive/negative values, red 'PROPRIETARY & CONFIDENTIAL'. Janus (2026) keeps the classic palette exactly (#1F396C, #00355F, #7399C6, #F2F2F2 shaded terminal column, yellow total rows). 5&2 uses #1F396C core, #00355F footer band and header bars, #7F7F7F gray, pale blue #DCE6F2-ish callout fills, yellow WACC highlight. Myovant reds are slightly warmer (#A0362F)."
+ },
+ "title_treatment": {
+  "placement": "Top-left, immediately right of the logo block (~13-15% from left edge), vertically aligned with logo; 'INVESTMENT BANKING' two-line small gray caps label top-right with a thin vertical bar to its right. 2026: title flush left at margin, no logo at top (logo moves to bottom-left). Myovant: 'INVESTMENT BANKING DIVISION' instead of 'INVESTMENT BANKING'. 5&2: title flush left with no logo beside it; the logo sits in a thin outlined square at top right; no 'INVESTMENT BANKING' header.",
+  "title_bar": "None - title on white.",
+  "rule": "Thin gray full-width horizontal rule ~19-20% down the page under the title zone; 2026 uses steel-blue rules above and below the title.",
+  "subtitle_or_units_line": "Second line under title in same navy bold, smaller: units in parentheses '($ in millions)' or descriptor with ' | ' separators.",
+  "tracker_or_breadcrumb": "No tab tracker. PowerSchool/Enstar (2024) print the current section name bottom-left in the footer ('Financial Analysis', 'Supplementary Materials'); Focus (2023) has none. Primary FF analyses carry numbered navy (Focus) or red (Enstar) circles that reappear next to the titles of the corresponding detail pages ('1 Discounted Cash Flow Analysis'). Janus (2026) adds a tab hanging from the top edge, top-left above the logo, naming the analysis ('DCF', 'Present Value of Future Share Price', 'Precedent Transactions', 'Precedent Premia Analysis', 'Public Market Valuation') in white bold on navy #1F396C or light blue. Myovant (2022) uses repeated 'Today's Agenda' pages: rounded pill bars in gray, with the current section highlighted in #7399C6 and numbered circles."
+ },
+ "page_furniture": {
+  "draft_or_confidential_legends": [
+   {
+    "text": "HIGHLY CONFIDENTIAL",
+    "position": "top center",
+    "style": "deep-red bold caps in a red-outlined box (Focus 2023 only)"
+   },
+   {
+    "text": "STRICTLY PRIVATE & CONFIDENTIAL",
+    "position": "top of each page",
+    "style": "per Enstar HTML text (not seen as pixels)"
+   },
+   {
+    "text": "PROPRIETARY & CONFIDENTIAL",
+    "position": "top right, just under top rule",
+    "style": "small red caps (2026 Select Medical)"
+   },
+   {
+    "text": "[***] indicates information has been omitted on the basis of a confidential treatment request pursuant to Rule 24b-2...",
+    "position": "cover top",
+    "style": "red small text (PowerSchool, Enstar)"
+   },
+   {
+    "text": "PRIVATE & CONFIDENTIAL",
+    "position": "top right above 'INVESTMENT BANKING DIVISION'",
+    "style": "bold red (#A0362F) caps, no box (Myovant 2022)"
+   },
+   {
+    "text": "none",
+    "position": "-",
+    "style": "Janus 2026 and 5&2 2025 show no confidentiality legend on the pages"
+   }
+  ],
+  "page_number": "Bottom-right, plain number followed by a short vertical bar ('25 |'); 2026: small number bottom-right, no bar",
+  "footer": "Thin gray rule above footer; section name bottom-left in 2024 decks; 2026 template puts the Goldman Sachs wordmark bottom-left with source notes beside it 5&2 (2025): gray 'Investment Banking | N' bottom-right, plus a solid navy #00355F band along the bottom edge of every page.",
+  "source_footnote_style": "Italic 'Source:' line, then 'Note:' and numbered superscript footnotes run together in a compact block directly above the footer rule; dates like 24-Feb-2023 / 05-Jun-2024",
+  "section_dividers": "Template page with logo and 'INVESTMENT BANKING' furniture, otherwise blank, with section label in plain regular text mid-left: 'I.  Process and Transaction Overview', 'Appendix A:  Supplementary Materials' (Roman numeral, tab, name). 2026: large serif 'Appendix' alone. Myovant: agenda page re-shown with the current section highlighted, or a single pill 'A  Appendix: Additional Information'. Janus: plain 'Appendix A: Valuation Support' text on blank template. 5&2: 'Appendix' in navy bold on a pale gray panel with a navy 'Investment Banking' tab at lower right.",
+  "cover_page": "Classic: logo top-left, 'INVESTMENT BANKING' top-right, rule; large regular (not bold) black 'Presentation to the Board of Directors' / 'Presentation to' + client logo; project name in light steel blue (PowerSchool) or bold black (Focus); 'Goldman Sachs & Co. LLC' bold; date; tax-disclosure boilerplate in small gray at the bottom under a rule. 2026: very large serif 'Materials for the Special Committee', client logo, 'Goldman Sachs & Co. LLC' in light blue bold, month-year date. Myovant/Janus: same classic layout; the project name is in light steel blue (#7399C6), 'Goldman Sachs & Co. LLC' (Janus: '& Co.') in bold; Myovant adds 'Strictly Private and Confidential'. 5&2: gray-framed page, logo in an outlined square top-left, light-blue bold project name and title, small navy 'Investment Banking' tab bottom-right.",
+  "disclaimer_page": "Page 2 (classic) titled 'Disclaimer', full-page dense justified small text in five paragraphs; in 2026 the Disclaimer moves to the last page. Myovant puts it last (p22); Janus and 5&2 put it on p2."
+ },
+ "structure": {
+  "usual_section_order": [
+   "Cover",
+   "Disclaimer",
+   "Table of Contents",
+   "Variant: Myovant opens with 'Summary of Bid Progression' before the agenda; Janus opens with bid history and 'Summary of ... Offer'; 5&2 has no TOC (Summary of Key Terms, financials, analysis summary, DCF, WACC, betas, precedent, comps)",
+   "I. Process / Transaction Overview (offer-implied multiples, party engagement, recent trading)",
+   "II. Public Market Valuation Perspectives / Financial Projections",
+   "III. Overview of Management Plan",
+   "IV. Financial Analysis (summary/football field first, then DCF, PV of future share price, precedents, premia)",
+   "Appendix A: Supplementary / Additional Materials (comps, WACC/beta, capitalization, projections detail, glossary)"
+  ],
+  "example_page_titles_in_order": [
+   "PowerSchool (Project Picasso):",
+   "Disclaimer",
+   "Table of Contents",
+   "Summary of Party Engagement",
+   "Picasso Illustrative Analysis at Various Prices",
+   "Picasso Stock Price Performance",
+   "Picasso Indexed Stock Price Performance",
+   "Valuation Multiples Over Times",
+   "Current Wall Street Perspectives",
+   "Picasso Historical and Projected Financial Profile",
+   "Picasso Management vs Street Financial Profile",
+   "Financial Profile Benchmarking",
+   "Picasso Financial Analysis Summary",
+   "Illustrative Picasso Discounted Cash Flow Analysis",
+   "Illustrative Picasso Present Value of Future Share Price \u2013 EBITDA Multiple Method",
+   "Select Precedent Transactions",
+   "Precedent M&A Transaction Premia",
+   "Common Stock Comparison",
+   "Projected Unlevered Free Cash Flow"
+  ],
+  "appendix_contents": [
+   "Common stock comparison / public comparables",
+   "Projected unlevered free cash flow detail",
+   "WACC / beta and cost of equity analysis",
+   "Equity capitalization and share count",
+   "Enterprise value bridge",
+   "Historical P/E or P/BV over time",
+   "Research analyst perspectives",
+   "Shareholder registry, trading volume (Enstar)",
+   "Go-shop outreach candidates (Enstar)",
+   "Glossary of key terms (Enstar)",
+   "Precedent squeeze-out transactions (Myovant)",
+   "Beta analysis and WACC (Janus, 5&2, Myovant)",
+   "FDSO and EV-to-equity walk, standalone and change of control (Janus)"
+  ],
+  "example_page_titles_in_order_janus_2026": [
+   "Disclaimer",
+   "Trian / General Catalyst Bid Progression History",
+   "Summary of Trian / General Catalyst's Offer",
+   "Jewel Share Price Performance",
+   "Historical Jewel and Peer EV / NTM EBITDA",
+   "Jewel Management Projections",
+   "Illustrative Summary of Jewel Financial Analysis",
+   "Discounted Cash Flow Analysis",
+   "Present Value of Future Stock Price Analysis",
+   "Precedent M&A Transactions",
+   "Premia Paid in Precedent U.S. Public M&A",
+   "Beta Analysis",
+   "Weighted Average Cost of Capital Analysis",
+   "Public Peer Trading Multiples",
+   "Fully Diluted Shares Outstanding and Enterprise Value to Equity Value Walk"
+  ]
+ },
+ "football_field": {
+  "orientation": "horizontal bars, one row per analysis, in a three-column table: Methodology / Implied Equity Value Per Share (Illustrative Price per Share) / Commentary",
+  "row_labels": "Focus: analysis name in plain text with numbered navy circles for primary analyses; PowerSchool: label set in white bold inside a colored block matching the bar color; Enstar: navy blocks with red numbered circles plus a 'Key Metric' column. Janus: PowerSchool-style colored label blocks (navy #1F396C for core, #7399C6 for reference) without tinted row backgrounds. Myovant: two-level plain labels (category 'Discounted Cash Flow' / 'Premia Analysis' then the specific analysis). 5&2: navy/gray label blocks, with 'Reference Only:' underlined inside the label and an extra 'Implied Enterprise Value' column.",
+  "methodology_detail_text": "Square-bullet commentary column at right with Low/High assumptions (e.g. 'Low: 11.25% WACC, 8.5x Terminal LTM (2027E) P/E')",
+  "reference_only_treatment": "Grouped at bottom, marked by a vertical rotated 'For Reference' (Focus: white bold on a #7399C6 band) / 'For Reference Only' (Enstar) / plain rotated text 'For Reference' (PowerSchool); bars in light blue or dark gray. Janus: rotated white 'For Reference Only' on a #7399C6 band. Myovant: a bold navy 'Reference Information' subheader row above a navy rule. 5&2: gray bars and gray label blocks prefixed 'Reference Only:'.",
+  "value_labels": "Low and high values in bold outside the bar ends, '$ 40.76' left, '$ 63.12' right (space after $). Janus and 5&2 commentary uses bold 'Low:' / 'High:' lead-ins.",
+  "price_lines": "Dashed vertical line(s) through all rows for offer/deal price (green or purple) and undisturbed price (green); labels centered beneath the chart in matching bold color. Myovant: two dashed lines, green undisturbed and orange offer; Janus: single red dashed offer line; 5&2: single dark-red dashed 'Proposal: $3.75' line.",
+  "axis": "No numeric axis; no gridlines",
+  "other": "Rows separated by thin gray rules; PowerSchool shades whole rows with pale tints; analyst-target row may show a median marker (orange diamond, 'Median: $22.00')"
+ },
+ "tables": {
+  "number_formats": "Dollar sign followed by a space: '$ 46.27', '$ 3,963'; dollar sign only on first row/total rows, plain numbers below; thousands commas; per-share to 2 decimals. All seven decks use '$ 45.14', '7.9 x' and '11.00 %' spacing; 5&2 sometimes drops the space in ranges ('$41 \u2013 $54').",
+  "multiples": "One decimal with space before x: '10.7 x', '12.6 x'",
+  "percentages": "Space before %: '24.1 %', '16 %'; sensitivity WACC labels like '9.000 %' / '10.125 %'",
+  "negatives": "Parentheses with the % outside: '(7.7)%', '(3.9)'; 2026: red text for negatives, green for positives",
+  "nm_na": "'-' for not available; 'NM' (gray) in 2026 deck",
+  "mean_median_rows": "Bold, highlighted pale yellow #FFFF99 (Focus) or pale blue #E2EBF4 (PowerSchool 'Peer Mean'/'Peer Median' with labels in the middle of the table). Myovant: yellow for median/mean of peers and summary statistics (High/Median/Low), with alternate pale tan/blue groups in the precedent table. Janus: yellow 'TAM Peers' median row and yellow total rows in projections; pale blue #E2EBF4 median in precedents. 5&2: pale blue shaded Mean/Median block.",
+  "borders_and_rules": "Thin horizontal gray rules between every row (no verticals); thicker/navy rule under column headers; dotted rules in precedent table (PowerSchool)",
+  "header_style": "Bold navy column headers, grouped headers underlined ('Price / Earnings' over '2023E 2024E'); sensitivity tables use filled navy header bars with white text and a rotated 'WACC' label in a filled side block. Janus DCF: full-width #00355F bar titled 'Discounted Cash Flows Model', terminal column shaded #F2F2F2, rotated 'Growth Rate' label on sensitivities. 5&2: #00355F header bars with white bold text over the sensitivity grids, and rotated 'Illustrative WACC'.",
+  "target_or_subject_highlight": "Subject company row on top, shaded pale blue #E2EBF4 (Focus) or light gray #F2F2F2 bold (PowerSchool); peer-group subheaders underlined bold navy (Focus) or white text on #7399C6 band (PowerSchool)"
+ },
+ "distinctive_features": [
+  "'INVESTMENT BANKING' small gray two-line label top-right with a short vertical bar, mirrored by 'NN |' page number bottom-right",
+  "Logo block top-left on every page (position only)",
+  "Space between $ and number, and before x and %: '$ 22.24', '7.8 x', '89 %'",
+  "Navy + light steel blue two-tone everywhere (#1F396C/#00355F and #7399C6) with pale blue #E2EBF4 fills",
+  "Red dashed boxes/ovals to highlight the offer column or key values (Focus offer column, PowerSchool deal-price column with red dashed ovals)",
+  "Pale yellow highlight rows for medians and key totals",
+  "Numbered circles linking football-field rows to detail pages",
+  "Codename used throughout (Ferdinand, Picasso, Elk) for the company",
+  "Dates formatted DD-Mon-YYYY (07-May-2024)",
+  "Football-field commentary column of square bullets with bold 'Low:' / 'High:' lead-ins in every deck that has a football field (Focus, PowerSchool, Myovant, Janus, 5&2, Enstar)"
+ ],
+ "disagreements_between_decks": [
+  "Templates do not follow dates: Select Medical (Mar 2026) uses the serif brand template; Janus (Mar 2026, same month) uses the classic Arial template; 5&2 (Dec 2025) uses a third, widescreen Calibri template with a navy bottom band and the logo boxed at top right. Select Medical is a market-update deck only (no football field, DCF or comps), and its disclaimer is at the back.",
+  "Focus (2023) has a red-boxed 'HIGHLY CONFIDENTIAL' legend at top center and no section footer; PowerSchool (2024) has no confidentiality legend but puts the section name bottom-left.",
+  "Football field styling differs: Focus uses plain row labels, navy core bars, light-blue reference bars and a light-blue 'For Reference' band; PowerSchool uses colored label blocks, tinted row backgrounds and dark-gray reference rows; offer line green (Focus) vs purple deal / green undisturbed (PowerSchool); Enstar uses red numbered circles and a red dashed 'Total Cash Consideration' box.",
+  "Mean/median highlight: yellow (Focus) vs pale blue (PowerSchool).",
+  "Focus has no table of contents; PowerSchool and Enstar have a TOC with Roman-numeral sections and divider pages.",
+  "Enstar's exhibit is HTML text re-set by the filing agent, so its fonts/sizes are not the original deck's.",
+  "Confidentiality legend: red 'PRIVATE & CONFIDENTIAL' (Myovant 2022), red-boxed 'HIGHLY CONFIDENTIAL' (Focus 2023), 'STRICTLY PRIVATE & CONFIDENTIAL' (Enstar HTML), none (PowerSchool, Janus, 5&2), red 'PROPRIETARY & CONFIDENTIAL' (Select Medical).",
+  "Offer-line color is not standardized: green, purple, orange or red depending on the deck; the undisturbed line is green whenever shown.",
+  "Navigation: agenda pages with pill bars (Myovant), TOC plus divider pages (PowerSchool, Enstar), analysis tabs at the top edge (Janus), none (Focus, 5&2).",
+  "Disclaimer placement: p2 (Focus, PowerSchool, Enstar, Janus, 5&2) vs last page (Myovant, Select Medical).",
+  "Header label: 'INVESTMENT BANKING DIVISION' (2022) vs 'INVESTMENT BANKING' (2023+ classic) vs footer 'Investment Banking | N' (5&2)."
+ ],
+ "confidence_notes": "Colors measured with palette.py on solid fills in Focus and PowerSchool (core navy #1F396C, chart navy #00355F, light blue #7399C6, pale blue #E2EBF4, yellow #FFFF99, gray rows #DBDBDB/#F2F2F2) and corroborated by Enstar's HTML CSS. Title navy is noisy text sampling (#043159-#0A3356); ~#0A3259 is an estimate. Offer/undisturbed line colors are thin dashed lines, sampled roughly (+/- noticeable). Enstar was not viewed as slide images (none exist); its structure and titles are from HTML text. Point sizes are approximate. Update: three more decks studied. Myovant colors sampled from a grainy 3300x2550 print-scan look, so they are slightly off (navy reads #0A3F75, light blue #6298C0); treat them as the same classic palette. The 5&2 aspect ratio (1.649) fits no standard page; it may be a cropped 16:9.",
+ "template_variants": {
+  "summary": "There is no single 2025+ template. The 2025-26 decks use three different looks: Janus (Mar 2026) keeps the classic template; 5&2 (Dec 2025) uses a widescreen Calibri-style one; Select Medical (Mar 2026) uses a serif brand template. Deal team or practice group seems to decide which template is used, not the date.",
+  "classic_letter_arial": {
+   "decks": [
+    "Myovant 2022",
+    "Focus 2023",
+    "Enstar 2024 (HTML)",
+    "PowerSchool 2024",
+    "Janus 2026"
+   ],
+   "page": "Letter landscape 1.294",
+   "title": "Arial-like bold, navy ~#0A3259, right of the logo block at top-left",
+   "furniture": "'INVESTMENT BANKING' (2022: '... DIVISION') top-right with a vertical bar; gray rule under the title; 'N |' page number",
+   "palette": [
+    "#1F396C",
+    "#00355F",
+    "#7399C6",
+    "#E2EBF4",
+    "#FFFF99",
+    "#9E000B"
+   ],
+   "sub_variants": "2022 adds a red 'PRIVATE & CONFIDENTIAL' legend and agenda pages with pill bars. 2023 has a red-boxed 'HIGHLY CONFIDENTIAL'. 2024 adds a section-name footer. 2026 adds analysis tabs at the top edge."
+  },
+  "widescreen_calibri_2025": {
+   "decks": [
+    "5&2 Studios Dec 2025"
+   ],
+   "page": "widescreen, aspect 1.649 (1400x849)",
+   "title": "Calibri-like bold, navy ~#02345C, flush left; subtitle regular gray Calibri, with units and valuation date joined by ' | '",
+   "furniture": "logo in a thin outlined square at top right; no 'INVESTMENT BANKING' header; footer 'Investment Banking | N' bottom-right in gray; solid navy #00355F band at the bottom edge",
+   "palette": [
+    "#1F396C",
+    "#00355F",
+    "#7F7F7F",
+    "pale blue callouts",
+    "yellow highlight"
+   ],
+   "football_field": "navy core rows and gray #7F7F7F 'Reference Only:' rows; diamond for a point estimate; dark-red dashed proposal line",
+   "sources": "italic"
+  },
+  "serif_brand_2026": {
+   "decks": [
+    "Select Medical Mar 2026"
+   ],
+   "page": "Letter landscape 1.294",
+   "title": "narrow serif, black, regular weight, flush left between steel-blue rules #7A97BA",
+   "subtitle": "gray humanist sans '$ in millions'",
+   "furniture": "red 'PROPRIETARY & CONFIDENTIAL' top right; wordmark bottom-left; small page number bottom-right; disclaimer at back",
+   "palette": [
+    "#092D61",
+    "#7297C4",
+    "#A6428B",
+    "#F2F2F2",
+    "#FDF3AD",
+    "#279E5E",
+    "#A01C1E"
+   ],
+   "evidence": "one deck, market update only (no football field, DCF or comps), so how this template treats valuation pages is unknown"
+  }
+ }
+}

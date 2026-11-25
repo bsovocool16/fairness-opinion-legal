@@ -1,0 +1,247 @@
+{
+ "bank": "Evercore Group L.L.C. (Evercore)",
+ "decks_studied": [
+  {
+   "folder": "evercore/engagesmart-inc_c-ix",
+   "company": "EngageSmart, Inc. (\"Project Everest\")",
+   "date_on_cover": "October 22, 2023",
+   "pages": 5,
+   "image_px": "880x680",
+   "note": "Genuine Evercore slides, but only a 5-page excerpt: cover, untitled disclaimer, Analysis at Various Prices, Illustrative Financial Analysis Summary (football field), Selected Publicly Traded Companies. The 'stamp' filenames are just the filer's naming; each image is one full slide. Cover carries a red 'PRELIMINARY DRAFT / Subject to Change / Highly Confidential / 10/22/2023 12:05 PM' box stamp. No section dividers, TOC, DCF or precedents page."
+  },
+  {
+   "folder": "evercore/diversey-holdings-ltd_c-xxvi",
+   "company": "Diversey Holdings, Ltd. (\"Project Talent\"; code names Diamond / Pearl / Baryte)",
+   "date_on_cover": "March 7, 2023",
+   "pages": 56,
+   "image_px": "1180x786",
+   "note": "Visibly different (European / London-style) template variant: no 'Confidential' legend, larger titles, no subtitle line, Roman-numeral dividers, colour-coded horizontal football field, minus-sign negatives, British spelling ('Capitalisation')."
+  },
+  {
+   "folder": "evercore/green-plains-partners-lp_c-14",
+   "company": "Green Plains Partners LP (Conflicts Committee of Green Plains Holdings LLC)",
+   "date_on_cover": "September 16, 2023",
+   "pages": 95,
+   "image_px": "1056x816",
+   "note": "95 images = 95 slides, one image per slide (s1g1 ... s95g1), in .htm src order; no split images. The .htm has 96 src tags but no duplicates among the slide images (the extra is not a slide image). Most complete example of the US template."
+  },
+  {
+   "folder": "evercore/cool-co-ltd_c-8",
+   "company": "Cool Company Ltd. (CoolCo)",
+   "date_on_cover": "September 28, 2025",
+   "pages": 37,
+   "image_px": "800x618 (most); img15 1584x1224, img19/img34 3300x2550, img20 2200x1700 - same 1.294 aspect",
+   "note": "Confirmed as Evercore's fairness presentation: the exhibit is (c)(8) and the .htm text reads 'Discussion Materials for the Special Committee of the Board of Directors September 28, 2025' with the Evercore disclaimer. The 'exc10' in the image filenames is the filer's naming only. Some vessel and charter data is redacted with black bars."
+  }
+ ],
+ "page": {
+  "size": "US Letter landscape (11 x 8.5 in) for EngageSmart, Green Plains and CoolCo (aspect 1.294). Diversey images are 1.501:1, which is not a standard size: either a custom slide size or the filer cropped the page.",
+  "orientation": "landscape",
+  "aspect_ratio": 1.294,
+  "margins_note": "US template: content runs from about 5% to 95% of the width. A full-width navy title rule sits about 12% down the page. A full-width navy footer rule sits about 92-93% down, with the Evercore wordmark under it at bottom-left, a centred page number, and a client logo or project name at bottom-right. 'Confidential' sits top-right at about 5% down, above the title. Diversey has similar side margins, no top legend, and the title starts higher (about 8%)."
+ },
+ "typography": {
+  "title": {
+   "face": "Arial / Helvetica-like grotesque",
+   "weight": "bold",
+   "approx_pt": 18,
+   "case": "Title Case",
+   "color": "#254D81 (navy; anti-aliased text measures #1F3864-#254A78 depending on the deck)",
+   "note": "In the US template the title is the SECTION name (e.g. 'Valuation of GPP Common Units'), repeated on every page of that section. In Diversey it is the page's own title and about 22pt approx (about 1.3x larger relative to page height)."
+  },
+  "subtitle": {
+   "face": "Arial-like",
+   "weight": "bold",
+   "approx_pt": 14,
+   "case": "Title Case",
+   "color": "#0063A6 approx (medium Evercore blue; measures #0060A2-#105885)",
+   "note": "The subtitle holds the actual page title (e.g. 'Discounted Cash Flow Analysis'). It sits left-aligned just below the title rule. Diversey has no subtitle line; it sometimes puts a blue bold sub-heading (e.g. '2025E Basis') in the same position."
+  },
+  "body": {
+   "face": "Arial-like",
+   "weight": "regular; bold for key phrases",
+   "approx_pt": 10,
+   "case": "sentence",
+   "color": "#000000 (black); some bullet text in dark navy",
+   "note": "Bullet glyphs are small navy squares (level 1) and navy right-pointing triangles (level 2), with en-dash or round bullets below that."
+  },
+  "table": {
+   "face": "Arial-like",
+   "weight": "regular; bold for subtotals and key rows; bold italic for category labels",
+   "approx_pt": 8,
+   "case": "Title Case headers",
+   "color": "#000000 body; #FFFFFF bold on navy header fills or navy bold column headers with an underline"
+  },
+  "footnote_source": {
+   "face": "Arial-like",
+   "weight": "regular (Diversey: italic)",
+   "approx_pt": 7,
+   "case": "sentence",
+   "color": "#000000 / near-black",
+   "note": "'Source: ...' line first, then numbered notes '1.' with a hanging indent. Diversey uses run-on italic 'Note: (1) ... (2) ...' with superscript '(1)' callouts."
+  },
+  "confidence": "Medium-high that the face is Arial (or Helvetica) throughout: the uniform-stroke grotesque, 'R' and 'G' shapes, and the 'Confidential' legend all match Arial in zooms. Point sizes are estimated from cap heights (title cap 17px of 816 on Green Plains, about 12.8pt cap, so about 18pt) and are approximate to +/-2pt."
+ },
+ "palette": {
+  "title_text": "#254D81",
+  "title_bar_or_band": null,
+  "table_header_fill": "#254D81 (navy, white bold text); in some tables the headers are instead navy bold text over a navy underline with no fill",
+  "table_header_text": "#FFFFFF",
+  "alternating_row_shading": "#DEEAF6 approx (very light blue) on long precedent/ownership lists (Green Plains); otherwise none",
+  "chart_series": [
+   "#254D81 navy (primary)",
+   "#6B97D4 light/mid blue",
+   "#0069AA Evercore bright blue",
+   "#9EC6C5 light teal (EngageSmart FF)",
+   "#E8841E orange",
+   "#3E8486 teal (Diversey)",
+   "#00A050-ish green / #70AD47-ish (Green Plains secondary series)",
+   "#646464 dark grey",
+   "#A5A5A5 / #BFBFBF / #CCCCCC greys"
+  ],
+  "accent": [
+   "#0069AA (bright blue: reference-only header boxes, section-divider text, units line)",
+   "#E4780C orange (offer / proposed consideration)",
+   "#C00000 red (unaffected price, offer callouts, highlight boxes)",
+   "#CADAF1 light blue (key-result row highlight, Diversey)",
+   "#F0F0F0 / #EAEAEA light grey (mean/median and result-row fills)"
+  ],
+  "rule_lines": "#254D81 navy: about 1.5pt full-width under the title and above the footer; thin navy or black rules inside tables",
+  "football_field_bars": {
+   "core": "#254D81 navy",
+   "reference_only": "Green Plains: #0069AA bright blue bars under a bright-blue header. CoolCo: #646464 dark grey bars, #BFBFBF grey header. EngageSmart: #CCCCCC grey. Diversey: #A3A3A3 grey bars, #787878 band label and #B5B5B5 sub-band.",
+   "other": "Diversey colours bars by method family: DCF #E8841E orange, trading multiples #3E8486 teal, precedent multiples #0069AA blue, reference #A3A3A3 grey. EngageSmart: DCF #254D81 navy, trading #6B97D4 light blue, precedents #9EC6C5 light teal, reference #CCCCCC grey. CoolCo adds a green diamond midpoint marker in each bar."
+  },
+  "offer_price_line": {
+   "color": "orange (#E4780C on CoolCo; reads paler and browner, about #C08A40, on the desaturated Green Plains JPEGs). Diversey and EngageSmart use red #C00000 for the final offer / bid.",
+   "style": "dashed",
+   "label_style": "Green Plains: orange text 'Implied Consideration: $15.69' in a box with an orange dashed outline beside the line. CoolCo: bold italic orange text 'Proposed Consideration: $9.65' stacked in a legend above the bars. Diversey: italic red 'Baryte's Final Offer: $8.40' with a diamond marker above the chart. EngageSmart: red dashed vertical lines with labels inside red dashed boxes above the chart."
+  },
+  "current_or_unaffected_price_line": {
+   "color": "Green Plains: green (about #3A7D44; current unit price). CoolCo: red #C00000 (unaffected) plus grey (current). Diversey: purple-navy dashed (Pearl's offer). EngageSmart: red dashed (unaffected 30D VWAP).",
+   "style": "dashed",
+   "label_style": "Green Plains: green text 'GPP Common Unit Price1: $13.78' in a green dashed box. CoolCo: italic bold coloured legend lines 'Unaffected Share Price: $7.77' and 'Current Share Price: $9.27'."
+  },
+  "notes": "The core house navy #254D81 is measured identically on solid fills in all four decks (bars, header fills, the Diversey roman numeral). The secondary blue is #0069AA. 'Confidential' is mid grey #7F7F7F. Text colours on the JPEGs drift darker because of anti-aliasing. Green Plains images are noticeably desaturated, so thin-line colours there are unreliable."
+ },
+ "title_treatment": {
+  "placement": "Top-left, left-aligned at the content margin, about 7-10% down the page.",
+  "title_bar": "None. The title is navy text on white (no filled band).",
+  "rule": "Full-width navy rule (#254D81, about 1.5pt) directly under the title line. In Diversey the rule runs under the title and the units note together.",
+  "subtitle_or_units_line": "US template: a blue bold subtitle (the page name) on the line below the rule. Right-aligned on the same line is the units note in bold italic blue, e.g. '($ in millions, except per unit amounts)'. Diversey puts its units note '(All financials in $mm unless otherwise stated)' right-aligned on the title line, in bold italic navy. Centred bold navy table captions (e.g. 'Peer Trading Statistics', 'Summary Result', 'Sensitivity Analysis') often sit over the tables.",
+  "tracker_or_breadcrumb": "The US template has none, though the repeated section-name title acts as a breadcrumb. Diversey uses a lettered circle tracker (A B C D E) at top-left inside section III: the current letter is filled navy (or orange for E) and the rest are outlined."
+ },
+ "page_furniture": {
+  "draft_or_confidential_legends": [
+   {
+    "text": "Confidential",
+    "position": "top-right, above the title rule",
+    "style": "Arial regular about 8pt, grey #7F7F7F (Green Plains, CoolCo)"
+   },
+   {
+    "text": "Confidential \u2013 Preliminary Draft",
+    "position": "top-right",
+    "style": "Arial regular about 8pt, grey (EngageSmart)"
+   },
+   {
+    "text": "PRELIMINARY DRAFT / Subject to Change / Highly Confidential / 10/22/2023 12:05 PM",
+    "position": "cover only, upper right",
+    "style": "red #FF0000 bold centred text in a thin red rectangle (date/time-stamped draft stamp; EngageSmart)"
+   },
+   {
+    "text": "none",
+    "position": "-",
+    "style": "Diversey carries no confidentiality legend on its slides"
+   }
+  ],
+  "page_number": "Centred at the bottom on the footer line, below the footer rule. Navy Arial about 9pt. Plain number only. The cover and disclaimer are unnumbered (the disclaimer is page 1 in Diversey); the first content page is 1.",
+  "footer": "A full-width navy rule, then the Evercore wordmark at bottom-left, the page number centred, and at bottom-right the client's logo (Green Plains, CoolCo), the project name in navy bold ('Project Everest', EngageSmart) or nothing (Diversey). In CoolCo and EngageSmart the source/footnote block sits BELOW the footer rule and wordmark; in Green Plains and Diversey it sits above the footer rule.",
+  "source_footnote_style": "Left-aligned at the bottom: 'Source: X, Y, FactSet as of September 15, 2023', then 'Note: ...', then numbered notes '1.' '2.' with a hanging indent, Arial about 7pt black. Footnote callouts are superscript arabic numerals with no parentheses (US). Diversey uses '(1)' superscripts and an italic run-on note block.",
+  "section_dividers": "US template: a white page with the Roman numeral and section name left-aligned at mid-height in bold bright blue (#0069AA) about 24pt, e.g. 'IV. Valuation of GPP Common Units', underlined by a thin blue rule and with the Evercore wordmark bottom-left. Appendix subsections use letters ('A. Additional Pro Forma Considerations'). Diversey: a very large navy Roman numeral (about 80pt, e.g. 'I', 'IIa', 'IV') above a navy rule, with the section name below it in regular-weight blue about 20pt; subsection dividers ('Situation Update / Macro Environment').",
+  "cover_page": "Green Plains / EngageSmart / Diversey: white page. A left-aligned bold navy title at about 45% height (the deck name or 'Project X'), a thin navy rule, a bold navy 'Discussion Materials' line or the committee name, and the date in bold navy. Evercore wordmark bottom-left, no photo. Diversey puts 'Exhibit (c)(xxvi)' top-right (filer-added). CoolCo (2025) differs: a full-bleed photograph on the top two-thirds, a navy (#254D81) band with white bold company name and 'Discussion Materials for the Special Committee of the Board of Directors', the date in bold italic, and the wordmark bottom-left with the client logo bottom-right.",
+  "disclaimer_page": "Page 2: the standard Evercore paragraph-form disclaimer ('These materials have been prepared by Evercore Group L.L.C. (\"Evercore\") for the ...'), about 7.5pt, justified, in navy-blue text (EngageSmart, Green Plains) or black (Diversey, CoolCo). Titled 'Disclaimer' in Green Plains and Diversey; untitled in EngageSmart and CoolCo. CoolCo adds the Institutional Investor ranking and FINRA research-independence paragraphs."
+ },
+ "structure": {
+  "usual_section_order": [
+   "Cover",
+   "Disclaimer",
+   "Table of Contents (sections listed with a right-hand Roman-numeral 'Section' column; Diversey gives page refs 'P.3')",
+   "I. Executive Summary / Transaction Overview (key terms, analysis at various prices)",
+   "II. Industry / Market Overview (when relevant)",
+   "III. Situation Overview / Situation Analysis (trading, ownership, research, management projections and assumptions)",
+   "IV. Financial Analysis / Valuation (Summary of Methodologies, Valuation Summary football field, DCF, peer trading, precedent transactions, then reference-only premiums paid, analyst targets, 52-week range)",
+   "Analysis of the Consideration / Pro Forma Analysis (MLP roll-up deals)",
+   "Appendix (WACC analysis, supporting materials)"
+  ],
+  "example_page_titles_in_order": [
+   "Green Plains Partners LP deck (section title / page subtitle):",
+   "Disclaimer",
+   "Table of Contents",
+   "Executive Summary / Introduction and Overview of Materials",
+   "Executive Summary / Overview of the Transaction",
+   "Executive Summary / Summary Organizational Structure and Transaction Economics",
+   "Executive Summary / GPP Common Unit Trading Data",
+   "Executive Summary / Side-by-Side Analysis",
+   "Executive Summary / Changes Since September 8, 2023 Discussion Materials",
+   "Green Plains Partners LP Situation Analysis / GPP Financial Projections \u2013 Assumptions",
+   "Valuation of GPP Common Units / Valuation Methodologies",
+   "Valuation of GPP Common Units / Valuation Summary",
+   "Valuation of GPP Common Units / Discounted Cash Flow Analysis",
+   "Valuation of GPP Common Units / Discounted Distribution Analysis",
+   "Valuation of GPP Common Units / Peer Group Trading Analysis",
+   "Valuation of GPP Common Units / Precedent M&A Transaction Analysis",
+   "Valuation of GPP Common Units / Premiums Paid Analysis",
+   "Analysis of the Consideration / Consideration Analysis"
+  ],
+  "appendix_contents": [
+   "Weighted Average Cost of Capital Analysis (CAPM peer betas, supply-side and historical MRP WACC sensitivities)",
+   "Additional Pro Forma Considerations (holder overlap, share liquidity)",
+   "Illustrative Unitholder Tax Analysis (Green Plains MLP)",
+   "Diversey: WACC evaluation, detailed WACC peer overview, cost of debt over time, corporate bond vs indices, net debt bridge, rating agency commentaries",
+   "CoolCo: Weighted Average Cost of Capital"
+  ]
+ },
+ "football_field": {
+  "orientation": "Varies by deal team. Green Plains and CoolCo use VERTICAL floating bars (methodologies across the x-axis, a $ per-share y-axis on the left). EngageSmart and Diversey use HORIZONTAL floating bars with methodology rows down the left.",
+  "row_labels": "Vertical style: a header row of navy-filled boxes above the plot with white bold method names (e.g. 'Discounted Cash Flow Analysis' split into 'Exit Multiple' and 'Perpetuity Growth' sub-boxes in dark grey #646464 or light blue #6B97D4), plus an assumptions grid below the plot ('9.5% - 10.5% WACC', '2023E EBITDA Multiple: 7.0x - 9.0x'). Horizontal style: coloured category bands on the far left (rotated text 'Core Valuation Methodologies' / 'For reference only'; 'DCF: PGR', 'Trading Multiples'), then the method name, then a 'Metric Applied' / 'Key Metrics and Methodologies' description column.",
+  "methodology_detail_text": "Vertical: in a boxed grid under the x-axis. Horizontal: a middle column of small regular (sometimes italic) text coloured to match its category. Diversey also adds right-hand columns of implied TEV / EBITDA multiples in italics; EngageSmart adds implied TEV, implied multiples and premium columns.",
+  "reference_only_treatment": "Split off visually and labelled 'For Reference Only'. Green Plains: bright-blue headers and bars under a bracket labelled 'For Reference Only', separated by a vertical grey dashed line. CoolCo: a grey header 'For Reference Only' over grey-filled header boxes and dark grey bars, with a solid vertical divider. Diversey and EngageSmart: grey bars in a lower block with a grey 'For reference only' / 'Reference' band.",
+  "value_labels": "Low value below and high value above each vertical bar, in bold navy '$12.17' format (2 decimals with $). Horizontal style: low and high at the bar ends (EngageSmart: plain text outside the bar ends; Diversey: white text in small filled boxes matching the bar colour, no $).",
+  "price_lines": "Dashed horizontal lines spanning the chart (vertical style) or dashed vertical lines (horizontal style) for the offer/consideration (orange or red), the current price (green or grey) and the unaffected price (red), each labelled in matching colour, either in dashed-outline boxes or as a stacked italic legend.",
+  "axis": "Vertical style: left y-axis in $ with 2 decimals ('$25.00'), no gridlines, axis line in black/grey. Horizontal style: no visible axis or ticks; value labels only.",
+  "other": "CoolCo marks a midpoint/average with a green diamond in each bar and a legend chip 'Midpoint / Average'. Green Plains repeats the chart as a 'Sensitivity Cases \u2013 Valuation Summary' variant. A 'Consideration Analysis' chart overlays the implied consideration value as dashed-outline boxes against the value ranges."
+ },
+ "tables": {
+  "number_formats": "$ in millions with one decimal for financials ('$49.6', '$1,687.2'); market data with no decimals ('$2,309'). $ sign on the first row and on total rows only; thousands commas. Per-share figures have 2 decimals ('$33.80'). Diversey shows bare numbers with a separate Units column ('$mm', 'x', '%', '$ / Sh').",
+  "multiples": "One decimal with 'x' ('7.3x'). 'x' on the first row of each block and on mean/median rows, omitted on the rows between (US decks). Growth-adjusted multiples have 2 decimals ('0.32x').",
+  "percentages": "One decimal with % ('57.9%'); premiums the same.",
+  "negatives": "Parentheses in the US decks ('(41.6)', '($236.5)', '(16.2%)'). Diversey uses a leading minus sign ('-1,578', '-1.2x').",
+  "nm_na": "'NM' for not meaningful (and negative or >threshold multiples), 'NA' for not available. A zero or nil is shown as an en/em dash '\u2013' (US); EngageSmart also uses '-' for blank target rows.",
+  "mean_median_rows": "Bold 'Mean' / 'Median' rows grouped inside a thin navy-outlined box with a light grey fill (#F0F0F0), placed after each peer sub-group. A 'Total Peer Group' block follows the sub-groups.",
+  "borders_and_rules": "Minimal: no vertical lines. Thin dark rule under the header and above totals. Key result rows (e.g. 'Implied Enterprise Value', 'Implied Value per Unit') sit in a light grey (#EAEAEA) box with a thin navy outline. Sensitivity grids outline the central 3x3 in navy. Diversey uses full horizontal row rules with light dashed vertical separators.",
+  "header_style": "Either navy-filled (#254D81) header rows with white bold centred text (comps, WACC, Diversey tables), or navy bold column heads with a navy underline per column group and spanning headers such as 'Enterprise Value / EBITDA' underlined above their year columns (EngageSmart comps, precedent lists). Section strips inside tables ('Implied Transaction Value') are navy bars with white bold text.",
+  "target_or_subject_highlight": "The subject company row is set apart at the bottom in a light grey or light blue box with a navy outline ('Green Plains, Inc.'), with consensus / management-case rows below it in bold italic. EngageSmart shades its subject rows light blue (#D9E5F5). The offer column in an analysis-at-various-prices table is enclosed in a red dashed box (CoolCo); Diversey colour-fills the offer columns (purple / orange headers)."
+ },
+ "distinctive_features": [
+  "The house navy #254D81 is the same on solid fills in every deck, with bright blue #0069AA as the second brand colour.",
+  "Two-tier heading: the section name as the bold navy title on every page, and the page's own name as a bold blue subtitle under the title rule. Example: 'Valuation of GPP Common Units' over 'Discounted Cash Flow Analysis'.",
+  "A bold italic blue units note right-aligned on the subtitle line: '($ in millions, except per share data)'.",
+  "Bank logo at bottom-left of every page (position only), above or below a navy footer rule. The client logo or project name sits bottom-right.",
+  "'For Reference Only' methods are segregated with a bracket or banner and a different bar colour on every football field.",
+  "Section dividers are mostly white space: a Roman numeral and the section name in bright blue with a thin rule (US), or a giant navy numeral (Diversey).",
+  "'Analysis at Various Prices' grids with the offer column boxed in red dashes.",
+  "Sensitivity tables put 'WACC' rotated vertically on the left axis and outline the central cells in navy."
+ ],
+ "disagreements_between_decks": [
+  "Diversey (Mar 2023) is a different template from the three US decks. It has no 'Confidential' legend, a larger title, no subtitle line, a Roman-numeral divider style, colour-coded horizontal football field bands (orange, teal, blue, grey), minus-sign negatives, '(1)' footnote callouts, an italic note block, a Units column and British spelling. It looks like a London deal team.",
+  "Football field orientation: vertical bars in Green Plains and CoolCo; horizontal bars in EngageSmart and Diversey.",
+  "Offer-line colour: orange for the deal consideration in Green Plains and CoolCo; red for the offer/bid in Diversey and EngageSmart. The current-price line is green in Green Plains, grey in CoolCo and red for unaffected in CoolCo.",
+  "Reference-only bars: bright blue in Green Plains; dark or mid grey in CoolCo, EngageSmart and Diversey.",
+  "Footnote position: below the footer rule and wordmark in CoolCo and EngageSmart; above it in Green Plains and Diversey.",
+  "Cover: a plain white text cover in 2023 (Green Plains, EngageSmart, Diversey); a full-bleed photo with a navy band in 2025 (CoolCo).",
+  "Disclaimer text is navy-blue in EngageSmart and Green Plains and black in Diversey and CoolCo; titled 'Disclaimer' in Green Plains and Diversey, untitled in the others.",
+  "Legend wording: 'Confidential' (Green Plains, CoolCo) vs 'Confidential \u2013 Preliminary Draft' (EngageSmart) vs none (Diversey).",
+  "Footer right-hand slot: client logo (Green Plains, CoolCo), 'Project Everest' text (EngageSmart) or empty (Diversey)."
+ ],
+ "confidence_notes": "High confidence in the navy #254D81 and blue #0069AA (consistent solid fills across decks), the layout grid, legends, footers and table conventions. Medium confidence in thin-line colours (dashed price lines), because JPEG chroma subsampling desaturates them, especially in the Green Plains images. The orange and green values there are approximate. Typeface identified as Arial from raster only (medium-high). Point sizes are approximate, from cap-height measurement. EngageSmart is only a 5-slide excerpt, so it adds little on section structure, DCF or precedents. Diversey's page size is uncertain (1.5:1 images). No logo artwork was described or sampled."
+}

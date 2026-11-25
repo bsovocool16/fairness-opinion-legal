@@ -624,7 +624,7 @@ def recalc(xlsx):
     soffice = shutil.which("soffice") or shutil.which("libreoffice") or ("/Applications/LibreOffice.app/Contents/MacOS/soffice" if Path("/Applications/LibreOffice.app").exists() else None)
     if not soffice: raise SystemExit("LibreOffice (soffice) is needed to recalculate the model headless: brew install --cask libreoffice")
     tmp = Path(tempfile.mkdtemp(prefix="recalc_")); prof = Path(tempfile.mkdtemp(prefix="lo_profile_"))
-    subprocess.run([soffice, f"-env:UserInstallation=file://{prof}", "--headless", "--calc", "--convert-to", "xlsx:Calc MS Excel 2007 XML", "--outdir", str(tmp), str(xlsx)], capture_output=True, text=True, timeout=180)
+    subprocess.run([soffice, f"-env:UserInstallation={Path(prof).resolve().as_uri()}", "--headless", "--calc", "--convert-to", "xlsx:Calc MS Excel 2007 XML", "--outdir", str(tmp), str(xlsx)], capture_output=True, text=True, timeout=180)
     got = tmp / Path(xlsx).name
     if not got.exists(): raise SystemExit("LibreOffice did not produce a recalculated copy")
     return got

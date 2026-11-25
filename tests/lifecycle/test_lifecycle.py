@@ -111,3 +111,37 @@ def test_reverse_dcf_and_ltm_anchor(deal):
     assert abs(c["rdcf_x"] * c["ebitda_N"] - c["rdcf_tv"]) < 1e-6 * c["rdcf_tv"]
     # the fixture carries LTM figures to 2026-09-30, so year one is anchored on them
     assert v["assumption_basis"]["growth"].startswith("year 1: LTM revenue to 2026-09-30")
+
+def test_house_style_profiles_and_auto_match():
+    import build_deck
+    keys = build_deck.styles()
+    assert {"default", "goldman", "perella", "jpm", "jefferies", "citi", "evercore"} <= set(keys)
+    for k in keys:
+        st = build_deck.load_style(k)
+        assert st["schema"] == "house_style/1" and st["key"] == k
+        for sec in ("page", "font", "title", "subtitle", "text", "table", "numbers", "footer", "dividers", "cover", "chart", "ff"): assert sec in st, (k, sec)
+        if k != "default": assert (build_deck.STYLES / st["research"]).exists(), k
+    assert build_deck.load_style("auto", "Evercore Group L.L.C.")["key"] == "evercore"
+    assert build_deck.load_style("auto", "J.P. Morgan Securities LLC")["key"] == "jpm"
+    assert build_deck.load_style("auto", "Citigroup Global Markets Inc.")["key"] == "citi"
+    assert build_deck.load_style("auto", "Centerview Partners LLC")["key"] == "default"
+    with pytest.raises(SystemExit): build_deck.load_style("nosuchbank")
+
+@needs_lo
+@pytest.mark.parametrize("style", ["default", "goldman", "perella", "jpm", "jefferies", "citi", "evercore"])
+def test_every_house_style_hands_off(deal, tmp_path, style):
+    """Each style's book keeps the numbers, the stamp and the disclaimers, and the classifier still finds every analysis."""
+    d = tmp_path / style; shutil.copytree(deal, d)
+    for stage in ("deck", "handoff"):
+        r = subprocess.run([sys.executable, str(LC / "ticker_to_proxy.py"), "stage", stage, str(d), "--house-style", style], capture_output=True, text=True, timeout=300)
+        assert r.returncode == 0, r.stdout + r.stderr
+    deck = json.load(open(d / "lifecycle" / "deck.json")); assert deck["house_style"] == style
+    v = json.load(open(d / "lifecycle" / "valuation.json")); text = (d / "inputs" / "book.txt").read_text()
+    for k in ("comps", "dcf_pgr", "dcf_exit", "lbo"):
+        for end in ("low", "high"):
+            want = f"${v['ranges'][k][end]:,.2f}"
+            assert want in text or want.replace("$", "$ ") in text, (style, k, end)
+    pages = [p for p in text.split("-----PAGE-----") if p.strip()]
+    assert all("ILLUSTRATIVE" in p for p in pages), style
+    flat = " ".join(text.split()); assert "Disclaimer" in flat and "Not prepared, reviewed or endorsed" in flat
+    if style != "default": assert "no affiliation with or endorsement by" in " ".join(text.split())

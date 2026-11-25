@@ -1,0 +1,85 @@
+{
+ "schema": "house_style/1",
+ "key": "default",
+ "name": "Generic (no bank's house style)",
+ "match": [],
+ "template": "The lifecycle's own generic look: 16:9, navy and gold, Arial.",
+ "page": {
+  "w": 13.333,
+  "h": 7.5
+ },
+ "font": {
+  "title": "Arial",
+  "body": "Arial"
+ },
+ "title": {
+  "size": 24,
+  "bold": true,
+  "color": "1F3864",
+  "case": "title",
+  "rule": "under",
+  "rule_color": "1F3864",
+  "two_tier": false
+ },
+ "subtitle": {
+  "color": "808080",
+  "italic": true,
+  "bold": false
+ },
+ "text": {
+  "body": "000000",
+  "table": "000000",
+  "muted": "808080",
+  "notes_italic": true
+ },
+ "table": {
+  "header": "fill",
+  "header_fill": "1F3864",
+  "header_text": "FFFFFF",
+  "stat_fill": "DDEBF7",
+  "rule_color": null,
+  "density": 1.0,
+  "font_scale": 1.0
+ },
+ "numbers": {
+  "spaced": false
+ },
+ "legend": null,
+ "stamp": "top_right",
+ "footer": {
+  "page_number": "right",
+  "rule": null,
+  "band": null,
+  "left_text": null
+ },
+ "toc": false,
+ "dividers": {
+  "style": "none"
+ },
+ "disclaimer_page": "front",
+ "cover": {
+  "style": "band",
+  "color": "1F3864",
+  "title_color": "FFFFFF",
+  "accent": "1F3864"
+ },
+ "chart": {
+  "primary": "1F3864",
+  "offer": "C00000"
+ },
+ "ff": {
+  "core": "1F3864",
+  "reference": "808080",
+  "method_colors": null,
+  "reference_position": "bottom",
+  "reference_label": null,
+  "label_blocks": false,
+  "basis": "under",
+  "offer_color": "C00000",
+  "offer_dash": true,
+  "offer_label": "below",
+  "value_bold": false,
+  "unaffected_color": null,
+  "row_height": null
+ }
+}

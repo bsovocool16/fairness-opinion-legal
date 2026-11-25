@@ -1,0 +1,123 @@
+{
+ "schema": "house_style/1",
+ "key": "goldman",
+ "name": "Goldman Sachs (classic template)",
+ "match": [
+  "goldman"
+ ],
+ "template": "Classic Letter-landscape Arial template (Myovant 2022, Focus 2023, PowerSchool 2024, Janus 2026). Not the 2025 widescreen or 2026 serif variants.",
+ "page": {
+  "w": 11,
+  "h": 8.5
+ },
+ "font": {
+  "title": "Arial",
+  "body": "Arial"
+ },
+ "title": {
+  "size": 24,
+  "bold": true,
+  "color": "0A3259",
+  "case": "title",
+  "rule": "under",
+  "rule_color": "999999",
+  "two_tier": false,
+  "rule_width": 0.75
+ },
+ "subtitle": {
+  "color": "0A3259",
+  "italic": false,
+  "bold": true
+ },
+ "text": {
+  "body": "000000",
+  "table": "000000",
+  "muted": "595959",
+  "notes_italic": true
+ },
+ "table": {
+  "header": "text",
+  "header_fill": "1F396C",
+  "header_text": "FFFFFF",
+  "stat_fill": "E2EBF4",
+  "rule_color": "D9D9D9",
+  "density": 0.52,
+  "font_scale": 0.82,
+  "header_rule": "1F396C",
+  "grid_mid_fill": null
+ },
+ "numbers": {
+  "spaced": true
+ },
+ "legend": null,
+ "stamp": "top_right",
+ "footer": {
+  "page_number": "right_bar",
+  "rule": "666666",
+  "band": null,
+  "left_text": "{section}"
+ },
+ "toc": true,
+ "dividers": {
+  "style": "plain",
+  "color": "000000",
+  "size": 24,
+  "rule": false
+ },
+ "disclaimer_page": "front",
+ "cover": {
+  "style": "plain_sub_first",
+  "color": "7399C6",
+  "title_color": "7399C6",
+  "accent": "666666",
+  "title_bold": false,
+  "company_line": false
+ },
+ "chart": {
+  "primary": "00355F",
+  "offer": "3C8A68"
+ },
+ "ff": {
+  "core": "1F396C",
+  "reference": "7399C6",
+  "method_colors": null,
+  "reference_position": "bottom",
+  "reference_label": "For Reference Only",
+  "label_blocks": true,
+  "basis": "right",
+  "offer_color": "5C3B8A",
+  "offer_dash": true,
+  "offer_label": "below",
+  "value_bold": true,
+  "unaffected_color": "3C8A68",
+  "row_height": 0.38,
+  "headers": [
+   "Methodology",
+   "Implied Equity Value Per Share",
+   "Commentary"
+  ],
+  "label_size": 9,
+  "reference_label_rotated": true,
+  "multiples": "Implied EV / LTM EBITDA",
+  "separator": false
+ },
+ "research": "research/goldman.json",
+ "toc_opts": {
+  "pages": false,
+  "numbering": "roman",
+  "color": "000000",
+  "size": 12,
+  "row_pitch": 0.32,
+  "indent": 0,
+  "rule_color": null,
+  "appendix_label": "Appendix A: Supplementary Material",
+  "numeral_suffix": "."
+ },
+ "comps": {
+  "stats": [
+   "mean",
+   "median"
+  ],
+  "subject_position": "top"
+ }
+}
