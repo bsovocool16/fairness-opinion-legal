@@ -74,128 +74,142 @@ code{font-size:14px;background:var(--soft);padding:1px 4px;border-radius:3px;ove
 <div id="tip"></div>
 
 <header class="band"><div class="wrap lede">
-  <h1>The deal price is the answer. The DCF is the work shown.</h1>
-  <p class="dek">I pulled every discounted cash flow analysis I could find in 25 years of SEC merger filings and set them beside what experts and judges do with the same method in Delaware appraisal trials. The method is identical. Who is holding it decides the answer.</p>
-  <p class="by">A draft for the autoproxy project. Data: <span id="nf"></span> EDGAR filings, 2001 to 2026; 44 Delaware appraisal decisions. Code and dataset linked at the end.</p>
+  <h1>How investment banks choose the numbers behind a fairness opinion</h1>
+  <p class="dek">When a public company is sold, its board almost always gets a letter from a bank saying the price is fair. I looked at the valuations behind 25 years of those letters to see how much of the answer comes from the company being valued, and how much comes from who is doing the valuing.</p>
+  <p class="by">Draft for the autoproxy project. Based on <span id="nf"></span> SEC merger filings from 2001 to 2026 and 44 Delaware court decisions. The dataset and code are linked at the end.</p>
+  <h3 style="margin-top:8px">The same valuation method, used by four different people, gives four different answers</h3>
   <div class="fig" id="hero" style="min-height:330px"></div>
-  <p class="cap">Each dot is one valuation, as a multiple of the deal price (log scale). Bankers: midpoint of the fairness-opinion DCF range in cash deals (300 of <span id="nb"></span> shown). Experts and courts: per-share fair value in Delaware appraisal decisions. Thick bar spans the middle half; the tick is the median.</p>
+  <p class="cap">Each dot is one valuation, shown as a multiple of the price the buyer actually paid (1× means the valuation matched the deal price). Top row: the middle of the bank's valuation range in fairness opinions for cash deals (300 of <span id="nb"></span> shown). Other rows: valuations by each side's expert witness and by the court in Delaware appraisal cases. The thick bar covers the middle half of each group, and the short vertical tick is the median.</p>
 </div></header>
 
 <section class="band" style="padding-block:0 8px"><div class="wrap">
   <div class="k" id="kpis"></div>
 </div></section>
 
+<section class="band"><div class="wrap sec full">
+  <div class="txt cols">
+    <h2>The question</h2>
+    <p>A fairness opinion is a short letter. The bank's work behind it is summarized in the merger proxy that shareholders receive, and the centerpiece of that summary is usually a discounted cash flow analysis, or DCF. A DCF estimates what a company is worth today by forecasting the cash it will generate and discounting that cash back to the present. The rate used for discounting, often called the WACC (weighted average cost of capital), does most of the work: a one-point change in it can move the result by 10% to 20%.</p>
+    <p>The discount rate is not looked up anywhere. It is built from a handful of choices: how sensitive the company's stock is to the market (its "beta"), which Treasury bond stands in for a risk-free investment, how much extra return investors demand for owning stocks (the "equity risk premium"), and how fast the company will grow after the forecast ends. Each choice has several defensible answers, and the bank picks one.</p>
+    <p>Those choices look like finance, but they are made under legal pressure. Shareholders can sue over a sale, and they can ask a Delaware court for an "appraisal" of what their shares were really worth. Both kinds of case put the bank's DCF under a microscope. So I wanted to know: when banks make these choices, how consistent are they, what drives them, and how do they compare with the choices courts make when they value the same companies?</p>
+    <p>Every proxy that summarizes a fairness opinion is a public record of these choices. I collected them from SEC filings from 2001 to 2026, which gave 5,136 bank valuations across 4,172 deals, and compared them with 44 Delaware appraisal decisions in which the court and both sides' experts valued the company. The chart at the top shows the main result. Using the same method, the bank's valuation lands close to the deal price, the company's expert comes in a little lower, the shareholders' expert comes in about 50% higher, and the court usually ends up near the deal price.</p>
+  </div>
+</div></section>
+
 <section class="band"><div class="wrap sec">
   <div class="txt">
-    <h2>How I got here: a 320 basis point argument about beta</h2>
-    <p>This started with a backtest. Our pipeline builds a banker-convention model from public data and drafts the fairness-opinion section of a proxy. On a held-out deal, Utz Brands' 2026 take-private, our first model came out at a 5.0% WACC. Citi's book, filed later, used 7.9% to 8.5%.</p>
-    <p>Nothing was wrong in the arithmetic. Every gap was a choice that a reasonable analyst could make either way: two-year raw betas instead of Bloomberg-adjusted five-year weekly betas, a 10-year Treasury instead of the 20-year, a 5.5% equity risk premium instead of 5.7% to 6.7%, and a cost of debt read from the income statement instead of the bond market. Fixing the beta method alone cut our DCF midpoint nearly in half.</p>
-    <p>So the useful question is not "what is the right WACC" but "which choices do bankers make, how consistently, and why". That is a question you can answer with data, because every fairness opinion summarised in a proxy is a public record of those choices.</p>
+    <h2>How we ran into the question</h2>
+    <p>This started with a test of our own software. The autoproxy pipeline builds a valuation model from public data and drafts the fairness-opinion section of a proxy. To test it, we ran it on a deal it could not have seen before: the 2026 sale of Utz Brands, the snack company. Our model came up with a discount rate of 5.0%. When the real proxy was filed, Citi, the bank advising Utz, had used 7.9% to 8.5%.</p>
+    <p>Our arithmetic was fine. The gap came entirely from choices. We had measured beta from two years of daily stock returns; Citi used five years of weekly returns with Bloomberg's standard adjustment. We used the 10-year Treasury rate; Citi used the 20-year. We assumed a 5.5% equity risk premium; Citi used 5.7% to 6.7%. Changing the beta method alone cut our valuation nearly in half.</p>
+    <p>Each of our choices was reasonable on its own. That is what made the gap interesting. If two careful analysts can be more than three points apart on the same company, the answer has to depend on something besides the company.</p>
   </div>
-  <div><div class="fig" id="utz" style="min-height:300px"></div><p class="cap">Utz Brands, opinion date 20 July 2026. Our WACC after each change, against Citi's filed range. The last 80 bp are mostly cost of debt (5.0% book versus 7.8% market yield).</p></div>
+  <div><h3>Our Utz discount rate as we adopted Citi's choices, one at a time</h3><div class="fig" id="utz" style="min-height:300px"></div><p class="cap">Utz Brands, valued as of 20 July 2026. The shaded band is Citi's range. Most of the gap that remains comes from the cost of borrowing: we used the interest Utz paid on its existing debt (5.0%), while Citi used what the bond market charged at the time (7.8%).</p></div>
 </div></section>
 
 <section class="band"><div class="wrap sec flip">
-  <div><div class="fig" id="pos" style="min-height:340px"></div>
+  <div><h3>Where the deal price falls within the bank's valuation range</h3><div class="fig" id="pos" style="min-height:340px"></div>
     <div class="rows" id="postype" style="margin-top:14px"></div>
-    <div class="lg"><span><i style="background:var(--blue)"></i>price below the DCF range</span><span><i style="background:var(--rule)"></i>inside</span><span><i style="background:var(--red)"></i>above</span></div>
-    <p class="cap">Where the cash deal price falls inside the banker's DCF range: 0 is the low end, 1 the high end. Values beyond the chart edges are piled into the end bins.</p></div>
+    <div class="lg"><span><i style="background:var(--blue)"></i>price below the bank's range</span><span><i style="background:var(--rule)"></i>inside it</span><span><i style="background:var(--red)"></i>above it</span></div>
+    <p class="cap">Cash deals only. The shaded area is the bank's range, from its low end to its high end. Deals far outside the range are grouped in the bars at each edge.</p></div>
   <div class="txt">
-    <h2>The price lands inside the range, a little above the middle</h2>
-    <p>Across <span class="d" data-k="posn"></span> cash deals where the proxy gives both the DCF range and the price, the price sits inside the range <span class="d" data-k="inside"></span> of the time, above it <span class="d" data-k="above"></span>, and below it <span class="d" data-k="below"></span>. The median position is <span class="d" data-k="posmed"></span> of the way up.</p>
-    <p>A DCF midpoint is, at the median, <span class="d" data-k="ratio"></span> of the deal price, and half of all midpoints are within <span class="d" data-k="iqr"></span> of it. For a method whose output typically moves 10% to 20% for each point of discount rate, that is a tight orbit.</p>
-    <p>The orbit tightens in a telling place. In going-private deals under Rule 13e-3, where a controller is on the other side and the special committee's opinion will be read by plaintiffs, the price sits lowest in the range (median <span class="d" data-k="pos13e"></span>) and is most often below it (<span class="d" data-k="below13e"></span>). In strategic cash deals the price is above the whole DCF range a third of the time. Arm's-length buyers pay control premiums that standalone cash flows cannot reach; controllers do not, and the opinion still says "fair".</p>
+    <h2>The deal price almost always lands inside the bank's range, or above it</h2>
+    <p>A bank does not give one number. It gives a range, built by trying a few discount rates and growth rates. In <span class="d" data-k="posn"></span> cash deals where the proxy reports both the range and the price, the price fell inside the range <span class="d" data-k="inside"></span> of the time and above it <span class="d" data-k="above"></span> of the time. It fell below the range, which is the awkward case for a letter that says the price is fair, only <span class="d" data-k="below"></span> of the time.</p>
+    <p>The middle of the bank's range is usually close to the price. At the median it is <span class="d" data-k="ratio"></span> of the price, and half of all deals fall within about <span class="d" data-k="iqr"></span>. Given how much a DCF moves with each input, that is a narrow band.</p>
+    <p>The pattern shifts with the kind of deal. When a controlling shareholder buys out the public investors (a "going-private" deal under SEC Rule 13e-3), the price sits lowest in the bank's range and falls below it most often, in <span class="d" data-k="below13e"></span> of deals. When an outside company buys the business, the price is above the bank's entire range a third of the time. Outside buyers often pay a premium for control that the company's own forecasts cannot justify. Controlling shareholders, who already have control, tend not to.</p>
   </div>
 </div></section>
 
 <section class="band"><div class="wrap sec">
   <div class="txt">
-    <h2>Judgment comes in half-point steps</h2>
-    <p>If discount rates were estimated, their endpoints would be spread across the decimals. They are not. <span class="d" data-k="heapint"></span> of all endpoints are whole numbers and another <span class="d" data-k="heaphalf"></span> end in .5. Only <span class="d" data-k="heapother"></span> carry any other decimal.</p>
-    <p>Range widths are just as stylised: two points wide or one point wide covers more than half of all ranges. The single most common perpetuity growth range is 2% to 3%, and nearly half of all growth ranges are exactly one point wide. Exit multiples follow suit: <span class="d" data-k="emheap"></span> end in .0x or .5x.</p>
-    <p>This is the quantitative signature of a legal standard, not an estimate. A fairness opinion has to show a range a reasonable banker could defend. Round numbers are defensible in a way that 9.37% is not, because nobody can argue you tuned them.</p>
+    <h2>Banks pick round numbers</h2>
+    <p>If banks calculated their discount rates precisely, the ranges would end on all sorts of decimals, like 9.37%. Almost none do. <span class="d" data-k="heapint"></span> of the endpoints are whole numbers, such as 9% or 10%, and another <span class="d" data-k="heaphalf"></span> end in a half, such as 9.5%. Only <span class="d" data-k="heapother"></span> end in anything else.</p>
+    <p>The width of the range is just as standardized. Most ranges are either two points wide or one point wide. The most common long-term growth assumption is 2% to 3%, and nearly half of all growth ranges are exactly one point wide. Valuation multiples behave the same way: <span class="d" data-k="emheap"></span> end in .0 or .5.</p>
+    <p>I think this reflects what a fairness opinion is for. Its job is not to produce the single best estimate. Its job is to show a range that a reasonable banker could defend in front of a board and, if necessary, a court. A round number is easier to defend than a precise one, because no one can say it was tuned to reach a result.</p>
   </div>
   <div>
-    <h3>Last two digits of discount-rate endpoints</h3><div class="rows" id="heap"></div>
-    <h3>Width of the discount-rate range</h3><div class="rows" id="wid"></div>
-    <h3>Most common perpetuity growth ranges</h3><div class="rows" id="pgp"></div>
+    <h3>How discount-rate endpoints end</h3><div class="rows" id="heap"></div>
+    <h3>How wide the discount-rate range is</h3><div class="rows" id="wid"></div>
+    <h3>The most common long-term growth ranges</h3><div class="rows" id="pgp"></div>
   </div>
 </div></section>
 
 <section class="band"><div class="wrap sec flip">
-  <div><div class="fig" id="rates" style="min-height:330px"></div>
-    <p class="cap">Median midpoint of the banker discount-rate range by filing year, against the average 10-year Treasury yield that year. Hover for values.</p></div>
+  <div><h3>Banks' typical discount rate and the 10-year Treasury yield, by year</h3><div class="fig" id="rates" style="min-height:330px"></div>
+    <p class="cap">The red line is the median of the middle of each bank's discount-rate range, for filings in that year. The blue line is the average 10-year Treasury yield. Hover over a year to see the values.</p></div>
   <div class="txt">
-    <h2>Discount rates ignored falling rates, then followed rising ones</h2>
-    <p>From 2007 to 2012 the 10-year yield fell by almost three points. The median banker discount rate fell by half a point. Holding bank, industry and deal type fixed, each point of Treasury yield moved discount rates by <span class="d" data-k="pt1"></span> points before 2013, and by <span class="d" data-k="pt3"></span> points from 2022.</p>
-    <p>Two practices did the absorbing. Board books from 2009 to 2012 often used a "normalized" risk-free rate in the 3.4% to 4.1% band while the actual 10-year averaged about 3%, and equity risk premia stayed high. Duff &amp; Phelps, the cost-of-capital reference most books cite, recommended both at the time, which is the point: the stickiness was a shared convention, not one bank's view.</p>
-    <p>It also leans one way. A higher discount rate lowers the DCF, which makes any given offer look more generous. Sticky rates on the way down are the direction a sell-side fairness opinion is happy to err.</p>
+    <h2>When interest rates fell, banks' discount rates barely moved</h2>
+    <p>In theory, a company's discount rate should rise and fall with interest rates, since the Treasury rate is one of its building blocks. From 2007 to 2012 the 10-year Treasury yield fell by almost three points. Over the same years, the typical bank discount rate fell by only half a point.</p>
+    <p>To check that this was not just a change in the mix of companies being sold, I compared deals by the same banks, in the same industries and of the same type. Before 2013, each one-point drop in Treasury yields moved bank discount rates by only <span class="d" data-k="pt1"></span> points. Since 2022, as rates have risen, each point has moved them by <span class="d" data-k="pt3"></span> points, about three times as much.</p>
+    <p>Two common practices explain much of the gap. In the years after the financial crisis, many banks replaced the actual Treasury yield with a higher "normalized" rate, often between 3.4% and 4.1%, when the real 10-year yield averaged about 3%. Many also kept their equity risk premium high. Duff &amp; Phelps, the reference most bank presentations cite, recommended both at the time, so this was a shared convention rather than any one bank's view.</p>
+    <p>The convention happens to lean in one direction. A higher discount rate produces a lower valuation, which makes any offer look more generous. When rates fell, keeping discount rates high was the choice that made a fairness opinion easier to give.</p>
   </div>
 </div></section>
 
 <section class="band"><div class="wrap sec">
   <div class="txt">
-    <h2>Who you hire moves the WACC as much as what you are</h2>
-    <p>I regressed each discount-rate midpoint on the filing year, the target's two-digit industry, the deal type and, last, the bank. Year and industry explain about a fifth of the variation. Adding the bank's identity nearly doubles that.</p>
-    <p>The cleanest test is a deal with two advisors valuing the same company, on the same projections, on the same day. In <span class="d" data-k="pairsn"></span> such pairs the median gap between their discount-rate midpoints is <span class="d" data-k="pairbp"></span> basis points. One in five pairs used the identical range, which says the two teams talked. One in ten differed by more than <span class="d" data-k="pair90"></span> bp, for the same company on the same day.</p>
+    <h2>Which bank you hire matters about as much as what industry you are in</h2>
+    <p>To see what drives the discount rate, I tested how much of the variation across deals can be explained by four things, adding them one at a time: the year, the company's industry, the type of deal, and finally the bank. The year and industry together explain about a fifth of the variation. Adding the bank's name nearly doubles it.</p>
+    <p>The most direct test uses deals with two banks advising the same side. Both banks are valuing the same company, from the same management forecasts, on the same day. In <span class="d" data-k="pairsn"></span> such pairs, the typical gap between their discount rates was <span class="d" data-k="pairbp"></span> basis points (half a percentage point). In one pair out of five, the two banks used exactly the same range, which suggests they coordinated. In one pair out of ten, they were more than <span class="d" data-k="pair90"></span> basis points apart.</p>
   </div>
   <div>
-    <h3>Share of discount-rate variation explained (adjusted R²)</h3><div class="rows" id="r2"></div>
-    <h3 style="margin-top:22px">Same company, same day, two banks: gap between midpoints</h3>
+    <h3>Share of the variation in discount rates explained, adding one factor at a time</h3><div class="rows" id="r2"></div>
+    <h3 style="margin-top:22px">Two banks valuing the same company on the same day: how far apart their discount rates were</h3>
     <div class="fig" id="pairs" style="min-height:200px"></div>
   </div>
 </div></section>
 
 <section class="band"><div class="wrap sec full">
   <div class="txt cols">
-    <h2>Every bank writes in its own dialect, and a model can hear it</h2>
-    <p>I trained a plain bag-of-phrases classifier on the DCF paragraphs of the 15 most active banks, after replacing every bank name, number, year and capitalised word with a placeholder. It names the bank from the paragraph alone <span class="d" data-k="acc"></span> of the time, against <span class="d" data-k="base"></span> for always guessing the busiest bank. Trained only on paragraphs to 2016, it still names the bank on paragraphs from 2019 on <span class="d" data-k="acct"></span> of the time. These are templates that outlive the people who wrote them.</p>
-    <p>The dialects carry substance. Goldman's paragraphs are "illustrative" almost without exception. Credit Suisse and UBS lean on exit multiples; J.P. Morgan and Evercore on perpetuity growth; Centerview, the life-sciences house, models a patent cliff with a terminal <em>decline</em> in 40% of its DCFs. Stifel and Piper Sandler use discount-rate ranges more than twice as wide as Morgan Stanley's.</p>
+    <h2>Each bank writes its valuation summary in a recognizable house style</h2>
+    <p>Banks reuse their own wording from deal to deal, so I tested how strong that habit is. I trained a simple text classifier on the DCF summaries of the 15 busiest banks, after removing every bank name, number, year and proper noun. Given a summary it had not seen, the classifier named the right bank <span class="d" data-k="acc"></span> of the time. Guessing the busiest bank every time would be right <span class="d" data-k="base"></span> of the time. When I trained it only on summaries written through 2016 and tested it on summaries from 2019 onward, it was still right <span class="d" data-k="acct"></span> of the time, so the templates have lasted for years.</p>
+    <p>The house styles go beyond wording. Goldman Sachs calls nearly every DCF "illustrative." Credit Suisse and UBS usually value the company's later years with a multiple of earnings, while J.P. Morgan and Evercore usually assume a steady growth rate. Centerview, which advises many drug companies, often assumes that cash flow will decline after patents expire, in 40% of its DCFs. Stifel and Piper Sandler use discount-rate ranges more than twice as wide as Morgan Stanley's.</p>
   </div>
-  <div class="scroll"><table class="stack" id="house"><thead><tr><th>Bank</th><th class="n">DCFs</th><th class="n">Named by model</th><th>Most distinctive phrase</th><th class="n">Perpetuity growth</th><th class="n">Exit multiple</th><th class="n">Typical width</th><th class="n">Price position</th></tr></thead><tbody></tbody></table></div>
-  <p class="cap">Named by model: share of the bank's paragraphs the classifier attributes to it in 5-fold cross-validation. Perpetuity and exit: share of DCFs disclosing that terminal method (some use both). Price position: median, cash deals only.</p>
+  <div class="scroll"><table class="stack" id="house"><thead><tr><th>Bank</th><th class="n">DCFs</th><th class="n">Identified correctly</th><th>Most distinctive phrase</th><th class="n">Uses growth rate</th><th class="n">Uses multiple</th><th class="n">Typical range width</th><th class="n">Where price falls</th></tr></thead><tbody></tbody></table></div>
+  <p class="cap">"Identified correctly" is the share of each bank's summaries the classifier attributed to that bank. "Uses growth rate" and "Uses multiple" are the shares of DCFs that report each way of valuing the years after the forecast (some report both). "Where price falls" is the median position of the deal price in the bank's range, where 0 is the low end and 1 is the high end.</p>
 </div></section>
 
 <section class="band"><div class="wrap sec flip">
   <div><div class="mini" id="trends"></div>
-    <p class="cap">Share of banker DCF paragraphs each year that contain the phrase or practice. Dashed lines: In re Trulia (January 2016) and DFC Global (August 2017).</p></div>
+    <p class="cap">Share of bank DCF summaries in each year that use the phrase or practice. The dashed lines mark In re Trulia (January 2016), the Delaware decision that ended easy disclosure settlements, and DFC Global (August 2017), the first of two decisions telling Delaware courts to give weight to the deal price.</p></div>
   <div class="txt">
-    <h2>Litigation wrote the paragraph</h2>
-    <p>The DCF section of a proxy is a disclosure document, and its shape tracks the lawsuits it is written to survive. In 2001 one paragraph in twenty said an input was chosen on the bank's "professional judgment and experience". By 2026 more than half do. Disclosure suits press for why each input was chosen; that phrase is the industry's answer, and it gives a plaintiff nothing to attack.</p>
-    <p>Other changes came in on the same tide: naming the capital asset pricing model, the mid-year convention, "rounded to the nearest $0.05", and a steady move from exit multiples to perpetuity growth. After Trulia ended easy disclosure-only settlements in Delaware, the suits moved to federal court under Section 14(a), and the paragraphs kept getting more defensive rather than less.</p>
+    <h2>Shareholder lawsuits changed how these summaries are written</h2>
+    <p>The DCF summary in a proxy is a disclosure, and shareholders who think a disclosure is incomplete can sue. For many years, almost every public merger drew such a suit, and a common complaint was that the proxy did not explain why the bank chose its inputs.</p>
+    <p>The summaries changed in response. In 2001, one summary in twenty said an input was chosen based on the bank's "professional judgment and experience." Today more than half say it. The phrase answers the question of why an input was chosen without giving a plaintiff anything specific to dispute.</p>
+    <p>Other details were added over the same years: naming the textbook model used to build the discount rate (the capital asset pricing model), stating the timing convention, and noting that values were "rounded to the nearest $0.05." Banks also shifted from valuing a company's later years with an earnings multiple toward assuming a steady growth rate. After the Trulia decision in 2016 made these suits harder to settle in Delaware, plaintiffs moved them to federal court, and the summaries kept getting more careful.</p>
   </div>
 </div></section>
 
 <section class="band"><div class="wrap sec">
   <div class="txt">
-    <h2>Courts converged on one equity premium. Banks did not.</h2>
-    <p>Since 2010 every equity risk premium a Delaware court adopted in an appraisal falls between 5.97% and 6.22%, the supply-side figure Duff &amp; Phelps (now Kroll) publishes, and where the tenor is stated it is the 20-year Treasury. Bankers' board books in the same period spread from about 5% to 7.5%, and split on the risk-free tenor by house: of the books that state it, Lazard, J.P. Morgan and BofA use the 10-year; Evercore and Houlihan Lokey the 20-year.</p>
-    <p>Where the same deal reached an appraisal trial, the court's WACC was below the banker's midpoint in <span class="d" data-k="cvb"></span> of the 9 cases I could match. In Jarden the court's 6.94% was below every bank's midpoint. A lower discount rate is the appraisal petitioner's whole case, so this is what you would expect if banks and courts are each doing their job.</p>
-    <p>Then the Delaware Supreme Court changed the job. After DFC Global and Dell in 2017 told the Chancery court to give weight to the deal price, no award in this set exceeds the deal price by more than 3%, and the median is <span class="d" data-k="apppost"></span> of the deal price, against <span class="d" data-k="apppre"></span> before.</p>
+    <h2>Delaware courts have settled on one set of inputs. Banks have not.</h2>
+    <p>In an appraisal case, a Delaware judge decides what the shares were worth, often by building a DCF of their own. Since 2010, every equity risk premium a Delaware court has adopted falls between 5.97% and 6.22%, the figure published by Duff &amp; Phelps (now Kroll). When the courts say which Treasury bond they use, it is the 20-year.</p>
+    <p>Banks are much less uniform. Their equity risk premiums since 2010 range from about 5% to 7.5%, and they split by firm on which Treasury bond to use. Among presentations that say, Lazard, J.P. Morgan and Bank of America use the 10-year, while Evercore and Houlihan Lokey use the 20-year.</p>
+    <p>For nine deals I could match the bank's fairness opinion to a later appraisal decision. In six of them, the court's discount rate was lower than the middle of the bank's range. In the Jarden case, the court's 6.94% was below the middle of every bank's range. A lower discount rate means a higher value, which is what shareholders seeking appraisal argue for, so this is the direction you would expect.</p>
+    <p>Then the Delaware Supreme Court changed the rules. In DFC Global and Dell, both in 2017, it told the trial court to give weight to the price a buyer actually paid in a fair sale process. Since then, no award in this set has exceeded the deal price by more than 3%. The typical award is now <span class="d" data-k="apppost"></span> of the deal price, compared with <span class="d" data-k="apppre"></span> before.</p>
   </div>
   <div>
-    <h3>Equity risk premium: courts since 2010 against banker board books</h3>
+    <h3>Equity risk premiums used since 2010: Delaware courts and bank presentations</h3>
     <div class="fig" id="erp" style="min-height:170px"></div>
-    <h3 style="margin-top:18px">Court WACC against the banker's DCF range, same deal</h3>
+    <h3 style="margin-top:18px">The court's discount rate compared with the bank's range, for the same deal</h3>
     <div class="fig" id="cvb" style="min-height:320px"></div>
   </div>
 </div></section>
 
 <section class="band"><div class="wrap sec full">
   <div class="txt cols">
-    <h2>What this means for the autoproxy model</h2>
-    <p>A model that wants to draft like a banker should copy the banker's conventions, not the textbook's. Concretely: Bloomberg-adjusted five-year weekly betas with a debt-beta adjustment for high-yield issuers; the advisor's house tenor for the risk-free rate; equity premia from the advisor's era and house; discount-rate endpoints on a half-point grid, one or two points wide; perpetuity growth one point wide around 2% to 3%; and the advisor's own terminal-method habit. With those settings the Utz WACC moves from 5.0% to 7.4%, and the remaining gap is the cost of debt.</p>
-    <p class="note">The larger lesson is the one in the first chart. A DCF does not have an answer until someone decides who it is for. The sell-side banker's DCF brackets the price; the petitioner's expert finds half again as much; the respondent's expert finds a little less; the court, since 2017, mostly finds the price. Each is applying the same formula in good faith. The inputs are where the law lives.</p>
+    <h2>What this means for our model</h2>
+    <p>If our software is going to draft like a bank, it should copy banks' habits rather than textbook defaults. That means measuring beta the way Bloomberg does, over five years of weekly returns with Bloomberg's adjustment, and adding a small extra for heavily indebted companies. It means using the advising bank's usual Treasury bond and an equity risk premium in line with that bank and that year. It means discount-rate ranges that end on whole or half points and are one or two points wide, growth ranges one point wide around 2% to 3%, and the bank's usual way of valuing the years after the forecast. With those changes, our Utz discount rate rises from 5.0% to 7.4%. Most of the remaining gap is the cost of debt.</p>
+    <p class="note">The broader point is the one in the first chart. The same method gives different answers depending on who is using it and why. The bank advising a seller produces a range that brackets the price. The shareholders' expert finds the company worth about half again as much. The company's expert finds it worth a little less. Since 2017, the court has mostly found it worth the price. Each is doing the same calculation, and each can do it in good faith. The difference lies in the inputs, and the inputs are where the law has its effect.</p>
   </div>
 </div></section>
 
 <section class="band"><div class="wrap sec full foot">
   <div class="txt cols">
-    <h2 style="font-size:22px">Method and limits</h2>
-    <p>Sources: EDGAR full-text search for merger proxies (DEFM14A, DEFM14C), Schedule 14D-9s and Schedule 13E-3 / TO exhibits containing a DCF, 2001 to November 2026; <span id="nf2"></span> documents fetched. A rule-based extractor pulls the discount-rate range, perpetuity growth, exit multiple, implied per-share range, the price it is compared to, and phrase flags from each bank's DCF paragraph; deals are deduplicated to one DCF per bank per target within 18 months, giving <span class="d" data-k="rows"></span> bank-DCFs over <span class="d" data-k="deals"></span> deals. A hand check of 30 random rows found the discount rate right in 30 of 30; exit multiples and the compared price were the weakest fields, and both were tightened after the check. Board-book fields (equity premium, risk-free tenor, beta source) come from <span class="d" data-k="books"></span> 13E-3 and tender-offer exhibits and are noisier, so I report shares and medians only.</p>
-    <p>Appraisal decisions: 44 Delaware Chancery and Supreme Court opinions available on CourtListener, each number checked against the opinion text. Several well-known decisions exist only on Westlaw and are missing. The court-versus-bank pairs are hand-matched and target-side only.</p>
-    <p>None of this is a claim that any bank or court got a deal wrong. The patterns describe conventions, and conventions are what a fairness opinion is for. Treasury yields are monthly Yahoo Finance series; this page is a draft, not legal or investment advice.</p>
-    <p>Dataset and code: <a href="https://github.com/bsovocool16/fairness-opinion-legal/tree/claude/project-thread-ij5y9h/research/fairness-opinion-patterns">research/fairness-opinion-patterns</a> in the fairness-opinion-legal repository (5,136 bank DCFs, 869 board books, 44 appraisal decisions, and the eight scripts that build them).</p>
+    <h2 style="font-size:22px">How I did this, and what to be careful about</h2>
+    <p>I searched the SEC's EDGAR database for merger proxies, tender-offer responses and going-private filings from 2001 to November 2026 that contain a DCF, and downloaded <span id="nf2"></span> documents. A set of text-matching rules pulled out each bank's discount-rate range, growth range, earnings multiple, valuation range per share, the deal price it was compared with, and certain phrases. I kept one DCF per bank per deal, leaving <span class="d" data-k="rows"></span> bank valuations across <span class="d" data-k="deals"></span> deals. When I checked 30 random rows by hand, the discount rate was right in all 30. The earnings multiple and the deal price were the least reliable fields, and I tightened the rules for both after the check. Details such as the equity risk premium and the Treasury bond used come from <span class="d" data-k="books"></span> bank presentations attached to going-private and tender-offer filings. Their text is messier, so I report only shares and medians from them.</p>
+    <p>The court data covers 44 Delaware appraisal decisions available on CourtListener, with each number checked against the opinion. Some well-known decisions are available only on Westlaw and are missing. I matched the nine bank-and-court pairs by hand, using only the bank advising the company being sold.</p>
+    <p>Nothing here says any bank or court got a deal wrong. The patterns describe conventions, and following conventions is part of what makes a fairness opinion defensible. Treasury yields are monthly figures from Yahoo Finance. This is a draft, not legal or investment advice.</p>
+    <p>Dataset and code: <a href="https://github.com/bsovocool16/fairness-opinion-legal/tree/claude/project-thread-ij5y9h/research/fairness-opinion-patterns">research/fairness-opinion-patterns</a> in the fairness-opinion-legal repository. It contains the 5,136 bank valuations, 869 bank presentations, 44 court decisions, and the eight scripts that build them.</p>
   </div>
 </div></section>
 
@@ -225,19 +239,19 @@ const D = { posn: R.pos.n.toLocaleString(), inside: pct(R.pos.inside), above: pc
   apppost: "97%", apppre: "109%", rows: R.n_rows.toLocaleString(), deals: R.n_deals.toLocaleString(), books: R.books_n.toLocaleString() };
 document.querySelectorAll(".d").forEach(el => el.textContent = D[el.dataset.k]);
 // KPI row
-const kp = [["r", pct(R.pos.inside), "of cash deal prices fall inside the banker's own DCF range"], ["", (R.bank_ratio.q[2]).toFixed(2) + "×", "banker DCF midpoint ÷ deal price, median"],
-  ["", ap.petitioner.q[2].toFixed(2) + "×", "appraisal petitioner's expert, median"], ["", pct(R.heap.integer + R.heap.half), "of discount-rate endpoints are on a half-point grid"],
-  ["r", pct(R.nlp.acc_cv), "of DCF paragraphs a classifier can attribute to the right bank, names removed"]];
+const kp = [["r", pct(R.pos.inside), "of cash-deal prices fall inside the bank's own valuation range"], ["", (R.bank_ratio.q[2]).toFixed(2) + "×", "typical bank valuation, as a multiple of the deal price"],
+  ["", ap.petitioner.q[2].toFixed(2) + "×", "typical valuation by the shareholders' expert in appraisal cases"], ["", pct(R.heap.integer + R.heap.half), "of bank discount rates end in a whole or half point"],
+  ["r", pct(R.nlp.acc_cv), "of valuation summaries a text classifier traced to the right bank, with names removed"]];
 $("#kpis").innerHTML = kp.map(k => `<div class="${k[0]}"><b>${k[1]}</b><span>${k[2]}</span></div>`).join("");
 
 function draw(id, fn) { const el = $(id); const go = () => { const W = el.clientWidth, H = el.clientHeight; el.innerHTML = fn(W, H); }; new ResizeObserver(go).observe(el); }
 
 // HERO: four hats
 draw("#hero", (W, H) => {
-  const rows = [["Sell-side banker (fairness opinion)", R.bank_ratio_sample.map(v => ({ v, c: "Banker DCF midpoint" })), R.bank_ratio.q, "red"],
-    ["Company's expert (appraisal respondent)", ap.respondent.values.map(x => ({ v: x.v, c: x.case })), ap.respondent.q, "ink"],
-    ["Delaware court (fair value awarded)", ap.court.values.map(x => ({ v: x.v, c: x.case })), ap.court.q, "blue"],
-    ["Shareholder's expert (appraisal petitioner)", ap.petitioner.values.map(x => ({ v: x.v, c: x.case })), ap.petitioner.q, "ink"]];
+  const rows = [["Bank advising the seller (fairness opinion)", R.bank_ratio_sample.map(v => ({ v, c: "Banker DCF midpoint" })), R.bank_ratio.q, "red"],
+    ["Company's expert (appraisal case)", ap.respondent.values.map(x => ({ v: x.v, c: x.case })), ap.respondent.q, "ink"],
+    ["Delaware court (value it awarded)", ap.court.values.map(x => ({ v: x.v, c: x.case })), ap.court.q, "blue"],
+    ["Shareholders' expert (appraisal case)", ap.petitioner.values.map(x => ({ v: x.v, c: x.case })), ap.petitioner.q, "ink"]];
   const narrow = W < 620, L = narrow ? 8 : 280, Rm = 24, top = narrow ? 8 : 14, bot = 34;
   const lo = Math.log(0.25), hi = Math.log(4), X = v => L + (Math.log(Math.min(4, Math.max(0.25, v))) - lo) / (hi - lo) * (W - L - Rm);
   const rh = (H - top - bot) / rows.length;
@@ -281,7 +295,7 @@ $("#postype").innerHTML = R.pos_by_type.map(t => `<div class="row"><span class="
 
 // heaping rows
 const rowsHTML = (arr, max, red) => arr.map(([l, v, tipx]) => `<div class="row"><span class="t">${l}</span><div class="bar" data-tip="${T(tipx || l)}: ${pct(v, 1)}"><i class="${red ? "r" : ""}" style="width:${v / max * 100}%"></i></div><span class="v">${pct(v)}</span></div>`).join("");
-$("#heap").innerHTML = rowsHTML([[".00 (whole number)", R.heap.integer], [".50", R.heap.half], [".25 or .75", R.heap.quarter], ["anything else", R.heap.other]], R.heap.integer, true);
+$("#heap").innerHTML = rowsHTML([["whole number (9%)", R.heap.integer], ["half (9.5%)", R.heap.half], ["quarter (9.25%)", R.heap.quarter], ["anything else", R.heap.other]], R.heap.integer, true);
 const wd = Object.entries(R.dr_width).slice(0, 6).map(([k, v]) => [(+k).toFixed(+k % 1 ? 1 : 0) + (+k === 1 ? " point" : " points"), v]).map(x => [x[0] === "0 points" ? "single rate" : x[0], x[1]]);
 $("#wid").innerHTML = rowsHTML(wd, Math.max(...wd.map(x => x[1])));
 const pp = Object.entries(R.pg_pairs).slice(0, 6);
@@ -310,7 +324,7 @@ draw("#pairs", (W, H) => {
   let s = "";
   h.forEach((b, i) => s += `<rect x="${L + i * bw + 1}" y="${Y(b.n)}" width="${bw - 2}" height="${H - bot - Y(b.n)}" rx="1" fill="${i === 0 ? "var(--red)" : "var(--blue)"}" data-tip="${i === n - 1 ? "4 points or more" : (b.x * 100) + " to " + ((b.x + 0.25) * 100) + " bp"}: ${b.n} pairs"/>`);
   [0, 1, 2, 3, 4].forEach(t => s += `<text x="${L + t * 4 * bw}" y="${H - 8}" text-anchor="middle">${t * 100} bp${t === 4 ? "+" : ""}</text>`);
-  s += `<text x="${L + bw + 6}" y="${top + 12}" class="red">${pct(R.pairs.identical)} identical</text>`;
+  s += `<text x="${L + bw + 6}" y="${top + 12}" class="red">${pct(R.pairs.identical)} used the same range</text>`;
   return `<svg>${s}</svg>`;
 });
 
@@ -318,7 +332,7 @@ draw("#pairs", (W, H) => {
 $("#house tbody").innerHTML = R.house.map(h => `<tr><td data-l="Bank"><b>${T(h.bank)}</b></td><td class="n" data-l="DCFs">${h.n}</td><td class="n" data-l="Named by model">${h.recall != null ? pct(h.recall) : "–"}</td><td data-l="Distinctive phrase"><q>${T((h.sig[0] || "").replace(/\bbank\b/g, "[bank]").replace(/\bpct\b/g, "x%").replace(/\bmult\b/g, "x×"))}</q></td><td class="n" data-l="Perpetuity growth">${pct(h.perp)}</td><td class="n" data-l="Exit multiple">${pct(h.exitm)}</td><td class="n" data-l="Typical width">${h.dr_w.toFixed(1)} pts</td><td class="n" data-l="Price position">${h.pos != null ? h.pos.toFixed(2) : "–"}</td></tr>`).join("");
 
 // trends small multiples
-const TR = [["judgment", "“professional judgment”"], ["perp", "perpetuity growth disclosed"], ["exitm", "exit multiple disclosed"], ["capm", "names CAPM"], ["midyear", "mid-year convention"], ["rounded", "“rounded to the nearest”"]];
+const TR = [["judgment", "Says “professional judgment”"], ["perp", "Uses a long-term growth rate"], ["exitm", "Uses an earnings multiple"], ["capm", "Names the capital asset pricing model"], ["midyear", "States the mid-year timing convention"], ["rounded", "Says “rounded to the nearest”"]];
 $("#trends").innerHTML = TR.map((t, i) => `<div><h3>${t[1]}</h3><div class="fig" id="tr${i}"></div></div>`).join("");
 TR.forEach((t, i) => draw("#tr" + i, (W, H) => {
   const d = R.trends, L = 30, Rm = 34, top = 8, bot = 22, x0 = 2001, x1 = 2026, X = y => L + (y - x0) / (x1 - x0) * (W - L - Rm), Y = v => top + (1 - v / 0.8) * (H - top - bot);
@@ -334,7 +348,7 @@ TR.forEach((t, i) => draw("#tr" + i, (W, H) => {
 
 // ERP strip
 draw("#erp", (W, H) => {
-  const L = 8, Rm = 12, X = v => L + (v - 3) / 6 * (W - L - Rm), rows = [["Delaware courts", R.court_erp_2010, "var(--blue)"], ["Banker board books", R.book_erp_2010, "var(--red)"]];
+  const L = 8, Rm = 12, X = v => L + (v - 3) / 6 * (W - L - Rm), rows = [["Delaware courts", R.court_erp_2010, "var(--blue)"], ["Bank presentations", R.book_erp_2010, "var(--red)"]];
   let s = ""; let seed = 3; const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;
   [3, 4, 5, 6, 7, 8, 9].forEach(t => s += `<line x1="${X(t)}" x2="${X(t)}" y1="10" y2="${H - 26}" stroke="var(--rule)"/><text x="${X(t)}" y="${H - 8}" text-anchor="middle">${t}%</text>`);
   rows.forEach((r, i) => { const cy = 34 + i * ((H - 60) / 2 + 10); s += `<text x="${L}" y="${cy - 14}" class="ink">${r[0]} (${r[1].length})</text>`;
@@ -350,7 +364,7 @@ draw("#cvb", (W, H) => {
     s += narrow ? `<text x="${L}" y="${top + rh * i + 11}" class="ink">${T(c.case)}</text>` : `<text x="${L - 10}" y="${y + 4}" text-anchor="end" class="ink">${T(c.case)}</text>`;
     c.banks.forEach((b, j) => { const yy = y + (j - (c.banks.length - 1) / 2) * 6; s += `<line x1="${X(b[1])}" x2="${X(b[2])}" y1="${yy}" y2="${yy}" stroke="var(--red)" stroke-width="4" stroke-linecap="round" data-tip="${T(b[0])}: ${b[1]}% to ${b[2]}%"/>`; });
     s += `<circle cx="${X(c.court)}" cy="${y}" r="5.5" fill="var(--blue)" stroke="var(--bg)" stroke-width="2" data-tip="Court: ${c.court}%"/>`; });
-  s += `<text x="${W - Rm}" y="${top + 10}" text-anchor="end" class="blue">● court</text><text x="${W - Rm}" y="${top + 26}" text-anchor="end" class="red">— banker range</text>`;
+  s += `<text x="${W - Rm}" y="${top + 10}" text-anchor="end" class="blue">● court</text><text x="${W - Rm}" y="${top + 26}" text-anchor="end" class="red">— bank's range</text>`;
   return `<svg>${s}</svg>`;
 });
 }
